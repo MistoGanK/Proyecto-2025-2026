@@ -1,34 +1,40 @@
 <!-- Connection -->
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/config/connection.php'); ?>
-
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php'); ?>
 <!-- Header -->
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
 
-<h1>db_product_update</h1>
-<p>You updated: </p>
-<?php 
+<h1>db_product_delete</h1>
+<p>You Updated: </p>
+<?php
 // Test
-use Dom\Mysql;
-
 print_r($_POST); // Debug 
-// Get date
-// $product_name = $_POST['id_product'];
+$update_output = "id_product Not found";
+// Check if POST its retrieved and if if has content 
+if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
+    $update_output = "ERROR: id_product is missing";
+} else {
+    // Open connection
+    include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+    $id_product = mysqli_escape_string($conn, $_POST['id_product']);
 
-// GO TO db_products_update 2 ASK FOR PRODUCT_ID 15
+    //Query
+    $sql = "DELETE FROM products WHERE id_product = '$id_product';";
 
-// Save all POST on VARIABLES and INSERT IT INTO THE DB
+    // Save the query 
+    $query_result = mysqli_query($conn, $sql);
+    if ($query_result) {
+        $update_output = "Record Successfully deleted";
+    } else {
+        // Error from connection
+        $update_output = "Database Error:" . mysqli_error($conn);
+    }
+    // Show the result
+    printf("<p>" . $update_output . "</p>");
+    // Close the connection
+    mysqli_close($conn);
+}
 
-// SHOW 
-
-// Put dat int the database 
-    // The save query on double quotos
-    /* $sqlMdbInsert = "
-        INSERT INTO prodcuts (....)
-        (
-            VALUES ('$product_name') // Always quotes for string '' 
-        );"
-    */
-// Send confirmation
 ?>
+
 <!-- Footer -->
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>

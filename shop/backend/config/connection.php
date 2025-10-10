@@ -1,6 +1,5 @@
 <?php 
 // LOCALHOST
-
       // Connection with the server 
     // MySQLie(Procedural) or PDO(Object Oriented)
         // Server_domain, User, Password

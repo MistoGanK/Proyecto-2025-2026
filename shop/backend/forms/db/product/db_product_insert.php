@@ -1,11 +1,11 @@
 <!-- Header -->
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
 
 <!-- HTML -->
 <h1>db_product_insert</h1>
 <p>You Inserted: </p>
 
-<?php 
+<?php
 // Test
 print_r($_POST); // Debug 
 
@@ -23,24 +23,24 @@ VALUES ('$product_name','$product_price','$product_qty','$product_description')
 ;";
 
 // Connection 
-include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/config/connection.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
 
 //mysqli_query
-if (mysqli_query($conn,$sql)){
-echo "<p>Producto insertado con extio:</p>";
-echo 
-"<ul>
+if (mysqli_query($conn, $sql)) {
+    echo "<p>Producto insertado con extio:</p>";
+    echo
+    "<ul>
     <li>Nombre: $product_name</li>
     <li>Precio: $product_price</li>
     <li>Cantdiad: $product_qty</li>
     <li>Descripción: $product_description</li> 
 </ul>";
-}else{
- echo "<p>Error al insertar el producto: " . mysqli_error($conn) . "</p>";
+} else {
+    echo "<p>Error al insertar el producto: " . mysqli_error($conn) . "</p>";
 }
 
 // Send confirmation
 ?>
 
 <!-- Footer -->
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
