@@ -72,7 +72,7 @@ if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
       <input type="date" id="product_inserted_date" name="product_inserted_date" value="<? echo $product_inserted_date?>">
    </label>
    <label for="product_launch_date">Product launch date:
-      <input type="date" id="product_launch_date" name="product_launch_date" value="<? echo $product_updated_date?>">
+      <input type="date" id="product_launch_date" name="product_launch_date" value="<? echo $product_launch_date?>">
    </label>
    <label for="product_availability">Product availability:
       <input type="text" name="product_availability" value="<?php echo $product_availability?>">
