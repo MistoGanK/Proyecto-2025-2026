@@ -4,10 +4,9 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
 
 <h1>db_product_delete</h1>
-<p>You deleted: </p>
 <?php
 // Test
-print_r($_POST); // Debug 
+// print_r($_POST); // Debug 
 $delete_output = "id_product Not found";
 // Check if POST its retrieved and if if has content 
 if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
@@ -35,6 +34,7 @@ if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
 }
 
 ?>
+<p>You deleted the product with the ID: <?php echo $id_product?></p>
 
 <!-- Footer -->
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>

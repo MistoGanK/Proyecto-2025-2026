@@ -13,16 +13,21 @@ $product_output = "No product selected or found";
 // Before starting the query, check If the variable was sended and that the variabel is not empty
 
 if (!isset($_POST['id_product']) || empty($_POST['id_product'])){
-    $product_output = "Error: Product ID is missing";
-}else{
+    $id_product = null;
+}
     // Open connection
     include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/config/connection.php');
     // escape the string to avoid mysql injection
     $id_product = mysqli_real_escape_string($conn, $_POST['id_product']);
-
-    // Query
-    $sql = "SELECT * FROM products WHERE id_product = '$id_product'";
-
+    // Initialize variable that will save the designed query
+    $sql;
+    if ($id_product!=null){
+        // Query
+        $sql = "SELECT * FROM products WHERE id_product = '$id_product'";
+    }else{
+        // Query
+        $sql = "SELECT * FROM products;";
+    }
     // Execute the query
     $query_result = mysqli_query($conn,$sql);
 
@@ -55,7 +60,6 @@ if (!isset($_POST['id_product']) || empty($_POST['id_product'])){
     mysqli_free_result($query_result);
     // Close connection
     mysqli_close($conn);
-}
 ?>
 <!-- Footer -->
 <?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/footer.php'); ?>
