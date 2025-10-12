@@ -40,6 +40,7 @@ if (!isset($_POST['id_customer']) || empty($_POST['id_customer'])){
                 // Format the output
                 printf("<p>"."Customer ID: ".$row['id_customer']."<p>");
                 printf("<p>"."Customer Username: ".$row['username']."<p>");
+                printf("<p>"."Customer password: ".$row['user_password']."<p>");
                 printf("<p>"."Customer DNI: ".$row['dni']."<p>");
                 printf("<p>"."Customer Email: ".$row['email']."</p>");
                 printf("<p>"."Customer Forename: ".$row['forename']."</p>");
