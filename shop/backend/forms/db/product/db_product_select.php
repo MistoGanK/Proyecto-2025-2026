@@ -6,7 +6,7 @@
 <!-- Logical fragment -->
 <?php 
 // Debug 
-print_r($_POST); 
+// print_r($_POST); 
 // Variables
 $product_output = "No product selected or found";
 
@@ -36,6 +36,13 @@ if (!isset($_POST['id_product']) || empty($_POST['id_product'])){
                 printf("<p>"."Product ID: ".$row['id_product']."<p>");
                 printf("<p>"."Product Name: ".$row['product_name']."<p>");
                 printf("<p>"."Product Price: ".$row['price']."€"."<p>");
+                printf("<p>"."Product Stock: ".$row['stock']."</p>");
+                printf("<p>"."Product Description: ".$row['description']."</p>");
+                printf("<p>"."Product inserted_date: ".$row['inserted_date']."</p>");
+                printf("<p>"."Product updated date: ".$row['updated_date']."</p>");
+                printf("<p>"."Product launch date: ".$row['launch_date']."</p>");
+                printf("<p>"."Product availability: ".$row['availability']."</p>");
+                printf("<p>"."Product active: ".$row['active']."</p>");
             }
         }else{
             $product_output = "Product with ID $id_product not found.";
