@@ -5,7 +5,7 @@
         // Server_domain, User, Password
     $server_name = 'dwes';
     $user_name = 'dwess1234';
-    $password = 'dwess1234.';
+    $password = 'Usertest1234..';
     $db_name = 'online_shop';
 
     $conn = mysqli_connect($server_name,$user_name,$password,$db_name);

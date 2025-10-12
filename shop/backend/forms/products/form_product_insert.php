@@ -1,24 +1,5 @@
 
 <?php ?>
-<?php
-//      // Connection with the server 
-//     // MySQLie(Procedural) or PDO(Object Oriented)
-//         // Server_domain, User, Password
-//     $server_name = 'localhost';
-//     echo $server_name;
-//     $user_name = 'root';
-//     $password = '';
-//     $db_name = 'online_shop';
-
-//     $conn = mysqli_connect($server_name,$user_name,$password,$db_name);
-//     // Check Connection
-//     if (!$conn){
-//         echo 'Connection error:' . mysqli_connect_error();
-//     }
-?>
-<!-- Connection -->
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/config/connection.php'); ?>
-
 <!-- Header -->
 <?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
      <h1>form_product_insert</h1>
@@ -29,11 +10,20 @@
        <label for="product_price">Product Price:
             <input type="number" id="product_price" name="product_price">
        </label>
-       <label for="product_qty">Product qty:
-            <input type="nubmer" id="product_qty" name="product_qty">
+       <label for="product_stock">Stock:
+            <input type="nubmer" id="product_stock" name="product_stock">
        </label>
        <label for="product_description">Product description:
             <input type="text" id="product_description" name="product_description">
+       </label>
+       <label for="product_launch_date">Launch date:
+          <input type="date" id="product_launch_date" name="product_launch_date">
+       </label>
+       <label for="product_availability">Product availability
+          <input type="text" id="product_availability" name="product_availability">
+       </label>
+       <label for="product_active">Product active:
+          <input type="number" id="product_active" name="product_active"  min="0" max="1">
        </label>
        <label for="send">Submit:
           <input type="submit" id="send" name="send">
