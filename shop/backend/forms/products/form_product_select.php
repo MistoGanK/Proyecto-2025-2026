@@ -1,6 +1,3 @@
-<?php ?>
-<?php
-?>
 <!-- Header -->
 <?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
     <h1>Form_product_select</h1>

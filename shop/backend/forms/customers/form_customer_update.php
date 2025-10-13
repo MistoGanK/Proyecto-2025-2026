@@ -59,40 +59,40 @@ if (!isset($_POST['id_customer']) || empty($_POST['id_customer'])) {
 }
 ?>
 
-<h1>Formulario de Actualización de Clientes</h1>
+<h1>Form_customer_update</h1>
 <form action="/student022/shop/backend/forms/db/customer/db_customer_update.php" method="post">
     
     <input type="hidden" id="id_customer" name="id_customer" value="<?php echo $id_customer ?>">
     
-    <label for="customer_username">Nombre de Usuario:</label>
+    <label for="customer_username">Username:</label>
     <input type="text" id="customer_username" name="customer_username" value="<?php echo $customer_username ?>">
     
-    <label for="customer_password">Contraseña (NO EDITAR SI NO ES NECESARIO):</label>
+    <label for="customer_password">Password (Do Not Change Unless Needed):</label>
     <input type="password" id="customer_password" name="customer_user_password" value="<?php echo $customer_password ?>">
     
-    <label for="customer_dni">DNI:</label>
+    <label for="customer_dni">National ID (DNI/Passport):</label>
     <input type="text" id="customer_dni" name="customer_dni" value="<?php echo $customer_dni ?>">
     
-    <label for="customer_email">Email:</label>
+    <label for="customer_email">Email Address:</label>
     <input type="email" id="customer_email" name="customer_email" value="<?php echo $customer_email ?>">
     
-    <label for="customer_forename">Nombre de Pila:</label>
+    <label for="customer_forename">First Name:</label>
     <input type="text" id="customer_forename" name="customer_forename" value="<?php echo $customer_forename ?>">
     
-    <label for="customer_surname">Apellido:</label>
+    <label for="customer_surname">Last Name:</label>
     <input type="text" id="customer_surname" name="customer_surname" value="<?php echo $customer_surname ?>">
     
-    <label for="customer_birth_date">Fecha de Nacimiento:</label>
+    <label for="customer_birth_date">Birth Date (YYYY-MM-DD):</label>
     <input type="date" id="customer_birth_date" name="customer_birth_date" value="<?php echo $customer_birth_date?>">
     
-    <label for="customer_registered">Registrado (1/0):</label>
+    <label for="customer_registered">Is Registered (1=Yes, 0=No):</label>
     <input type="number" name="customer_registered" min="0" max="1" value="<?php echo $customer_registered?>">
     
-    <label for="customer_active">Activo (1/0):</label>
+    <label for="customer_active">Is Active (1=Yes, 0=No):</label>
     <input type="number" name="customer_active" min="0" max="1" value="<?php echo $customer_active?>">
 
-    <label for="send">Submit:</label>
-    <input type="submit" id="send" name="send">
+    <label for="send">Submit Changes:</label>
+    <input type="submit" id="send" name="send" value="Update Customer">
 </form>
 
 <?php

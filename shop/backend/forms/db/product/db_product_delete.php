@@ -1,5 +1,3 @@
-<!-- Connection -->
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php'); ?>
 <!-- Header -->
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
 

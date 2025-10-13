@@ -8,18 +8,17 @@
 // print_r($_POST); // Debug 
 $update_output = "id_product Not found";
 // Check if POST its retrieved and if if has content 
-if (!isset($_POST['product_id']) || empty($_POST['product_id'])) {
+if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
     $update_output = "ERROR: id_product is missing";
 } else {
     // Open connection
     include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
     // Save the variables
-    $id_product = mysqli_escape_string($conn, $_POST['product_id']);
+    $id_product = mysqli_escape_string($conn, $_POST['id_product']);
     $product_name = mysqli_escape_string($conn,$_POST['product_name']);
     $product_price = mysqli_escape_string($conn,$_POST['product_price']);
     $product_stock = mysqli_escape_string($conn,$_POST['product_stock']);
     $product_description = mysqli_escape_string($conn,$_POST['product_description']);
-    $product_inserted_date = mysqli_escape_string($conn,$_POST['product_inserted_date']);
     $product_launch_date = mysqli_escape_string($conn,$_POST['product_launch_date']);
     $product_availability = mysqli_escape_string($conn,$_POST['product_availability']);
     $product_active = mysqli_escape_string($conn,$_POST['product_active']);
@@ -33,7 +32,6 @@ if (!isset($_POST['product_id']) || empty($_POST['product_id'])) {
         price = $product_price,
         stock = $product_stock,
         description = '$product_description',
-        inserted_date = '$product_inserted_date',
         updated_date = CURRENT_TIMESTAMP(),
         launch_date = '$product_launch_date',
         availability = '$product_availability',

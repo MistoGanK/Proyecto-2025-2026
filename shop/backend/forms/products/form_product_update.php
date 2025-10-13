@@ -1,6 +1,4 @@
-<!-- Header -->
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
-<!-- GET THE INFO FROM POST -->
 <?
 print_r($_POST); // Debug 
 ?>
@@ -34,26 +32,26 @@ if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
        // Check if the id_product returns any rows
    if (mysqli_num_rows($query_result)>0){
        // Save the query result to the variables
-      $row = mysqli_fetch_assoc($query_result);
-      $product_name = $row['product_name'];
-      $product_price = $row['price'];
-      $product_stock = $row['stock'];
-      $product_description = $row['description'];
-      $product_inserted_date = $row['inserted_date'];
-      $product_launch_date = $row['launch_date'];
-      $product_availability = $row['availability'];
-      $product_active = $row['active'];
+     $row = mysqli_fetch_assoc($query_result);
+     $product_name = $row['product_name'];
+     $product_price = $row['price'];
+     $product_stock = $row['stock'];
+     $product_description = $row['description'];
+     $product_inserted_date = $row['inserted_date'];
+     $product_launch_date = $row['launch_date'];
+     $product_availability = $row['availability'];
+     $product_active = $row['active'];
 
-      // Formateo de las fechas
+     // Formateo de las fechas
 
-      // $datetime_insert_object = new DateTime($product_inserted_date);
-      // $product_inserted_date = $datetime_insert_object ->format('Y-m-d\TH:i');
+     // $datetime_insert_object = new DateTime($product_inserted_date);
+     // $product_inserted_date = $datetime_insert_object ->format('Y-m-d\TH:i');
 
-      // $datetime_launch_object = new DateTime($product_launch_date);
-      // $product_launch_date = $datetime_launch_object ->format('Y-m-d\TH:i');
+     // $datetime_launch_object = new DateTime($product_launch_date);
+     // $product_launch_date = $datetime_launch_object ->format('Y-m-d\TH:i');
 
    }else{
-      $update_output = "ERROR: id_product not foun on the database";
+     $update_output = "ERROR: id_product not foun on the database";
    }
    }else{
      $update_output = "Error: Database error " . mysqli_error($conn);
@@ -63,36 +61,41 @@ if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
 <?php
 }
 ?>
+
 <h1>Form_product_update</h1>
 <form action="/student022/shop/backend/forms/db/product/db_product_update.php" method="post">
-   <input id="product_id" hidden="true" name="product_id" value="<?php echo $id_product ?>">
-   <label for="product_name">Product name:
-      <input type="text" id="product_name" name="product_name" value="<?php echo $product_name ?>">
+    <input type="hidden" name="id_product" value="<?php echo $id_product ?>">
+   
+   <label for="product_name">Product Name:
+     <input type="text" id="product_name" name="product_name" value="<?php echo $product_name ?>">
    </label>
-   <laber for="product_price">Price:
-      <input type="number" id="product_price" name="product_price" value="<?php echo $product_price ?>">
-   </laber>
-   <label for="product_stock">Stock:
-      <input type="number" id="product_stock" name="product_stock" min="0" value="<?php echo $product_stock?>">
+   
+   <label for="product_price">Unit Price (€):
+     <input type="number" id="product_price" name="product_price" value="<?php echo $product_price ?>">
    </label>
-   <label for="product_description">Product Description:
-      <input type="text" id="product_description" name="product_description" value="<?php echo $product_description ?>">
+   
+   <label for="product_stock">Available Stock:
+     <input type="number" id="product_stock" name="product_stock" min="0" value="<?php echo $product_stock?>">
    </label>
-   <label for="product_inserted_date">Product inserted date:
-      <input type="datetime-local" id="product_inserted_date" name="product_inserted_date" value="<?php echo $product_inserted_date?>">
+   
+   <label for="product_description">Detailed Description:
+     <input type="text" id="product_description" name="product_description" value="<?php echo $product_description ?>">
    </label>
-   <label for="product_launch_date">Product launch date:
-      <input type="date" id="product_launch_date" name="product_launch_date" value="<?php echo $product_launch_date?>">
+   
+   <label for="product_launch_date">Launch Date (YYYY-MM-DD):
+     <input type="date" id="product_launch_date" name="product_launch_date" value="<?php echo $product_launch_date?>">
    </label>
-   <label for="product_availability">Product availability:
-      <input type="text" name="product_availability" value="<?php echo $product_availability?>">
+   
+   <label for="product_availability">Availability Status (on_stock,out_of_stock,coming_soon,discontinued):
+     <input type="text" name="product_availability" value="<?php echo $product_availability?>">
    </label>
-   <label for="product_active">Product active:
-      <input type="number" name="product_active" maxlength="1" value="<?php echo $product_active?>">
+   
+   <label for="product_active">Product Active (1=Yes, 0=No):
+     <input type="number" name="product_active" maxlength="1" value="<?php echo $product_active?>">
    </label>
 
-   <label for="send">Submit:
-      <input type="submit" id="send" name="send">
+   <label for="send">Submit Changes:
+     <input type="submit" id="send" name="send" value="Update product">
    </label>
 </form>
 
@@ -100,7 +103,6 @@ if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
 // Debug secction
 ?>
 
-<!-- Footer -->
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
 
 <?php ?>
