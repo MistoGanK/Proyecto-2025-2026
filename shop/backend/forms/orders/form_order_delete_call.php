@@ -1,12 +1,9 @@
-<?php ?>
-<?php
-?>
 <!-- Header -->
 <?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
     <h1>Form_order_delete_call</h1>
     <form action="/student022/shop/backend/forms/orders/form_order_delete.php" method="post">
-       <label for="id_order">Order id: 
-            <input type="number" id="id_order" name="id_order">
+       <label for="order_id_order">Order id: 
+            <input type="number" id="order_id_order" name="order_id_order">
        </label>
        <label for="send">Submit:
           <input type="submit" id="send" name="send">
