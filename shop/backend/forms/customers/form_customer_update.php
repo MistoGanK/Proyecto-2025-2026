@@ -1,8 +1,4 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
-
-<?
-print_r($_POST); // Debug 
-?>
 <?php
 // Variables definition that we will capture later
 $customer_username = "";
