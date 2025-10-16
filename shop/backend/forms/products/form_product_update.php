@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php // include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
 <?
 print_r($_POST); // Debug 
 ?>
@@ -62,7 +62,7 @@ if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
 }
 ?>
 
-<h1>Form_product_update</h1>
+<h1>Update Product</h1>
 <form action="/student022/shop/backend/forms/db/product/db_product_update.php" method="post">
     <input type="hidden" name="id_product" value="<?php echo $id_product ?>">
    
@@ -103,8 +103,4 @@ if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
 // Debug secction
 ?>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
-
-<?php ?>
-<?php
-?>
+<?php // include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>

@@ -1,8 +1,5 @@
 <!-- Header -->
 <?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
-<h1>db_product_select</h1>
-<p>You selected: </p>
-
 <!-- Logical fragment -->
 <?php 
 // Debug 
@@ -37,17 +34,21 @@ if (!isset($_POST['id_product']) || empty($_POST['id_product'])){
         if (mysqli_num_rows($query_result)>0){
             // Loop and return formatted result
             while ($row = mysqli_fetch_assoc($query_result)){
-                // Format the output
-                printf("<p>"."Product ID: ".$row['id_product']."<p>");
-                printf("<p>"."Product Name: ".$row['product_name']."<p>");
-                printf("<p>"."Product Price: ".$row['price']."€"."<p>");
-                printf("<p>"."Product Stock: ".$row['stock']."</p>");
-                printf("<p>"."Product Description: ".$row['description']."</p>");
-                printf("<p>"."Product inserted_date: ".$row['inserted_date']."</p>");
-                printf("<p>"."Product updated date: ".$row['updated_date']."</p>");
-                printf("<p>"."Product launch date: ".$row['launch_date']."</p>");
-                printf("<p>"."Product availability: ".$row['availability']."</p>");
-                printf("<p>"."Product active: ".$row['active']."</p>");
+                // Format the outputi
+                printf("<class='product_contaner'>");
+                    printf("<h1>".$row['product_name']."</h1>");
+                    printf("<p>"."Product ID: ".$row['id_product']."</p>");
+                    printf("<p>"."Product Name: ".$row['product_name']."</p>");
+                    printf("<p>"."Product Price: ".$row['price']."€"."</p>");
+                    printf("<p>"."Product Stock: ".$row['stock']."</p>");
+                    printf("<p>"."Product Description: ".$row['description']."</p>");
+                    printf("<p>"."Product inserted_date: ".$row['inserted_date']."</p>");
+                    printf("<p>"."Product updated date: ".$row['updated_date']."</p>");
+                    printf("<p>"."Product launch date: ".$row['launch_date']."</p>");
+                    printf("<p>"."Product availability: ".$row['availability']."</p>");
+                    printf("<p>"."Product active: ".$row['active']."</p>");
+                printf("</div>");
+
             }
         }else{
             $product_output = "Product with ID $id_product not found.";
