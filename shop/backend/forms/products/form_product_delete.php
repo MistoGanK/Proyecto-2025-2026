@@ -1,5 +1,4 @@
 <!-- Header -->
-<?php // include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
    <h1>Proceed do detele the product?</h1>
     <form action="/student022/shop/backend/forms/db/product/db_product_delete.php" method="post">
        <label for="id_product">Product id: 
@@ -10,4 +9,3 @@
        </label>
     </form>
      <!-- Footer -->
-    <?php // include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/footer.php'); ?>

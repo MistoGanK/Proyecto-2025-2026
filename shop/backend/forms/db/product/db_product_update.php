@@ -1,5 +1,5 @@
 <!-- Header -->
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php // include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
 
 <h1>db_product_update</h1>
 <p>You Updated: </p>
@@ -57,4 +57,4 @@ if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
 ?>
 
 <!-- Footer -->
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php // include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>

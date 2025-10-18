@@ -1,5 +1,5 @@
 <!-- Header -->
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php // include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
 
 <!-- HTML -->
 <h1>db_product_insert</h1>
@@ -61,4 +61,4 @@ if (mysqli_query($conn, $sql)) {
 ?>
 
 <!-- Footer -->
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php // include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>

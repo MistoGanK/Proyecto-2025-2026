@@ -1,4 +1,3 @@
-<?php // include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
 <?
 print_r($_POST); // Debug 
 ?>
@@ -102,5 +101,3 @@ if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
 <?php
 // Debug secction
 ?>
-
-<?php // include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>

@@ -1,5 +1,5 @@
 <!-- Header -->
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php // include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
 
 <h1>db_product_delete</h1>
 <?php
@@ -35,4 +35,4 @@ if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
 <p>You deleted the product with the ID: <?php echo $id_product?></p>
 
 <!-- Footer -->
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php // include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>

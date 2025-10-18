@@ -1,5 +1,3 @@
-<!-- Header -->
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
 <!-- Logical fragment -->
 <?php 
 // Debug 
@@ -62,5 +60,3 @@ if (!isset($_POST['id_product']) || empty($_POST['id_product'])){
     // Close connection
     mysqli_close($conn);
 ?>
-<!-- Footer -->
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/footer.php'); ?>

@@ -1,6 +1,9 @@
 <!-- Header -->
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
-<main class="bg-gray-400 ">
+<main class="flex flex-col p-3 w-1/1 p-5 bg-[#1c192205] text-[##0a090c] ">
+    <h1 class="flex text-xl justify-center items-center">PRODUCTS</h1>
+    <section>
+        
+    </section>
 <!-- Logical fragment -->
 <?php
 // Debug 

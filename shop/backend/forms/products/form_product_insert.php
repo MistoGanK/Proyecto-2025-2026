@@ -1,5 +1,5 @@
 <!-- Header -->
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
+<?// php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
      <h1>form_product_insert</h1>
     <form action="/student022/shop/backend/forms/db/product/db_product_insert.php" method="post">
        <label for="product_name">Product Name: 
@@ -28,4 +28,4 @@
        </label>
     </form>
      <!-- Footer -->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/footer.php'); ?>
+    <?php // include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/footer.php'); ?>
