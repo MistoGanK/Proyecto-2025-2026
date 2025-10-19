@@ -1,7 +1,10 @@
 <!-- Header -->
     <section class="flex flex-row flex-wrap h-fit p-5 gap-5 items-center justify-center">
-    <div class="text-3xl font-bold w-full mb-6 text-[#0A090C] border-b border-gray-200 pb-2">
-        <h1>PRODUCTS</h1>
+    <div class="w-full mb-6 border-b border-gray-200 pb-2">
+        <h1 class="text-3xl font-bold  text-[#0A090C] ">PRODUCTS</h1>
+        <form class="flex w-full justify-center items-center p-5" action="#" method="post">
+            <input class="p-3 bg-[#0A090C] text-[#FEFFFE] rounded-md hover:cursor-pointer hover:bg-[#2c2732]" type="submit" value="+ Insert Product"> 
+        </form>
     </div>
         
 <!-- Logical fragment -->
@@ -39,7 +42,7 @@ if ($query_result) {
         // Loop and return formatted result
         while ($row = mysqli_fetch_assoc($query_result)) {
             $id_product = $row['id_product'];
-            // Aplicar estilado de stock si tiene stock ~
+            // Aplicar estilado de stock si tiene stock 
             $availability_style;
             if ($row['availability']=='on_stock'){
                 $availability_style= 'text-green-600 font-regular';
@@ -47,7 +50,7 @@ if ($query_result) {
                 $availability_style= 'text-red-600 font-regular';
             }
             // Parent container of product
-            echo"<div class='flex flex-col h-full flex-shrink-0 basis-[calc(33.33%-1.25rem)] 
+            echo"<div class='flex flex-col h-full max-h-110 flex-shrink-0 basis-[calc(33.33%-1.25rem)] 
                      shadow-xl p-4
                      rounded-lg
                      bg-white

@@ -56,7 +56,7 @@ if ($query_result){
             }
 
             // Parent container of customer
-            echo "<div class='flex flex-col h-full flex-shrink-0 basis-[calc(33.33%-1.25rem)] 
+            echo"<div class='flex flex-col h-full min-w-90 max-h-110 flex-shrink-0 basis-[calc(33.33%-1.25rem)] 
                     shadow-xl p-4
                     rounded-lg
                     bg-white
@@ -98,6 +98,16 @@ if ($query_result){
                             hover:rounded-md
                             '>";
                             include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/customers/form_customer_delete_call.php');
+                        echo "</div>";
+                        
+                        // Select Button Container
+                        echo "<div class='p-1 flex-1 
+                            hover:text-[#ffffff]
+                            hover:rounded-md
+                            hover:bg-[#0A090C]
+                            cursor-pointer
+                            '>";
+                            include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/customers/form_customer_select.php');
                         echo "</div>";
                         
                         // Update Button Container

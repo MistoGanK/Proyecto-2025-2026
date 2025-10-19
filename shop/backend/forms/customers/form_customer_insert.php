@@ -1,4 +1,3 @@
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
     <h1>form_customer_insert</h1>
     <form action="/student022/shop/backend/forms/db/customer/db_customer_insert.php" method="post">
 
@@ -46,4 +45,3 @@
         </label>
         
     </form>
-      <?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/footer.php'); ?>
