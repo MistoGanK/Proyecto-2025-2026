@@ -35,10 +35,10 @@ include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.
 $sql;
 if ($id_product != null) {
     // Query
-    $sql = "SELECT * FROM products WHERE id_product = '$id_product'";
+    $sql = "SELECT * FROM `022_products` WHERE id_product = '$id_product'";
 } else {
     // Query
-    $sql = "SELECT * FROM products;";
+    $sql = "SELECT * FROM `022_products`;";
 }
 // Execute the query
 $query_result = mysqli_query($conn, $sql);

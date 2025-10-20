@@ -35,7 +35,7 @@
             
             // Query
             $sql = 
-            "UPDATE customers
+            "UPDATE `022_customers`
             SET
                 username = '$customer_username',
                 user_password = '$customer_user_password',

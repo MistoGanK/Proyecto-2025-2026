@@ -45,7 +45,7 @@
             
             // SQL INSERT 
             $sql = "
-            INSERT INTO customers (username, user_password, dni, email, forename, surname, birth_date, registered, active)
+            INSERT INTO `022_customers` (username, user_password, dni, email, forename, surname, birth_date, registered, active)
             VALUES (
             '$safe_customer_username',
             '$safe_customer_user_password',

@@ -44,7 +44,7 @@
             // $safe_unit_price, $safe_total, y $safe_discount_rate se definirán más abajo.
             
             // --- A. Query the unit price (usando la versión saneada del ID) ---
-            $order_unit_price_query = "SELECT price FROM products WHERE id_product = '$safe_order_id_product';";
+            $order_unit_price_query = "SELECT price FROM `022_products` WHERE id_product = '$safe_order_id_product';";
             $order_unit_price_query_result = mysqli_query($conn, $order_unit_price_query);
 
             if($order_unit_price_query_result && mysqli_num_rows($order_unit_price_query_result) > 0){
@@ -62,7 +62,7 @@
                 $safe_discount_rate = mysqli_escape_string($conn, $order_discount_rate);
 
                 $sql = "
-                INSERT INTO orders (id_order, id_customer, id_product, id_payment_method, qty, unit_price, total, discount)
+                INSERT INTO `022_orders` (id_order, id_customer, id_product, id_payment_method, qty, unit_price, total, discount)
                 VALUES (
                     '$safe_id_order',
                     '$safe_id_customer',

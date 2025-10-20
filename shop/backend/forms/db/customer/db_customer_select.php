@@ -25,7 +25,7 @@ $sql = "SELECT * FROM customers;";
 
 if ($id_customer != null){
     // Query
-    $sql = "SELECT * FROM customers WHERE id_customer = '$id_customer'";
+    $sql = "SELECT * FROM `022_customers` WHERE id_customer = '$id_customer'";
 }
 
 // Execute the query

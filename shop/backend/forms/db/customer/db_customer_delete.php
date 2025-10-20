@@ -25,7 +25,7 @@
             $id_customer = mysqli_escape_string($conn, $_POST['id_customer']);
         
             // Query
-            $sql = "DELETE FROM customers WHERE id_customer = '$id_customer';";
+            $sql = "DELETE FROM `022_customers` WHERE id_customer = '$id_customer';";
         
             // Execute the query 
             $query_result = mysqli_query($conn, $sql);

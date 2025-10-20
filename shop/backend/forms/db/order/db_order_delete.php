@@ -26,7 +26,7 @@
             $id_order = mysqli_escape_string($conn, $_POST['id_order']);
         
             // Query
-            $sql = "DELETE FROM orders WHERE id_order = '$id_order';";
+            $sql = "DELETE FROM `022_orders` WHERE id_order = '$id_order';";
         
             // Execute the query 
             $query_result = mysqli_query($conn, $sql);

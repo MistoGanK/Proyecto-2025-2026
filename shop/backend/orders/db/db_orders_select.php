@@ -35,10 +35,10 @@ $id_for_query = $id_order ? mysqli_real_escape_string($conn, $id_order) : null;
 
 if ($id_for_query != null){
     // Query para un pedido específico
-    $sql = "SELECT * FROM orders WHERE id_order = '$id_for_query'";
+    $sql = "SELECT * FROM `022_orders` WHERE id_order = '$id_for_query'";
 }else{
     // Query para todos los pedidos
-    $sql = "SELECT * FROM orders;";
+    $sql = "SELECT * FROM `022_orders`;";
 }
 
 // Execute the query

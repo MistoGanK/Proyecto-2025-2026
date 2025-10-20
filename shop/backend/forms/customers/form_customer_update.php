@@ -30,7 +30,7 @@
             $id_customer = mysqli_real_escape_string($conn, $_POST['id_customer']);
             
             // Query 
-            $query = "SELECT * FROM customers WHERE id_customer = $id_customer;";
+            $query = "SELECT * FROM `022_customers` WHERE id_customer = $id_customer;";
             
             // Execute and save the query
             $query_result = mysqli_query($conn,$query);

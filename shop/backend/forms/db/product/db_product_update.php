@@ -32,7 +32,7 @@
             
             // Query
             $sql = 
-            "UPDATE products
+            "UPDATE `022_products`
             SET
                 product_name = '$product_name',
                 price = $product_price,

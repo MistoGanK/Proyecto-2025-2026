@@ -33,7 +33,7 @@
            // Escpa input to avoid SQL injection
            $id_product = mysqli_escape_string($conn,$_POST['id_product']);
            // Query 
-           $query = "SELECT * FROM products WHERE id_product = '$id_product';";
+           $query = "SELECT * FROM `022_products` WHERE id_product = '$id_product';";
            // Execute and save the query
            $query_result = mysqli_query($conn,$query);
         

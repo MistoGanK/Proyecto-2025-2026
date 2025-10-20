@@ -25,7 +25,7 @@
             $id_product = mysqli_escape_string($conn, $_POST['id_product']);
         
             // Query
-            $sql = "DELETE FROM products WHERE id_product = '$id_product';";
+            $sql = "DELETE FROM `022_products` WHERE id_product = '$id_product';";
         
             // Execute the query 
             $query_result = mysqli_query($conn, $sql);

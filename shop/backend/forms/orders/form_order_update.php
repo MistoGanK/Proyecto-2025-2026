@@ -30,7 +30,7 @@
            $id_order = mysqli_escape_string($conn,$_POST['id_order']);
            
            // Query 
-           $query = "SELECT * FROM orders WHERE id_order = '$id_order';";
+           $query = "SELECT * FROM `022_orders` WHERE id_order = '$id_order';";
            
            // Execute and save the query
            $query_result = mysqli_query($conn,$query);

@@ -36,7 +36,7 @@
             $order_canceled = mysqli_escape_string($conn,$_POST['order_canceled']);
 
             $sql = 
-            "UPDATE orders
+            "UPDATE `022_orders`
             SET
                 id_customer = $order_id_customer,
                 id_product = $order_id_product,

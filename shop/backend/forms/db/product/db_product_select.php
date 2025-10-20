@@ -19,10 +19,10 @@ $id_product = mysqli_real_escape_string($conn, $_POST['id_product']);
 $sql;
 if ($id_product != null) {
     // Query
-    $sql = "SELECT * FROM products WHERE id_product = '$id_product'";
+    $sql = "SELECT * FROM `022_products` WHERE id_product = '$id_product'";
 } else {
     // Query
-    $sql = "SELECT * FROM products;";
+    $sql = "SELECT * FROM `022_products`;";
 }
 // Execute the query
 $query_result = mysqli_query($conn, $sql);

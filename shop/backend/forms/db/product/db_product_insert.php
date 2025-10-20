@@ -42,7 +42,7 @@
             
             // SQL INSERT 
             $sql = "
-            INSERT INTO products (product_name, price, stock, description, launch_date, availability, active)
+            INSERT INTO `022_products` (product_name, price, stock, description, launch_date, availability, active)
             VALUES ('$safe_product_name', '$safe_product_price', '$safe_product_stock', '$safe_product_description', '$safe_product_launch_date', '$safe_product_availability', '$safe_product_active')
             ;";
 

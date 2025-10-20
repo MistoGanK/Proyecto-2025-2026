@@ -33,11 +33,11 @@ if (isset($_POST['id_customer']) && !empty($_POST['id_customer'])){
 }
 
 // Initialize variable that will save the designed query
-$sql = "SELECT * FROM customers;"; 
+$sql = "SELECT * FROM `022_customers`;"; 
 
 if ($id_customer != null){
     // Query
-    $sql = "SELECT * FROM customers WHERE id_customer = '$id_customer'";
+    $sql = "SELECT * FROM `022_customers` WHERE id_customer = '$id_customer'";
 }
 
 // Execute the query
