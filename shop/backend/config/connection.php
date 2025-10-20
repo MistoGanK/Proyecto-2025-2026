@@ -1,5 +1,4 @@
 <?php 
-/*
 
 // LOCALHOST
 // Connection with the server 
@@ -16,8 +15,7 @@ if (!$conn) {
     echo 'Connection error:' . mysqli_connect_error();
 }
 
-*/
-
+/*
 
 // SERVER
 
@@ -36,4 +34,5 @@ if (!$conn) {
     echo 'Connection error (' . mysqli_connect_errno() . '): ' . mysqli_connect_error();
 }
 
+*/
 ?>
