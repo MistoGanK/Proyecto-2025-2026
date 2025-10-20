@@ -43,7 +43,7 @@
                     hover:rounded-md
                     hover:bg-gray-800/40
                     cursor-pointer">
-                    <a href="/student022/shop/backend/products/db/db_products_select.php"
+                    <a href="/student022/shop/backend/orders/orders.php"
                         class="flex justify-start items-center w-full h-full p-3
                          font-sans font-semibold">Orders</a>
                 </div>

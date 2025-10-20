@@ -8,7 +8,7 @@
         </form>
     </div>
     
-    <div class="flex flex-row flex-wrap w-full gap-5 items-start justify-start">
+    <div class="flex flex-row flex-wrap w-full gap-5 items-start justify-center">
 
 <?php 
 // Debug 

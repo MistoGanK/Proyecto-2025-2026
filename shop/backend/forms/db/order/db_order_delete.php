@@ -1,38 +1,77 @@
-<!-- Header -->
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
 
-<h1>db_order_delete</h1>
-<?php
-// Test
-// print_r($_POST); // Debug 
-$delete_output = "order_id_order Not found";
-// Check if POST its retrieved and if if has content 
-if (!isset($_POST['order_id_order']) || empty($_POST['order_id_order'])) {
-    $delete_output = "ERROR: order_id_order is missing";
-} else {
-    // Open connection
-    include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
-    $order_id_order = mysqli_escape_string($conn, $_POST['order_id_order']);
+<section class="flex justify-center p-8 min-h-screen ">
+    
+    <div class="w-full max-w-xl h-fit p-8 bg-white shadow-xl rounded-lg border border-gray-200 text-center">
+        
+        <h1 class="text-3xl font-bold text-[#0A090C] mb-6 border-b border-gray-200 pb-2">Order Deletion Result</h1>
+        
+        <p class="text-lg font-semibold text-gray-700 mb-4">Operation Status:</p>
 
-    //Query
-    $sql = "DELETE FROM products WHERE id_order = '$order_id_order';";
+        <?php
+        
+        // 1. Inicialización de variables de estado con valores de ERROR por defecto
+        $id_order = null;
+        $delete_output = "ERROR: id_order is missing or data not submitted correctly."; 
+        $message_class = "bg-red-100 border-red-500 text-red-700"; 
+        
+        // Check if POST its retrieved and if if has content 
+        if (!isset($_POST['id_order']) || empty($_POST['id_order'])) {
+            // El error inicial ya está seteado, no se hace nada más en este bloque
+        } else {
+            // Open connection
+            include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+            
+            // Save the variable and escape input
+            $id_order = mysqli_escape_string($conn, $_POST['id_order']);
+        
+            // Query
+            $sql = "DELETE FROM orders WHERE id_order = '$id_order';";
+        
+            // Execute the query 
+            $query_result = mysqli_query($conn, $sql);
+            
+            if ($query_result) {
+                // Mensaje de éxito
+                // mysqli_affected_rows() se usa para verificar si realmente se eliminó algo.
+                if (mysqli_affected_rows($conn) > 0) {
+                    $delete_output = "Record Successfully deleted for Order ID: " . $id_order;
+                    $message_class = "bg-green-100 border-green-500 text-green-700";
+                } else {
+                    $delete_output = "Record NOT found or already deleted for Order ID: " . $id_order;
+                    $message_class = "bg-yellow-100 border-yellow-500 text-yellow-700";
+                }
 
-    // Save the query 
-    $query_result = mysqli_query($conn, $sql);
-    if ($query_result) {
-        $delete_output = "Record Successfully deleted";
-    } else {
-        // Error from connection
-        $delete_output = "Database Error:" . mysqli_error($conn);
-    }
-    // Show the result
-    printf("<p>" . $delete_output . "</p>");
-    // Close the connection
-    mysqli_close($conn);
-}
+            } else {
+                // Mensaje de error de Base de Datos
+                $delete_output = "Database Error: " . mysqli_error($conn);
+                $message_class = "bg-red-100 border-red-500 text-red-700";
+            }
+            
+            // Close the connection
+            mysqli_close($conn);
+        }
 
-?>
-<p>You deleted the Order with the ID: <?php echo $order_id_order?></p>
+        // 2. Mostrar el resultado con el estilo correspondiente (éxito o error)
+        printf("<div class='p-4 border-l-4 %s rounded-md mt-4'>" . 
+               "<p class='font-bold'>%s</p>" . 
+               "</div>", $message_class, $delete_output);
+        
+        // 3. Mensaje final con el ID, solo si se procesó un ID
+        if ($id_order) {
+            echo "<p class='mt-6 text-sm text-gray-500'>Attempted to process order with ID: <span class='font-bold text-[#0A090C]'>" . $id_order . "</span></p>";
+        }
+        
+        ?>
 
-<!-- Footer -->
+        <div class="mt-8">
+             <a href="/student022/shop/backend/orders/orders.php" 
+                class="p-3 inline-block bg-[#0A090C] text-[#FEFFFE] rounded-md hover:cursor-pointer hover:bg-[#2c2732] font-semibold transition duration-150">
+                 View Orders
+             </a>
+        </div>
+        
+    </div>
+</section>
+
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>

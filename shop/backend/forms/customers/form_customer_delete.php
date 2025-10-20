@@ -42,7 +42,7 @@
                        value="Proceed to Delete">
             </label>
             
-            <a href="/student022/shop/backend/customer_select.php" 
+            <a href="/student022/shop/backend/customers/customers.php" 
                class="p-3 text-sm
                       text-white
                       font-semibold

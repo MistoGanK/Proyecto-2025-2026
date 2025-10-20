@@ -1,6 +1,12 @@
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
 <section class="flex flex-row flex-wrap h-fit p-5 gap-5 items-center justify-center">
+    
+    <div class="w-full mb-6 border-b border-gray-200 pb-2">
+        <h1 class="text-3xl font-bold text-[#0A090C] ">ORDERS</h1>
+        <form class="flex w-full justify-center items-center p-5" action="#" method="post">
+            <input class="p-3 bg-[#0A090C] text-[#FEFFFE] rounded-md hover:cursor-pointer hover:bg-[#2c2732]" type="submit" value="+ Insert Order"> 
+        </form>
+    </div>
         
 <?php 
 // Variables
@@ -51,7 +57,7 @@ if ($query_result){
             }
             
             // Parent container of order (misma estructura que el producto)
-            echo"<div class='flex flex-col h-full min-m-90 w-full flex-shrink-0
+            echo"<div class='flex flex-col h-full min-m-90 max-h-110 flex-shrink-0 basis-[calc(33.33%-1.25rem)] 
                          shadow-xl p-4
                          rounded-lg
                          bg-white
@@ -73,7 +79,7 @@ if ($query_result){
                             echo"<p class='font-normal text-sm pb-3 mb-5 border-b border-gray-600/50'>" . "Product ID: " . $row['id_product'] . " | Unit Price: " . $row['unit_price'] . "€</p>";
                             
                             // Order Info container
-                            echo"<div class=' flex flex-col gap-2 text-sm text-gray-600'>";
+                            echo"<div class=' flex flex-col gap-2 text-xs text-gray-600'>";
                                 echo"<p>" . "Customer ID: " . $row['id_customer'] . "</p>";
                                 echo"<p>" . "Payment ID: " . $row['id_payment_method'] . "</p>";
                                 echo"<p>" . "Order Date: " . $row['order_date'] . "</p>";
@@ -92,6 +98,16 @@ if ($query_result){
                                     hover:rounded-md
                                     '>";
                                     include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/orders/form_order_delete_call.php');
+                                echo"</div>";
+                                
+                                // Select Button Container
+                                echo"<div class='p-1
+                                    hover:text-[#ffffff]
+                                    hover:rounded-md
+                                    hover:bg-[#000001]
+                                    cursor-pointer
+                                    '>";
+                                    include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/orders/form_order_select.php');
                                 echo"</div>";
                                 
                                 // Update Button Container
@@ -127,4 +143,3 @@ mysqli_close($conn);
 ?>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
