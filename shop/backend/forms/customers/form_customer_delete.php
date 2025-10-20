@@ -1,6 +1,6 @@
 <?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
 
-<section class="flex justify-center p-8 bg-gray-50 min-h-screen">
+<section class="flex justify-center p-8  min-h-screen">
     
     <div class="w-full max-w-sm h-fit p-8
         bg-white
