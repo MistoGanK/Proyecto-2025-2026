@@ -1,5 +1,3 @@
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
-
 <section class="flex flex-row flex-wrap h-fit p-5 gap-5 items-center justify-center">
     <div class="w-full mb-6 border-b border-gray-200 pb-2">
         <h1 class="text-3xl font-bold text-[#0A090C] ">CUSTOMERS</h1>
@@ -56,7 +54,7 @@ if ($query_result){
             }
 
             // Parent container of customer
-            echo"<div class='flex flex-col h-full min-w-90 max-h-110 flex-shrink-0 basis-[calc(33.33%-1.25rem)] 
+            echo"<div class='flex flex-col h-110 max-h-110 min-w-90 max-h-110 flex-shrink-0 basis-[calc(33.33%-1.25rem)] 
                     shadow-xl p-4
                     rounded-lg
                     bg-white
@@ -91,7 +89,7 @@ if ($query_result){
                         echo("<div class='flex justify-evenly items-end h-full'>");
                         
                         // Delete Button Container
-                        echo "<div class='p-1 flex-1 
+                        echo "<div class='p-1 f
                             hover:cursor-pointer
                             hover:text-white
                             hover:bg-red-600
@@ -101,7 +99,7 @@ if ($query_result){
                         echo "</div>";
                         
                         // Select Button Container
-                        echo "<div class='p-1 flex-1 
+                        echo "<div class='p-1 
                             hover:text-[#ffffff]
                             hover:rounded-md
                             hover:bg-[#0A090C]
@@ -111,7 +109,7 @@ if ($query_result){
                         echo "</div>";
                         
                         // Update Button Container
-                        echo "<div class='p-1 flex-1
+                        echo "<div class='p-1
                             hover:text-[#ffffff]
                             hover:rounded-md
                             hover:bg-[#0A090C]
@@ -140,5 +138,3 @@ mysqli_close($conn);
 ?>
 </div>
 </section>
-
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/footer.php'); ?>

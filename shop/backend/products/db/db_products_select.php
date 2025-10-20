@@ -96,7 +96,7 @@ if ($query_result) {
                             '>";
                                 include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/products/form_product_select.php');
                             echo"</div>";
-                            // Update nButton Container
+                            // Update Button Container
                             echo"<div class='p-1
                             hover:text-[#ffffff]
                             hover:rounded-md

@@ -1,16 +1,8 @@
 <?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
 
-<section class="flex flex-row flex-wrap h-fit p-5 gap-5 items-center justify-center">
-    <div class="w-full mb-6 border-b border-gray-200 pb-2">
-        <h1 class="text-3xl font-bold text-[#0A090C] ">CUSTOMERS</h1>
-        <form class="flex w-full justify-center p-5 items-center" action="#" method="post">
-            <input class="p-3 bg-[#0A090C] text-[#FEFFFE] rounded-md hover:cursor-pointer hover:bg-[#2c2732]" 
-                   type="submit" 
-                   value="+ Insert Customer"> 
-        </form>
-    </div>
-    
-    <div class="flex flex-row flex-wrap w-full gap-5 items-start justify-start">
+<section class="flex flex-row flex-wrap h-full p-5 gap-5 items-center justify-center">
+
+    <div class="flex flex-row h-full flex-wrap w-full gap-5 items-start justify-start">
 
 <?php 
 // Debug 
@@ -56,7 +48,7 @@ if ($query_result){
             }
 
             // Parent container of customer
-            echo "<div class='flex flex-col h-full flex-shrink-0 basis-[calc(33.33%-1.25rem)] 
+            echo "<div class='flex flex-col h-1/1 flex-shrink-0 w-full p-5
                     shadow-xl p-4
                     rounded-lg
                     bg-white
@@ -76,7 +68,7 @@ if ($query_result){
                     echo "</div>";
                     
                     // Customer Info container (Todos los detalles)
-                    echo "<div class=' flex flex-col gap-2 text-xs text-gray-600'>";
+                    echo "<div class=' flex flex-col gap-2 text-sm text-gray-600'>";
                         echo "<p>" . "ID: " . $row['id_customer'] . "</p>";
                         echo "<p>" . "DNI: " . $row['dni'] . "</p>";
                         echo "<p>" . "Birth Date: " . $row['birth_date'] . "</p>";
@@ -91,7 +83,7 @@ if ($query_result){
                         echo("<div class='flex justify-evenly items-end h-full'>");
                         
                         // Delete Button Container
-                        echo "<div class='p-1 flex-1 
+                        echo "<div class='p-1 
                             hover:cursor-pointer
                             hover:text-white
                             hover:bg-red-600
@@ -101,7 +93,7 @@ if ($query_result){
                         echo "</div>";
                         
                         // Update Button Container
-                        echo "<div class='p-1 flex-1
+                        echo "<div class='p-1 
                             hover:text-[#ffffff]
                             hover:rounded-md
                             hover:bg-[#0A090C]
