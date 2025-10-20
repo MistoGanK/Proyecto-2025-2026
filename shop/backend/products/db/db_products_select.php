@@ -2,9 +2,16 @@
     <section class="flex flex-row flex-wrap h-fit p-5 gap-5 items-center justify-center">
     <div class="w-full mb-6 border-b border-gray-200 pb-2">
         <h1 class="text-3xl font-bold  text-[#0A090C] ">PRODUCTS</h1>
-        <form class="flex w-full justify-center items-center p-5" action="#" method="post">
-            <input class="p-3 bg-[#0A090C] text-[#FEFFFE] rounded-md hover:cursor-pointer hover:bg-[#2c2732]" type="submit" value="+ Insert Product"> 
-        </form>
+            <div class="flex w-full justify-center items-center">
+                <div class="flex w-fit justify-center items-center p-3 
+                bg-[#0A090C] 
+                text-[#FEFFFE] 
+                rounded-md 
+                hover:cursor-pointer 
+                hover:bg-[#2c2732]">
+                    <?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/products/form_product_insert_call.php'); ?> 
+                </div> 
+            </div>
     </div>
         
 <!-- Logical fragment -->

@@ -41,7 +41,7 @@ if ($query_result) {
             } else {
                 $availability_style = 'text-red-600 font-regular';
             }
-            echo"<div class='flex w-full h-full justify-center p-5'>";
+            echo"<div class='flex w-full h-fit justify-center p-5'>";
                 // Parent container of product
                 echo "<div class='flex w-full flex-col h-full flex-shrink-0
                         shadow-xl p-4

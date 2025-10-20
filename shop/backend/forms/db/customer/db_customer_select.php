@@ -48,7 +48,7 @@ if ($query_result){
             }
 
             // Parent container of customer
-            echo "<div class='flex flex-col h-1/1 flex-shrink-0 w-full p-5
+            echo "<div class='flex flex-col h-fit flex-shrink-0 w-full p-5
                     shadow-xl p-4
                     rounded-lg
                     bg-white
