@@ -6,6 +6,7 @@
                 <div class="flex w-fit justify-center items-center p-3 
                 bg-[#0A090C] 
                 text-[#FEFFFE] 
+                font-semibold
                 rounded-md 
                 hover:cursor-pointer 
                 hover:bg-[#2c2732]">
