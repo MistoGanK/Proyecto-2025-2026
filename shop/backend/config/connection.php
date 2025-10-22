@@ -15,9 +15,10 @@ if (!$conn) {
     echo 'Connection error:' . mysqli_connect_error();
 }
 
+
 /*
 
-// SERVER
+// Enrique SERVER
 
 // Connection with the server 
 // MySQLie(Procedural) or PDO(Object Oriented)
@@ -26,6 +27,25 @@ $server_name = 'remotehost.es';
 $user_name = 'dwess1234';
 $password = 'Usertest1234.';
 $db_name = 'dwes';
+
+$conn = mysqli_connect($server_name, $user_name, $password, $db_name);
+
+// Check Connection
+if (!$conn) {
+    echo 'Connection error (' . mysqli_connect_errno() . '): ' . mysqli_connect_error();
+}
+
+*/
+
+// noobhostadventurer-endinahosting-com.espacioseguro.com
+// Connection with the server 
+// MySQLie(Procedural) or PDO(Object Oriented)
+
+/*
+$server_name = 'localhost (hl1530.dinaserver.com)';
+$user_name = 'noobhAdmin';
+$password = 'B-BaRr0N2077!';
+$db_name = 'noobh';
 
 $conn = mysqli_connect($server_name, $user_name, $password, $db_name);
 
