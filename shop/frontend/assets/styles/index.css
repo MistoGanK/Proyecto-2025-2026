@@ -1,0 +1,25 @@
+.header_nav{
+    padding: 5px;
+    justify-content:space-between;
+}
+.header_nav img{
+    width: 30px;
+    padding: 2px;
+}
+.nav_drop_menu,
+.nav_brand,
+.nav_srch_cart,
+.header_nav button{
+    display: flex;
+    align-items: center;   
+    height: 100%;
+}
+.nav_drop_menu{
+    
+}
+.nav_brand{
+
+}
+.nav_srch_cart{
+    
+}

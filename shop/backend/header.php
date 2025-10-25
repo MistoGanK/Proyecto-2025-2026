@@ -1,3 +1,10 @@
+<?php session_start() ?>
+<script>
+    function closeAndRedirectLogin() {
+        // Redirect en del logout
+        window.location.href = "/student022/shop/backend/autentification/logout/logout.php";  
+    };
+</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,4 +74,39 @@
                       focus:ring 
                       focus:ring-[#0A090C]/50">
             </form>
+            <div class="flex w-full h-full justify-end items-center gap-3">
+                <p class="flex justfity-center items-center
+                text-[#0A090C]
+                font-semibold
+                font-sans
+                ">Logout</p>
+                <?php 
+                    // Si hay usuario logeado
+                    if(isset($_SESSION['username'])){
+                    echo '
+                    <img src="/student022/shop/backend/assets/icons/door_open_500dp_0A090C_FILL0_wght400_GRAD0_opsz48" alt="logout" title="logout"
+                    class="h-13
+                    p-2
+                    shadow-sm
+                    rounded-3xl
+                    hover:cursor-pointer
+                    hover:opacity-70
+                    "
+                    onclick="closeAndRedirectLogin()"
+                    >';
+                    }else{
+                    // Si no hay usuario logeado
+                    echo '
+                    <img src="/student022/shop/backend/assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48" alt="login" title="login"
+                    class="h-13
+                    p-2
+                    shadow-sm
+                    rounded-3xl
+                    hover:cursor-pointer
+                    hover:opacity-70
+                    "
+                    >';
+                    }      
+                ?>
+            </div>
         </nav>

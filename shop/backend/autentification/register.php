@@ -2,13 +2,13 @@
 // Iniciamos la sesión
 session_start();
 // Primero comprovamos si ya esta logeado el usuario
-if (isset($_SESSION['usernmae'])) {
+if (isset($_SESSION['username'])) {
     // Si es TRUE redirigimos a admin_panel
     header('Location: /student022/shop/backend/admin_panel');
     exit();
 } else {
     // Si es FALSE procedemos al resto del codigo PHP
-    
+
     // Comprovamos que se haya enviado el formulario
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Comprovamos con la función boleana iset si se ha insertado correctamente

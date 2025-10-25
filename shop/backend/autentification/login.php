@@ -19,7 +19,7 @@
 
         if ($_SERVER['REQUEST_METHOD']=='POST'){
             // Guardamos sus variables del login asegurando primero las entradas
-            $username = isset($_POST['customer_user_password']) ? $_POST['customer_user_password'] : '';
+            $username = isset($_POST['customer_username']) ? $_POST['customer_username'] : '';
             $password = isset($_POST['customer_user_password']) ? $_POST['customer_user_password'] : '';
 
             // Preparamos la query
@@ -27,10 +27,12 @@
                 SELECT 
                     username
                     user_password
+                FROM 
+                    `022_customers`
                 WHERE 
-                    username = $username
+                    username = '$username'
                     AND
-                    user_password = $password
+                    user_password = '$password'
             ;";
             // Abrimos la conexion 
             include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
@@ -49,7 +51,7 @@
                     $_SESSION['password'] = $password;
 
                     // Redirigimos a adminPanel
-                    header('Location: /student022/shop/backend/admind_panel.php');
+                    header('Location: /student022/shop/backend/admin_panel.php');
                     exit();
                 }
             }
