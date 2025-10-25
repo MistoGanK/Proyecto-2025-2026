@@ -1,3 +1,4 @@
+<!-- Landing page Backend -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,54 +8,32 @@
     <link rel="icon" href="/student022/shop/backend/assets/icons/faviconBlack.png" type="image/png">
 </head>
 
-<body class="flex flex-row min-h-screen w-full p-10 justify-center items-center
-bg-[#FEFFFE] text-[#0A090C] antialiased">
-
-    <main class="flex flex-col w-full max-w-xl h-fit p-8 items-center gap-5
-    bg-white shadow-xl rounded-lg border border-gray-200">
-        <h1 class="w-fit text-3xl font-extrabold mb-5">Register</h1>
-        <form class="flex flex-col w-full h-fit gap-2 p-2" method="GET" action="#">
-
-            <label for="email" class="w-fit text-xl font-bold">Email</label>
-            <input id="email" type="email" name="email" placeholder="Type your email"
-            class="w-full h-11 p-2 mb-5
-            shadow-lg border border-gray-300/30 rounded-lg
-            text-gray-500/80">
-
-            <label for="username" class="w-fit text-xl font-bold">Username</label>
-            <input id="username" type="text" name="username" placeholder="Type your username"
-            class="w-full h-11 p-2 mb-5
-            shadow-lg border border-gray-300/30 rounded-lg
-            text-gray-500/80">
-
-            <label for="password" class="w-fit text-xl font-bold">Password</label>
-            <input id="password" type="password" name="password" placeholder="Type your password"
-            class="w-full h-11 p-2 mb-5
-            shadow-lg border border-gray-300/30 rounded-lg
-            text-gray-500/80">
-
-            <label for="rePassword" class="w-fit text-xl font-bold">Confirm Password</label>
-            <input id="rePassword" type="password" name="rePassword" placeholder="Retype your password"
-            class="w-full h-11 p-2 mb-5
-            shadow-lg border border-gray-300/30 rounded-lg
-            text-gray-500/80">
-
-            <input type="submit" value="Sign Up"
-            class="h-full w-full p-3
-            bg-[#0A090C] text-[#FEFFFE] rounded-xl font-bold text-lg
-            hover:cursor-pointer
-            hover:bg-[#2c2732]">
-
-            <div class="flex gap-2 w-full justify-center mt-3">
-                <p class="w-fit">Already have an account?</p>
-                <a class="w-fit font-bold" href="/student022/shop/backend/autentification/login.php">Sign In</a>
+<body class="flex flex-col w-screen h-screen bg-[#FEFFFE] p-10">
+    <main class="flex flex-col justify-center items-center p-3 
+        h-full w-full">
+        <section class="flex gap-10 flex-col justify-center items-center p-10 
+            shadow-xl border border-gray-400/20 rounded-xl h-fit w-xl">
+            <header class=" p-5 rounded-xl ">
+                <h1 class=" font-bold flex text-3xl">Admin Panel</h1>
+            </header>
+            <div class="items-center w-full text-white p-3
+                bg-[#0A090C]
+                rounded-2xl
+                hover:cursor-pointer
+                hover:bg-[#2c2732]
+                ">
+                <a class="flex text-xl font-bold  p-1.5 w-full justify-center  items-center"
+                    href="/student022/shop/backend/autentification/login.php" title="Go to Backend">Login</a>
             </div>
-
-        </form>
-        <div>
-
-        </div>
+            <div class="items-center w-full text-white p-3
+                bg-[#0A090C]
+                rounded-2xl
+                hover:cursor-pointer
+                hover:bg-[#2c2732]
+                ">
+                <a class="flex text-xl font-bold  p-1.5 w-full justify-center  items-center"
+                    href="/student022/shop/backend/autentification/register.php" title="Go to frontend">Register</a>
+            </div>
     </main>
+    </section>
 </body>
-
-</html>
