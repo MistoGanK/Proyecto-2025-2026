@@ -1,25 +1,134 @@
-.header_nav{
-    padding: 5px;
-    justify-content:space-between;
+main{
+    flex-direction: column;
 }
-.header_nav img{
+/* Header */
+.header_nav {
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.header_nav img {
     width: 30px;
     padding: 2px;
 }
 .nav_drop_menu,
 .nav_brand,
 .nav_srch_cart,
-.header_nav button{
+.header_nav button,
+section.explore,
+section.explore header,
+section.explore header h2
+section.explore a,
+section.explore ul,
+section.explore ul li,
+section.explore div
+section.explore h3{
     display: flex;
-    align-items: center;   
+}
+
+.nav_drop_menu,
+.nav_brand,
+.nav_srch_cart,
+.header_nav button {
+    align-items: center;
     height: 100%;
 }
-.nav_drop_menu{
-    
-}
-.nav_brand{
 
+.nav_drop_menu {}
+
+.nav_brand {}
+
+.nav_srch_cart {}
+
+/* Section  Hero */
+section.hero {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
 }
-.nav_srch_cart{
-    
+
+section.hero .hero_content,
+section.hero .hero_content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+}
+
+.hero_content_containers {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+}
+
+.hero_content_containers h2,
+.hero_content_containers p {
+    color: var(--bgc-white);
+}
+
+.hero_content_containers h2 {
+    font-size: 10vw;
+}
+
+.hero_content_containers p {
+    font-size: 3.5vw
+}
+
+.hero_content_containers button {
+    margin: 20px 0 20px 0;
+    font-size: 3vw
+}
+.hero_content_containers button:hover,
+.hero_content_containers button:hover,
+.hero_content_containers button:focus {
+    background-color: var(--bgc-black);
+    color: var(--bgc-white);
+}
+
+.hero_content_containers button {
+    background-color: var(--bgc-white);
+    padding: 16px 30px;
+    width: fit-content;
+    border-radius: 999px;
+}
+
+/* Section Explore */
+
+section.explore{
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+}
+
+section.explore *{
+    width: 100%;
+    height: fit-content;
+}
+section.explore header h2{
+    text-align: center;
+    padding: 10px;
+    font-size: 5vw;
+}
+
+@media (width > 500px) {
+    .hero_content_containers button {
+        font-size: 2vw
+    }
+    section.explore header h2{
+    font-size: 3vw;
+}
+}
+
+@media(width > 800px) {
+    .hero_content_containers button {
+        font-size: 1.5vw
+    }
+
 }

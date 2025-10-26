@@ -286,6 +286,9 @@ p{
 a{
     font-family: 'Noto-Sans-Medium-Italic';
 }
+button{
+    font-family: 'Noto-Sans-Bold';
+}
 
 h1,
 h2,
