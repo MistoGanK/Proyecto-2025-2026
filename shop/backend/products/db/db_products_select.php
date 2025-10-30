@@ -41,18 +41,16 @@ if ($id_product != null) {
     $sql = "SELECT * FROM `022_products`;";
 }
 // Execute the query
-$query_result = mysqli_query($conn, $sql);
+$result = mysqli_query($conn, $sql);
+$products = mysqli_fetch_all($result,MYSQLI_ASSOC);
+// Cleaning the result 
+mysqli_free_result($result);
 
-// Check if the query exists and if there was rows affected
-if ($query_result) {
-    // Check if any row where returned
-    if (mysqli_num_rows($query_result) > 0) {
-        // Loop and return formatted result
-        while ($row = mysqli_fetch_assoc($query_result)) {
-            $id_product = $row['id_product'];
+foreach($products as $product){
+    $id_product = $product['id_product'];
             // Aplicar estilado de stock si tiene stock 
             $availability_style;
-            if ($row['availability']=='on_stock'){
+            if ($product['availability']=='on_stock'){
                 $availability_style= 'text-green-600 font-regular';
             }else{
                 $availability_style= 'text-red-600 font-regular';
@@ -67,22 +65,22 @@ if ($query_result) {
                      '>";
                      // Product Container
                 echo"<div class='flex flex-col w-full h-full font-sans'>";
-                    echo"<h2 class='flex justify-start items-center mb-5 text-xl font-semibold'>".$row['product_name'] . "</h2>";
+                    echo"<h2 class='flex justify-start items-center mb-5 text-xl font-semibold'>".$product['product_name'] . "</h2>";
                     // Price + qty container
                     echo"<div class='flex justify-between w-full mb-5'>";
-                        echo"<p class='font-extrabold text-2xl'>" . $row['price'] . "€" . "</p>";
-                        echo"<p class='font-normal text-sm'>" . "stock: " . $row['stock'] . "</p>";
+                        echo"<p class='font-extrabold text-2xl'>" . $product['price'] . "€" . "</p>";
+                        echo"<p class='font-normal text-sm'>" . "stock: " . $product['stock'] . "</p>";
                     echo"</div>";
                     // Product description
-                    echo"<p class='font-normal text-sm pb-3 mb-5 border-b border-gray-600/50'>" . $row['description'] . "</p>";
+                    echo"<p class='font-normal text-sm pb-3 mb-5 border-b border-gray-600/50'>" . $product['description'] . "</p>";
                     // Product Info container
                     echo"<div class=' flex flex-col gap-2 text-xs text-gray-600'>";
-                        echo"<p>" . "ID: " . $row['id_product'] . "</p>";
-                        echo"<p>" . "Inserted_date: " . $row['inserted_date'] . "</p>";
-                        echo"<p>" . "Updated date: " . $row['updated_date'] . "</p>";
-                        echo"<p>" . "Launch date: " . $row['launch_date'] . "</p>";
-                        echo "<p>" . "Availability: " . "<span class='$availability_style'>" . $row['availability'] . "</span></p>";
-                        echo"<p>" . "Active: " . $row['active'] . "</p>";
+                        echo"<p>" . "ID: " . $product['id_product'] . "</p>";
+                        echo"<p>" . "Inserted_date: " . $product['inserted_date'] . "</p>";
+                        echo"<p>" . "Updated date: " . $product['updated_date'] . "</p>";
+                        echo"<p>" . "Launch date: " . $product['launch_date'] . "</p>";
+                        echo "<p>" . "Availability: " . "<span class='$availability_style'>" . $product['availability'] . "</span></p>";
+                        echo"<p>" . "Active: " . $product['active'] . "</p>";
                     echo"</div>";
                     // Form Buttons container
                         echo("<div class='flex justify-evenly items-end h-full'>");
@@ -113,20 +111,19 @@ if ($query_result) {
                             '>";
                                 include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/products/form_product_update_call.php');
                             echo"</div>";
+                            // Add to cart button
+                             echo"<div class='p-1
+                            hover:text-[#ffffff]
+                            hover:rounded-md
+                            hover:bg-[#000001]
+                            cursor-pointer
+                            '>";
+                                include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/shopping_cart/form_add_product_cart.php');
+                            echo"</div>";
                         echo("</div>");
                 echo("</div>");
             echo("</div>");
-        }
-    } else {
-        $product_output = "Product with ID $id_product not found.";
-    }
-} else {
-    // Error on query execution
-    $product_output = "Database Error: " . mysqli_error($conn);
 }
-
-// Free the result
-mysqli_free_result($query_result);
 // Close connection
 mysqli_close($conn);
 ?>

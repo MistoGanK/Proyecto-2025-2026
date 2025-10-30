@@ -54,6 +54,15 @@
                         class="flex justify-start items-center w-full h-full p-3
                          font-sans font-semibold">Orders</a>
                 </div>
+                <div class="flex justify-start items-center w-full h-10 mb-3
+                    hover:text-[#ffffff]
+                    hover:rounded-md
+                    hover:bg-gray-800/40
+                    cursor-pointer">
+                    <a href="/student022/shop/backend/shopping_cart/shopping_cart.php"
+                        class="flex justify-start items-center w-full h-full p-3
+                         font-sans font-semibold">Shopping Cart</a>
+                </div>
             </div>
         </nav>
     </header>

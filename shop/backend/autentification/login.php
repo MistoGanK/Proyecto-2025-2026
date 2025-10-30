@@ -41,14 +41,32 @@
                 // Guardamos y presentamos el error en pantalla
                 print_r(mysqli_error($conn));
             }else{
+
                 // Comrprovamos si los datos de usuario coinciden en nuestra base de datos
                 $queryResult = mysqli_query($conn,$query);
                 if (mysqli_num_rows($queryResult)!==1){
                     echo 'Incorrecto Usuario o Contraseña'; 
                 }else{
                     // Guardamos la autentificación del usuario en nuestra superglobal season
+                    // Obtenemos el id_customer
+                    $id_customer_query = "
+                        SELECT 
+                            id_customer 
+                        FROM 
+                            `022_customers`
+                        WHERE 
+                            username = '$username'
+                            AND
+                            user_password = '$password'
+                        ";
+                    $id_customer_query_result = mysqli_query($conn,$id_customer_query);
+                    $id_customer = mysqli_fetch_assoc($id_customer_query_result);
+                    
+
                     $_SESSION['username'] = $username;
                     $_SESSION['password'] = $password;
+                    $_SESSION['id_customer'] = $id_customer['id_customer'];
+
 
                     // Redirigimos a adminPanel
                     header('Location: /student022/shop/backend/admin_panel.php');

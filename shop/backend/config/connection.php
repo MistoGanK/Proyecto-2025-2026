@@ -3,6 +3,8 @@
 // Connection with the server 
 // MySQLie(Procedural) or PDO(Object Oriented)
 // Server_domain, User, Password
+
+
 $server_name = 'localhost';
 $user_name = 'root';
 $password = '';
@@ -54,13 +56,14 @@ mysqli_character_set_name($conn);
 
 */
 
+/*
 
 // noobhostadventurer-endinahosting-com.espacioseguro.com
 // Connection with the server 
 // MySQLie(Procedural) or PDO(Object Oriented)
 
-/*
-$server_name = 'localhost (hl1530.dinaserver.com)';
+
+$server_name = 'noobhostadventurer.endinahosting.com';
 $user_name = 'noobhAdmin';
 $password = 'B-BaRr0N2077!';
 $db_name = 'noobh';
