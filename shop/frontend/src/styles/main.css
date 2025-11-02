@@ -5,9 +5,11 @@
     --bgc-black-light-tranp:#0a090c86;
     --bgc-black-transp:#0a090c58;
     --bgc-black-extra-transp:#0a090c2c;
+    --bgc-black-extra-transp-x2:#0a090c04;
     --bgc-black-transp-button:#0a090c0a;
-
-}
+    /* Alloow animation on auto height elements */
+    interpolate-size: allow-keywords;
+}   
 *{
     padding: 0;
     margin: 0;
@@ -259,23 +261,27 @@ body{
     flex-direction: column;
 }
 header{
-    height: 57px;
+    height: 56px;
 }
 /* All H */
 
-h1{
+h1,
+h1 a{
     font-family: 'Space-Grotesk-Bold';
 }
 
-h2{
+h2,
+h2 a{
     font-family: 'Roboto-Mono-Bold';
 }
 
-h3{
+h3,
+h3 a{
     font-family: 'Roboto-Mono-Semi-Bold';
 }
 
-h4{
+h4,
+h4 a{
     font-family: 'Roboto-Mono-Medium';
 }
 /* Font text & hiperlinks */
@@ -298,19 +304,13 @@ p,
 a{
     color: var(--bgc-black);
 }
-a:hover{
-    color: var(--bgc-black-transp);
-}
-
 body{
     background-color: var(--bgc-white);
 }
 button:hover{
     cursor: pointer;
 }
-button:active{
-    background-color: var(--bgc-black-transp-button);
-}
+
 @media (width > 480px) {
   
 }

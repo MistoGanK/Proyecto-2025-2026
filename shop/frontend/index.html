@@ -15,139 +15,108 @@
 
   <body>
     <header>
-      <nav class="header_nav">
-        <div class="nav_drop_menu">
-          <button type="button" id="btn_drop_down">
-            <img
-              src="assets/icons/menu_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
-              alt="Drop Down Menu"
-            />
-          </button>
+        <nav>
+          <div class="header_nav_dropdown">
+            <button><img src="assets/icons/menu_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt=""></button>
+          </div>
+          <div class="header_nav_logo">
+              <h1><a href="#" title="Go to Home">BRAND2</a></h1>
+          </div>
+          <div class="header_nav_ul">
+            <ul>
+              <li><a href="#" title="Go to custom">Custom</a></li>
+              <li><a href="#" title="Go to backpacks">Backpacks</a></li>
+              <li><a href="#" title="Go to bags">Bags</a></li>
+              <li><a href="#" title="Go to luggages">Luggages</a></li>
+              <li><a href="#" title="Go to accesories">Accesories</a></li>
+              <li><a href="#" title="Go to sales">Sale</a></li>
+              <li><a href="#" title="Go to about brand2">About Brand2</a></li>
+            </ul>
+          </div>
+          <div class="header_nav_user_tools">
+            <div class="div_user_tool"><button><img src="/assets/icons/search_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Search icon"></button></div>
+            <div class="div_user_tool">
+              <a href="#" title="Go to my acocunt">
+                <img src="assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="User icon">
+              </a>
+            </div>
+            <div class="div_user_tool">
+              <button>
+                <img src="assets/icons/local_mall_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Shopping Bag icon">
+              </button>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <!-- Overlay movile dropdown menu -->
+    <div class="dropdown_menu_container">
+      <nav class="dropdown_menu">
+        <header>
+          <h2>Menu</h2>
+          <button><img src="assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu"></button>
+        </header>
+        <div class="dropdown_menu_ul">
+          <ul>
+            <li><a href="#" title="Go to custom">Custom</a></li>
+              <li>
+                <a href="#" title="Go to backpacks">Backpacks</a>
+                <button><img src="assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="See all backpacks"></button>
+              </li>
+              <li>
+                <a href="#" title="Go to bags">Bags</a>
+                <button><img src="assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="See all backpacks"></button>
+              </li>
+              <li>
+                <a href="#" title="Go to luggages">Luggages</a>
+              </li>
+              <li>
+                <a href="#" title="Go to accesories">Accesories</a>
+              </li>
+              <li>
+                <a href="#" title="Go to sales">Sale</a>
+              </li>
+              <li>
+                <a href="#" title="Go to about brand2">About Brand2</a>
+                  <button><img src="assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="See all backpacks"></button>
+              </li>
+          </ul>
         </div>
-        <div class="nav_brand">
-          <h1>Brand2</h1>
-        </div>
-        <div class="nav_srch_cart">
-          <button type="button" id="btn_search">
-            <img
-              src="assets/icons/search_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
-              alt="Search"
-            />
-          </button>
-          <button type="button" id="btn_shopping_bag">
-            <img
-              src="assets/icons/local_mall_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp"
-              alt="Shopping Bag"
-            />
-          </button>
+        <div class="dropdown_user_tools">
+            <ul>
+              <li>
+                <a href="#" title="Go to my shopping bag">
+                  <img src="assets/icons/local_mall_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="">
+                </a>
+                <a href="#" title="Go to my shopping bag">
+                  BAG
+                </a>
+              </li>
+             <li>
+                <a href="#" title="Go to Sign In">
+                  <img src="assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="">
+                </a>
+                <a href="#" title="Go to Sign In">
+                  SIGN IN
+                </a>
+              </li>
+              <li>
+                <a href="#" title="Go to support">
+                  <img src="assets/icons/help_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="">
+                </a>
+                <a href="#" title="Go to support">
+                  SUPPORT
+                </a>
+              </li>
+            </ul>
         </div>
       </nav>
-    </header>
+    </div>
     <main>
-      <section class="hero">
-        <div class="hero_content">
-          <img
-            src="assets/img/hero/customBackPack.webp"
-            alt="Custom Backpack "
-          />
-          <div class="hero_content_containers">
-            <h2>Go Custom.</h2>
-            <p>Create a bag designed to endure.</p>
-            <button type="button">Shop Now</button>
-          </div>
-        </div>
-      </section>
-      <section class="explore">
-        <header>
-          <h2>Explore styles for your next wherever.</h2>
-        </header>
-        <ul class="explore_ul">
-            <li>
-                <a href="#" title="Explore Backpakcs">
-                    <div class="explore_img" ><img src="assets/img/explore/explore_backpacks.webp" alt="Explore our Backpacks"></div>
-                    <div class="explore_p"><h3>Backpacks</h3></div>
-                </a>
-            </li>
-           <li>
-                <a href="#" title="Explore Backpakcs">
-                    <div class="explore_img" ><img src="assets/img/explore/explore_messenger.gif.webp" alt="Explore our Backpacks"></div>
-                    <div class="explore_p"><h3>Messenger Bags</h3></div>
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Explore Backpakcs">
-                    <div class="explore_img" ><img src="assets/img/explore/explore_travel.webp" alt="Explore our Backpacks"></div>
-                    <div class="explore_p"><h3>Travel Luggage</h3></div>
-                </a>
-            </li>
-            <li>
-                <a href="#" title="Explore Backpakcs">
-                    <div class="explore_img" ><img src="assets/img/explore/explore_sling.webp" alt="Explore our Backpacks"></div>
-                    <div class="explore_p"><h3>Sling Bags</h3></div>
-                </a>
-            </li>
-             <li>
-                <a href="#" title="Explore Backpakcs">
-                    <div class="explore_img" ><img src="assets/img/explore/explore_custom.webp" alt="Explore our Backpacks"></div>
-                    <div class="explore_p"><h3>Custom Bags</h3></div>
-                </a>
-            </li>
-             <li>
-                <a href="#" title="Explore Backpakcs">
-                    <div class="explore_img" ><img src="assets/img/explore/explore_tote.webp" alt="Explore our Backpacks"></div>
-                    <div class="explore_p"><h3>Tote Bags</h3></div>
-                </a>
-            </li>
-        </ul>
-      </section>
-      <section class="new_section">
-        <header class="new_section_header">
-            <h2>Built for fall gateways.</h2>
-            <p>Durable, adaptable and made for every detour.</p>
-        </header>
-        <article class="new_section_product">
-            <img src="assets/img/travel/travel_impulse.webp" alt="Impulse Travel Backpack">
-            <h3>Impulsive Travel Backpack</h3>
-            <div class="new_section_content">
-                <div class="new_section_content_shopping">
-                    <a href="#" title="Add to cart"><button type="button"><img src="assets/icons/add_shopping_cart_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="add to cart"></button></a>
-                    <a href="#" title="Cash Out"><button type="button"><img src="assets/icons/attach_money_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Cash Out"></button></a>   
-                </div>
-                <div class="new_section_content_favorite">
-                    <a href="#" title="Add to favorite"><button type="button"><img src="assets/icons/favorite_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="add to favorite"></button></a>
-                </div>
-            </div>
-        </article>
-         <article class="new_section_product">
-            <img src="assets/img/travel/travel_never_check.webp" alt="Impulse Travel Backpack">
-            <h3>Never Check Expandable Backpack</h3>
-            <div class="new_section_content">
-                <div class="new_section_content_shopping">
-                    <a href="#" title="Add to cart"><button type="button"><img src="assets/icons/add_shopping_cart_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="add to cart"></button></a>
-                    <a href="#" title="Cash Out"><button type="button"><img src="assets/icons/attach_money_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Cash Out"></button></a>   
-                </div>
-                <div class="new_section_content_favorite">
-                    <a href="#" title="Add to favorite"><button type="button"><img src="assets/icons/favorite_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="add to favorite"></button></a>
-                </div>
-            </div>
-        </article>        
-      </section>
-      <section class="section_hot_sellers">
-        <header>
-            <h2>Hot Sellers.</h2>
-            <p>Styles everyone's got to have.</p>
-        </header>
-        <article class="hot_sellers_product">
-          
-        </article>
-      </section>
-      <section class="section_tech_ready">
-        <header>
-            <h2>Tech Ready.</h2>
-            <p>Smart storage and padded protection for workday essentials</p>
-        </header>
-      </section>
+
     </main>
+    <footer>
+
+    </footer>
     <script src="assets/scripts/main.js"></script>
   </body>
 </html>

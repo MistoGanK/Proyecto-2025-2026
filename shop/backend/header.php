@@ -2,7 +2,10 @@
 <script>
     function closeAndRedirectLogin() {
         // Redirect en del logout
-        window.location.href = "/student022/shop/backend/autentification/logout/logout.php";  
+        window.location.href = "/student022/shop/backend/autentification/logout/logout.php";
+    };
+    function redirectLogin(){
+        window.location.href = "/student022/shop/backend/autentification/login.php";
     };
 </script>
 <!DOCTYPE html>
@@ -54,15 +57,6 @@
                         class="flex justify-start items-center w-full h-full p-3
                          font-sans font-semibold">Orders</a>
                 </div>
-                <div class="flex justify-start items-center w-full h-10 mb-3
-                    hover:text-[#ffffff]
-                    hover:rounded-md
-                    hover:bg-gray-800/40
-                    cursor-pointer">
-                    <a href="/student022/shop/backend/shopping_cart/shopping_cart.php"
-                        class="flex justify-start items-center w-full h-full p-3
-                         font-sans font-semibold">Shopping Cart</a>
-                </div>
             </div>
         </nav>
     </header>
@@ -83,16 +77,17 @@
                       focus:ring 
                       focus:ring-[#0A090C]/50">
             </form>
-            <div class="flex w-full h-full justify-end items-center gap-3">
-                <p class="flex justfity-center items-center
+            <div class="flex flex-row w-full h-full items-center justify-end">
+                <div class="flex w-fit h-full justify-end items-center gap-3">
+                    <p class="flex justfity-center items-center
                 text-[#0A090C]
                 font-semibold
                 font-sans
-                ">Logout</p>
-                <?php 
+                ">hola</p>
+                    <?php
                     // Si hay usuario logeado
-                    if(isset($_SESSION['username'])){
-                    echo '
+                    if (isset($_SESSION['username'])) {
+                        echo '
                     <img src="/student022/shop/backend/assets/icons/door_open_500dp_0A090C_FILL0_wght400_GRAD0_opsz48" alt="logout" title="logout"
                     class="h-13
                     p-2
@@ -103,10 +98,10 @@
                     "
                     onclick="closeAndRedirectLogin()"
                     >';
-                    }else{
-                    // Si no hay usuario logeado
-                    echo '
-                    <img src="/student022/shop/backend/assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48" alt="login" title="login"
+                    } else {
+                        // Si no hay usuario logeado
+                        echo '
+                    <img src="/student022/shop/backend/assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48" alt="log_in" title="Log in"
                     class="h-13
                     p-2
                     shadow-sm
@@ -114,8 +109,22 @@
                     hover:cursor-pointer
                     hover:opacity-70
                     "
+                    onclick="redirectLogin()"
                     >';
-                    }      
-                ?>
+                    }
+                    ?>
+                </div>
+                <a href="/student022/shop/backend/shopping_cart/shopping_cart.php">
+                    <div class="flex w-fit h-full justify-end items-center gap-3">
+                        <img src="/student022/shop/backend/assets/icons/shopping_cart_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.png" alt="shopping_cart" title="shopping cart"
+                            class="h-13
+                    p-2
+                    shadow-sm
+                    rounded-3xl
+                    hover:cursor-pointer
+                    hover:opacity-70
+                    ">
+                    </div>
+                </a>
             </div>
         </nav>
