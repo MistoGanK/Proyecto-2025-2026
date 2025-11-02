@@ -5,6 +5,7 @@ header img{
 header{
     align-items: center;
     padding: 8px;
+    border-bottom: 1px solid var(--bgc-black-transp);
 }
 header nav,
 .header_nav_logo,
@@ -30,8 +31,12 @@ header nav{
 .div_user_tool:nth-child(2){
     display:none;
 }
+
+/* Flex afther focus */
+#dropdown_button:focus-within .dropdown_menu_container{
+    display: flex;
+}
 /* dropdown menu overlay */
-.dropdown_menu_container,
 .dropdown_menu_container button,
 .dropdown_menu,
 .dropdown_menu header,
@@ -43,14 +48,19 @@ header nav{
 .dropdown_user_tools ul li{
     display: flex;
 }
-.dropdown_menu_container{
+.dropdown_menu_container,
+.dropdown_menu_container_backpacks,
+.dropdown_menu_container_about,
+.dropdown_menu_container_bags{
+    display: none;
     position: fixed;
+    z-index: 2;
     width: 100%;
     height: 100%;
     background-color: rgba(42, 54, 68, 0.78);
 }
 .dropdown_menu_container img{
-    height: 16px;
+    height: 24px;
 }
 .dropdown_menu{
     width: clamp(200px, 50%, 400px); /*Min, prefered, Max */
@@ -59,7 +69,6 @@ header nav{
 }
 .dropdown_menu header{
     justify-content: space-between;
-    border-bottom: 1px solid var(--bgc-black-transp);
 }
 .dropdown_menu_ul{
     background-color: var(--bgc-black-extra-transp-x2);
@@ -71,12 +80,23 @@ header nav{
     gap: 16px;
 }
 .dropdown_menu_ul ul li,
+.dropdown_user_tools ul li{
+    padding: 8px;
+}
+.dropdown_menu_ul ul li,
 .dropdown_menu_ul ul li button{
     align-items: center;
     justify-content: space-between;
 }
+.dropdown_menu_ul ul li a:focus,
+.dropdown_menu_ul ul li a:hover,
+.dropdown_menu_ul ul li a:active{   
+    box-shadow: 0 2px 0 0 var( --bgc-black);
+    transition: text-decoration var(--transition-speed-fast);
+}
 .dropdown_user_tools{
-    margin-top: 200px;
+    margin-top: 100px;
+    padding: 16px;
 }
 .dropdown_user_tools ul{
     flex-direction: column;
@@ -84,5 +104,13 @@ header nav{
     gap: 8px;
 }
 .dropdown_user_tools ul li{
-    gap: 8px;
+    gap: 16px;
+    align-items: center;
+} 
+.dropdown_user_tools ul li{
+
+}
+/* JS classes */
+.show{
+    display: flex;
 }
