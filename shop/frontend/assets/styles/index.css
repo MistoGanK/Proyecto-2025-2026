@@ -31,21 +31,17 @@ header nav{
 .div_user_tool:nth-child(2){
     display:none;
 }
-
-/* Flex afther focus */
-#dropdown_button:focus-within .dropdown_menu_container{
-    display: flex;
-}
 /* dropdown menu overlay */
-.dropdown_menu_container button,
 .dropdown_menu,
 .dropdown_menu header,
+.dropdown_menu button,
 .dropdown_menu_ul,
 .dropdown_menu_ul ul,
 .dropdown_menu_ul ul li,
 .dropdown_user_tools,
 .dropdown_user_tools ul,
-.dropdown_user_tools ul li{
+.dropdown_user_tools ul li,
+.dropdown_menu_header_content{
     display: flex;
 }
 .dropdown_menu_container,
@@ -59,7 +55,10 @@ header nav{
     height: 100%;
     background-color: rgba(42, 54, 68, 0.78);
 }
-.dropdown_menu_container img{
+.dropdown_menu_container img,
+.dropdown_menu_container_backpacks img,
+.dropdown_menu_container_bags img,
+.dropdown_menu_container_about img{
     height: 24px;
 }
 .dropdown_menu{
@@ -67,8 +66,14 @@ header nav{
     background-color: var(--bgc-white);
     flex-direction: column;
 }
+.dropdown_menu button{
+    align-items: center;
+}
 .dropdown_menu header{
     justify-content: space-between;
+}
+.dropdown_menu_header_content{
+    gap: 8px;
 }
 .dropdown_menu_ul{
     background-color: var(--bgc-black-extra-transp-x2);
@@ -88,14 +93,22 @@ header nav{
     align-items: center;
     justify-content: space-between;
 }
+/* <a> Text underline */
+.header_nav_ul ul li a:focus,
+.header_nav_ul ul li a:hover,
+.header_nav_ul ul li a:active,
 .dropdown_menu_ul ul li a:focus,
 .dropdown_menu_ul ul li a:hover,
-.dropdown_menu_ul ul li a:active{   
+.dropdown_menu_ul ul li a:active,
+.dropdown_user_tools ul li a:nth-child(2):focus,
+.dropdown_user_tools ul li a:nth-child(2):hover,
+.dropdown_user_tools ul li a:nth-child(2):active
+{   
     box-shadow: 0 2px 0 0 var( --bgc-black);
     transition: text-decoration var(--transition-speed-fast);
 }
 .dropdown_user_tools{
-    margin-top: 100px;
+    margin-top: 36px;
     padding: 16px;
 }
 .dropdown_user_tools ul{
@@ -107,10 +120,31 @@ header nav{
     gap: 16px;
     align-items: center;
 } 
-.dropdown_user_tools ul li{
+/* Hero Section */
 
-}
+
+
 /* JS classes */
 .show{
     display: flex;
+}
+
+
+/* Media query */
+
+/*<-- Tablet ---> */
+@media (width >=  768px){
+    /* Header */
+}
+
+/*<-- Mobile ---> */
+@media (width >= 1024px){
+    /* Header */
+    .header_nav_ul,
+    .div_user_tool:nth-child(2){
+    display:flex;
+    }
+    .header_nav_dropdown{
+        display: none;
+    }
 }
