@@ -31,8 +31,8 @@ header nav{
 .div_user_tool:nth-child(2){
     display:none;
 }
-/* dropdown menu overlay */
-.dropdown_menu,
+/* dropdown menu overlay && flex containers*/
+.dropdown_menu, /* ---> Start Header */
 .dropdown_menu header,
 .dropdown_menu button,
 .dropdown_menu_ul,
@@ -41,7 +41,20 @@ header nav{
 .dropdown_user_tools,
 .dropdown_user_tools ul,
 .dropdown_user_tools ul li,
-.dropdown_menu_header_content{
+.dropdown_menu_header_content h2,
+.dropdown_menu_header_content, /* <--- End Header */
+.hero_section, /* ---> Start Hero Section */
+.hero_section_content,
+.hero_section_content,
+.hero_section_content_wrap, /* <--- End Hero Section */
+.explore_section,/* ---> Start Explore Section */
+.explore_section_content,
+.explore_section_article, /* <--- End Explore Section */
+.travel_section, /* ---> Start Travel Section */
+.travel_section_header,
+.card_content,
+.card_content_buttons,
+.card_content_buttons button{
     display: flex;
 }
 .dropdown_menu_container,
@@ -50,10 +63,10 @@ header nav{
 .dropdown_menu_container_bags{
     display: none;
     position: fixed;
-    z-index: 2;
+    z-index: 999;
     width: 100%;
     height: 100%;
-    background-color: rgba(42, 54, 68, 0.78);
+    background-color: var(--bgc-transp-behind);
 }
 .dropdown_menu_container img,
 .dropdown_menu_container_backpacks img,
@@ -71,6 +84,11 @@ header nav{
 }
 .dropdown_menu header{
     justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+}
+.dropdown_menu_header_content h2{
+    align-items: center;
 }
 .dropdown_menu_header_content{
     gap: 8px;
@@ -84,9 +102,16 @@ header nav{
     width: 100%;
     gap: 16px;
 }
+.dropdown_menu_ul li h3{
+    font-size: 0.9rem;
+}
+.dropdown_menu_ul li a{
+    font-size: 0.9rem;
+}
 .dropdown_menu_ul ul li,
 .dropdown_user_tools ul li{
     padding: 8px;
+    font-size: 0.9rem;
 }
 .dropdown_menu_ul ul li,
 .dropdown_menu_ul ul li button{
@@ -95,17 +120,27 @@ header nav{
 }
 /* <a> Text underline */
 .header_nav_ul ul li a:focus,
+.header_nav_ul ul li a:focus-visible,
 .header_nav_ul ul li a:hover,
 .header_nav_ul ul li a:active,
 .dropdown_menu_ul ul li a:focus,
+.dropdown_menu_ul ul li a:focus-visible,
 .dropdown_menu_ul ul li a:hover,
 .dropdown_menu_ul ul li a:active,
 .dropdown_user_tools ul li a:nth-child(2):focus,
+.dropdown_user_tools ul li a:nth-child(2):focus-visible,
 .dropdown_user_tools ul li a:nth-child(2):hover,
 .dropdown_user_tools ul li a:nth-child(2):active
 {   
     box-shadow: 0 2px 0 0 var( --bgc-black);
     transition: text-decoration var(--transition-speed-fast);
+    scale: 1.05;
+}
+button:hover,
+button:focus,
+button:active,
+button:focus-visible{
+    scale: 1.08;
 }
 .dropdown_user_tools{
     margin-top: 36px;
@@ -121,22 +156,207 @@ header nav{
     align-items: center;
 } 
 /* Hero Section */
+.hero_section{
+    width: 100%;
+    justify-content: center;
+}
+.hero_section_content{
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    aspect-ratio: 1 / 1;
+    background-image: url(/assets/img/hero/customBackPack.webp);
+    background-repeat: no-repeat;
+    background-size: contain; /* Fit the img to the container */
+    background-position:top; /* Center the img inside the container  */
+}
+.hero_section_content button{
+    padding: 10px 40px;
+    background-color: var(--bgc-black);
+    color: var(--bgc-white);
+    border-radius: 999px;
+    margin-bottom: 15vw;
+}
+.hero_section_content button:hover,
+.hero_section_content button:focus,
+.hero_section_content button:active{
+    background-color: var(--bgc-white);
+    color: var(--bgc-black);
+}
+/* Explore section */
+.explore_section{
+    flex-direction: column;
+}
+.explore_section header:nth-child(1){
+    border:none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 0.8rem;
+    margin-bottom: 32px;
+}
+.explore_section_content {
+    padding: 8px;
+    display: flex;
+    flex-direction: column; 
+    gap: 16px;
+    width: 100%;
+}
+.explore_section_article {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    height: 100px; 
+    gap: 16px; 
+    border: 1px solid var(--bgc-product-tranps-behind);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-product)
+}
+.explore_section_article_img {
+    flex-shrink: 0; 
+    flex-grow: 0;
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.explore_section_article_img img {
+    height: 100%;
+    width: auto;
+}
+.explore_section_content a:hover,
+.explore_section_content a:focus,
+.explore_section_content a:active{
+    scale: 1.04;
+    .explore_section_article_img{
+        opacity: 90%;
+    }
+    .explore_section_article_header h3{
+        box-shadow: 0 2px 0 0 var( --bgc-black);
+        transition: text-decoration var(--transition-speed-fast);
+    }
+}
+.explore_section_article_header {
+    flex-grow: 1;
+    width: 80%;
+    font-size: 0.8rem;
+    padding-right: 8px; 
+    height: 100%;
+    border: none;
+}
+/* Travel section  ---> News sections, can be modified, this is the template*/
 
-
+.travel_section,
+.travel_section_header{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: none;
+}
+.travel_section{
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.travel_section_header{
+    height: 120px;
+    gap: 6px;
+}
+.card_container {
+    position: relative; 
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+.card_background_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: fill; 
+    z-index: 1; 
+}
+.card_content {
+    position: relative; 
+    z-index: 2; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    padding: 16px;
+    height: 100%;
+    gap: 8px;
+}
+.card_container:hover,
+.card_container:focus,
+.card_container:active{
+    scale: 1.01;
+    cursor: pointer;
+}
+.card_content h3{
+    color: var(--bgc-white);
+    margin-bottom: 0.3rem;
+}
+.card_content_buttons{
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.card_content_buttons button{
+    align-items: center;
+    gap:6px;
+    background-color: var(--bgc-black-light-tranp);
+    padding: 5px 10px;
+    border-radius: 999px;
+}
+.card_content_buttons a{
+    display: none;
+    color: var(--bgc-white);
+}
+.card_content_buttons img{
+    width: 24px;
+}
 
 /* JS classes */
 .show{
     display: flex;
 }
 
-
 /* Media query */
 
 /*<-- Tablet ---> */
 @media (width >=  768px){
-    /* Header */
+    /* Hero section */
+    .hero_section_content{
+        background-image: url(/assets/img/hero/customBackPackLarge.webp);
+        width: 95vw;
+        max-width: 1200px; /* Limita el ancho total */
+        aspect-ratio: 16 / 9;
+    }
+    .hero_section_content button{
+        margin-bottom: 3.5rem;
+    }
+    /* Travel Container */
+    .card_container{
+        max-width: 500px;
+        border-radius: 8px;
+    }
+    .card_content h3{
+    color: var(--bgc-white);
+    margin-bottom: 1rem;
+    }
+    .card_content_buttons button{
+        width: 150px;
+        justify-content: space-between;
+    }
+    .card_content_buttons button a{
+        display: flex;
+    }
 }
-
 /*<-- Mobile ---> */
 @media (width >= 1024px){
     /* Header */
@@ -146,5 +366,42 @@ header nav{
     }
     .header_nav_dropdown{
         display: none;
+    }
+    /* Explore Section */
+    .explore_section_content {
+        display: grid; /* Cambiamos a cuadricula */
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 20px;
+        padding: 0 16px;
+    }
+    .explore_section_article {
+        flex-direction: column-reverse; /* Cambiamos la disposición de los elementos */
+        height: auto; 
+        text-align: center;
+        padding-bottom: 16px;
+        padding: 10px;
+    }
+    .explore_section_article_img {
+        width: 100%; 
+        height: 200px;
+        margin-bottom: 8px;
+    }
+    .explore_section_article img{
+        border-radius:5px;
+    }
+    .explore_section_article_header {
+        flex-grow: 0;
+        font-size: 1rem; 
+        padding-right: 0;
+        justify-content: center;
+        align-items: center;
+    }
+    /* Travel section */
+    .travel_section{
+        flex-direction: row;
+        justify-content: center;
+    }
+    .card_container{
+        max-width: 48%;
     }
 }
