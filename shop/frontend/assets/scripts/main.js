@@ -1,6 +1,10 @@
 //  Ensure content HTML elements are fits loaded
 document.addEventListener('DOMContentLoaded',(e)=>{
 
+// href
+const iconFavEmpty = 'assets/icons/favorite_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp';
+const iconFavFill = 'assets/icons/favorite_500dp_FEFFFE_FILL1_wght400_GRAD0_opsz48.webp';
+
 //<--- HTML elements declaration --->
 
 //HTML containers
@@ -27,6 +31,10 @@ const dropdown_bags_button_close = document.getElementById('dropdown_bags_button
 // Dropdown About
 const button_backwards_about = document.getElementById('button_backwards_about');
 const dropdown_about_button_close = document.getElementById('dropdown_about_button_close');
+
+// Favorite button
+const fav_button = document.getElementsByClassName('fav_button');
+
 
 //<--- Functions ---> 
 function toggleDropDownMenu(){
@@ -56,6 +64,23 @@ function toggleDropDownMenuAbout(){
 function closeDropDownMenuAbout(){
     dropdown_menu_container_about.classList.toggle('show');
 }
+
+function detectFavoriteClick(event){
+    console.log(event);
+    // Detect which button was clicked
+    const buttonClick = event.currentTarget;
+    // Detected the img
+    const icon = buttonClick.querySelector('img');
+
+    // Detect if filled or not 
+    if (icon.classList.contains('empty')){
+        icon.src = iconFavFill;
+        icon.classList.remove('empty');
+    }else{
+        icon.src = iconFavEmpty;
+        icon.classList.remove('empty');
+    }
+};
 // Buttons events
 
 // Dropdown buttons
@@ -77,5 +102,9 @@ dropdown_bags_button_close.addEventListener('click',closeDropDownMenuBags);
 // Dropdwon buttons about
 button_backwards_about.addEventListener('click',toggleDropDownMenuAbout);
 dropdown_about_button_close.addEventListener('click',closeDropDownMenuAbout);
+
+Array.from(fav_button).forEach(button => {
+    button.addEventListener('click', detectFavoriteClick);
+});
 
 });

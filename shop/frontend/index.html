@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    <header>
+    <header class="header_start">
       <nav>
         <div class="header_nav_dropdown">
           <button id="dropdown_button_show">
@@ -277,25 +277,14 @@
               <a href="#" title="Go to Our Story">Our Story</a>
             </li>
             <li>
-              <a href="#" title="Go to Crossbody Bags">Crossbody Bags</a>
-            </li>
-            <li>
-              <a href="#" title="Go to Laptop Bags">Laptop Bags</a>
-            </li>
-            <li>
-              <a href="#" title="Go to Tote Bags">Tote Bags</a>
-            </li>
-            <li>
-              <a href="#" title="Go to Pannier Bags">Pannier Bags</a>
-            </li>
-            <li>
-              <a href="#" title="Go to All Bags">All Bags</a>
+              <a href="#" title="Go to Our Stores">Our Stores</a>
             </li>
           </ul>
         </div>
       </nav>
     </div>
     <!-- Start of the main content -->
+
     <!-- Hero Sectioo -->
     <main>
       <section class="hero_section">
@@ -307,7 +296,7 @@
       </section>
       <!-- Explore Section -->
       <section class="explore_section">
-        <header>
+        <header class="explore_header">
           <h2>Explore styles for your next wherever</h2>
         </header>
         <div class="explore_section_content">
@@ -391,7 +380,7 @@
           </a>
         </div>
       </section>
-      <!-- Color your carry Section -->
+      <!-- Travel Section -->
       <section class="travel_section">
         <header class="travel_section_header">
           <h2>Built for fall getaways</h2>
@@ -407,21 +396,32 @@
             <h3>Impulsive Travel Backpack</h3>
             <div class="card_content_buttons">
               <button>
-                <a href="#" title="Buy product">Buy</a>
-                <img src="assets/icons/attach_money_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp" alt="Buy Product">
+                <a>Buy 180€</a>
+                <img
+                  src="assets/icons/attach_money_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                  alt="Buy Product"
+                />
               </button>
               <button>
-                <a href="#" title="Add to cart">Add to Cart</a>
-                <img src="assets/icons/add_shopping_cart_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp" alt="Add to Cart">
+                <a>Add to Cart</a>
+                <img
+                  src="assets/icons/add_shopping_cart_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                  alt="Add to Cart"
+                />
               </button>
-               <button>
-                <a href="#" title="Add to favorite">Add to Favorite</a>
-                <img src="assets/icons/favorite_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp" alt="Add to favorite">
+              <button class="fav_button">
+                <a>Add to Favorite</a>
+                <img
+                  class="fav_empty"
+                  id="icon_favorite"
+                  src="assets/icons/favorite_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                  alt="Add to favorite"
+                />
               </button>
             </div>
           </div>
         </div>
-         <div class="card_container">
+        <div class="card_container">
           <img
             src="assets/img/travel/travel_never_check.webp"
             alt="Imagen de fondo del artículo"
@@ -431,18 +431,266 @@
             <h3>Never Check Expandable Backpack</h3>
             <div class="card_content_buttons">
               <button>
-                <a href="#" title="Buy product">Buy</a>
-                <img src="assets/icons/attach_money_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp" alt="Buy Product">
+                <a href="#" title="Buy product">Buy 200€</a>
+                <img
+                  src="assets/icons/attach_money_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                  alt="Buy Product"
+                />
               </button>
               <button>
                 <a href="#" title="Add to cart">Add to Cart</a>
-                <img src="assets/icons/add_shopping_cart_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp" alt="Add to Cart">
+                <img
+                  src="assets/icons/add_shopping_cart_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                  alt="Add to Cart"
+                />
               </button>
-               <button>
+              <button>
                 <a href="#" title="Add to favorite">Add to Favorite</a>
-                <img src="assets/icons/favorite_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp" alt="Add to favorite">
+                <img
+                  src="assets/icons/favorite_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                  alt="Add to favorite"
+                />
               </button>
             </div>
+          </div>
+        </div>
+      </section>
+      <!-- Hot sellers section -->
+      <section class="hot_sellers_section">
+        <header class="hot_seller_header">
+          <h2>Hot Sellers</h2>
+          <p>Styles everyone's got to have</p>
+        </header>
+        <div class="hot_sellers_container">
+          <article class="hot_seller">
+            <div class="hot_seller_content">
+              <img
+                src="assets/img/travel/travel_impulse.webp"
+                alt="Imagen de fondo del artículo"
+                class="card_background_img"
+              />
+              <h3>Impulsive Travel Backpack</h3>
+              <div class="card_content_buttons">
+                <button>
+                  <a>Buy</a>
+                  <img
+                    src="assets/icons/attach_money_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Buy Product"
+                  />
+                </button>
+                <button>
+                  <a>Add to Cart</a>
+                  <img
+                    src="assets/icons/add_shopping_cart_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Add to Cart"
+                  />
+                </button>
+                <button class="fav_button">
+                  <a>Add to Favorite</a>
+                  <img
+                    class="fav_empty"
+                    id="icon_favorite"
+                    src="assets/icons/favorite_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Add to favorite"
+                  />
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="hot_seller">
+            <div class="hot_seller_content">
+              <img
+                src="assets/img/travel/travel_impulse.webp"
+                alt="Imagen de fondo del artículo"
+                class="card_background_img"
+              />
+              <h3>Impulsive Travel Backpack</h3>
+              <div class="card_content_buttons">
+                <button>
+                  <a>Buy</a>
+                  <img
+                    src="assets/icons/attach_money_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Buy Product"
+                  />
+                </button>
+                <button>
+                  <a>Add to Cart</a>
+                  <img
+                    src="assets/icons/add_shopping_cart_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Add to Cart"
+                  />
+                </button>
+                <button class="fav_button">
+                  <a>Add to Favorite</a>
+                  <img
+                    class="fav_empty"
+                    id="icon_favorite"
+                    src="assets/icons/favorite_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Add to favorite"
+                  />
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="hot_seller">
+            <div class="hot_seller_content">
+              <img
+                src="assets/img/travel/travel_impulse.webp"
+                alt="Imagen de fondo del artículo"
+                class="card_background_img"
+              />
+              <h3>Impulsive Travel Backpack</h3>
+              <div class="card_content_buttons">
+                <button>
+                  <a>Buy</a>
+                  <img
+                    src="assets/icons/attach_money_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Buy Product"
+                  />
+                </button>
+                <button>
+                  <a>Add to Cart</a>
+                  <img
+                    src="assets/icons/add_shopping_cart_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Add to Cart"
+                  />
+                </button>
+                <button class="fav_button">
+                  <a>Add to Favorite</a>
+                  <img
+                    class="fav_empty"
+                    id="icon_favorite"
+                    src="assets/icons/favorite_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Add to favorite"
+                  />
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="hot_seller">
+            <div class="hot_seller_content">
+              <img
+                src="assets/img/travel/travel_impulse.webp"
+                alt="Imagen de fondo del artículo"
+                class="card_background_img"
+              />
+              <h3>Impulsive Travel Backpack</h3>
+              <div class="card_content_buttons">
+                <button>
+                  <a>Buy</a>
+                  <img
+                    src="assets/icons/attach_money_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Buy Product"
+                  />
+                </button>
+                <button>
+                  <a>Add to Cart</a>
+                  <img
+                    src="assets/icons/add_shopping_cart_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Add to Cart"
+                  />
+                </button>
+                <button class="fav_button">
+                  <a>Add to Favorite</a>
+                  <img
+                    class="fav_empty"
+                    id="icon_favorite"
+                    src="assets/icons/favorite_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Add to favorite"
+                  />
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="hot_seller">
+            <div class="hot_seller_content">
+              <img
+                src="assets/img/travel/travel_impulse.webp"
+                alt="Imagen de fondo del artículo"
+                class="card_background_img"
+              />
+              <h3>Impulsive Travel Backpack</h3>
+              <div class="card_content_buttons">
+                <button>
+                  <a>Buy</a>
+                  <img
+                    src="assets/icons/attach_money_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Buy Product"
+                  />
+                </button>
+                <button>
+                  <a>Add to Cart</a>
+                  <img
+                    src="assets/icons/add_shopping_cart_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Add to Cart"
+                  />
+                </button>
+                <button class="fav_button">
+                  <a>Add to Favorite</a>
+                  <img
+                    class="fav_empty"
+                    id="icon_favorite"
+                    src="assets/icons/favorite_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Add to favorite"
+                  />
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="hot_seller">
+            <div class="hot_seller_content">
+              <img
+                src="assets/img/travel/travel_impulse.webp"
+                alt="Imagen de fondo del artículo"
+                class="card_background_img"
+              />
+              <h3>Impulsive Travel Backpack</h3>
+              <div class="card_content_buttons">
+                <button>
+                  <a>Buy</a>
+                  <img
+                    src="assets/icons/attach_money_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Buy Product"
+                  />
+                </button>
+                <button>
+                  <a>Add to Cart</a>
+                  <img
+                    src="assets/icons/add_shopping_cart_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Add to Cart"
+                  />
+                </button>
+                <button class="fav_button">
+                  <a>Add to Favorite</a>
+                  <img
+                    class="fav_empty"
+                    id="icon_favorite"
+                    src="assets/icons/favorite_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Add to favorite"
+                  />
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- New product presentation Section -->
+       <section class="new_product_section">
+        <header class="new_product_header">
+            <h2>Tech ready</h2>
+            <p>Smart storage and padded protection for workday essentials.</p>
+        </header>
+          <div class="new_product_content">
+            <div class="new_button_container">
+            <button class="new_button">Buy 200€
+              <img src="assets/icons/attach_money_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp" alt="">
+            </button>
+            <button class="new_button">Add to cart
+              <img src="assets/icons/add_shopping_cart_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp" alt="">
+            </button>
+            <button class="new_button">Add to favorite
+              <img src="assets/icons/favorite_500dp_FEFFFE_FILL1_wght400_GRAD0_opsz48.webp" alt="">
+            </button>
           </div>
         </div>
       </section>
