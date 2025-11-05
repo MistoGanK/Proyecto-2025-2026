@@ -1,0 +1,335 @@
+:root{
+    /* Backgrounds & texts */
+    --bgc-white:#FEFFFE;
+    --bgc-white-transp: #fefffe9f;
+    --bgc-black:#0A090C;
+    --bgc-black-footer:#131116e6;
+    --bgc-black-light-tranp:#0a090c86;
+    --bgc-black-transp:#0a090c58;
+    --bgc-black-extra-transp:#0a090c2c;
+    --bgc-black-extra-transp-x2:#0a090c04;
+    --bgc-black-transp-button:#0a090c0a;
+    --bgc-transp-behind:rgba(42, 54, 68, 0.78);
+    --bgc-product-tranps-behind: #e0e0e0;
+    --box-shadow-product: 0 4px 8px rgba(0, 0, 0, 0.05); /* horizontal vertical difuminación %opacidad */
+    /* Alloow animation on auto height elements */
+    interpolate-size: allow-keywords;
+
+    /* Transitions */
+    /* <a> text transition */
+    --transition-speed-fast: 0.2s;
+    --transition-standard: 0.3s ease-in-out;
+    --timing-ease: ease-in-out;
+}   
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+*:focus{
+    outline: none;
+}
+button{
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+/* Space Grotesk (Display/Branding) */
+
+/* Font title bold */
+@font-face {
+    font-family: 'Space-Grotesk-Bold';
+    src: url(../../assets/fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf);
+}
+/* Font title semi bold */
+@font-face{
+    font-family: 'Space-Grotesk-Semi-Bold';
+    src: url(../../assets/fonts/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf);
+}
+/* Font title medium */
+@font-face{
+    font-family: 'Space-Grotesk-Medium';
+    src: url(../../assets/fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf);
+}
+/* Font title light */
+@font-face{
+    font-family: 'Space-Grotesk-Light';
+    src: url(../../assets/fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf);
+}
+/* Font title regular */
+@font-face{
+    font-family: 'Space-Grotesk-Regular';
+    src: url(../../assets/fonts/Space_Grotesk/static/SpaceGrotesk-Regular.ttf);
+}
+@font-face{
+    font-family: 'Space-Grotesk-Variable';
+    src: url(../../assets/fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf);
+}
+/* Headings bold (h1,2)*/
+@font-face{
+    font-family: 'Robot-Mono-Bold';
+    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-Bold.ttf);
+}
+
+/* Headings bold italic*/
+@font-face{
+    font-family:'Roboto-Mono-Bold';
+    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-BoldItalic.ttf);
+}
+/* Headings semi bold */
+@font-face{
+    font-family: 'Roboto-Mono-Semi-Bold';
+    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf);
+}
+/* Headings semi bold italic */
+@font-face{
+    font-family: 'Roboto-Mono-Semi-Bold-Italic';
+    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-SemiBoldItalic.ttf);
+}
+/* Headings medium */
+@font-face{
+    font-family: 'Roboto-Mono-Meidium';
+    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-Medium.ttf);
+}
+/* Heading medium italic */
+@font-face {
+    font-family: 'Robot-Mono-Medium-Italic';
+    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-MediumItalic.ttf);
+}
+/* Heading regular */
+@font-face{
+    font-family: 'Roboto-Mono-Regular';
+    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf);
+}
+/* Heading light */
+@font-face{
+    font-family: 'Roboto-Mono-Light';
+    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-Light.ttf);
+}
+/* Heading light italic */
+@font-face {
+    font-family: 'Roboto-Mono-Light-Italic';
+    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-LightItalic.ttf);
+}
+/* Heading extra light */
+@font-face {
+    font-family: 'Roboto-Mono-Extra-Light' ;
+    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-ExtraLight.ttf);
+}
+/* Heading extra light Italic */
+@font-face{
+    font-family: 'Roboto-Mono-Extra-Light-Italic';
+    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-ExtraLightItalic.ttf);
+}
+/* Heading thin */
+@font-face{
+    font-family: 'Roboto-Mono-Thin';
+    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-Thin.ttf);
+}
+/* Headin thin Italic */
+@font-face{
+    font-family: 'Roboto-Mono-Thin-Italic';
+    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-ThinItalic.ttf);
+}
+/* Heading Variable */
+@font-face {
+    font-family: 'Roboto-Mono-Variable';
+    src: url(../../assets/fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf);
+}
+/* Heading Variable Italic */
+@font-face{
+    font-family: 'Roboto-Mono-Variable-Italic';
+    src: url(../../assets/fonts/Roboto_Mono/RobotoMono-Italic-VariableFont_wght.ttf);
+}
+
+/* Noto Sans (Content Text) */
+
+/* Content text Black*/
+@font-face {
+    font-family: 'Noto-Sans-Black';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-Black.ttf);
+}
+
+/* Content text Extra Bold*/
+@font-face {
+    font-family: 'Noto-Sans-Extra-Bold';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-ExtraBold.ttf);
+}
+
+/* Content text Extra Bold Italic*/
+@font-face {
+    font-family: 'Noto-Sans-Extra-Bold-Italic';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-ExtraBoldItalic.ttf);
+}
+
+/* Content text Bold*/
+@font-face {
+    font-family: 'Noto-Sans-Bold';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-Bold.ttf);
+}
+
+/* Content text Bold Italic*/
+@font-face {
+    font-family: 'Noto-Sans-Bold-Italic';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-BoldItalic.ttf);
+}
+
+/* Content text Semi Bold */
+@font-face {
+    font-family: 'Noto-Sans-Semi-Bold';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-SemiBold.ttf);
+}
+
+/* Content text Semi Bold Italic*/
+@font-face {
+    font-family: 'Noto-Sans-Semi-Bold-Italic';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-SemiBoldItalic.ttf);
+}
+
+/* Content text Medium*/
+@font-face {
+    font-family: 'Noto-Sans-Medium';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-Medium.ttf);
+}
+
+/* Content text Medium Italic */
+@font-face {
+    font-family: 'Noto-Sans-Medium-Italic';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-MediumItalic.ttf);
+}
+
+/* Content text Regular*/
+@font-face {
+    font-family: 'Noto-Sans-Regular';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-Regular.ttf);
+}
+
+/* Content text Light*/
+@font-face {
+    font-family: 'Noto-Sans-Light';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-Light.ttf);
+}
+
+/* Content text Light Italic*/
+@font-face {
+    font-family: 'Noto-Sans-Light-Italic';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-LightItalic.ttf);
+}
+
+/* Content text Extra Light*/
+@font-face {
+    font-family: 'Noto-Sans-Extra-Light';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-ExtraLight.ttf);
+}
+
+/* Content text Extra Light Italic*/
+@font-face {
+    font-family: 'Noto-Sans-Extra-Light-Italic';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-ExtraLightItalic.ttf);
+}
+
+/* Content text Thin Italic*/
+@font-face {
+    font-family: 'Noto-Sans-Thin';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-Thin.ttf);
+}
+
+/* Content text Thin Italic*/
+@font-face {
+    font-family: 'Noto-Sans-Thin';
+    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-ThinItalic.ttf);
+}
+/* Content text Variable Font */
+@font-face{
+    font-family: 'Noto-Sans-Variable';
+    src: url(../../assets/fonts/Noto_Sans/NotoSans-VariableFont_wdth\,wght.ttf);
+}
+/* Content text Variable Font Italic*/
+@font-face{
+    font-family: 'Noto-Sans-Variable-Italic';
+    src: url(../../assets/fonts/Noto_Sans/NotoSans-Italic-VariableFont_wdth\,wght.ttf);
+}
+
+/* Font headers */
+html{
+    width: 100%;
+    height: 100%;
+}
+/* All elements with display FLEX */
+body,
+main,
+header,
+footer,
+nav,
+section{
+    display: flex;
+    width: 100%;
+}
+/* All elements with display GRID */
+
+body{
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+main{
+    flex-direction: column;
+}
+header{
+    height: 56px;
+}
+/* All H */
+
+h1,
+h1 a{
+    font-family: 'Space-Grotesk-Bold';
+}
+
+h2,
+h2 a{
+    font-family: 'Roboto-Mono-Bold';
+}
+
+h3,
+h3 a{
+    font-family: 'Roboto-Mono-Semi-Bold';
+}
+
+h4,
+h4 a{
+    font-family: 'Roboto-Mono-Medium';
+}
+/* Font text & hiperlinks */
+p{
+    font-family: 'Noto-Sans-Regular';
+}
+
+a{
+    font-family: 'Noto-Sans-Medium-Italic';
+}
+button{
+    font-family: 'Noto-Sans-Bold';
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a{
+    color: var(--bgc-black);
+}
+body{
+    background-color: var(--bgc-white);
+}
+button:hover{
+    cursor: pointer;
+}
+
+@media (width > 480px) {
+  
+}
+@media (width > 768px){
+}
