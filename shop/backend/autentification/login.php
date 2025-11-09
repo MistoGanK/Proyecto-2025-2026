@@ -25,8 +25,7 @@
             // Preparamos la query
             $query = "
                 SELECT 
-                    username
-                    user_password
+                    *
                 FROM 
                     `022_customers`
                 WHERE 
@@ -48,25 +47,12 @@
                     echo 'Incorrecto Usuario o Contraseña'; 
                 }else{
                     // Guardamos la autentificación del usuario en nuestra superglobal season
-                    // Obtenemos el id_customer
-                    $id_customer_query = "
-                        SELECT 
-                            id_customer 
-                        FROM 
-                            `022_customers`
-                        WHERE 
-                            username = '$username'
-                            AND
-                            user_password = '$password'
-                        ";
-                    $id_customer_query_result = mysqli_query($conn,$id_customer_query);
-                    $id_customer = mysqli_fetch_assoc($id_customer_query_result);
-                    
+                    $assocResult = mysqli_fetch_assoc($queryResult);
 
                     $_SESSION['username'] = $username;
                     $_SESSION['password'] = $password;
-                    $_SESSION['id_customer'] = $id_customer['id_customer'];
-
+                    $_SESSION['id_customer'] = $assocResult['id_customer'];
+                    $_SESSION['role'] = $assocResult['role'];
 
                     // Redirigimos a adminPanel
                     header('Location: /student022/shop/backend/admin_panel.php');

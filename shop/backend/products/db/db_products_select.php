@@ -84,15 +84,20 @@ foreach($products as $product){
                     echo"</div>";
                     // Form Buttons container
                         echo("<div class='flex justify-evenly items-end h-full'>");
+
                             // Delete Button Container
+                            if (!$_SESSION['role'] == 'Admin' || !isset($_SESSION['role'])){
+
+                            }else{
                             echo"<div class='p-1
-                            hover:cursor-pointer
-                            hover:text-white
-                            hover:bg-red-600
-                            hover:rounded-md
-                            '>";
+                                hover:cursor-pointer
+                                hover:text-white
+                                hover:bg-red-600
+                                hover:rounded-md
+                                '>";
                                 include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/products/form_product_delete_call.php');
-                            echo"</div>";
+                                echo"</div>";
+                            }
                             // Select Button Container
                             echo"<div class='p-1
                            hover:text-[#ffffff]
@@ -102,15 +107,20 @@ foreach($products as $product){
                             '>";
                                 include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/products/form_product_select.php');
                             echo"</div>";
-                            // Update Button Container
-                            echo"<div class='p-1
-                            hover:text-[#ffffff]
-                            hover:rounded-md
-                            hover:bg-[#000001]
-                            cursor-pointer
-                            '>";
+
+                            if (!$_SESSION['role'] == 'Admin' || !isset($_SESSION['role'])){
+
+                            }else{
+                                // Update Button Container
+                                echo"<div class='p-1
+                                hover:text-[#ffffff]
+                                hover:rounded-md
+                                hover:bg-[#000001]
+                                cursor-pointer
+                                '>";
                                 include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/products/form_product_update_call.php');
                             echo"</div>";
+                            }
                             // Add to cart button
                              echo"<div class='p-1
                             hover:text-[#ffffff]

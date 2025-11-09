@@ -1,4 +1,5 @@
-<?php session_start() ?>
+<?php session_start();
+$role = $_SESSION['role'] ?? 'guest'; ?>
 <script>
     function closeAndRedirectLogin() {
         // Redirect en del logout
@@ -39,15 +40,23 @@
                         class="flex justify-start items-center w-full h-full p-3
                          font-sans font-semibold">Products</a>
                 </div>
-                <div class="flex justify-start items-center w-full h-10 mb-3
-                    hover:text-[#ffffff]
-                    hover:rounded-md
-                    hover:bg-gray-800/40
-                    cursor-pointer">
-                    <a href="/student022/shop/backend/customers/customers.php"
+                <?php 
+                    if ( $_SESSION['role'] !== 'Admin' || !isset($_SESSION['role'])){
+                           
+                    }else{
+                        echo '
+                          <div class="flex justify-start items-center w-full h-10 mb-3
+                        hover:text-[#ffffff]
+                        hover:rounded-md
+                        hover:bg-gray-800/40
+                        cursor-pointer">
+
+                        <a href="/student022/shop/backend/customers/customers.php"
                         class="flex justify-start items-center w-full h-full p-3
                          font-sans font-semibold">Customers</a>
-                </div>
+                        </div>';
+                    }
+                ?>
                 <div class="flex justify-start items-center w-full h-10 mb-3
                     hover:text-[#ffffff]
                     hover:rounded-md
@@ -80,10 +89,10 @@
             <div class="flex flex-row w-full h-full items-center justify-end">
                 <div class="flex w-fit h-full justify-end items-center gap-3">
                     <p class="flex justfity-center items-center
-                text-[#0A090C]
-                font-semibold
-                font-sans
-                ">hola</p>
+                    text-[#0A090C]
+                    font-semibold
+                    font-sans
+                    ">Welcome <?php print_r($_SESSION['username']);?> Role: <?php print_r($_SESSION['role']);?></p>
                     <?php
                     // Si hay usuario logeado
                     if (isset($_SESSION['username'])) {

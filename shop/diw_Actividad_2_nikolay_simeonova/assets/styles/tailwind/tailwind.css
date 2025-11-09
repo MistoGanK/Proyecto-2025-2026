@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@theme {
+  /* Colors */
+    --white:#FEFFFE;
+    --white-transp: #fefffe9f;
+    --black:#0A090C;
+    --grey-black:#131116e6;
+    --black-tranp-x1:#0a090c86;
+    --black-transp-x2:#0a090c58;
+    --black-tranps-x3:#0a090c2c;
+    --black-tranps-x4:#0a090c04;
+    --black-transp-x5:#0a090c0a;
+    --greysh-blue-tranps:rgba(42, 54, 68, 0.78);
+    --white-tranps-x1: #e0e0e0;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* horizontal vertical difuminación %opacidad */
+  /* Fonts */
+
+  /* Transitions */
+    --transition-speed-fast: 0.2s;
+    --transition-standard: 0.3s ease-in-out;
+    --timing-ease: ease-in-out;
+}
+@layer components{
+  @font-face {
+    font-family: 'Space-Grotesk-Bold';
+    src: url(../../assets/fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf);
+}
+  .product{
+      @apply bg-amber-50;
+      
+  }
+}

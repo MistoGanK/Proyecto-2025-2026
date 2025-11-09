@@ -190,7 +190,7 @@ button:focus-visible{
     align-items: center;
     justify-content: flex-end;
     aspect-ratio: 1 / 1;
-    background-image: url(/assets/img/hero/customBackPack.webp);
+    background-image: url(/DIW_ACTIVIDAD_2_NIKOLAY_SIMEONOVA/assets/img/hero/customBackPack.webp);
     background-repeat: no-repeat;
     background-size: contain; /* Fit the img to the container */
     background-position:top; /* Center the img inside the container  */
@@ -261,7 +261,7 @@ button:focus-visible{
         opacity: 90%;
     }
     .explore_section_article_header h3{
-        box-shadow: 0 2px 0 0 var( --bgc-black);
+        box-shadow: 0 2px 0 0 var(--bgc-black);
         transition: text-decoration var(--transition-speed-fast);
     }
 }
@@ -426,7 +426,7 @@ button:focus-visible{
     max-width: 600px; 
     aspect-ratio: 1 / 1;
     padding: 16px; 
-    background-image: url('/assets/img/tech_ready/tech_ready.webp');
+    background-image: url(/DIW_ACTIVIDAD_2_NIKOLAY_SIMEONOVA/assets/img/tech_ready/tech_ready.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -675,7 +675,7 @@ button:focus-visible{
 @media (width >=  768px){
     /* Hero section */
     .hero_section_content{
-        background-image: url(/assets/img/hero/customBackPackLarge.webp);
+        background-image: url(/DIW_ACTIVIDAD_2_NIKOLAY_SIMEONOVA/assets/img/hero/customBackPackLarge.webp);
         width: 95vw;
         max-width: 1200px; /* Limita el ancho total */
         aspect-ratio: 16 / 9;

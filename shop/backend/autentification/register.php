@@ -46,12 +46,23 @@ if (isset($_SESSION['username'])) {
             } else {
                 // Insertamos nuestro neuvo cliente y guardamos sus credenciales para el session
                 $queryInsert = "
-            INSERT INTO `022_customers` (username,user_password,email)
-            VALUES ('$username','$password','$email')
-            ;";
+                    INSERT INTO `022_customers` (username,user_password,email)
+                    VALUES ('$username','$password','$email')
+                    ;";
 
                 $queryResulInsert = mysqli_query($conn, $queryInsert);
-
+            
+                // Get the role of the customer (NO CUSTOMER ON STANDART LOGIN WILL BE ADMIN)
+                $queryRole = "
+                    SELECT role 
+                    FROM `022_customer`
+                    WHERE
+                        username = $username,
+                        user_password = $password,
+                        email = $email";
+                        
+                $queryResultRole = mysqli_fetch_assoc(mysqli_query($conn,$queryRole));
+                $role = $queryResultRole['role'];
                 // Finished all the querys whe close the connection with the db
                 mysqli_close($conn);
 
@@ -59,6 +70,7 @@ if (isset($_SESSION['username'])) {
                 $_SESSION["username"] = $username;
                 $_SESSION["password"] = $password;
                 $_SESSION["email"] = $email;
+                $_SESSION["role"] = $role;
 
                 // Debug
                 // print_r($_SESSION);
