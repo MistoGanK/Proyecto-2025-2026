@@ -66,6 +66,7 @@ function closeDropDownMenuAbout(){
 }
 
 function detectFavoriteClick(event){
+    console.log("holoa");
     console.log(event);
     // Detect which button was clicked
     const buttonClick = event.currentTarget;

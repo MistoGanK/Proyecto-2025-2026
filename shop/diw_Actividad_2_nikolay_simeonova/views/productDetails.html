@@ -1,15 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/assets/favicon/brand2WhiteBlack.png" type="image/x-icon"/>
-  <link rel="stylesheet" href="/assets/styles/tailwind/outputTailwind.css">
-  <title>Product Detail</title>
-</head>
-<body>
-  
-  <script src="/assets/scripts/productDetails.js"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="../assets/favicon/brand2WhiteBlack.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../assets/styles/tailwind/tailwindOut.css" />
+    <link rel="stylesheet" href="../assets/styles/tailwindOut.css">
+    <title>Product Detail</title>
+  </head>
+  <body>
+    <header class="header_start">
+      <nav class="header_nav">
+        <div class="header_nav_dropdown">
+          <button id="dropdown_button_show">
+            <img
+              src="../assets/icons/menu_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+              alt="dropdown_icon"
+              title="dropdown"
+            />
+          </button>
+        </div>
+        <div class="header_nav_logo">
+          <h1><a href="#" title="Go to Home">BRAND2</a></h1>
+        </div>
+        <div class="header_nav_ul">
+          <ul>
+            <li><a href="#" title="Go to custom">Custom</a></li>
+            <li><a href="#" title="Go to backpacks">Backpacks</a></li>
+            <li><a href="#" title="Go to bags">Bags</a></li>
+            <li><a href="#" title="Go to luggages">Luggages</a></li>
+            <li><a href="#" title="Go to accesories">Accesories</a></li>
+            <li><a href="#" title="Go to sales">Sale</a></li>
+            <li><a href="#" title="Go to about brand2">About Brand2</a></li>
+          </ul>
+        </div>
+        <div class="header_nav_user_tools">
+          <div class="div_user_tool">
+            <button>
+              <img
+                src="../assets/icons/search_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                alt="Search icon"
+                title="Search"
+              />
+            </button>
+          </div>
+          <div class="div_user_tool">
+            <a href="#" title="Go to my acocunt">
+              <img
+                src="../assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                alt="User icon"
+              />
+            </a>
+          </div>
+          <div class="div_user_tool">
+            <button>
+              <img
+                src="../assets/icons/local_mall_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp"
+                alt="Shopping Bag icon"
+                title="My shopping bag"
+              />
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- Overlay movile dropdown menu -->
+    <script src="../assets/scripts/productDetails.js"></script>
+  </body>
 </html>

@@ -1,4 +1,5 @@
 /*! tailwindcss v4.1.17 | MIT License | https://tailwindcss.com */
+@layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -6,11 +7,11 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-fuchsia-500: oklch(66.7% 0.295 322.15);
     --spacing: 0.25rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --white: #fefffe;
+    --black: #0a090c;
     --transition-speed-fast: 0.2s;
   }
 }
@@ -326,13 +327,95 @@
   }
 }
 @layer components {
+  h1, h1 a {
+    font-family: "Space-Grotesk-Bold";
+  }
+  h2, h2 a {
+    font-family: "Roboto-Mono-Bold";
+  }
+  h3, h3 a {
+    font-family: "Roboto-Mono-Semi-Bold";
+  }
+  h4, h4 a {
+    font-family: "Roboto-Mono-Medium";
+  }
+  p {
+    font-family: "Noto-Sans-Regular";
+  }
+  a {
+    font-family: "Noto-Sans-Medium-Italic";
+  }
+  button {
+    font-family: "Noto-Sans-Bold";
+  }
+  h1, h2, h3, h4, p, a {
+    color: var(--black);
+  }
   html, body {
+    display: flex;
     height: 100%;
     width: 100%;
+    flex-direction: column;
     background-color: var(--white);
   }
+  body {
+    position: relative;
+  }
   .header_start {
-    height: calc(var(--spacing) * 12);
-    width: calc(var(--spacing) * 12);
+    display: flex;
+    height: calc(var(--spacing) * 14);
+    width: 100%;
+    padding: calc(var(--spacing) * 2);
+  }
+  .header_start img:hover, .header_start img:focus, .header_start img:active, .header_start button:hover, .header_start button:focus, .header_start button:active, .header_nav_ul ul li a:hover, .header_nav_ul ul li a:focus, .header_nav_ul ul li a:active {
+    --tw-scale-x: 110%;
+    --tw-scale-y: 110%;
+    --tw-scale-z: 110%;
+    scale: var(--tw-scale-x) var(--tw-scale-y);
+    cursor: pointer;
+  }
+  .header_nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header_nav img {
+    height: calc(var(--spacing) * 6);
+  }
+  .header_nav_logo, .header_nav_user_tools {
+    display: flex;
+    gap: calc(var(--spacing) * 2);
+  }
+  .header_nav_ul {
+    position: fixed;
+    display: none;
+  }
+  .header_nav_ul ul {
+    gap: calc(var(--spacing) * 4);
+  }
+}
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-scale-z: 1;
+    }
   }
 }

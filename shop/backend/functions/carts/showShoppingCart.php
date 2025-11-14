@@ -1,41 +1,13 @@
-<script>
-    function redirectIfAdmin(){
-        window.location('/student022/shop/backend/index.php');
-    };
-</script>
-<?php 
-    // Redirect if Admin is trying to enter on shopping cart
-if ($_SESSION['role'] == 'Admin' || isset($_SESSION['role'])) {
-    // On progress
-};
-?>
-
-<section class="flex flex-row flex-wrap h-fit p-5 gap-5 items-center justify-center">
-    <div class="w-full mb-6 border-b border-gray-200 pb-2">
-        <h1 class="text-3xl font-bold  text-[#0A090C] ">Shopping Cart</h1>
-        <div class="flex w-full justify-center items-center">
-            <!-- Se convertira en el boton de comprar -->
-            <div class="flex w-fit justify-center items-center p-3 
-                bg-[#0A090C] 
-                text-[#FEFFFE] 
-                font-semibold
-                rounded-md 
-                hover:cursor-pointer 
-                hover:bg-[#2c2732]">
-                <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/products/form_product_insert_call.php'); ?>
-            </div>
-        </div>
-    </div>
-
-    <!-- Logical fragment -->
-    <?php
+<?php
     // Debug 
     // print_r($_POST); 
     // Variables
     $product_output = "No product selected or found";
 
     // Before starting the query, check If the variable was sended and that the variabel is not empty
-
+    function showShoppingCart (){
+      
+    }
     if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
         $id_product = null;
     }
@@ -86,12 +58,12 @@ if ($_SESSION['role'] == 'Admin' || isset($_SESSION['role'])) {
                     }
                     // Parent container of product
                     echo "<div class='flex flex-col h-full max-h-110 flex-shrink-0 basis-[calc(33.33%-1.25rem)] 
-                    shadow-xl p-4
-                    rounded-lg
-                    bg-white
-                    border
-                    border-gray-700/20
-                    '>";
+                     shadow-xl p-4
+                     rounded-lg
+                     bg-white
+                     border
+                     border-gray-700/20
+                     '>";
                     // Product Container
                     echo "<div class='flex flex-col w-full h-full font-sans'>";
                     echo "<h2 class='flex justify-start items-center mb-5 text-xl font-semibold'>" . $row['product_name'] . "</h2>";
@@ -138,8 +110,3 @@ if ($_SESSION['role'] == 'Admin' || isset($_SESSION['role'])) {
     <?php
 
     ?>
-</section>
-<!-- Footer -->
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
-<script src="/student022/shop/backend/functions/deleteCart.js"></script>
-<script src="/student022/shop/backend/functions/carts/searchForProduct.js"></script>

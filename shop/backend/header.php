@@ -1,11 +1,15 @@
 <?php session_start();
-$role = $_SESSION['role'] ?? 'guest'; ?>
+$role = $_SESSION['role'] ??  $_SESSION['role'] = 'guest';
+$usernmae = $_SESSION['usernmae'] ?? $_SESSION['usernmae'] = 'guest';
+$root = $_SERVER['DOCUMENT_ROOT'];
+?>
 <script>
     function closeAndRedirectLogin() {
         // Redirect en del logout
         window.location.href = "/student022/shop/backend/autentification/logout/logout.php";
     };
-    function redirectLogin(){
+
+    function redirectLogin() {
         window.location.href = "/student022/shop/backend/autentification/login.php";
     };
 </script>
@@ -40,32 +44,33 @@ $role = $_SESSION['role'] ?? 'guest'; ?>
                         class="flex justify-start items-center w-full h-full p-3
                          font-sans font-semibold">Products</a>
                 </div>
-                <?php 
-                    if ( $_SESSION['role'] !== 'Admin' || !isset($_SESSION['role'])){
-                           
-                    }else{
-                        echo '
-                          <div class="flex justify-start items-center w-full h-10 mb-3
-                        hover:text-[#ffffff]
-                        hover:rounded-md
-                        hover:bg-gray-800/40
-                        cursor-pointer">
+                <?php
+                // Only Admin && Customer logged can  see Products, Orders , Customer (Own Customer)
+                if ($_SESSION['role'] !== 'Admin' || !isset($_SESSION['role'])) {
+                } else {
+                    echo '
+                        <div class="flex justify-start items-center w-full h-10 mb-3
+                            hover:text-[#ffffff]
+                            hover:rounded-md
+                            hover:bg-gray-800/40
+                            cursor-pointer">
 
                         <a href="/student022/shop/backend/customers/customers.php"
-                        class="flex justify-start items-center w-full h-full p-3
+                            class="flex justify-start items-center w-full h-full p-3
                          font-sans font-semibold">Customers</a>
-                        </div>';
-                    }
-                ?>
-                <div class="flex justify-start items-center w-full h-10 mb-3
-                    hover:text-[#ffffff]
-                    hover:rounded-md
-                    hover:bg-gray-800/40
-                    cursor-pointer">
-                    <a href="/student022/shop/backend/orders/orders.php"
-                        class="flex justify-start items-center w-full h-full p-3
+                        </div>
+                    
+                        <div class="flex justify-start items-center w-full h-10 mb-3
+                            hover:text-[#ffffff]
+                            hover:rounded-md
+                            hover:bg-gray-800/40
+                        cursor-pointer">
+                        <a href="/student022/shop/backend/orders/orders.php"
+                            class="flex justify-start items-center w-full h-full p-3
                          font-sans font-semibold">Orders</a>
-                </div>
+                    </div>';
+                }
+                ?>
             </div>
         </nav>
     </header>
@@ -75,7 +80,6 @@ $role = $_SESSION['role'] ?? 'guest'; ?>
             <form action="#" method="GET" class="flex justify-center items-center p-3 w-110 min-w-50">
                 <input type="search"
                     id="input_search"
-                    value="search..."
                     class="w-full h-10 p-3
                       text-gray-500/80
                       border 
@@ -84,15 +88,18 @@ $role = $_SESSION['role'] ?? 'guest'; ?>
                       focus:outline-none
                       focus:border-[#0A090C] 
                       focus:ring 
-                      focus:ring-[#0A090C]/50">
+                      focus:ring-[#0A090C]/50" onkeyup="searchProduct(this.value)">
             </form>
+            <div id="search">
+                <p>Hola</p>
+            </div>
             <div class="flex flex-row w-full h-full items-center justify-end">
                 <div class="flex w-fit h-full justify-end items-center gap-3">
                     <p class="flex justfity-center items-center
                     text-[#0A090C]
                     font-semibold
                     font-sans
-                    ">Welcome <?php print_r($_SESSION['username']);?> Role: <?php print_r($_SESSION['role']);?></p>
+                    ">Welcome <?php print_r($usernmae); ?> Role: <?php print_r($_SESSION['role']); ?></p>
                     <?php
                     // Si hay usuario logeado
                     if (isset($_SESSION['username'])) {
@@ -123,17 +130,24 @@ $role = $_SESSION['role'] ?? 'guest'; ?>
                     }
                     ?>
                 </div>
-                <a href="/student022/shop/backend/shopping_cart/shopping_cart.php">
-                    <div class="flex w-fit h-full justify-end items-center gap-3">
+                <?php
+                // Show shopping cart only to guest & customers
+                if (!isset($_SESSION['role']) || $_SESSION['role'] == 'Customer') {
+                    echo '
+                    <a href="/student022/shop/backend/shopping_cart/shopping_cart.php">
+                        <div class="flex w-fit h-full justify-end items-center gap-3">
                         <img src="/student022/shop/backend/assets/icons/shopping_cart_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.png" alt="shopping_cart" title="shopping cart"
-                            class="h-13
-                    p-2
-                    shadow-sm
-                    rounded-3xl
-                    hover:cursor-pointer
-                    hover:opacity-70
-                    ">
+                        class="h-13
+                        p-2
+                        shadow-sm
+                        rounded-3xl
+                        hover:cursor-pointer
+                        hover:opacity-70
+                        ">
                     </div>
-                </a>
+                    </a>
+                    ';
+                }
+                ?>
             </div>
         </nav>
