@@ -1,64 +1,8 @@
-<!-- Header -->
-<section id="productSection" class="flex flex-row flex-wrap h-fit p-5 gap-5 items-center justify-center">
-    <div class="w-full mb-6 border-b border-gray-200 pb-2">
-        <h1 class="text-3xl font-bold  text-[#0A090C] ">PRODUCTS</h1>
-        <?php 
-            if (!isset($_SESSION['role']) || $_SESSION['role'] != 'Admin') {
-            } else {
-                echo "
-                    <div class='flex w-full justify-center items-center'>
-                        <div class='flex w-fit justify-center items-center p-3 
-                        bg-[#0A090C] 
-                        text-[#FEFFFE] 
-                        font-semibold
-                        rounded-md 
-                        hover:cursor-pointer 
-                        hover:bg-[#2c2732]'>
-                        ",include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/products/form_product_insert_call.php'),"
-                    </div>
-                </div>
-                ";
-            }
-            ?>
-    </div>
-    <div id="searchEndPointResult">
-        
-    </div>
-    <!-- Logical fragment -->
-    <?php
-    // Debug 
-    // print_r($_POST); 
-    // Variables
-    $product_output = "No product selected or found";
-
-    // Before starting the query, check If the variable was sended and that the variabel is not empty
-
-    if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
-        $id_product = null;
-    }
-    // Open connection
-    include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
-    // escape the string to avoid mysql injection
-    // $id_product = mysqli_real_escape_string($conn, $_POST['id_product']);
-    // Initialize variable that will save the designed query
-    $sql;
-    if ($id_product != null) {
-        // Query
-        $sql = "SELECT * FROM `022_products` WHERE id_product = '$id_product'";
-    } else {
-        // Query
-        $sql = "SELECT * FROM `022_products`;";
-    }
-    // Execute the query
-    $result = mysqli_query($conn, $sql);
-    $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    // Cleaning the result 
-    mysqli_free_result($result);
-
-    foreach ($products as $product) {
-        $id_product = $product['id_product'];
-        // Aplicar estilado de stock si tiene stock 
-        $availability_style;
+<?php 
+  session_start();
+  function showProducts ($products){
+     foreach ($products as $product) {
+        $availability_style = "";
         if ($product['availability'] == 'on_stock') {
             $availability_style = 'text-green-600 font-regular';
         } else {
@@ -143,13 +87,5 @@
         echo ("</div>");
         echo ("</div>");
     }
-    // Close connection
-    mysqli_close($conn);
-    ?>
-    <?php
-
-    ?>
-</section>
-<!-- Footer -->
-<script src="/student022/shop/backend/functions/products/searchForProduct.js"></script>
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+  };  
+?>

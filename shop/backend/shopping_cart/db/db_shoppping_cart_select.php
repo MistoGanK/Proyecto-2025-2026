@@ -128,15 +128,11 @@ if ($_SESSION['role'] == 'Admin' || isset($_SESSION['role'])) {
             // Error on query execution
             $product_output = "Database Error: " . mysqli_error($conn);
         }
-
         // Free the result
         mysqli_free_result($query_result);
         // Close connection
         mysqli_close($conn);
     }
-    ?>
-    <?php
-
     ?>
 </section>
 <!-- Footer -->

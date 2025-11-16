@@ -51,13 +51,13 @@ if ($query_result){
             }
             
             // Parent container of order (misma estructura que el producto)
-            echo"<div class='flex flex-col h-full min-m-90 w-full flex-shrink-0
-                         shadow-xl p-4
-                         rounded-lg
-                         bg-white
-                         border
-                         border-gray-700/20
-                         '>";
+            echo"<div class='flex flex-col h-fit min-m-90 w-full flex-shrink-0
+                        shadow-xl p-4
+                        rounded-lg
+                        bg-white
+                        border
+                        border-gray-700/20
+                        '>";
                         // Order Container
                         echo"<div class='flex flex-col w-full h-full font-sans'>";
                             // Título de la Orden

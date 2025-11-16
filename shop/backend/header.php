@@ -1,11 +1,11 @@
 <?php session_start();
 $role = $_SESSION['role'] ??  $_SESSION['role'] = 'guest';
-$usernmae = $_SESSION['usernmae'] ?? $_SESSION['usernmae'] = 'guest';
+$usernmae = $_SESSION['usernmae'] ?? $_SESSION['usernmae'] = 'Guest';
 $root = $_SERVER['DOCUMENT_ROOT'];
 ?>
 <script>
     function closeAndRedirectLogin() {
-        // Redirect en del logout
+        // Redirect en del logoutf
         window.location.href = "/student022/shop/backend/autentification/logout/logout.php";
     };
 
@@ -42,7 +42,7 @@ $root = $_SERVER['DOCUMENT_ROOT'];
                     cursor-pointer">
                     <a href="/student022/shop/backend/products/products.php"
                         class="flex justify-start items-center w-full h-full p-3
-                         font-sans font-semibold">Products</a>
+                        font-sans font-semibold">Products</a>
                 </div>
                 <?php
                 // Only Admin && Customer logged can  see Products, Orders , Customer (Own Customer)
@@ -81,18 +81,15 @@ $root = $_SERVER['DOCUMENT_ROOT'];
                 <input type="search"
                     id="input_search"
                     class="w-full h-10 p-3
-                      text-gray-500/80
-                      border 
-                      border-gray-500/40 
-                      rounded-xl
-                      focus:outline-none
-                      focus:border-[#0A090C] 
-                      focus:ring 
-                      focus:ring-[#0A090C]/50" onkeyup="searchProduct(this.value)">
+                    text-gray-500/80
+                    border 
+                    border-gray-500/40 
+                    rounded-xl
+                    focus:outline-none
+                    focus:border-[#0A090C] 
+                    focus:ring 
+                    focus:ring-[#0A090C]/50" onkeyup="searchProduct(this.value)">
             </form>
-            <div id="search">
-                <p>Hola</p>
-            </div>
             <div class="flex flex-row w-full h-full items-center justify-end">
                 <div class="flex w-fit h-full justify-end items-center gap-3">
                     <p class="flex justfity-center items-center
@@ -132,7 +129,7 @@ $root = $_SERVER['DOCUMENT_ROOT'];
                 </div>
                 <?php
                 // Show shopping cart only to guest & customers
-                if (!isset($_SESSION['role']) || $_SESSION['role'] == 'Customer') {
+                if (!isset($_SESSION['role']) || $_SESSION['role'] == 'Customer' || $_SESSION['role'] == 'guest') {
                     echo '
                     <a href="/student022/shop/backend/shopping_cart/shopping_cart.php">
                         <div class="flex w-fit h-full justify-end items-center gap-3">
