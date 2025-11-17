@@ -9,66 +9,255 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="../assets/styles/tailwind/tailwindOut.css" />
-    <link rel="stylesheet" href="../assets/styles/tailwindOut.css">
     <title>Product Detail</title>
   </head>
   <body>
     <header class="header_start">
-      <nav class="header_nav">
-        <div class="header_nav_dropdown">
-          <button id="dropdown_button_show">
-            <img
-              src="../assets/icons/menu_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
-              alt="dropdown_icon"
-              title="dropdown"
-            />
+    <nav>
+      <div class="header_nav_dropdown">
+        <button id="dropdown_button_show">
+          <img src="../assets/icons/menu_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Icon Dropdown"/>
+        </button>
+      </div>
+      <div class="header_nav_logo">
+        <h1><a href="#" title="Go to Home">BRAND2</a></h1>
+      </div>
+      <div class="header_nav_ul">
+        <ul>
+          <li><a href="#" title="Go to custom">Custom</a></li>
+          <li><a href="#" title="Go to backpacks">Backpacks</a></li>
+          <li><a href="#" title="Go to bags">Bags</a></li>
+          <li><a href="#" title="Go to luggages">Luggages</a></li>
+          <li><a href="#" title="Go to accesories">Accesories</a></li>
+          <li><a href="#" title="Go to sales">Sale</a></li>
+          <li><a href="#" title="Go to about brand2">About Brand2</a></li>
+        </ul>
+      </div>
+      <div class="header_nav_user_tools">
+        <div class="div_user_tool">
+          <button>
+            <img src="../assets/icons/search_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Search icon"
+              title="Search" />
           </button>
         </div>
-        <div class="header_nav_logo">
-          <h1><a href="#" title="Go to Home">BRAND2</a></h1>
+        <div class="div_user_tool">
+          <a href="#" title="Go to my acocunt">
+            <img src="../assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="User icon" />
+          </a>
         </div>
-        <div class="header_nav_ul">
-          <ul>
-            <li><a href="#" title="Go to custom">Custom</a></li>
-            <li><a href="#" title="Go to backpacks">Backpacks</a></li>
-            <li><a href="#" title="Go to bags">Bags</a></li>
-            <li><a href="#" title="Go to luggages">Luggages</a></li>
-            <li><a href="#" title="Go to accesories">Accesories</a></li>
-            <li><a href="#" title="Go to sales">Sale</a></li>
-            <li><a href="#" title="Go to about brand2">About Brand2</a></li>
-          </ul>
+        <div class="div_user_tool">
+          <button>
+            <img src="../assets/icons/local_mall_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Shopping Bag icon"
+              title="My shopping bag" />
+          </button>
         </div>
-        <div class="header_nav_user_tools">
-          <div class="div_user_tool">
-            <button>
-              <img
-                src="../assets/icons/search_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
-                alt="Search icon"
-                title="Search"
-              />
+      </div>
+    </nav>
+  </header>
+  <!-- Overlay movile dropdown menu -->
+  <section class="bread_crum_container">
+    <nav class="bread_crum">
+      <a href="#">Backpacks ></a>
+      <a href="#">Laptop Backpakcs ></a>
+      <a href="#">Clark Commuter Backpack</a>
+    </nav>
+    <div class="product_overview">
+      <div class="product_overview_info">
+        <p>Style#1365-3-6114</p>
+      </div>
+      <div class="product_overview_rating">
+        <div class="rating_starts">
+          <img src="/assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon review">
+          <img src="/assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon review">
+          <img src="/assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon review">
+          <img src="/assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon review">
+          <img src="/assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon review">
+          <p>review</p>
+        </div>
+    </div>
+  </section>
+  <!-- Main dropdown menu -->
+  <div class="dropdown_menu_container">
+    <nav class="dropdown_menu">
+      <header>
+        <h2>Menu</h2>
+        <button id="dropdown_button_close">
+          <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
+        </button>
+      </header>
+      <div class="dropdown_menu_ul">
+        <ul>
+          <li><a href="#" title="Go to custom">Custom</a></li>
+          <li>
+            <a href="#" title="Go to backpacks">Backpacks</a>
+            <button id="button_forward_backpacks">
+              <img src="../assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                alt="See all backpacks" />
             </button>
-          </div>
-          <div class="div_user_tool">
-            <a href="#" title="Go to my acocunt">
-              <img
-                src="../assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
-                alt="User icon"
-              />
+          </li>
+          <li>
+            <a href="#" title="Go to bags">Bags</a>
+            <button id="button_forward_bags">
+              <img src="../assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                alt="See all backpacks" />
+            </button>
+          </li>
+          <li>
+            <a href="#" title="Go to luggages">Luggages</a>
+          </li>
+          <li>
+            <a href="#" title="Go to accesories">Accesories</a>
+          </li>
+          <li>
+            <a href="#" title="Go to sales">Sale</a>
+          </li>
+          <li>
+            <a href="#" title="Go to about brand2">About Brand2</a>
+            <button id="button_forward_about">
+              <img src="../assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                alt="See all backpacks" />
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown_user_tools">
+        <ul>
+          <li>
+            <a href="#" title="Go to my shopping bag">
+              <img src="../assets/icons/local_mall_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="" />
             </a>
-          </div>
-          <div class="div_user_tool">
-            <button>
-              <img
-                src="../assets/icons/local_mall_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp"
-                alt="Shopping Bag icon"
-                title="My shopping bag"
-              />
-            </button>
-          </div>
+            <a href="#" title="Go to my shopping bag"> BAG </a>
+          </li>
+          <li>
+            <a href="#" title="Go to Sign In">
+              <img src="../assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="" />
+            </a>
+            <a href="#" title="Go to Sign In"> SIGN IN </a>
+          </li>
+          <li>
+            <a href="#" title="Go to support">
+              <img src="../assets/icons/help_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="" />
+            </a>
+            <a href="#" title="Go to support"> SUPPORT </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- Backpacks Dropdownmenu -->
+  <div class="dropdown_menu_container_backpacks">
+    <nav class="dropdown_menu">
+      <header>
+        <div class="dropdown_menu_header_content">
+          <button id="button_backwards_backpacks">
+            <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+              alt="Close dropdown menu" />
+          </button>
+          <h2>Backpacks</h2>
         </div>
-      </nav>
-    </header>
+        <button id="dropdown_backpacks_button_close">
+          <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
+        </button>
+      </header>
+      <div class="dropdown_menu_ul">
+        <ul>
+          <li>
+            <h3>Shop by category</h3>
+          </li>
+          <li>
+            <a href="#" title="Go to Travel Backpakcs">Travel Backpacks</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Laptop Backpacks">Laptop Backpacks</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Weatherproof Backpacks">Weatherproof Backpacks</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Work Backpacks">Work Backpacks</a>
+          </li>
+          <li>
+            <a href="#" title="Go to All Backpacks">All Backpacks</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- Bags Dropdownmenu -->
+  <div class="dropdown_menu_container_bags">
+    <nav class="dropdown_menu">
+      <header>
+        <div class="dropdown_menu_header_content">
+          <button id="button_backwards_bags">
+            <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+              alt="Close dropdown menu" />
+          </button>
+          <h2>Bags</h2>
+        </div>
+        <button id="dropdown_bags_button_close">
+          <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
+        </button>
+      </header>
+      <div class="dropdown_menu_ul">
+        <ul>
+          <li>
+            <h3>Shop by category</h3>
+          </li>
+          <li><a href="#" title="Go to Duffel Bags">Duffel Bags</a></li>
+          <li>
+            <a href="#" title="Go to Messenger Bags">Messenger Bags</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Crossbody Bags">Crossbody Bags</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Laptop Bags">Laptop Bags</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Tote Bags">Tote Bags</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Pannier Bags">Pannier Bags</a>
+          </li>
+          <li>
+            <a href="#" title="Go to All Bags">All Bags</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- About Dropdownmenu -->
+  <div class="dropdown_menu_container_about">
+    <nav class="dropdown_menu">
+      <header>
+        <div class="dropdown_menu_header_content">
+          <button id="button_backwards_about">
+            <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+              alt="Close dropdown menu" />
+          </button>
+          <h2>About Brand2</h2>
+        </div>
+        <button id="dropdown_about_button_close">
+          <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
+        </button>
+      </header>
+      <div class="dropdown_menu_ul">
+        <ul>
+          <li>
+            <h3>Explore</h3>
+          </li>
+          <li><a href="#" title="Go to Sustainability">Sustainability</a></li>
+          <li>
+            <a href="#" title="Go to Our Story">Our Story</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Our Stores">Our Stores</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
     <!-- Overlay movile dropdown menu -->
-    <script src="../assets/scripts/productDetails.js"></script>
+    <script src="../assets/scripts/main.js"></script>
   </body>
 </html>

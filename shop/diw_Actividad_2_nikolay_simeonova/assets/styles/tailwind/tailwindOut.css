@@ -1,4 +1,5 @@
 /*! tailwindcss v4.1.17 | MIT License | https://tailwindcss.com */
+@layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -6,11 +7,24 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-fuchsia-500: oklch(66.7% 0.295 322.15);
+    --color-amber-400: oklch(82.8% 0.189 84.429);
     --spacing: 0.25rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --white: #fefffe;
+    --black: #0a090c;
+    --black-transp-x5: #0a090c0a;
+    --greysh-blue-tranps: rgba(42, 54, 68, 0.78);
     --transition-speed-fast: 0.2s;
   }
 }
@@ -170,147 +184,147 @@
 @layer components {
   @font-face {
     font-family: "Space-Grotesk-Bold";
-    src: url(../../assets/fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf);
+    src: url(../../fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf);
   }
   @font-face {
     font-family: "Space-Grotesk-Semi-Bold";
-    src: url(../../assets/fonts/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf);
+    src: url(../../fonts/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf);
   }
   @font-face {
     font-family: "Space-Grotesk-Medium";
-    src: url(../../assets/fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf);
+    src: url(../../fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf);
   }
   @font-face {
     font-family: "Space-Grotesk-Light";
-    src: url(../../assets/fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf);
+    src: url(../../fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf);
   }
   @font-face {
     font-family: "Space-Grotesk-Regular";
-    src: url(../../assets/fonts/Space_Grotesk/static/SpaceGrotesk-Regular.ttf);
+    src: url(../../fonts/Space_Grotesk/static/SpaceGrotesk-Regular.ttf);
   }
   @font-face {
     font-family: "Space-Grotesk-Variable";
-    src: url(../../assets/fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf);
+    src: url(../../fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf);
   }
   @font-face {
     font-family: "Robot-Mono-Bold";
-    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-Bold.ttf);
+    src: url(../../fonts/Roboto_Mono/static/RobotoMono-Bold.ttf);
   }
   @font-face {
     font-family: "Roboto-Mono-Bold";
-    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-BoldItalic.ttf);
+    src: url(../../fonts/Roboto_Mono/static/RobotoMono-BoldItalic.ttf);
   }
   @font-face {
     font-family: "Roboto-Mono-Semi-Bold";
-    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf);
+    src: url(../../fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf);
   }
   @font-face {
     font-family: "Roboto-Mono-Semi-Bold-Italic";
-    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-SemiBoldItalic.ttf);
+    src: url(../../fonts/Roboto_Mono/static/RobotoMono-SemiBoldItalic.ttf);
   }
   @font-face {
     font-family: "Roboto-Mono-Meidium";
-    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-Medium.ttf);
+    src: url(../../fonts/Roboto_Mono/static/RobotoMono-Medium.ttf);
   }
   @font-face {
     font-family: "Robot-Mono-Medium-Italic";
-    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-MediumItalic.ttf);
+    src: url(../../fonts/Roboto_Mono/static/RobotoMono-MediumItalic.ttf);
   }
   @font-face {
     font-family: "Roboto-Mono-Regular";
-    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf);
+    src: url(../../fonts/Roboto_Mono/static/RobotoMono-Regular.ttf);
   }
   @font-face {
     font-family: "Roboto-Mono-Light";
-    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-Light.ttf);
+    src: url(../../fonts/Roboto_Mono/static/RobotoMono-Light.ttf);
   }
   @font-face {
     font-family: "Roboto-Mono-Light-Italic";
-    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-LightItalic.ttf);
+    src: url(../../fonts/Roboto_Mono/static/RobotoMono-LightItalic.ttf);
   }
   @font-face {
     font-family: "Roboto-Mono-Extra-Light";
-    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-ExtraLight.ttf);
+    src: url(../../fonts/Roboto_Mono/static/RobotoMono-ExtraLight.ttf);
   }
   @font-face {
     font-family: "Roboto-Mono-Extra-Light-Italic";
-    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-ExtraLightItalic.ttf);
+    src: url(../../fonts/Roboto_Mono/static/RobotoMono-ExtraLightItalic.ttf);
   }
   @font-face {
     font-family: "Roboto-Mono-Thin";
-    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-Thin.ttf);
+    src: url(../../fonts/Roboto_Mono/static/RobotoMono-Thin.ttf);
   }
   @font-face {
     font-family: "Roboto-Mono-Thin-Italic";
-    src: url(../../assets/fonts/Roboto_Mono/static/RobotoMono-ThinItalic.ttf);
+    src: url(../../fonts/Roboto_Mono/static/RobotoMono-ThinItalic.ttf);
   }
   @font-face {
     font-family: "Roboto-Mono-Variable";
-    src: url(../../assets/fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf);
+    src: url(../../fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf);
   }
   @font-face {
     font-family: "Roboto-Mono-Variable-Italic";
-    src: url(../../assets/fonts/Roboto_Mono/RobotoMono-Italic-VariableFont_wght.ttf);
+    src: url(../../fonts/Roboto_Mono/RobotoMono-Italic-VariableFont_wght.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Black";
-    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-Black.ttf);
+    src: url(../../fonts/Noto_Sans/static/NotoSans-Black.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Extra-Bold";
-    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-ExtraBold.ttf);
+    src: url(../../fonts/Noto_Sans/static/NotoSans-ExtraBold.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Extra-Bold-Italic";
-    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-ExtraBoldItalic.ttf);
+    src: url(../../fonts/Noto_Sans/static/NotoSans-ExtraBoldItalic.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Bold";
-    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-Bold.ttf);
+    src: url(../../fonts/Noto_Sans/static/NotoSans-Bold.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Bold-Italic";
-    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-BoldItalic.ttf);
+    src: url(../../fonts/Noto_Sans/static/NotoSans-BoldItalic.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Semi-Bold";
-    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-SemiBold.ttf);
+    src: url(../../fonts/Noto_Sans/static/NotoSans-SemiBold.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Semi-Bold-Italic";
-    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-SemiBoldItalic.ttf);
+    src: url(../../fonts/Noto_Sans/static/NotoSans-SemiBoldItalic.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Medium";
-    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-Medium.ttf);
+    src: url(../../fonts/Noto_Sans/static/NotoSans-Medium.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Medium-Italic";
-    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-MediumItalic.ttf);
+    src: url(../../fonts/Noto_Sans/static/NotoSans-MediumItalic.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Regular";
-    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-Regular.ttf);
+    src: url(../../fonts/Noto_Sans/static/NotoSans-Regular.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Light";
-    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-Light.ttf);
+    src: url(../../fonts/Noto_Sans/static/NotoSans-Light.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Light-Italic";
-    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-LightItalic.ttf);
+    src: url(../../fonts/Noto_Sans/static/NotoSans-LightItalic.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Extra-Light";
-    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-ExtraLight.ttf);
+    src: url(../../fonts/Noto_Sans/static/NotoSans-ExtraLight.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Extra-Light-Italic";
-    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-ExtraLightItalic.ttf);
+    src: url(../../fonts/Noto_Sans/static/NotoSans-ExtraLightItalic.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Thin";
-    src: url(../../assets/fonts/Noto_Sans/static/NotoSans-Thin.ttf);
+    src: url(../../fonts/Noto_Sans/static/NotoSans-Thin.ttf);
   }
   @font-face {
     font-family: "Noto-Sans-Thin";
@@ -326,13 +340,380 @@
   }
 }
 @layer components {
+  h1, h1 a {
+    font-family: "Space-Grotesk-Bold";
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  h2, h2 a {
+    font-family: "Roboto-Mono-Bold";
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  h3, h3 a {
+    font-family: "Roboto-Mono-Semi-Bold";
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  h4, h4 a {
+    font-family: "Roboto-Mono-Medium";
+  }
+  p {
+    font-family: "Noto-Sans-Regular";
+  }
+  a {
+    font-family: "Noto-Sans-Medium-Italic";
+  }
+  button {
+    font-family: "Noto-Sans-Bold";
+  }
+  h1, h2, h3, h4, p, a {
+    color: var(--black);
+  }
   html, body {
+    position: relative;
+    display: flex;
     height: 100%;
     width: 100%;
+    flex-direction: column;
     background-color: var(--white);
   }
   .header_start {
-    height: calc(var(--spacing) * 12);
-    width: calc(var(--spacing) * 12);
+    display: flex;
+    height: calc(var(--spacing) * 14);
+    width: 100%;
+    align-items: center;
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+    border-color: var(--black-transp-x1);
+    padding: calc(var(--spacing) * 2);
+  }
+  header img {
+    height: calc(var(--spacing) * 6);
+  }
+  header nav {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header_nav_ul {
+    display: none;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+    @media (width >= 48rem) {
+      display: flex;
+    }
+  }
+  .header_nav_ul ul {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: calc(var(--spacing) * 4);
+  }
+  .div_user_tool:nth-child(2) {
+    display: none;
+    @media (width >= 48rem) {
+      display: flex;
+    }
+  }
+  .header_start img:hover, .header_start img:focus, .header_start img:active, .dropdown_user_tools img:hover, .dropdown_user_tools img:focus, .dropdown_user_tools img:active, .header_start button:hover, .header_start button:focus, .header_start button:active, .header_nav_ul ul li a:hover, .header_nav_ul ul li a:focus, .header_nav_ul ul li a:active, .dropdown_menu button:hover, .dropdown_menu button:focus, .dropdown_menu button:active {
+    --tw-scale-x: 110%;
+    --tw-scale-y: 110%;
+    --tw-scale-z: 110%;
+    scale: var(--tw-scale-x) var(--tw-scale-y);
+    cursor: pointer;
+  }
+  .header_nav_ul ul a:focus, .header_nav_ul ul li a:focus-visible, .header_nav_ul ul li a:hover, .header_nav_ul ul li a:active, .dropdown_menu_ul ul li a:focus, .dropdown_menu_ul ul li a:focus-visible, .dropdown_menu_ul ul li a:hover, .dropdown_menu_ul ul li a:active, .dropdown_user_tools ul li a:nth-child(2):focus, .dropdown_user_tools ul li a:nth-child(2):focus-visible, .dropdown_user_tools ul li a:nth-child(2):hover, .dropdown_user_tools ul li a:nth-child(2):active {
+    scale: 1.05;
+    --tw-shadow: var(--black);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    --tw-duration: var(--transition-speed-fast);
+    transition-duration: var(--transition-speed-fast);
+  }
+  button:hover, button:focus, button:active, button:focus-visible {
+    scale: 1.08;
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .header_nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header_nav img {
+    height: calc(var(--spacing) * 6);
+  }
+  .header_nav_logo, .header_nav_user_tools {
+    display: flex;
+    gap: calc(var(--spacing) * 2);
+  }
+  .header_nav_ul {
+    position: fixed;
+    display: none;
+  }
+  .header_nav_ul ul {
+    gap: calc(var(--spacing) * 4);
+  }
+  .dropdown_menu header {
+    display: flex;
+    height: calc(var(--spacing) * 14);
+    padding: calc(var(--spacing) * 2);
+  }
+  .dropdown_menu_ul ul li {
+    display: flex;
+  }
+  .dropdown_menu_container, .dropdown_menu_container_backpacks, .dropdown_menu_container_about, .dropdown_menu_container_bags {
+    position: fixed;
+    z-index: 999;
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: var(--greysh-blue-tranps);
+  }
+  .dropdown_menu_container img, .dropdown_menu_container_backpacks img, .dropdown_menu_container_bags img, .dropdown_menu_container_about img {
+    height: calc(var(--spacing) * 6);
+  }
+  .dropdown_menu {
+    display: flex;
+    width: clamp(200px, 50%, 400px);
+    flex-direction: column;
+    background-color: var(--white);
+  }
+  .dropdown_menu button {
+    align-items: center;
+  }
+  .dropdown_menu header {
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .dropdown_menu_header_content {
+    display: flex;
+    flex-direction: row;
+  }
+  .dropdown_menu_header_content {
+    gap: calc(var(--spacing) * 2);
+  }
+  .dropdown_menu_header_content h2 {
+    align-items: center;
+  }
+  .dropdown_menu_ul {
+    background-color: var(--black-transp-x5);
+    padding: calc(var(--spacing) * 4);
+  }
+  .dropdown_menu_ul ul {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 4);
+  }
+  .dropdown_menu_ul li h3, .dropdown_menu_ul li a {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .dropdown_user_tools ul li {
+    display: flex;
+  }
+  .dropdown_menu_ul ul li, .dropdown_user_tools ul li {
+    padding: calc(var(--spacing) * 2);
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .dropdown_menu_ul ul li, .dropdown_menu_ul ul li button {
+    align-items: center;
+    justify-content: space-between;
+  }
+  .dropdown_user_tools {
+    margin-top: calc(var(--spacing) * 9);
+    padding: calc(var(--spacing) * 4);
+  }
+  .dropdown_user_tools ul {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+  }
+  .dropdown_user_tools ul li {
+    align-items: center;
+    gap: calc(var(--spacing) * 4);
+  }
+  .bread_crum_container {
+    display: flex;
+    height: calc(var(--spacing) * 30);
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--color-amber-400);
+    padding: calc(var(--spacing) * 2);
+  }
+  .bread_crum {
+    display: flex;
+    height: fit-content;
+    align-items: center;
+  }
+  .bread_crum a {
+    padding: calc(var(--spacing) * 1);
+  }
+  .product_overview {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+  }
+  .product_overview_rating {
+    height: calc(var(--spacing) * 4);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .product_overview_info {
+    width: fit-content;
+  }
+  .product_overview_rating {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .rating_starts {
+    display: grid;
+    height: 100%;
+    width: calc(var(--spacing) * 40);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    align-items: center;
+    gap: calc(var(--spacing) * 1);
+  }
+  .number_reviews {
+    display: flex;
+    height: 100%;
+    width: fit-content;
+    align-items: center;
+  }
+  .show {
+    display: flex;
+  }
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-border-style: solid;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-scale-z: 1;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-duration: initial;
+    }
   }
 }

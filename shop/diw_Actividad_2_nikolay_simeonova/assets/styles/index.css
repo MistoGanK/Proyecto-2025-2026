@@ -190,7 +190,7 @@ button:focus-visible{
     align-items: center;
     justify-content: flex-end;
     aspect-ratio: 1 / 1;
-    background-image: url(/DIW_ACTIVIDAD_2_NIKOLAY_SIMEONOVA/assets/img/hero/customBackPack.webp);
+    background-image: url(/diw_front_proyect/assets/img/hero/customBackPack.webp);
     background-repeat: no-repeat;
     background-size: contain; /* Fit the img to the container */
     background-position:top; /* Center the img inside the container  */
@@ -426,7 +426,7 @@ button:focus-visible{
     max-width: 600px; 
     aspect-ratio: 1 / 1;
     padding: 16px; 
-    background-image: url(/DIW_ACTIVIDAD_2_NIKOLAY_SIMEONOVA/assets/img/tech_ready/tech_ready.webp);
+    background-image: url(/diw_front_proyect/assets/img/tech_ready/tech_ready.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -624,7 +624,7 @@ button:focus-visible{
     margin-top: 10px;
 }
 .footer_nav_section:first-child ul {
-     display: flex; 
+    display: flex; 
 } 
 .footer_nav_section a {
     color: var(--bgc-white);
@@ -675,7 +675,7 @@ button:focus-visible{
 @media (width >=  768px){
     /* Hero section */
     .hero_section_content{
-        background-image: url(/DIW_ACTIVIDAD_2_NIKOLAY_SIMEONOVA/assets/img/hero/customBackPackLarge.webp);
+        background-image: url(/diw_front_proyect/assets/img/hero/customBackPackLarge.webp);
         width: 95vw;
         max-width: 1200px; /* Limita el ancho total */
         aspect-ratio: 16 / 9;
