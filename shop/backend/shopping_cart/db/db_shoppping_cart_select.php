@@ -96,16 +96,22 @@ if ($_SESSION['role'] == 'Admin' || isset($_SESSION['role'])) {
                     echo "<div class='flex flex-col w-full h-full font-sans'>";
                     echo "<h2 class='flex justify-start items-center mb-5 text-xl font-semibold'>" . $row['product_name'] . "</h2>";
                     // Price + qty container
-                    echo "<div class='flex justify-between w-full mb-5'>";
+                    echo "<div class='flex justify-between items-center w-full mb-5'>";
                     echo "<p class='font-extrabold text-2xl'>" . $row['price'] . "€" . "</p>";
-                    echo "<p class='font-normal text-sm'>" . "stock: " . $row['stock'] . "</p>";
+                    echo 
+                    "<div class='flex items-center justify-end w-full mr-2'>
+                        "."<button class='btn_add_qty flex items-center p-3 text-2xl hover:scale-150 cursor-pointer' id=".$row['id_product'].">+</button>"."
+                        "."<button class='btn_sub_qty flex items-center p-3 text-2xl hover:scale-150 cursor-pointer' id=".$row['id_product'].">-</button>"."
+                    </div>";
+                    echo "<p class='font-normal w-30 text-sm'>stock: </p>";
+                    echo "<p class='font-normal w-30 text-sm'>". $row['stock'] . "</p>";
                     echo "</div>";
                     // Product description
                     echo "<p class='font-normal text-sm pb-3 mb-5 border-b border-gray-600/50'>" . $row['description'] . "</p>";
                     // Product Info container
                     echo "<div class=' flex flex-col gap-2 text-xs text-gray-600'>";
                     echo "<p>" . "Inserted_date: " . $row['inserted_date'] . "</p>";
-                    echo "</div>";
+                    echo "</div>";  
                     // Form Buttons container
                     echo ("<div class='flex justify-evenly items-end h-full'>");
                     // Delete Button Container
@@ -137,5 +143,4 @@ if ($_SESSION['role'] == 'Admin' || isset($_SESSION['role'])) {
 </section>
 <!-- Footer -->
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
-<script src="/student022/shop/backend/functions/deleteCart.js"></script>
-<script src="/student022/shop/backend/functions/carts/searchForProduct.js"></script>
+<script src="/student022/shop/backend/scripts/shopping_cart/add_sub_qty.js"></script>
