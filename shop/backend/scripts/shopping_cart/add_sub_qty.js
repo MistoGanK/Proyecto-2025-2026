@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const btn_add_qty = document.querySelectorAll(".btn_add_qty");
   const btn_sub_qty = document.querySelectorAll(".btn_sub_qty");
-  const endPointModifyQty = "/student022/shop/backend/endpoints/products/productSearch.php/";
+  const endPointModifyQty = "/student022/shop/backend/endpoints/carts/productSearch.php";
 
   let id_product;
   let qty;
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       };
     };
-    http.open("GET", endPointModifyQty + "?productName=" + inputSearchValue, true);
+    http.open("GET", endPointModifyQty + "?qty=" + valueQty, true);
     http.send();
   };
 
@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btn_sub.parentElement.nextElementSibling.nextElementSibling.innerHTML =
           qty;
         console.log(qty);
+        modifyQty(qty);
       }
     });
   });
@@ -64,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btn_add_qty.parentElement.nextElementSibling.nextElementSibling.innerHTML =
           qty;
         console.log(qty);
+        modifyQty(qty);
     });
   });
 
