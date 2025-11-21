@@ -475,7 +475,7 @@
     @apply w-full;
   }
   .section_product{
-    @apply items-center justify-center
+    @apply items-center justify-center;
   }
   .product_wrap,
   .product_header_movile,
@@ -519,7 +519,7 @@
     @apply flex gap-2 snap-x snap-mandatory overflow-x-auto lg:hidden; 
   }
   .products_images_no_movile{
-    @apply hidden lg:grid grid-cols-2 row-4 gap-2 w-full 
+    @apply hidden lg:grid grid-cols-2 row-4 gap-2 w-full;
   }
   .swiper_container {
     @apply flex-shrink-0 w-full max-w-md lg:max-w-full snap-center flex items-center justify-center cursor-pointer hover:bg-gray-50 bg-gray-100;
@@ -539,10 +539,10 @@
   .product_info,
   .product_form,
   .product_label_wrapper{
-    @apply w-full flex-col
+    @apply w-full flex-col;
   }
   .product_label_wrapper{
-    @apply gap-2 lg:flex-row justify-between
+    @apply gap-2 lg:flex-row justify-between;
   }
   .product_info{
     @apply w-full lg:max-w-2/5 gap-4
@@ -551,44 +551,44 @@
     @apply hidden lg:block border-b-1 border-solid border-gray-300 w-full h-fit py-4;
   }
   .product_form{
-    @apply mt-4 gap-2
+    @apply mt-4 gap-2;
   }
   .product_label{
-    @apply text-xs font-bold 
+    @apply text-xs font-bold;
   }
   .product_label_span{
-    @apply text-(--gray-light-x1) ml-2
+    @apply text-(--gray-light-x1) ml-2;
   }
   .product_color{
-    @apply flex-col gap-2 lg:gap-4
+    @apply flex-col gap-2 lg:gap-4;
   }
   .product_color_list{
-    @apply w-full gap-2
+    @apply w-full gap-2;
   }
   .product_color_item img{
     @apply rounded-full w-8 h-8 flex-shrink-0 active:border-2 border-solid border-gray-300  cursor-pointer;
   }
   .buttom_favorite_item{
-    @apply flex flex-row ml-auto 
+    @apply flex flex-row ml-auto;
   }
   .add_to_fav{
-    @apply flex w-fit h-8 gap-2 cursor-pointer
+    @apply flex w-fit h-8 gap-2 cursor-pointer;
   }
   .add_to_fav p{
     @apply hidden;
   }
   .product_options{
-    @apply flex lg:flex-col justify-between p-2 gap-4 mb-4
+    @apply flex lg:flex-col justify-between p-2 gap-4 mb-4;
   }
   #product_buy,
   #product_cart{
     @apply cursor-pointer w-full p-4 bg-(--black) text-(--white) rounded;
   }
   .products_perks{
-    @apply flex w-full flex-col border-b-1 border-solid border-gray-300 py-4
+    @apply flex w-full flex-col border-b-1 border-solid border-gray-300 py-4;
   }
   .product_perks_item{
-    @apply flex flex-row items-center h-10 gap-1 hover:scale-101 text-xs sm:text-sm
+    @apply flex flex-row items-center h-10 gap-1 hover:scale-101 text-xs sm:text-sm;
   }
   .product_perk_icon,
   .product_perk_icon img{
@@ -597,26 +597,52 @@
   /* Product toggles */
   .products_toggles,
   .product_toggle{
-    @apply flex flex-col w-full
+    @apply flex flex-col w-full;
   }
   .products_toggles{
     
   }
   .product_toggle{
-    @apply border-b-1 border-solid border-gray-300 py-4
+    @apply border-b-1 border-solid border-gray-300 py-4;
   }
   .product_toggle_button{
-    @apply flex flex-row justify-between cursor-pointer
+    @apply flex flex-row justify-between cursor-pointer;
   }
   .product_toggle_button p{
-    @apply text-3xl
+    @apply text-3xl;
   }
   .toggle_message p,
   .toggle_message_list{
-    @apply text-(--gray-light-x1)
+    @apply text-(--gray-light-x1);
   }
   .toggle_message_list{
-    @apply list-disc pl-4
+    @apply list-disc pl-4;
+  }
+  /* Section story double product*/
+  .product_story_double,
+  .product_story_double_wrap,
+  .product_story_double_item,
+  .product_story_double_info{
+    @apply flex flex-col;
+  }
+  .product_story_double{
+    @apply items-center justify-center;
+  }
+  .product_story_double_wrap{
+    @apply p-4 gap-2 xl:max-w-4/5 lg:gap-5;
+  }
+  .product_story_double_item{
+    @apply gap-4 lg:flex-row-reverse;
+  }
+  .product_story_double_video,
+  .product_story_double_info{
+    @apply h-full w-full
+  }
+  .product_story_double_video{
+    @apply lg:w-1/2;
+  }
+  .product_story_double_info{
+    @apply bg-gray-200 justify-center items-center text-center lg:w-1/2
   }
   /* Personalized mediaquerys */
   @media (width >= 25rem) {
@@ -627,7 +653,15 @@
   @media (width <= 25rem){
     #product_buy,
     #product_cart{
-    @apply text-xs
+    @apply text-xs;
+    }
+  }
+  @media(width <64rem){
+    .product_story_double_video{
+      @apply h-fit;
+    }
+    .product_story_double_info{
+      @apply h-64
     }
   }
   /* js style */
