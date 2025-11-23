@@ -1,12 +1,11 @@
 <?php 
-  $productName = htmlspecialchars($_GET['productName']);
-    $query = "
+  $productName = htmlspecialchars($_GET['productName']) ?? '';
+  $query = "
       SELECT * 
       FROM `022_products`
       WHERE 
         product_name LIKE '%$productName%';
     ";
-
     include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php'); 
     $result = mysqli_query($conn,$query);
     $products = mysqli_fetch_all($result, MYSQLI_ASSOC);

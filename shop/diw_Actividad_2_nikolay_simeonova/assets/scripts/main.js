@@ -2,8 +2,8 @@
 document.addEventListener('DOMContentLoaded',(e)=>{
 
 // href
-const iconFavEmpty = 'assets/icons/favorite_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp';
-const iconFavFill = 'assets/icons/favorite_500dp_FEFFFE_FILL1_wght400_GRAD0_opsz48.webp';
+const iconFavEmpty = '/assets/icons/favorite_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp';
+const iconFavFill = '/assets/icons/favorite_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp';
 
 //<--- HTML elements declaration --->
 
@@ -12,6 +12,7 @@ const dropdown_menu_container = document.querySelector('.dropdown_menu_container
 const dropdown_menu_container_backpacks = document.querySelector('.dropdown_menu_container_backpacks');
 const dropdown_menu_container_bags = document.querySelector('.dropdown_menu_container_bags');
 const dropdown_menu_container_about = document.querySelector('.dropdown_menu_container_about');
+const product_form = document.querySelector('.product_form');
 
 // HTML buttons
 
@@ -33,8 +34,13 @@ const button_backwards_about = document.getElementById('button_backwards_about')
 const dropdown_about_button_close = document.getElementById('dropdown_about_button_close');
 
 // Favorite button
-const fav_button = document.getElementsByClassName('fav_button');
+const fav_button = document.getElementsByClassName('fav_button'); // Home
 
+const button_add_to_fav = document.querySelector('.button_add_to_fav'); // Product Details
+
+// Buy & Cart
+const button_product_buy = document.getElementById('button_product_buy');
+const button_product_cart = document.getElementById('button_product_buy');
 
 //<--- Functions ---> 
 function toggleDropDownMenu(){
@@ -63,7 +69,21 @@ function toggleDropDownMenuAbout(){
 };
 function closeDropDownMenuAbout(){
     dropdown_menu_container_about.classList.toggle('show');
-}
+};
+
+function toggleFavorite (event){
+    const clickedElement = event.target; 
+        if (clickedElement.tagName === 'IMG') {
+        
+        // Detect if filled 
+        if (clickedElement.src.includes('FILL0')){
+            clickedElement.src = iconFavFill;
+        }else{
+            clickedElement.src = iconFavEmpty;
+        }
+    }
+    console.log(event.target);
+};
 
 function detectFavoriteClick(event){
     console.log("holoa");
@@ -84,6 +104,11 @@ function detectFavoriteClick(event){
 };
 // Buttons events
 
+// Form 
+product_form.addEventListener('click',(e)=>{
+    e.preventDefault();
+})
+
 // Dropdown buttons
 dropdown_button_show.addEventListener('click',toggleDropDownMenu);
 dropdown_button_close.addEventListener('click',toggleDropDownMenu);
@@ -103,6 +128,9 @@ dropdown_bags_button_close.addEventListener('click',closeDropDownMenuBags);
 // Dropdwon buttons about
 button_backwards_about.addEventListener('click',toggleDropDownMenuAbout);
 dropdown_about_button_close.addEventListener('click',closeDropDownMenuAbout);
+
+// Product Details add fav
+button_add_to_fav.addEventListener('click',toggleFavorite);
 
 Array.from(fav_button).forEach(button => {
     button.addEventListener('click', detectFavoriteClick);

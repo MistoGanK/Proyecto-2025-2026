@@ -401,7 +401,7 @@
             <p>$185</p>
           </div>
         </header>
-            <form class="product_form" action="#" method="get">
+            <form class="product_form" >
               <div class="product_color">
                 <div class="product_label_wrapper">
                   <p class="product_label">Color: <span class="product_label_span">Eco Black Deluxe</span></p>
@@ -429,7 +429,7 @@
                     </button>
                   </li>
                   <li class="buttom_favorite_item">
-                    <button class="add_to_fav">
+                    <button class="button_add_to_fav">
                       <p>Add to favorite</p>
                       <img src="/assets/icons/favorite_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="">
                     </button>
@@ -438,8 +438,8 @@
               </div>
               <!-- form product options -->
               <div class="product_options">
-                <button id="product_buy">Buy</button>
-                <button id="product_cart">Add to Cart</button>
+                <button id="button_product_buy">Buy<img src="/assets/icons/arrow_right_alt_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"></button>
+                <button id="button_product_cart">Add to Cart<img src="/assets/icons/add_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"></button>
               </div>
             </form>
             <!-- Products perks -->
@@ -515,35 +515,99 @@
         </article>
 
         <article class="product_story_double_item">
-          <div class="product_story_double_info">
-            <h3 class="product_story_double_title">Porckets Galore</h3>
-            <p class="product_story_double_message">
-              Get extra organized with an abundance of places to stow away items, including tablets and laptops (up to 17").
-            </p>
-          </div>
           <div class="product_story_double_video">
             <video autoplay loop muted playsinline data-ll-status="loaded">
-              <source src="https://cdn.accentuate.io/1662422253610/1661984388751/timbuk2-authority-laptop-backpack-deluxe-eco-black-deluxe-1825-3-1120-1AB-SML_1.mp4?v=1661984388751">
-            </video>
+              <source src="https://cdn.accentuate.io/1662422253610/1661984451300/timbuk2-authority-laptop-backpack-deluxe-eco-black-deluxe-1825-3-1120-3A-SML_2.mp4?v=1661984451300">
             </video>
           </div>
+          <div class="product_story_double_info">
+            <h3 class="product_story_double_title">Perfectly Padded</h3>
+            <p class="product_story_double_message">
+              Ultra soft, supportive straps and more keep the carry comfortable all day long.
+            </p>
+          </div>
+          
         </article>
 
         <article class="product_story_double_item">
           <div class="product_story_double_video">
             <video autoplay loop muted playsinline data-ll-status="loaded">
-              <source src="https://cdn.accentuate.io/1662422253610/1661984388751/timbuk2-authority-laptop-backpack-deluxe-eco-black-deluxe-1825-3-1120-1AB-SML_1.mp4?v=1661984388751">
-            </video>
+              <source src="https://cdn.accentuate.io/1662422253610/1661984483972/timbuk2-authority-laptop-backpack-deluxe-eco-black-deluxe-1825-3-1120-4A-SML_3.mp4?v=1661984483972">
             </video>
           </div>
           <div class="product_story_double_info">
-            <h3 class="product_story_double_title">Porckets Galore</h3>
+            <h3 class="product_story_double_title">Play in the Rain</h3>
             <p class="product_story_double_message">
-              Get extra organized with an abundance of places to stow away items, including tablets and laptops (up to 17").
+              Water-resistant exterior can stand up to light rain while the waterproof boot protects against puddles.
             </p>
           </div>
         </article>
-        
+      </div>
+    </section>
+    <!-- Section mesures -->
+    <section class="product_dimensions">
+      <div class="product_dimensions_wrap">
+        <header class="dimensions_header">
+          <h2>Dimensions</h2>
+        </header>
+        <div class="dimensions_container">
+          <img src="/assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack_mesures.png" alt="Authority Backpack Deluxe Dimensions">
+        </div>
+      </div>
+    </section>
+    <!-- Section products reviews -->
+    <section class="product_review">
+      <div class="product_review_wrap">
+        <header class="product_reviews_header">
+          <h2>Customer Reviews</h2>
+        </header>
+        <div class="product_ratings_filters">
+          <div class="product_ratings">
+            <div class="product_rating_points">
+              <p>4.8</p>
+            </div>
+            <div class="product_rating_starts">
+                <img src="/assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="/assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="/assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="/assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="/assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="icon star">
+              </div>
+          </div>
+          <div class="product_write_review">
+            <button class="button_write_review">
+              Write A Review
+            </button>
+          </div>
+        </div>
+        <fomr class="reviews_filters">
+          <div class="review_filters_buttons">
+            <div class="review_searchbar">
+              <input type="search">
+              <button id="search_button"><img src="/assets/icons/search_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Search Icon Button"></button>
+            </div>
+            <div class="review_filter_button">
+              <select name="ratings_select" id="ratings_select">
+                <option value="one_star"><img src="/assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="d"></option>
+              </select>
+            </div>
+          </div>  
+          <div class="review_filters_order">
+            <div class="review_select">
+              <label for="review_short_by">Short By:</label>
+              <select name="review_short_by" id="review_short_by">
+                <option selected value="most_recent">Most Recent</option>
+                <option value="Most Recent">Highest Rating</option>
+                <option value="Most Recent">Lowest Rating</option>
+                <option value="Most Recent">Most Viewd</option>
+                <option value="Most Recent">Most Voted</option>
+              </select>
+            </div>
+          </div>  
+        </fomr>
+        <div class="product_reviews">
+          <div></div>
+        </div>
       </div>
     </section>
     <footer></footer>

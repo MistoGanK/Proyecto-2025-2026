@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const btn_add_qty = document.querySelectorAll(".btn_add_qty");
   const btn_sub_qty = document.querySelectorAll(".btn_sub_qty");
-  const endPointModifyQty = "/student022/shop/backend/endpoints/carts/productSearch.php";
+  const endPointModifyQty = "/student022/shop/backend/endpoints/carts/cartsUpdateQty.php";
+
+  console.log(stock_field);
 
   let id_product;
   let qty;
@@ -12,10 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
     var http = new XMLHttpRequest();
     http.onreadystatechange = function(){
       if (this.readyState == 4 && this.status == 200){
-
       };
     };
-    http.open("GET", endPointModifyQty + "?qty=" + valueQty, true);
+    const endPoint = endPointModifyQty + "?qty=" + valueQty + "&id=" + id_product;
+    http.open("GET", endPoint , true);
     http.send();
   };
 
@@ -29,22 +31,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Substract qty product
   btn_sub_qty.forEach((btn_sub) => {
     btn_sub.addEventListener("click", (e) => {
+    id_product = e.target.getAttribute('id');
       if (
         parseInt(
           btn_sub.parentElement.nextElementSibling.nextElementSibling.innerHTML
         ) == 1
       ) {
       } else {
-        console.log(
-          btn_sub.parentElement.nextElementSibling.nextElementSibling
-        );
         qty = parseInt(
           btn_sub.parentElement.nextElementSibling.nextElementSibling.innerHTML
         );
         qty -= 1;
         btn_sub.parentElement.nextElementSibling.nextElementSibling.innerHTML =
           qty;
-        console.log(qty);
         modifyQty(qty);
       }
     });
@@ -53,11 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // add qty product
   btn_add_qty.forEach((btn_add_qty) => {
     btn_add_qty.addEventListener("click", (e) => {
-      console.log(btn_add_qty.parentElement.nextElementSibling.nextElementSibling);
-      console.log("parent",btn_add_qty.parentElement.parentElement.parentElement);
-        console.log(
-          btn_add_qty.parentElement.nextElementSibling.nextElementSibling
-        );
+    id_product = e.target.getAttribute('id');
         qty = parseInt(
           btn_add_qty.parentElement.nextElementSibling.nextElementSibling.innerHTML
         );

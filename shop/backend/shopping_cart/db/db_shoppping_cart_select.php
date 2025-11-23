@@ -103,7 +103,7 @@ if ($_SESSION['role'] == 'Admin' || isset($_SESSION['role'])) {
                         "."<button class='btn_add_qty flex items-center p-3 text-2xl hover:scale-150 cursor-pointer' id=".$row['id_product'].">+</button>"."
                         "."<button class='btn_sub_qty flex items-center p-3 text-2xl hover:scale-150 cursor-pointer' id=".$row['id_product'].">-</button>"."
                     </div>";
-                    echo "<p class='font-normal w-30 text-sm'>stock: </p>";
+                    echo "<p id='stock_field' class='font-normal w-30 text-sm'>stock: </p>";
                     echo "<p class='font-normal w-30 text-sm'>". $row['stock'] . "</p>";
                     echo "</div>";
                     // Product description
