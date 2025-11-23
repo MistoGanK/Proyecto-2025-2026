@@ -10,7 +10,6 @@
     --color-gray-50: oklch(98.5% 0.002 247.839);
     --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
-    --color-gray-300: oklch(87.2% 0.01 258.338);
     --spacing: 0.25rem;
     --container-md: 28rem;
     --text-xs: 0.75rem;
@@ -440,7 +439,7 @@
       display: flex;
     }
   }
-  .header_start img:hover, .header_start img:focus, .header_start img:active, .dropdown_user_tools img:hover, .dropdown_user_tools img:focus, .dropdown_user_tools img:active, .header_start button:hover, .header_start button:focus, .header_start button:active, .header_nav_ul a:hover, .header_nav_ul a:focus, .header_nav_ul a:active, .dropdown_menu button:hover, .dropdown_menu button:focus, .dropdown_menu button:active {
+  .header_start img:hover, .header_start img:focus, .header_start img:active, .header_start h1:hover, .header_start h1:active, .header_start h1:focus, .dropdown_user_tools img:hover, .dropdown_user_tools img:focus, .dropdown_user_tools img:active, .header_start button:hover, .header_start button:focus, .header_start button:active, .header_nav_ul a:hover, .header_nav_ul a:focus, .header_nav_ul a:active, .header_nav_ul ul li:hover, .dropdown_menu button:hover, .dropdown_menu button:focus, .dropdown_menu button:active {
     --tw-scale-x: 110%;
     --tw-scale-y: 110%;
     --tw-scale-z: 110%;
@@ -781,7 +780,7 @@
     border-bottom-width: 1px;
     --tw-border-style: solid;
     border-style: solid;
-    border-color: var(--color-gray-300);
+    border-color: var(--gray-light-x1);
     padding-block: calc(var(--spacing) * 4);
     @media (width >= 64rem) {
       display: block;
@@ -818,13 +817,21 @@
     flex-shrink: 0;
     cursor: pointer;
     border-radius: calc(infinity * 1px);
-    --tw-border-style: solid;
-    border-style: solid;
-    border-color: var(--color-gray-300);
     &:active {
       border-style: var(--tw-border-style);
       border-width: 2px;
     }
+    &:active {
+      --tw-border-style: double;
+      border-style: double;
+    }
+    &:active {
+      border-color: var(--black);
+    }
+  }
+  .buttom_color_item {
+    height: 100%;
+    width: 100%;
   }
   .buttom_favorite_item {
     margin-left: auto;
@@ -881,7 +888,7 @@
     border-bottom-width: 1px;
     --tw-border-style: solid;
     border-style: solid;
-    border-color: var(--color-gray-300);
+    border-color: var(--gray-light-x1);
     padding-block: calc(var(--spacing) * 4);
   }
   .product_perks_item {
@@ -919,7 +926,7 @@
     border-bottom-width: 1px;
     --tw-border-style: solid;
     border-style: solid;
-    border-color: var(--color-gray-300);
+    border-color: var(--gray-light-x1);
     padding-block: calc(var(--spacing) * 4);
   }
   .product_toggle_button {
@@ -931,6 +938,9 @@
   .product_toggle_button p {
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .toggle_message {
+    display: none;
   }
   .toggle_message p, .toggle_message_list {
     color: var(--gray-light-x1);
@@ -1037,6 +1047,9 @@
     height: calc(var(--spacing) * 15);
     flex-direction: row;
   }
+  .reviews_filters {
+    gap: calc(var(--spacing) * 4);
+  }
   .product_ratings_filters {
     align-items: center;
     justify-content: center;
@@ -1064,6 +1077,7 @@
     }
   }
   .button_write_review {
+    margin-bottom: calc(var(--spacing) * 4);
     border-radius: 0.25rem;
     background-color: var(--black);
     padding: calc(var(--spacing) * 2.5);
@@ -1074,6 +1088,7 @@
     width: 100%;
     flex-direction: row;
     align-items: center;
+    gap: calc(var(--spacing) * 2);
   }
   .review_searchbar {
     display: flex;
@@ -1099,6 +1114,10 @@
     border-width: 1px;
     --tw-border-style: solid;
     border-style: solid;
+  }
+  .review_filter_button select {
+    height: 100%;
+    width: 100%;
   }
   .review_searchbar:focus, .review_searchbar:active, .review_searchbarhover {
     border-radius: var(--radius-2xl);
@@ -1128,6 +1147,81 @@
   .ratings_select img {
     height: calc(var(--spacing) * 5);
   }
+  .review_select {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .customer_reviews, .customer_review_wrapper, .customer_review_item, .customer_review_customer, .customer_review_footer {
+    display: flex;
+    width: 100%;
+  }
+  .customer_reviews {
+    margin-top: calc(var(--spacing) * 8);
+  }
+  .customer_review_item {
+    width: 100%;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+    --tw-border-style: solid;
+    border-style: solid;
+    border-color: var(--gray-light-x1);
+    padding-top: calc(var(--spacing) * 8);
+  }
+  .customer_review_profile img {
+    height: calc(var(--spacing) * 8);
+  }
+  .customer_review_profile {
+    display: flex;
+    width: calc(3/4 * 100%);
+    flex-direction: row;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
+  .customer_review_date {
+    display: flex;
+    width: calc(1/4 * 100%);
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .customer_review_customer {
+    flex-wrap: wrap;
+  }
+  .customer_review_customer .product_rating_starts {
+    width: fit-content;
+  }
+  .customer_review_customer .product_rating_starts img {
+    height: calc(var(--spacing) * 6);
+  }
+  .customer_review_footer {
+    align-items: center;
+    justify-content: flex-end;
+    gap: calc(var(--spacing) * 2);
+  }
+  .review_footer_button {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  .review_footer_button, .review_footer_button button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+  }
+  .review_footer_button, .review_footer_text_container {
+    height: 100%;
+  }
+  .review_footer_text_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .review_footer_button img {
+    height: calc(var(--spacing) * 8);
+  }
   @media (width >= 25rem) {
     .button_add_to_fav p {
       display: flex;
@@ -1149,6 +1243,13 @@
   }
   .show {
     display: flex;
+  }
+  .selected_color img {
+    border-style: var(--tw-border-style);
+    border-width: 5px;
+    --tw-border-style: double;
+    border-style: double;
+    border-color: var(--gray-light-x1);
   }
 }
 @property --tw-border-style {

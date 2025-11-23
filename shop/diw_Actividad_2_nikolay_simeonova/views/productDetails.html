@@ -431,7 +431,7 @@
                   <li class="buttom_favorite_item">
                     <button class="button_add_to_fav">
                       <p>Add to favorite</p>
-                      <img src="/assets/icons/favorite_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="">
+                      <img id="imgFav" src="/assets/icons/favorite_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="">
                     </button>
                   </li>
                 </ul>
@@ -470,7 +470,7 @@
               <div class="product_toggle">
                 <button class="product_toggle_button">
                   <h2>Description</h2>
-                  <p>-</p>
+                  <p>+</p>
                 </button>
                 <div class="toggle_message">
                   <p>A monster of a work pack in premium materials, the Authority Pack DLX will keep you organized and ready to work at home or away. Padded backpack straps and grab handles and an air mesh back panel keep it comfortable on your back, while a luggage pass-through lets you roll it when you want to. A padded laptop sleeve holds up to a 17" laptop and can be accessed inside or out, and a thoughtful internal organizer keeps key accessories safe and at the ready. Compression straps let you cinch it all down tight for a clean look that can transition from client A to B and then bar X.</p>
@@ -479,7 +479,7 @@
               <div class="product_toggle">
                 <button class="product_toggle_button">
                   <h2>Features</h2>
-                  <p>-</p>
+                  <p>+</p>
                 </button>
                 <div class="toggle_message">
                   <ul class="toggle_message_list">
@@ -588,7 +588,12 @@
             </div>
             <div class="review_filter_button">
               <select name="ratings_select" id="ratings_select">
-                <option value="one_star"><img src="/assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="d"></option>
+                <option value="" selected disabled></option>
+                <option value="one_star">&#9733;</option>
+                <option value="one_star">&#9733;&#9733;</option>
+                <option value="one_star">&#9733;&#9733;&#9733;</option>
+                <option value="one_star">&#9733;&#9733;&#9733;&#9733;</option>
+                <option value="one_star">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
               </select>
             </div>
           </div>  
@@ -605,8 +610,47 @@
             </div>
           </div>  
         </fomr>
-        <div class="product_reviews">
-          <div></div>
+        <div class="customer_reviews">
+          <div class="customer_review_wrapper">
+            <div class="customer_review_item">
+              <div class="customer_review_customer">
+                <div class="customer_review_profile">
+                  <div><img src="/assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Image Customer Profile"></div>
+                  <div><p>Manolo.Lux</p></div>
+                </div>
+                <div class="customer_review_date">
+                  <p>10/02/2025</p>
+                </div>
+                <div class="product_rating_starts">
+                  <img src="/assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                  <img src="/assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                  <img src="/assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                  <img src="/assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                  <img src="/assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="icon star">
+              </div>
+              </div>
+              <div class="customer_review_content">
+                <header><h3>An upcoming Christmas present, we</h3></header>
+                <p>An upcoming Christmas present, we went over the backpack with some care when it first arrived. Both the design and the materials struck as as thoughtful, first-rate, and pleasing to the eye and touch. We're hopeful that it's a big hit.</p>
+              </div>
+              <div class="customer_review_footer">
+                <div class="review_footer_text_container">
+                  <p class="review_footer_text">Was this review helpful?</p>
+                </div>
+                <div class="review_footer_button">
+                    <button class="button_like">
+                      <img class="like_img" src="/assets/icons/thumb_up_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Icon like">
+                      <p class="review_total_likes">10</p>
+                    </button>
+                    <button class="button_dislike">
+                      <img class="dislike_img" src="/assets/icons/thumb_down_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Icon dislike">
+                      <p class="review_total_dislikes">2</p>
+                    </button>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
