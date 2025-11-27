@@ -1,7 +1,7 @@
 <?php 
   session_start();
   function showProducts ($products){
-     foreach ($products as $product) {
+    foreach ($products as $product) {
         $availability_style = "";
         if ($product['availability'] == 'on_stock') {
             $availability_style = 'text-green-600 font-regular';

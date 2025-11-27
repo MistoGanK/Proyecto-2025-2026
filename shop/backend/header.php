@@ -1,6 +1,6 @@
 <?php session_start();
-$role = $_SESSION['role'] ??  $_SESSION['role'] = 'guest';
-$usernmae = $_SESSION['usernmae'] ?? $_SESSION['usernmae'] = 'Guest';
+$role = $_SESSION['role'] ??  $_SESSION['role'] = 'Guest';
+$username = $_SESSION['username'] ?? $_SESSION['username'] = 'Guest';
 $root = $_SERVER['DOCUMENT_ROOT'];
 ?>
 <script>
@@ -35,6 +35,10 @@ $root = $_SERVER['DOCUMENT_ROOT'];
                 </div>
             </div>
             <div class="flex flex-col w-full h-full p-3 pt-10">
+                <?php
+                // Product Sidebar
+                echo '
+                <div class="flex flex-col w-full h-full p-3 pt-10">
                 <div class="flex justify-start items-center w-full h-10 mb-3
                     hover:text-[#ffffff]
                     hover:rounded-md
@@ -44,22 +48,25 @@ $root = $_SERVER['DOCUMENT_ROOT'];
                         class="flex justify-start items-center w-full h-full p-3
                         font-sans font-semibold">Products</a>
                 </div>
-                <?php
-                // Only Admin && Customer logged can  see Products, Orders , Customer (Own Customer)
-                if ($_SESSION['role'] !== 'Admin' || !isset($_SESSION['role'])) {
-                } else {
+
+                ';
+                // Customer Sidebar
+                if ($_SESSION['role'] =='Admin') {
                     echo '
                         <div class="flex justify-start items-center w-full h-10 mb-3
                             hover:text-[#ffffff]
                             hover:rounded-md
                             hover:bg-gray-800/40
                             cursor-pointer">
-
+                    
                         <a href="/student022/shop/backend/customers/customers.php"
                             class="flex justify-start items-center w-full h-full p-3
-                         font-sans font-semibold">Customers</a>
-                        </div>
-                    
+                        font-sans font-semibold">Customers</a>
+                        </div> ';
+                };
+                // Orders Sidebar
+                if ($_SESSION['role']!=='Guest' || !isset($_SESSION['role'])){
+                    echo '
                         <div class="flex justify-start items-center w-full h-10 mb-3
                             hover:text-[#ffffff]
                             hover:rounded-md
@@ -67,10 +74,11 @@ $root = $_SERVER['DOCUMENT_ROOT'];
                         cursor-pointer">
                         <a href="/student022/shop/backend/orders/orders.php"
                             class="flex justify-start items-center w-full h-full p-3
-                         font-sans font-semibold">Orders</a>
+                        font-sans font-semibold">Orders</a>
                     </div>';
                 }
                 ?>
+            </div>
             </div>
         </nav>
     </header>
@@ -96,8 +104,9 @@ $root = $_SERVER['DOCUMENT_ROOT'];
                     text-[#0A090C]
                     font-semibold
                     font-sans
-                    ">Welcome <?php print_r($usernmae); ?> Role: <?php print_r($_SESSION['role']); ?></p>
+                    ">Welcome: <?php print_r($username); ?> Role: <?php print_r($_SESSION['role']); ?></p>
                     <?php
+                    // --- Icono Log in / Log out
                     // Si hay usuario logeado
                     if (isset($_SESSION['username'])) {
                         echo '
@@ -129,7 +138,7 @@ $root = $_SERVER['DOCUMENT_ROOT'];
                 </div>
                 <?php
                 // Show shopping cart only to guest & customers
-                if (!isset($_SESSION['role']) || $_SESSION['role'] == 'Customer' || $_SESSION['role'] == 'guest') {
+                if (isset($_SESSION['role']) || $_SESSION['role'] == 'Customer' || $_SESSION['role'] == 'guest') {
                     echo '
                     <a href="/student022/shop/backend/shopping_cart/shopping_cart.php">
                         <div class="flex w-fit h-full justify-end items-center gap-3">

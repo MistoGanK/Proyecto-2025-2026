@@ -4,9 +4,9 @@
     };
 </script>
 <?php 
-    // Redirect if Admin is trying to enter on shopping cart
-if ($_SESSION['role'] == 'Admin' || isset($_SESSION['role'])) {
-    // On progress
+    // Redirect if Admin or Guest is trying to enter on shopping cart
+if ($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Guest') {
+    header('Location: /student022/shop/backend/admin_panel.php');
 };
 ?>
 

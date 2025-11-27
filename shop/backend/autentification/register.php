@@ -67,6 +67,7 @@ if (isset($_SESSION['username'])) {
                 mysqli_close($conn);
 
                 // We save the username and user password with session super global
+                $_SESSION['id_customer'] = $assocResult['id_customer'];
                 $_SESSION["username"] = $username;
                 $_SESSION["password"] = $password;
                 $_SESSION["email"] = $email;
