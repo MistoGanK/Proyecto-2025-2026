@@ -138,7 +138,6 @@ $root = $_SERVER['DOCUMENT_ROOT'];
                 </div>
                 <?php
                 // Show shopping cart only to guest & customers
-                if (isset($_SESSION['role']) || $_SESSION['role'] == 'Customer' || $_SESSION['role'] == 'guest') {
                     echo '
                     <a href="/student022/shop/backend/shopping_cart/shopping_cart.php">
                         <div class="flex w-fit h-full justify-end items-center gap-3">
@@ -153,7 +152,6 @@ $root = $_SERVER['DOCUMENT_ROOT'];
                     </div>
                     </a>
                     ';
-                }
                 ?>
             </div>
         </nav>

@@ -8,16 +8,22 @@ if ($_SESSION['role'] == 'Guest' && !isset($_session['role'])) {
 <section class="flex flex-row flex-wrap h-fit p-5 gap-5 items-center justify-center">
     <div class="w-full mb-6 border-b border-gray-200 pb-2">
         <h1 class="text-3xl font-bold text-[#0A090C] ">ORDERS</h1>
-        <div class="flex w-full justify-center items-center">
+    <?php  
+        if(isset($_SESSION['role']) && $_SESSION['role']=='Admin'){
+            echo '<div class="flex w-full justify-center items-center">
             <div class="flex w-fit justify-center items-center p-3 
                 bg-[#0A090C] 
+                text-white
+                cursor-pointer
                 font-semibold
                 rounded-md 
                 hover:cursor-pointer 
                 hover:bg-[#2c2732]">
-                <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/orders/form_order_insert_call.php'); ?>
+                ',include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/orders/form_order_insert_call.php'),'
             </div>
-        </div>
+        </div>';
+        }
+    ?>
     </div>
 
     <?php

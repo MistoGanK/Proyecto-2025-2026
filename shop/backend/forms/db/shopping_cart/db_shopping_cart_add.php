@@ -1,56 +1,65 @@
 <?php session_start() ?>
 <?php
-    // 1. Inicialización de variables de estado con valores de ERROR por defecto
-    $id_product = null;
-    $delete_output = "ERROR: id_product is missing or data not submitted correctly.";
-    $message_class = "bg-red-100 border-red-500 text-red-700";
+// 1. Inicialización de variables de estado con valores de ERROR por defecto
+$id_product = null;
+$delete_output = "ERROR: id_product is missing or data not submitted correctly.";
+$message_class = "bg-red-100 border-red-500 text-red-700";
 
-    // Check if POST its retrieved and if it has content 
-    if (isset($_POST['id_product']) && !empty($_POST['id_product'])) {
+// Check if POST its retrieved and if it has content 
+if (isset($_POST['id_product']) && !empty($_POST['id_product'])) {
 
-        // Open connection
-        include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+    // Open connection
+    include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
 
-        // Save the variable and escape input
-        $id_product = mysqli_escape_string($conn, $_POST['id_product']);
+    // Save the variable and escape input
+    $id_product = mysqli_escape_string($conn, $_POST['id_product']);
 
-        $id_customer =   $_SESSION['id_customer'];
-        // Query
-        $sql = " INSERT INTO  `022_shopping_cart` (id_customer,id_product) 
-                VALUES ('$id_customer', '$id_product')
+    $id_customer = $_SESSION['id_customer'];
+    // Query   
+    // If Item already, update qty
+    $sql = "INSERT INTO `022_shopping_cart` (
+        id_product, 
+        id_customer, 
+        qty
+    ) VALUES (
+        $id_product, 
+        $id_customer, 
+        1
+    )
+    ON DUPLICATE KEY UPDATE
+        qty = qty + 1;
         ;";
 
-        // Execute the query 
-        $query_result = mysqli_query($conn, $sql);
+    // Execute the query 
+    $query_result = mysqli_query($conn, $sql);
 
-        if ($query_result) {
-            // Mensaje de éxito
-            $delete_output = "Record Successfully Inserted for Product ID: " . $id_product;
-            $message_class = "bg-green-100 border-green-500 text-green-700";
+    if ($query_result) {
+        // Mensaje de éxito
+        $delete_output = "Record Successfully Inserted for Product ID: " . $id_product;
+        $message_class = "bg-green-100 border-green-500 text-green-700";
 
-            // --- ON PROCESS --- 
-                // When added ton the cart redirect ton cart so Enrique sees the product added
-            header('Location: /student022/shop/backend/shopping_cart/shopping_cart.php');
+        // --- ON PROCESS --- 
+        // When added ton the cart redirect ton cart so Enrique sees the product added
+        header('Location: /student022/shop/backend/shopping_cart/shopping_cart.php');
+    } else {
 
-        } else {
-
-            // Mensaje de error de Base de Datos
-            $delete_output = "Database Error: " . mysqli_error($conn);
-            $message_class = "bg-red-100 border-red-500 text-red-700";
-        }
-
-        // Close the connection
-        mysqli_close($conn);
+        // Mensaje de error de Base de Datos
+        $delete_output = "Database Error: " . mysqli_error($conn);
+        $message_class = "bg-red-100 border-red-500 text-red-700";
     }
 
-    // 2. Mostrar el resultado con el estilo correspondiente (éxito o error)
-    printf("<div class='p-4 border-l-4 %s rounded-md mt-4'>" .
-        "<p class='font-bold'>%s</p>" .
-        "</div>", $message_class, $delete_output);
+    // Close the connection
+    mysqli_close($conn);
+}
 
-    // 3. Mensaje final con el ID, solo si se procesó un ID
-    if ($id_product) {
-        echo "<p class='mt-6 text-sm text-gray-500'>Attempted to process product with ID: <span class='font-bold text-[#0A090C]'>" . $id_product . "</span></p>";
-    }
+// 2. Mostrar el resultado con el estilo correspondiente (éxito o error)
+printf("<div class='p-4 border-l-4 %s rounded-md mt-4'>" .
+    "<p class='font-bold'>%s</p>" .
+    "</div>", $message_class, $delete_output);
 
-    ?>
+// 3. Mensaje final con el ID, solo si se procesó un ID
+if ($id_product) {
+    echo "<p class='mt-6 text-sm text-gray-500'>Attempted to process product with ID: <span class='font-bold text-[#0A090C]'>" . $id_product . "</span></p>";
+}
+
+?>

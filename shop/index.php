@@ -11,6 +11,6 @@
             <a class="text-lg font-bold bg-[#FEFFFE] p-1.5 text-[#292532] rounded-md " href="frontend/index.html" title="Go to frontend">Frontend</a>
         </div>
     </main>
- </section>
+</section>
 
 <?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/footer.php'); ?>

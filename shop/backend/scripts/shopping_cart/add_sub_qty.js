@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const btn_add_qty = document.querySelectorAll(".btn_add_qty");
   const btn_sub_qty = document.querySelectorAll(".btn_sub_qty");
+  const p_subtotal = document.getElementById('p_subtotal');
+  console.log("opp : ",p_subtotal);
   const endPointModifyQty = "/student022/shop/backend/endpoints/carts/cartsUpdateQty.php";
-
   console.log(stock_field);
 
   let id_product;
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var http = new XMLHttpRequest();
     http.onreadystatechange = function(){
       if (this.readyState == 4 && this.status == 200){
+        p_subtotal.innerHTML = this.response
       };
     };
     const endPoint = endPointModifyQty + "?qty=" + valueQty + "&id=" + id_product;
