@@ -2,7 +2,7 @@
 
 <section class="flex justify-center p-8  min-h-screen">
     
-    <div class="w-full max-w-xl p-8 bg-white shadow-xl rounded-lg border border-gray-200">
+    <div class="w-full h-fit  max-w-xl p-8 bg-white shadow-xl rounded-lg border border-gray-200">
         
         <h1 class="text-3xl font-bold text-[#0A090C] mb-6 border-b border-gray-200 pb-2">Update Order Information</h1>
         

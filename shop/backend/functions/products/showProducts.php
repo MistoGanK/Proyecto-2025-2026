@@ -1,7 +1,8 @@
 <?php
 function showProducts($products)
 {
-  foreach ($products as $product) {
+  $productsFetch = mysqli_fetch_all($products, MYSQLI_ASSOC);
+  foreach ($productsFetch as $product) {
     // id_product saved for the forms of the inputs
     $id_product = $product['id_product'];
     if ($_SESSION['role'] == 'Admin') {
@@ -13,13 +14,24 @@ function showProducts($products)
       }
     };
     // Parent container of product
-    echo "<div class='flex flex-col h-full max-h-110 flex-shrink-0 basis-[calc(33.33%-1.25rem)] 
+    // If the query returns only one product: 
+    if (count($productsFetch)==1){
+      echo "<div class='flex flex-col h-full max-h-110 flex-shrink-0 w-full 
                     shadow-xl p-4
                     rounded-lg
                     bg-white
                     border
                     border-gray-700/20
                     '>";
+    }else{
+      echo "<div class='flex flex-col h-full max-h-110 flex-shrink-0 basis-[calc(33.33%-1.25rem)] 
+                    shadow-xl p-4
+                    rounded-lg
+                    bg-white
+                    border
+                    border-gray-700/20
+                    '>";
+    }
     // Product Container
     echo "<div class='flex flex-col w-full h-full font-sans'>";
     echo "<h2 class='flex justify-start items-center mb-5 text-xl font-semibold'>" . $product['product_name'] . "</h2>";
@@ -70,7 +82,9 @@ function showProducts($products)
     // Only customer is able to add to cart
 
     // Add to cart button
-    echo "<div class='p-1
+    // Only be able to add to cart if there is stock
+    if ($product['stock'] > 0){
+          echo "<div class='p-1
                             hover:text-[#ffffff]
                             hover:rounded-md
                             hover:bg-[#000001]
@@ -78,7 +92,7 @@ function showProducts($products)
                             '>";
     include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/shopping_cart/form_add_product_cart.php');
     echo "</div>";
-
+    }
     // Select Button Container
     echo "<div class='p-1
                         hover:text-[#ffffff]

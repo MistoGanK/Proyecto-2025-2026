@@ -17,7 +17,7 @@ if (isset($_POST['id_product']) && !empty($_POST['id_product'])) {
     $id_customer = $_SESSION['id_customer'];
     // Query   
     // If Item already, update qty
-    $sql = "INSERT INTO `022_shopping_cart` (
+    $querry_add_to_cart = "INSERT INTO `022_shopping_cart` (
         id_product, 
         id_customer, 
         qty
@@ -30,10 +30,15 @@ if (isset($_POST['id_product']) && !empty($_POST['id_product'])) {
         qty = qty + 1;
         ;";
 
-    // Execute the query 
-    $query_result = mysqli_query($conn, $sql);
+    $query_update_product_qty ="UPDATE `022_products`
+    SET stock = stock - 1
+    WHERE id_product = $id_product";
 
-    if ($query_result) {
+    // Execute the query 
+    $query_result_add_cart = mysqli_query($conn, $querry_add_to_cart);
+    $query_result_update_qty = mysqli_query($conn, $query_update_product_qty);
+
+    if ($query_result_add_cart) {
         // Mensaje de éxito
         $delete_output = "Record Successfully Inserted for Product ID: " . $id_product;
         $message_class = "bg-green-100 border-green-500 text-green-700";

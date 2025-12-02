@@ -39,17 +39,17 @@ if ($_SESSION['role'] == 'Guest' && !isset($_session['role'])) {
 
     if ($_SESSION['role'] == 'Admin') {
         // Mostrar todos los orders al admin
-        $sql = "SELECT * FROM `022_orders`;";
+        $sql = "SELECT DISTINCT (`022_orders`.`id_order`) FROM `022_orders`;";
     } else {
         // Mostrar SOLO los pedidos del usuario
-        $sql = "SELECT * FROM `022_orders` WHERE id_customer = $id_customer";
+        $sql = "SELECT DISTINCT (`022_orders`.`id_order`) FROM `022_orders` WHERE id_customer = $id_customer;";
     };
 
     // Execute the query
     $query_result = mysqli_query($conn, $sql);
     // Importamos nuestra función
     include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/functions/orders/showOrders.php');
-    showOrders($query_result);
+    showOrders($query_result,$conn);
     
     // Close connection
     mysqli_close($conn);

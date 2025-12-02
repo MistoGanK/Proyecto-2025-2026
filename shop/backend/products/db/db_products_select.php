@@ -84,13 +84,13 @@
     // Execute the query
 
     $result = mysqli_query($conn, $sqlQuery);
-    $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    // Cleaning the result 
-    mysqli_free_result($result);
 
     // Get function showProducts()
     include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/functions/products/showProducts.php');
-    showProducts($products);
+    showProducts($result);
+
+    // Cleaning the result 
+    mysqli_free_result($result);
     ?>
 
 </section>

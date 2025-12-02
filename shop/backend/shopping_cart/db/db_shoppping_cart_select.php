@@ -1,8 +1,3 @@
-<script>
-    function redirectIfAdmin(){
-        window.location('/student022/shop/backend/index.php');
-    };
-</script>
 
 <!-- Get globally the query to use it -->
 <?php 
@@ -14,13 +9,6 @@
     };
     // Resets de pointer 
     mysqli_data_seek($query_result, 0);
-?>
-
-<?php 
-    // Redirect if Admin or Guest is trying to enter on shopping cart
-if ($_SESSION['role'] == 'Guest' || !isset($_SESSION['role'])) {
-    header('Location: /student022/shop/backend/admin_panel.php');
-}; 
 ?>
 
 <section class="flex flex-row flex-wrap h-fit p-5 gap-5 items-center justify-center">
@@ -36,7 +24,7 @@ if ($_SESSION['role'] == 'Guest' || !isset($_SESSION['role'])) {
                 rounded-md 
                 hover:cursor-pointer 
                 hover:bg-[#2c2732]">
-                ',include_once($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/products/form_product_insert_call.php'),'
+                ',include_once($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/shopping_cart/form_insert_products_call.php'),'
                 </div>';
             echo
             '<div class="flex w-fit h-fit justify-center items-center pt-4 gap-4">

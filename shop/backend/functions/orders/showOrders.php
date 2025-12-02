@@ -1,108 +1,126 @@
 <?php
-function showOrders($query_result)
+
+/**
+ * Muestra los detalles de los pedidos obtenidos de la base de datos.
+ *
+ * @param mysqli_result|bool $query_result El resultado de la primera consulta SQL.
+ * @param mysqli $conn La conexión activa a la base de datos.
+ * @return void
+ */
+function showOrders($query_result, $conn)
 {
-  // Check if the query exists and if there was rows affected
-  if ($query_result) {
-    // Check if any row where returned
-    if (mysqli_num_rows($query_result) > 0) {
-      // Loop and return formatted result
-      while ($row = mysqli_fetch_assoc($query_result)) {
+    // 1. Verificar si la consulta inicial tuvo éxito
+    if ($query_result) {
+        // 2. Verificar si se devolvió alguna fila (pedidos)
+        if (mysqli_num_rows($query_result) > 0) {
+            
+            $orders = mysqli_fetch_all($query_result, MYSQLI_ASSOC);
 
-        $id_order = $row['id_order']; // Usado para los formularios
+            // BUCLE EXTERNO: Itera sobre cada pedido principal (Order ID)
+            foreach ($orders as $order) {
+                // Reiniciar el total para cada nuevo pedido
+                $total = 0; 
 
-        // Determinar el estilo de cancelación
-        $canceled_style;
-        $canceled_text;
-        if ($row['canceled'] == 1) {
-          $canceled_style = 'text-red-600 font-bold';
-          $canceled_text = 'Yes (Canceled)';
-        } else {
-          $canceled_style = 'text-green-600 font-regular';
-          $canceled_text = 'No';
-        }
+                $id_order = $order['id_order'];
 
-        // Parent container of order (misma estructura que el producto)
-        echo "<div class='flex flex-col h-full min-m-90 max-h-110 flex-shrink-0 basis-[calc(33.33%-1.25rem)] 
-                         shadow-xl p-4
-                         rounded-lg
-                         bg-white
-                         border
-                         border-gray-700/20
-                         '>";
-        // Order Container
-        echo "<div class='flex flex-col w-full h-full font-sans'>";
-        // Título de la Orden
-        echo "<h2 class='flex justify-start items-center mb-5 text-xl font-semibold'>Order ID: " . $row['id_order'] . "</h2>";
+                $queryGroupOrders = "SELECT * FROM `022_view_orders` WHERE id_order = $id_order";
+                
+                $resultGroupOrders = mysqli_query($conn, $queryGroupOrders);
+                $fetchGroupOrders = mysqli_fetch_all($resultGroupOrders, MYSQLI_ASSOC);
 
-        // Total + Qty container
-        echo "<div class='flex justify-between w-full mb-5'>";
-        echo "<p class='font-extrabold text-2xl text-green-700'>" . $row['total'] . "€" . "</p>";
-        echo "<p class='font-normal text-sm'>" . "Qty: " . $row['qty'] . "</p>";
-        echo "</div>";
+                echo "<article class='w-full h-fit border border-gray-700/20 p-4 mb-4 rounded-lg shadow-xl bg-white'>";
+                echo "<h2 class='text-xl font-bold'>Order ID: $id_order</h2>";
+                echo '<div class="order-lines-container my-3 space-y-2">';
 
-        // Product description
-        echo "<p class='font-normal text-sm pb-3 mb-5 border-b border-gray-600/50'>" . "Product ID: " . $row['id_product'] . " | Unit Price: " . $row['unit_price'] . "€</p>";
+                foreach ($fetchGroupOrders as $currentOrder) {
+                    
+                    $canceled_style = '';
+                    $canceled_text = '';
 
-        // Order Info container
-        echo "<div class=' flex flex-col gap-2 text-xs text-gray-600'>";
-        echo "<p>" . "Customer ID: " . $row['id_customer'] . "</p>";
-        echo "<p>" . "Payment ID: " . $row['id_payment_method'] . "</p>";
-        echo "<p>" . "Order Date: " . $row['order_date'] . "</p>";
-        echo "<p>" . "Discount: " . $row['discount'] . "</p>";
-        echo "<p>" . "Canceled: " . "<span class='$canceled_style'>" . $canceled_text . "</span></p>";
-        echo "</div>";
+                    // Show all lines of current order
+                    echo "<div class='border-b border-gray-100 pb-2'>";
+                    echo "<p class='text-gray-500'><span class='text-black text-lg font-semibold'>Product: </span>" . $currentOrder['product_name'] . "</p>";
+                    echo "<p class='text-gray-500'><span class='text-black font-semibold'>Qty: </span>" . $currentOrder['qty'] . "</p>";
+                    echo "<p class='text-gray-500'><span class='text-black font-semibold'>Price: </span>" . $currentOrder['unit_price'] . "€</p>";
+                    echo "<p class='text-gray-500'><span class='text-black font-semibold'>Discount: </span>" . $currentOrder['discount'] . "%</p>";
+                    echo "<p class='text-gray-500'><span class='text-black font-semibold'>Total Line: </span>" . $currentOrder['total'] . "€</p>";
+                    
+                    // Determinar el estilo de cancelación
+                    if ($currentOrder['canceled'] == 1) {
+                        $canceled_style = 'text-red-600 font-bold';
+                        $canceled_text = 'Yes (Canceled)';
+                    } else {
+                        $canceled_style = 'text-green-600 font-regular';
+                        $canceled_text = 'No';
+                    }
+                    echo "<p class='$canceled_style'>Canceled: " . $canceled_text . "</p>";
+                    echo "</div>";
+                    $total += $currentOrder['total'];
+                };
 
-        // Form Buttons container
-        echo ("<div class='flex justify-evenly items-end h-full mt-4 pt-3 border-t border-gray-200'>");
-        if (!isset($_SESSION['role']) || $_SESSION['role'] != 'Admin') {
-        } else {
-          // Delete Button Container
-          echo "<div class='p-1
+                echo '</div>';
+
+                // Footer del pedido
+                echo '<footer>';
+                echo "<p class='font-bold text-lg'>Total Order: " . number_format($total, 2) . "€</p>"; // Formateado el total
+                
+                echo "<p class='text-sm text-gray-500'>Payment Method: " . ($currentOrder['payment_method_name'] ?? 'N/A') . "</p>"; 
+                echo '</footer>';
+                
+                // Form Buttons container
+                echo ("<div class='flex justify-evenly items-end h-full mt-4 pt-3 border-t border-gray-200'>");
+                
+                // Botones de Admin
+                if (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin') {
+                    // Delete Button Container
+                    echo "<div class='p-1
                                     hover:cursor-pointer
                                     hover:text-white
                                     hover:bg-red-600
                                     hover:rounded-md
                                     '>";
-          include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/orders/form_order_delete_call.php');
-          echo "</div>";
-          // Update Button Container
-          echo "<div class='p-1
+                    include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/orders/form_order_delete_call.php');
+                    echo "</div>";
+                    
+                    // Update Button Container
+                    echo "<div class='p-1
                                     hover:text-[#ffffff]
                                     hover:rounded-md
                                     hover:bg-[#000001]
                                     cursor-pointer
                                     '>";
-          include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/orders/form_order_update_call.php');
-          echo "</div>";
+                    include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/orders/form_order_update_call.php');
+                    echo "</div>";
+                }
+                // Select Button Container (para todos los roles)
+                echo "<div class='p-1
+                                hover:text-[#ffffff]
+                                hover:rounded-md
+                                hover:bg-[#000001]
+                                cursor-pointer
+                                '>";
+                include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/orders/form_order_select.php');
+                echo "</div>";  
+                echo ("</div>");
+
+                echo "</article>"; 
+            }
+        
+        } else {
+            // No se encontraron filas
+            $order_output = "No orders found.";
+            echo "<p class='text-red-500 font-bold mt-5'>" . $order_output . "</p>";
         }
-
-        // Select Button Container
-        echo "<div class='p-1
-                                    hover:text-[#ffffff]
-                                    hover:rounded-md
-                                    hover:bg-[#000001]
-                                    cursor-pointer
-                                    '>";
-        include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/orders/form_order_select.php');
-        echo "</div>";
-
-
-        echo ("</div>");
-        echo ("</div>");
-        echo ("</div>");
-      }
     } else {
-      $order_output = "Order with ID " . ($id_order ?? 'null') . " not found.";
-      echo "<p class='text-red-500 font-bold mt-5'>" . $order_output . "</p>";
+        // Error de ejecución
+        $order_output = "Database Error: " . mysqli_error($conn);
+        echo "<p class='text-red-500 font-bold mt-5'>" . $order_output . "</p>";
     }
-  } else {
-    // Error on query execution
-    $order_output = "Database Error: " . mysqli_error($conn);
-    echo "<p class='text-red-500 font-bold mt-5'>" . $order_output . "</p>";
-  }
 
-  // Free the result
-  if (isset($query_result) && is_object($query_result)) {
-    mysqli_free_result($query_result);
-  }
+    // Liberar el resultado
+    if (isset($query_result) && is_object($query_result)) {
+        mysqli_free_result($query_result);
+    }
 };
+
+?>
