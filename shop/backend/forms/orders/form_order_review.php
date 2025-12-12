@@ -8,19 +8,19 @@
         
         <h1 class="text-3xl font-bold text-[#0A090C] mb-6 border-b border-gray-200 pb-2">Review Product</h1>
         
-        <form class="flex flex-col gap-4" action="/student022/shop/backend/forms/db/order/db_order_review.php" method="post">
+        <form class="flex flex-col gap-4" action="/student022/shop/backend/forms/db/product/db_product_review.php" method="post">
             <!-- ID Order  -->
-            <input type="number" id="id_order" value="<?php echo $id_order?>" hidden>
-
+        <input type="number" id="id_order" name="id_order" value="<?php echo $id_order ?>" hidden="true">
+    
             <label class="flex flex-col text-sm font-medium text-gray-700">
                 General Review:
-               <select id="general_review">
-                  <option value="1">Very Bad</option>
-                  <option value="2">Bad</option>
-                  <option value="3">Good</option>
-                  <option value="4">Very Good</option>
-                  <option value="5">Excellent</option>
-               </select>
+            <select id="general_review">
+                <option value="1">Very Bad</option>
+                <option value="2">Bad</option>
+                <option value="3">Good</option>
+                <option value="4">Very Good</option>
+                <option value="5">Excellent</option>
+            </select>
             </label>
             
             <label class="flex flex-col text-sm font-medium text-gray-700">

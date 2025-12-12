@@ -16,7 +16,7 @@ function showProducts($products)
     // Parent container of product
     // If the query returns only one product: 
     if (count($productsFetch)==1){
-      echo "<div class='flex flex-col h-full max-h-110 flex-shrink-0 w-full 
+      echo "<div class='flex flex-col h-full max-h-220 flex-shrink-0 w-full 
                     shadow-xl p-4
                     rounded-lg
                     bg-white
@@ -24,7 +24,7 @@ function showProducts($products)
                     border-gray-700/20
                     '>";
     }else{
-      echo "<div class='flex flex-col h-full max-h-110 flex-shrink-0 basis-[calc(33.33%-1.25rem)] 
+      echo "<div class='flex flex-col h-full max-h-220 flex-shrink-0 basis-[calc(33.33%-1.25rem)] 
                     shadow-xl p-4
                     rounded-lg
                     bg-white
@@ -53,6 +53,9 @@ function showProducts($products)
       echo "<p>" . "Active: " . $product['active'] . "</p>";
     };
     echo "<p>" . "Launch date: " . $product['launch_date'] . "</p>";
+      echo "<div class='flex w-full h-full'>";
+        echo "<img src='" . $product['img_src'] . "' alt='Product img'>";    
+      echo "</div>";
     echo "</div>";
     // Form Buttons container
     echo ("<div class='flex justify-evenly items-end h-full'>");
@@ -78,6 +81,7 @@ function showProducts($products)
                                 '>";
       include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/products/form_product_update_call.php');
       echo "</div>";
+
     }
     // Only customer is able to add to cart
 
@@ -102,9 +106,18 @@ function showProducts($products)
                             '>";
     include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/products/form_product_select.php');
     echo "</div>";
+    // Review Button Container
+    echo "<div class='p-1
+                        hover:text-[#ffffff]
+                        hover:rounded-md
+                        hover:bg-[#000001]
+                        cursor-pointer
+                            '>";
+    include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/products/form_product_select_reviews_call.php');
 
-    echo ("</div>");
-    echo ("</div>");
-    echo ("</div>");
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
   }
 };

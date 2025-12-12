@@ -55,7 +55,8 @@
                 price,
                 stock,
                 description,
-                launch_date
+                launch_date,
+                img_src
             FROM `022_products`
             WHERE id_product = '$id_product' 
             AND active = 1
@@ -74,7 +75,8 @@
                 price,
                 stock,
                 description,
-                launch_date
+                launch_date,
+                img_src
             FROM `022_products`
             WHERE active = 1
             AND availability != 'discontinued' ";
