@@ -1,0 +1,47 @@
+@use 'variables' as *;
+@mixin headers ($fontFamily:$NotoSansRegular,$color:$black,$fontSize:1.25rem){
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  color: $color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin buttons ($bg:none,$color:$black,$scaleBase:1,$scaleAugment:1.1,$paddingY:0,$paddigX:0,$borderRadius:0,$gap:0,$width:auto){
+  background: $bg;
+  color:$color;
+  width: auto;
+  padding: $paddingY $paddigX;
+  gap: $gap;
+  border-radius: $borderRadius;
+  cursor: pointer;
+  &:hover,
+  &:focus{
+    cursor: pointer;
+    transform: scale($scaleAugment);
+  }
+  &:active{
+    transform: scale($scaleBase);
+  } 
+}
+@mixin textHover ($scaleBase:1,$scaleAugment:1.025,$bg:none,$color:$black,$decoration:none){
+  background-color: $bg;
+  color: $black;
+  cursor: pointer;
+  &:hover,
+  &:focus{
+    transform: scale($scaleAugment);
+    text-decoration: $decoration;
+  }
+  &:active{
+    transform: scale($scaleBase);
+  }
+}
+@mixin borders($borderStyle:solid,$borderColor:$black,$boderSize:1px,$borderRadius:0){
+  border: $borderStyle $borderColor $boderSize;
+  border-radius: $borderRadius;
+}
+@mixin bordersTop ($borderStyle:solid,$borderColor:$black,$boderSize:1px,$borderRadius:0){
+  border-top: $borderStyle $borderColor $boderSize;
+  border-radius: $borderRadius;
+}

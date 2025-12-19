@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <link rel="icon" href="../assets/favicon/brand2WhiteBlack.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../assets/styles/sass/cart.css">
+  <link>
+</head>
+<body>
+  <header class="header_start">
+    <nav>
+      <div class="header_nav_dropdown">
+        <button id="dropdown_button_show">
+          <img src="../assets/icons/menu_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Icon Dropdown" />
+        </button>
+      </div>
+      <div class="header_nav_logo">
+        <h1><a href="#" title="Go to Home">BRAND2</a></h1>
+      </div>
+      <div class="header_nav_ul">
+        <ul>
+          <li><a href="#" title="Go to custom">Custom</a></li>
+          <li><a href="#" title="Go to backpacks">Backpacks</a></li>
+          <li><a href="#" title="Go to bags">Bags</a></li>
+          <li><a href="#" title="Go to luggages">Luggages</a></li>
+          <li><a href="#" title="Go to accesories">Accesories</a></li>
+          <li><a href="#" title="Go to sales">Sale</a></li>
+          <li><a href="#" title="Go to about brand2">About Brand2</a></li>
+        </ul>
+      </div>
+      <div class="header_nav_user_tools">
+        <div class="div_user_tool">
+          <button>
+            <img src="../assets/icons/search_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Search icon"
+              title="Search" />
+          </button>
+        </div>
+        <div class="div_user_tool">
+          <button>
+            <img title="Go to My Account" src="../assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="User icon" />
+          </button>
+        </div>
+        <div class="div_user_tool">
+          <button>
+            <img src="../assets/icons/local_mall_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Shopping Bag icon"
+              title="My shopping bag" />
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- Main dropdown menu -->
+  <div class="dropdown_menu_container">
+    <nav class="dropdown_menu">
+      <header>
+        <h2>Menu</h2>
+        <button id="dropdown_button_close">
+          <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
+        </button>
+      </header>
+      <div class="dropdown_menu_ul">
+        <ul>
+          <li><a href="#" title="Go to custom">Custom</a></li>
+          <li>
+            <a href="#" title="Go to backpacks">Backpacks</a>
+            <button id="button_forward_backpacks">
+              <img src="../assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                alt="See all backpacks" />
+            </button>
+          </li>
+          <li>
+            <a href="#" title="Go to bags">Bags</a>
+            <button id="button_forward_bags">
+              <img src="../assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                alt="See all backpacks" />
+            </button>
+          </li>
+          <li>
+            <a href="#" title="Go to luggages">Luggages</a>
+          </li>
+          <li>
+            <a href="#" title="Go to accesories">Accesories</a>
+          </li>
+          <li>
+            <a href="#" title="Go to sales">Sale</a>
+          </li>
+          <li>
+            <a href="#" title="Go to about brand2">About Brand2</a>
+            <button id="button_forward_about">
+              <img src="../assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                alt="See all backpacks" />
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown_user_tools">
+        <ul>
+          <li>
+            <a href="#" title="Go to my shopping bag">
+              <img src="../assets/icons/local_mall_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="" />
+            </a>
+            <a href="#" title="Go to my shopping bag"> BAG </a>
+          </li>
+          <li>
+            <a href="#" title="Go to Sign In">
+              <img src="../assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="" />
+            </a>
+            <a href="#" title="Go to Sign In"> SIGN IN </a>
+          </li>
+          <li>
+            <a href="#" title="Go to support">
+              <img src="../assets/icons/help_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="" />
+            </a>
+            <a href="#" title="Go to support"> SUPPORT </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- Backpacks Dropdownmenu -->
+  <div class="dropdown_menu_container_backpacks">
+    <nav class="dropdown_menu">
+      <header>
+        <div class="dropdown_menu_header_content">
+          <button id="button_backwards_backpacks">
+            <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+              alt="Close dropdown menu" />
+          </button>
+          <h2>Backpacks</h2>
+        </div>
+        <button id="dropdown_backpacks_button_close">
+          <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
+        </button>
+      </header>
+      <div class="dropdown_menu_ul">
+        <ul>
+          <li>
+            <h3>Shop by category</h3>
+          </li>
+          <li>
+            <a href="#" title="Go to Travel Backpakcs">Travel Backpacks</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Laptop Backpacks">Laptop Backpacks</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Weatherproof Backpacks">Weatherproof Backpacks</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Work Backpacks">Work Backpacks</a>
+          </li>
+          <li>
+            <a href="#" title="Go to All Backpacks">All Backpacks</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- Bags Dropdownmenu -->
+  <div class="dropdown_menu_container_bags">
+    <nav class="dropdown_menu">
+      <header>
+        <div class="dropdown_menu_header_content">
+          <button id="button_backwards_bags">
+            <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+              alt="Close dropdown menu" />
+          </button>
+          <h2>Bags</h2>
+        </div>
+        <button id="dropdown_bags_button_close">
+          <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
+        </button>
+      </header>
+      <div class="dropdown_menu_ul">
+        <ul>
+          <li>
+            <h3>Shop by category</h3>
+          </li>
+          <li><a href="#" title="Go to Duffel Bags">Duffel Bags</a></li>
+          <li>
+            <a href="#" title="Go to Messenger Bags">Messenger Bags</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Crossbody Bags">Crossbody Bags</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Laptop Bags">Laptop Bags</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Tote Bags">Tote Bags</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Pannier Bags">Pannier Bags</a>
+          </li>
+          <li>
+            <a href="#" title="Go to All Bags">All Bags</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- About Dropdownmenu -->
+  <div class="dropdown_menu_container_about">
+    <nav class="dropdown_menu">
+      <header>
+        <div class="dropdown_menu_header_content">
+          <button id="button_backwards_about">
+            <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+              alt="Close dropdown menu" />
+          </button>
+          <h2>About Brand2</h2>
+        </div>
+        <button id="dropdown_about_button_close">
+          <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
+        </button>
+      </header>
+      <div class="dropdown_menu_ul">
+        <ul>
+          <li>
+            <h3>Explore</h3>
+          </li>
+          <li><a href="#" title="Go to Sustainability">Sustainability</a></li>
+          <li>
+            <a href="#" title="Go to Our Story">Our Story</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Our Stores">Our Stores</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- Main content -->
+  <main>
+    <header class="main_header">
+      <div class="main_header_info">
+        <div class="main_header_info_total">
+          <p>Cart Total 877€</p>
+        </div>
+        <div class="main_header_info_progress">
+          <div class="free_shipping_progress"></div>
+          <p class="progress_message">Your cart qualifies for free shipping</p>
+        </div>
+      </div>
+      <button id="btn_continue_shopping">
+        <img src="../assets/icons/arrow_back_ios_new_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp" alt="Arrow Back">
+        Continue Shopping
+      </button>
+    </header>
+    <!-- Cart Body -->
+    <section class="cart_body">
+      <form class="cart_form">
+        <article class="cart_item">
+          <div class="item_main">
+            <div class="item_img">
+              <button class="item_button"><img src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack.webp" alt="Authority Laptop Backpack Deluxe"></button>
+            </div>
+            <div class="item_details">
+              <h2>Authority Laptop Backpack Deluxe</h2>
+              <p><span class="item_column">Color:</span> Eco Black Deluxe</p>
+              <p><span class="item_column">Size:</span> 35L</p>
+              <p><span class="item_column">Price:</span> 185€</p>
+            </div>
+          </div>
+          <div class="item_footer">
+            <div class="delete_container">
+              <button>Delete</button>
+            </div>
+            <div class="item_action_buttons">
+              <button class="btn_substract">-</button>
+              <p class="item_qty">1</p>
+              <button class="item_agregation">+</button>
+            </div>
+          </div>
+        </article>
+        <article class="cart_item">
+          <div class="item_main">
+            <div class="item_img">
+              <button class="item_button"><img src="../assets/img/products/backpacks/movile/neverCheck.webp" alt="Never Check Expandable Backpack"></button>
+            </div>
+            <div class="item_details">
+              <h2>Never Check Expandable Backpack</h2>
+              <p><span class="item_column">Color:</span> Black</p>
+              <p><span class="item_column">Size:</span> 35L</p>
+              <p><span class="item_column">Price:</span> 245€</p>
+            </div>
+          </div>
+          <div class="item_footer">
+            <div class="delete_container">
+              <button>Delete</button>
+            </div>
+            <div class="item_action_buttons">
+              <button class="btn_substract">-</button>
+              <p class="item_qty">1</p>
+              <button class="item_agregation">+</button>
+            </div>
+          </div>
+        </article>
+        <article class="cart_item">
+          <div class="item_main">
+            <div class="item_img">
+              <button class="item_button"><img src="../assets/img/products/backpacks/movile/specialScopewebp.webp" alt="Especial Scope Expandable Backpack"></button>
+            </div>
+            <div class="item_details">
+              <h2>Especial Scope Expandable Backpack</h2>
+              <p><span class="item_column">Color:</span> Black</p>
+              <p><span class="item_column">Size:</span> 30L</p>
+              <p><span class="item_column">Price:</span> 228€</p>
+            </div>
+          </div>
+          <div class="item_footer">
+            <div class="delete_container">
+              <button>Delete</button>
+            </div>
+            <div class="item_action_buttons">
+              <button class="btn_substract">-</button>
+              <p class="item_qty">1</p>
+              <button class="item_agregation">+</button>
+            </div>
+          </div>
+        </article>
+        <article class="cart_item">
+          <div class="item_main">
+            <div class="item_img">
+              <button class="item_button"><img src="../assets/img/products/backpacks/movile/Wingman.webp" alt="Wingman Travel Backpack Duffel"></button>
+            </div>
+            <div class="item_details">
+              <h2>Wingman Travel Backpack Duffel</h2>
+              <p><span class="item_column">Color:</span> Black</p>
+              <p><span class="item_column">Size:</span> 40L</p>
+              <p><span class="item_column">Price:</span> 219€</p>
+            </div>
+          </div>
+          <div class="item_footer">
+            <div class="delete_container">
+              <button>Delete</button>
+            </div>
+            <div class="item_action_buttons">
+              <button class="btn_substract">-</button>
+              <p class="item_qty">1</p>
+              <button class="item_agregation">+</button>
+            </div>
+          </div>
+        </article>
+      </form>
+      <footer class="cart_footer">
+        <div class="cart_footer_info">
+          <h2>Subtotal:</h2>
+          <p>877€</p>
+        </div>
+          <button class="cart_footer_button">Checkout(6)</button>
+        </div>
+      </footer>
+    </section>
+  </main>
+  </div>
+  <script src="../assets/scripts/dropDownMenu.js"></script>
+  <script src="../assets/scripts/cart.js"></script>
+</body>
+</html>

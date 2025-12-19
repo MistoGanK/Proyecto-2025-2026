@@ -1,0 +1,274 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+// Headers
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  // Default button Behaviour 
+  button {
+    background-color: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family:$NotoSansBold;
+    cursor: pointer;
+    &:hover,
+    &:active,
+    &:focus{
+      // Preset
+      @include buttons();
+    }
+  }
+}
+
+h1,
+h1 a {
+  @include headers($groteskBold);
+}
+
+h2,
+h2 a {
+  @include headers($RobotoMonoBold);
+}
+
+h3,
+h3 a {
+  @include headers($RobotoMonoBold,$black,1.125rem);
+}
+
+h4,
+h4 a {
+  @include headers($RobotoMonoMedium,$black,1rem);
+}
+
+// Text
+
+p {
+  font-family: $NotoSansRegular;
+  color: $black;
+}
+
+a {
+  font-family: $NotoSansBoldItalic;
+  color: $black;
+}
+
+// Base Styles
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+// Header
+
+.header_start {
+  width: 100%;
+  display: flex;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid $black-tranps-x1;
+
+  h1{
+    @include headers(); 
+  }
+}
+
+.header_nav_dropdown {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+header img {
+  height: 1.5rem;
+}
+
+.header_start nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.header_nav_ul {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.header_nav_ul ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  gap: 1rem;
+  li{
+    @include textHover(1,1.05);
+  }
+}
+
+.div_user_tool:nth-child(2) {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.header_nav_ul a {
+  &:hover,
+  &:active,
+  &:focus {
+    transition: $transition-speed-fast;
+    transform: scale(1.05);
+  }
+}
+.header_nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_nav img {
+  height: 1.5rem;
+}
+
+.header_nav_logo,
+.header_nav_user_tools {
+  display: flex;
+  gap: 0.5rem;
+
+}
+
+.header_nav_ul ul {
+  gap: 1rem;
+}
+
+.dropdown_menu header {
+  display: flex;
+  padding: 0.5rem;
+  height: 3.5rem;
+}
+
+.dropdown_menu_ul ul li {
+  display: flex;
+}
+
+.dropdown_menu_container,
+.dropdown_menu_container_backpacks,
+.dropdown_menu_container_about,
+.dropdown_menu_container_bags {
+  display: none; // JS toggle
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background-color: $gray-blue-tranps;
+}
+
+.dropdown_menu_container img,
+.dropdown_menu_container_backpacks img,
+.dropdown_menu_container_bags img,
+.dropdown_menu_container_about img {
+  height: 1.5rem;
+}
+
+.dropdown_menu {
+  width: clamp(200px, 50%, 400px);
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown_menu button {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown_menu header {
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.dropdown_menu_header_content {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dropdown_menu_ul {
+  background-color: $black-tranps-x5;
+  padding: 1rem;
+}
+
+.dropdown_menu_ul ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+.dropdown_user_tools ul li {
+  display: flex;
+}
+
+.dropdown_menu_ul ul li,
+.dropdown_user_tools ul li {
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  &:hover,
+  &:focus{
+    @include textHover();
+  }
+}
+
+.dropdown_menu_ul ul li,
+.dropdown_menu_ul ul li button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown_user_tools {
+  margin-top: 2.25rem;
+  padding: 1rem;
+}
+
+.dropdown_user_tools ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.dropdown_user_tools ul li {
+  gap: 1rem;
+  align-items: center;
+}
+
+// JS general Style 
+
+.show{
+  display: flex;
+}

@@ -1,0 +1,188 @@
+@use "variables" as *;
+@use "common" as *;
+@use "mixins" as *;
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.main_header {
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
+  background-color: $black-tranps-x4;
+  padding: 24px;
+  gap: 8px;
+  margin-bottom: 24px;
+  .main_header_info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    gap: 8px;
+    .main_header_info_total,
+    .main_header_info_progress {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+    .main_header_info_total {
+      p {
+        font-size: 1.5rem;
+        font-family: $NotoSansBold;
+      }
+    }
+    .main_header_info_progress {
+      p {
+        font-size: 0.8rem;
+        font-family: $NotoSansRegular;
+      }
+      .free_shipping_progress {
+        height: 8px;
+        width: 100%;
+        max-width: 500px;
+        background-color: $black;
+        border-radius: 999px;
+      }
+    }
+  }
+  #btn_continue_shopping {
+    display: flex;
+    width: fit-content;
+    justify-content: space-evenly;
+    align-items: center;
+    @include buttons($black, $white, 1, 1.05, 10px, 18px, 20px, 6px);
+    p {
+      width: fit-content;
+    }
+  }
+}
+// Cart body
+.cart_body,
+.cart_item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .cart_form {
+    max-width: 1200px;
+    width: 100%;
+  }
+  .item_main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+    .item_img{
+      background-color: $black-tranps-x5;
+      img{
+        width: 120px;
+      }
+    }
+    .item_details{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 6px;
+      *{
+        width: fit-content;
+      }
+      // @mixin headers ($fontFamily:$NotoSansRegular,$color:$black,$fontSize:1.25rem){
+      h2{
+        @include headers($RobotoMonoBold,$black,1rem);
+        margin-bottom: 6px;
+      }
+      p{
+        font-family: $NotoSansRegular;
+        font-size: 0.9rem;
+      }
+      .item_column{
+        font-family: $NotoSansBold;
+      }
+    }
+  }
+  .item_footer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .delete_container{
+      display: flex;
+      text-decoration: underline;
+    }
+    .item_action_buttons{
+      display: flex;
+      width: 70px;
+      padding: 8px;
+      justify-content: space-between;
+      // @mixin borders($borderStyle:solid,$borderColor:$black,$boderSize:1px,$borderRadius:0){
+      @include borders(solid,$black-tranps-x2,1px,5px);
+      button{
+        &:hover,
+        &:focus{
+          transform: scale(1.5);
+        }
+        &:active{
+          transform: scale(1);
+        }
+      }
+    }
+  }
+  .cart_footer{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: $white;
+    padding: 15px 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    .cart_footer_info{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      font-family: $NotoSansBold;
+      p{
+        font-size: 1.5rem;
+        font-family: $NotoSansBold;
+      }
+    }
+    .cart_footer_button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 500px;
+      min-width: 100px;
+      width: 100%;
+      padding: 20px 10px;
+      background-color: $black;
+      color: $white;
+      border-radius: 999px;
+    }
+  }
+}
+.cart_body {
+  padding: 16px;
+  padding-bottom: 150px;
+  justify-content: center;
+  align-items: center;
+}
+// @mixin bordersTop ($borderStyle:solid,$borderColor:$black,$boderSize:1px)
+.cart_item{
+  gap: 30px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  @include bordersTop(solid,$black-tranps-x3);
+}
