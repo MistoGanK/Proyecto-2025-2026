@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../assets/favicon/brand2WhiteBlack.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../assets/styles/tailwind/tailwindOut.css" />
+  <title>Product Detail</title>
+</head>
+
+<body>
+  <header class="header_start">
+    <nav>
+      <div class="header_nav_dropdown">
+        <button id="dropdown_button_show">
+          <img src="../assets/icons/menu_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Icon Dropdown" />
+        </button>
+      </div>
+      <div class="header_nav_logo">
+        <h1><a href="#" title="Go to Home">BRAND2</a></h1>
+      </div>
+      <div class="header_nav_ul">
+        <ul>
+          <li><a href="#" title="Go to custom">Custom</a></li>
+          <li><a href="#" title="Go to backpacks">Backpacks</a></li>
+          <li><a href="#" title="Go to bags">Bags</a></li>
+          <li><a href="#" title="Go to luggages">Luggages</a></li>
+          <li><a href="#" title="Go to accesories">Accesories</a></li>
+          <li><a href="#" title="Go to sales">Sale</a></li>
+          <li><a href="#" title="Go to about brand2">About Brand2</a></li>
+        </ul>
+      </div>
+      <div class="header_nav_user_tools">
+        <div class="div_user_tool">
+          <button>
+            <img src="../assets/icons/search_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Search icon"
+              title="Search" />
+          </button>
+        </div>
+        <div class="div_user_tool">
+          <a href="#" title="Go to my acocunt">
+            <img src="../assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="User icon" />
+          </a>
+        </div>
+        <div class="div_user_tool">
+          <button id="btn_shopping_cart">
+            <img src="../assets/icons/local_mall_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Shopping Bag icon"
+              title="My shopping bag" />
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- Overlay movile dropdown menu -->
+  <section class="bread_crum_container">
+    <nav class="bread_crum">
+      <a href="#">Backpacks ></a>
+      <a href="#">Laptop Backpakcs ></a>
+      <a href="#" id="crum_product">Clark Commuter Backpack</a>
+    </nav>
+  </section>
+  <!-- Main dropdown menu -->
+  <div class="dropdown_menu_container">
+    <nav class="dropdown_menu">
+      <header>
+        <h2>Menu</h2>
+        <button id="dropdown_button_close">
+          <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
+        </button>
+      </header>
+      <div class="dropdown_menu_ul">
+        <ul>
+          <li><a href="#" title="Go to custom">Custom</a></li>
+          <li>
+            <a href="#" title="Go to backpacks">Backpacks</a>
+            <button id="button_forward_backpacks">
+              <img src="../assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                alt="See all backpacks" />
+            </button>
+          </li>
+          <li>
+            <a href="#" title="Go to bags">Bags</a>
+            <button id="button_forward_bags">
+              <img src="../assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                alt="See all backpacks" />
+            </button>
+          </li>
+          <li>
+            <a href="#" title="Go to luggages">Luggages</a>
+          </li>
+          <li>
+            <a href="#" title="Go to accesories">Accesories</a>
+          </li>
+          <li>
+            <a href="#" title="Go to sales">Sale</a>
+          </li>
+          <li>
+            <a href="#" title="Go to about brand2">About Brand2</a>
+            <button id="button_forward_about">
+              <img src="../assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                alt="See all backpacks" />
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown_user_tools">
+        <ul>
+          <li>
+            <a href="#" title="Go to my shopping bag">
+              <img src="../assets/icons/local_mall_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="" />
+            </a>
+            <a href="#" title="Go to my shopping bag"> BAG </a>
+          </li>
+          <li>
+            <a href="#" title="Go to Sign In">
+              <img src="../assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="" />
+            </a>
+            <a href="#" title="Go to Sign In"> SIGN IN </a>
+          </li>
+          <li>
+            <a href="#" title="Go to support">
+              <img src="../assets/icons/help_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="" />
+            </a>
+            <a href="#" title="Go to support"> SUPPORT </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- Backpacks Dropdownmenu -->
+  <div class="dropdown_menu_container_backpacks">
+    <nav class="dropdown_menu">
+      <header>
+        <div class="dropdown_menu_header_content">
+          <button id="button_backwards_backpacks">
+            <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+              alt="Close dropdown menu" />
+          </button>
+          <h2>Backpacks</h2>
+        </div>
+        <button id="dropdown_backpacks_button_close">
+          <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
+        </button>
+      </header>
+      <div class="dropdown_menu_ul">
+        <ul>
+          <li>
+            <h3>Shop by category</h3>
+          </li>
+          <li>
+            <a href="#" title="Go to Travel Backpakcs">Travel Backpacks</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Laptop Backpacks">Laptop Backpacks</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Weatherproof Backpacks">Weatherproof Backpacks</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Work Backpacks">Work Backpacks</a>
+          </li>
+          <li>
+            <a href="#" title="Go to All Backpacks">All Backpacks</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- Bags Dropdownmenu -->
+  <div class="dropdown_menu_container_bags">
+    <nav class="dropdown_menu">
+      <header>
+        <div class="dropdown_menu_header_content">
+          <button id="button_backwards_bags">
+            <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+              alt="Close dropdown menu" />
+          </button>
+          <h2>Bags</h2>
+        </div>
+        <button id="dropdown_bags_button_close">
+          <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
+        </button>
+      </header>
+      <div class="dropdown_menu_ul">
+        <ul>
+          <li>
+            <h3>Shop by category</h3>
+          </li>
+          <li><a href="#" title="Go to Duffel Bags">Duffel Bags</a></li>
+          <li>
+            <a href="#" title="Go to Messenger Bags">Messenger Bags</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Crossbody Bags">Crossbody Bags</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Laptop Bags">Laptop Bags</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Tote Bags">Tote Bags</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Pannier Bags">Pannier Bags</a>
+          </li>
+          <li>
+            <a href="#" title="Go to All Bags">All Bags</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- About Dropdownmenu -->
+  <div class="dropdown_menu_container_about">
+    <nav class="dropdown_menu">
+      <header>
+        <div class="dropdown_menu_header_content">
+          <button id="button_backwards_about">
+            <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+              alt="Close dropdown menu" />
+          </button>
+          <h2>About Brand2</h2>
+        </div>
+        <button id="dropdown_about_button_close">
+          <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
+        </button>
+      </header>
+      <div class="dropdown_menu_ul">
+        <ul>
+          <li>
+            <h3>Explore</h3>
+          </li>
+          <li><a href="#" title="Go to Sustainability">Sustainability</a></li>
+          <li>
+            <a href="#" title="Go to Our Story">Our Story</a>
+          </li>
+          <li>
+            <a href="#" title="Go to Our Stores">Our Stores</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Section Product detailss -->
+  <section class="section_product">
+    <div class="product_wrap">
+      <header class="product_header_movile">
+        <div class="product_header_top">
+          <p class="product_tag">Style #1825-3-11-20</p>
+          <div class="product_rating">
+            <div class="product_rating_starts">
+              <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+              <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+              <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+              <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+              <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="icon star">
+            </div>
+            <div class="product_number_reviews">
+              <a href="#">864</a>
+            </div>
+          </div>
+        </div>
+        <div class="product_header_middle">
+          <h1 class="product_title">Authority Laptop Backpack Deluxe</h1>
+          <div class="product_description">
+            <p>A seriously organized high volume work pack in premium materials.</p>
+          </div>
+        </div>
+        <div class="product_price">
+          <p>$185</p>
+        </div>
+      </header>
+      <div class="product_media">
+        <div class="product_images">
+          <div class="product_images_movile" id="carousel">
+            <div class="swiper_container">
+              <img src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack.webp"
+                alt="authority_backpack">
+            </div>
+            <div class="swiper_container">
+              <img
+                src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack_deluxe_up.webp"
+                alt="authority_backpack">
+            </div>
+            <div class="swiper_container">
+              <img
+                src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack_deluxe_behind.webp"
+                alt="authority_backpack">
+            </div>
+            <div class="swiper_container">
+              <img
+                src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack_deluxe_wear.webp"
+                alt="authority_backpack">
+            </div>
+            <div class="swiper_container">
+              <img src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack_objects.webp"
+                alt="authority_backpack">
+            </div>
+            <div class="swiper_container">
+              <img src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack_fly.webp"
+                alt="authority_backpack">
+            </div>
+            <div class="swiper_container">
+              <img src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack_wear2.webp"
+                alt="authority_backpack">
+            </div>
+          </div>
+          <div class="products_images_no_movile">
+            <div class="swiper_container">
+              <img src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack.webp"
+                alt="authority_backpack">
+            </div>
+            <div class="swiper_container">
+              <img
+                src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack_deluxe_up.webp"
+                alt="authority_backpack">
+            </div>
+            <div class="swiper_container">
+              <img
+                src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack_deluxe_behind.webp"
+                alt="authority_backpack">
+            </div>
+            <div class="swiper_container">
+              <img
+                src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack_deluxe_wear.webp"
+                alt="authority_backpack">
+            </div>
+            <div class="swiper_container">
+              <img src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack_objects.webp"
+                alt="authority_backpack">
+            </div>
+            <div class="swiper_container">
+              <img src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack_fly.webp"
+                alt="authority_backpack">
+            </div>
+            <div class="swiper_container">
+              <img src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack_wear2.webp"
+                alt="authority_backpack">
+            </div>
+            <div class="swiper_container">
+              <img src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack.webp"
+                alt="authority_backpack">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Product Info -->
+      <div class="product_info">
+        <header class="product_header_no_movile">
+          <div class="product_header_top">
+            <p class="product_tag">Style #1825-3-11-20</p>
+            <div class="product_rating">
+              <div class="product_rating_starts">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="icon star">
+              </div>
+              <div class="product_number_reviews">
+                <a href="#">864</a>
+              </div>
+            </div>
+          </div>
+          <div class="product_header_middle">
+            <h1 class="product_title">Authority Laptop Backpack Deluxe</h1>
+            <div class="product_description">
+              <p>A seriously organized high volume work pack in premium materials.</p>
+            </div>
+          </div>
+          <div class="product_price">
+            <p>$185</p>
+          </div>
+        </header>
+        <form class="product_form">
+          <div class="product_color">
+            <div class="product_label_wrapper">
+              <p class="product_label">Color: <span class="product_label_span">Eco Black Deluxe</span></p>
+              <p class="product_label">Stock: <span class="product_label_span">Ships in 1-3 days</span></p>
+            </div>
+            <ul class="product_color_list">
+              <li class="product_color_item">
+                <button class="buttom_color_item">
+                  <img src="../assets/img/products/colors/eco_black_deluxe.webp" alt="color black deluxe">
+                </button>
+              </li>
+              <li class="product_color_item">
+                <button class="buttom_color_item">
+                  <img src="../assets/img/products/colors/eco_night_fall.webp" alt="color night fall">
+                </button>
+              </li>
+              <li class="product_color_item">
+                <button class="buttom_color_item">
+                  <img src="../assets/img/products/colors/eco_static.webp" alt="color static">
+                </button>
+              </li>
+              <li class="product_color_item">
+                <button class="buttom_color_item">
+                  <img src="../assets/img/products/colors/eco_titanium.webp" alt="color titanium deluxe">
+                </button>
+              </li>
+              <li class="buttom_favorite_item">
+                <button class="button_add_to_fav">
+                  <p>Add to favorite</p>
+                  <img id="imgFav" src="../assets/icons/favorite_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="">
+                </button>
+              </li>
+            </ul>
+          </div>
+          <!-- form product options -->
+          <div class="product_options">
+            <button id="button_product_buy">Buy<img
+                src="../assets/icons/arrow_right_alt_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"></button>
+            <button id="button_product_cart">Add to Cart<img
+                src="../assets/icons/add_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"></button>
+          </div>
+        </form>
+        <!-- Products perks -->
+        <div class="products_perks">
+          <div class="product_perks">
+            <div class="product_perks_item">
+              <div class="product_perk_icon">
+                <img src="../assets/icons/eco.webp" alt="Icon Recycled">
+              </div>
+              <a class="product_perk_link" href="#">Made from Recycled Materials</a>
+            </div>
+            <div class="product_perks_item">
+              <div class="product_perk_icon">
+                <img src="../assets/icons/shipping.webp" alt="Icon Shipping">
+              </div>
+              <a class="product_perk_link" href="#">Made from Recycled Materials</a>
+            </div>
+            <div class="product_perks_item">
+              <div class="product_perk_icon">
+                <img src="../assets/icons/warranty.webp" alt="">
+              </div>
+              <a class="product_perk_link" href="#">Made from Recycled Materials</a>
+            </div>
+          </div>
+        </div>
+        <!-- Product toggles -->
+        <div class="products_toggles">
+          <div class="product_toggle">
+            <button class="product_toggle_button">
+              <h2>Description</h2>
+              <p>+</p>
+            </button>
+            <div class="toggle_message">
+              <p>A monster of a work pack in premium materials, the Authority Pack DLX will keep you organized and ready
+                to work at home or away. Padded backpack straps and grab handles and an air mesh back panel keep it
+                comfortable on your back, while a luggage pass-through lets you roll it when you want to. A padded
+                laptop sleeve holds up to a 17" laptop and can be accessed inside or out, and a thoughtful internal
+                organizer keeps key accessories safe and at the ready. Compression straps let you cinch it all down
+                tight for a clean look that can transition from client A to B and then bar X.</p>
+            </div>
+          </div>
+          <div class="product_toggle">
+            <button class="product_toggle_button">
+              <h2>Features</h2>
+              <p>+</p>
+            </button>
+            <div class="toggle_message">
+              <ul class="toggle_message_list">
+                <li>Luggage pass-through for attaching to your wheelie companion</li>
+                <li>Reflective tape under compression straps</li>
+                <li>Padded strap and back panel for extra comfort</li>
+                <li>Airmesh ventilated back panel</li>
+                <li>100% recycled nylon from pre-consumer materials</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  <!-- Section product story -->
+  <section class="product_story_double">
+    <div class="product_story_double_wrap">
+      <article class="product_story_double_item">
+        <div class="product_story_double_video">
+          <video autoplay loop muted playsinline data-ll-status="loaded">
+            <source
+              src="https://cdn.accentuate.io/1662422253610/1661984388751/timbuk2-authority-laptop-backpack-deluxe-eco-black-deluxe-1825-3-1120-1AB-SML_1.mp4?v=1661984388751">
+          </video>
+          </video>
+        </div>
+        <div class="product_story_double_info">
+          <h3 class="product_story_double_title">Porckets Galore</h3>
+          <p class="product_story_double_message">
+            Get extra organized with an abundance of places to stow away items, including tablets and laptops (up to
+            17").
+          </p>
+        </div>
+      </article>
+
+      <article class="product_story_double_item">
+        <div class="product_story_double_video">
+          <video autoplay loop muted playsinline data-ll-status="loaded">
+            <source
+              src="https://cdn.accentuate.io/1662422253610/1661984451300/timbuk2-authority-laptop-backpack-deluxe-eco-black-deluxe-1825-3-1120-3A-SML_2.mp4?v=1661984451300">
+          </video>
+        </div>
+        <div class="product_story_double_info">
+          <h3 class="product_story_double_title">Perfectly Padded</h3>
+          <p class="product_story_double_message">
+            Ultra soft, supportive straps and more keep the carry comfortable all day long.
+          </p>
+        </div>
+
+      </article>
+
+      <article class="product_story_double_item">
+        <div class="product_story_double_video">
+          <video autoplay loop muted playsinline data-ll-status="loaded">
+            <source
+              src="https://cdn.accentuate.io/1662422253610/1661984483972/timbuk2-authority-laptop-backpack-deluxe-eco-black-deluxe-1825-3-1120-4A-SML_3.mp4?v=1661984483972">
+          </video>
+        </div>
+        <div class="product_story_double_info">
+          <h3 class="product_story_double_title">Play in the Rain</h3>
+          <p class="product_story_double_message">
+            Water-resistant exterior can stand up to light rain while the waterproof boot protects against puddles.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+  <!-- Section mesures -->
+  <section class="product_dimensions">
+    <div class="product_dimensions_wrap">
+      <header class="dimensions_header">
+        <h2>Dimensions</h2>
+      </header>
+      <div class="dimensions_container">
+        <img src="../assets/img/products/backpacks/movile/authority_backpack_deluxe/authority_backpack_mesures.png"
+          alt="Authority Backpack Deluxe Dimensions">
+      </div>
+    </div>
+  </section>
+  <!-- Section products reviews -->
+  <section class="product_review">
+    <div class="product_review_wrap">
+      <header class="product_reviews_header">
+        <h2>Customer Reviews</h2>
+      </header>
+      <div class="product_ratings_filters">
+        <div class="product_ratings">
+          <div class="product_rating_points">
+            <p>4.8</p>
+          </div>
+          <div class="product_rating_starts">
+            <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+            <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+            <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+            <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+            <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="icon star">
+          </div>
+        </div>
+        <div class="product_write_review">
+          <button class="button_write_review">
+            Write A Review
+          </button>
+        </div>
+      </div>
+      <fomr class="reviews_filters">
+        <div class="review_filters_buttons">
+          <div class="review_searchbar">
+            <input type="search">
+            <button id="search_button"><img src="../assets/icons/search_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                alt="Search Icon Button"></button>
+          </div>
+          <div class="review_filter_button">
+            <select name="ratings_select" id="ratings_select">
+              <option value="" selected disabled></option>
+              <option value="one_star">&#9733;</option>
+              <option value="one_star">&#9733;&#9733;</option>
+              <option value="one_star">&#9733;&#9733;&#9733;</option>
+              <option value="one_star">&#9733;&#9733;&#9733;&#9733;</option>
+              <option value="one_star">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+            </select>
+          </div>
+        </div>
+        <div class="review_filters_order">
+          <div class="review_select">
+            <label for="review_short_by">Short By:</label>
+            <select name="review_short_by" id="review_short_by">
+              <option selected value="most_recent">Most Recent</option>
+              <option value="Most Recent">Highest Rating</option>
+              <option value="Most Recent">Lowest Rating</option>
+              <option value="Most Recent">Most Viewd</option>
+              <option value="Most Recent">Most Voted</option>
+            </select>
+          </div>
+        </div>
+      </fomr>
+      <div class="customer_reviews">
+        <div class="customer_review_wrapper">
+          <div class="customer_review_item">
+            <div class="customer_review_customer">
+              <div class="customer_review_profile">
+                <div><img src="../assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Image Customer Profile"></div>
+                <div>
+                  <p>Manolo.Lux</p>
+                </div>
+              </div>
+              <div class="customer_review_date">
+                <p>10/02/2025</p>
+              </div>
+              <div class="product_rating_starts">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="icon star">
+              </div>
+            </div>
+            <div class="customer_review_content">
+              <header>
+                <h3>An upcoming Christmas present, we</h3>
+              </header>
+              <p>An upcoming Christmas present, we went over the backpack with some care when it first arrived. Both the
+                design and the materials struck as as thoughtful, first-rate, and pleasing to the eye and touch. We're
+                hopeful that it's a big hit.</p>
+            </div>
+            <div class="customer_review_footer">
+              <div class="review_footer_text_container">
+                <p class="review_footer_text">Was this review helpful?</p>
+              </div>
+              <div class="review_footer_button">
+                <button class="button_like">
+                  <img class="like_img" src="../assets/icons/thumb_up_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Icon like">
+                  <p class="review_total_likes">10</p>
+                </button>
+                <button class="button_dislike">
+                  <img class="dislike_img" src="../assets/icons/thumb_down_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Icon dislike">
+                  <p class="review_total_dislikes">2</p>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="customer_review_item">
+            <div class="customer_review_customer">
+              <div class="customer_review_profile">
+                <div><img src="../assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Image Customer Profile"></div>
+                <div>
+                  <p>Shawn B. 🇺🇸</p>
+                </div>
+              </div>
+              <div class="customer_review_date">
+                <p>11/21/25</p>
+              </div>
+              <div class="product_rating_starts">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+              </div>
+            </div>
+            <div class="customer_review_content">
+              <header>
+                <h3>I love this backpack. It</h3>
+              </header>
+              <p>I love this backpack. It is the perfect size to carry my laptop, charger, iPad and papers I need. It
+                holds a lot while being compact. Great quality and professional appearance.</p>
+            </div>
+            <div class="customer_review_footer">
+              <div class="review_footer_text_container">
+                <p class="review_footer_text">Was this review helpful?</p>
+              </div>
+              <div class="review_footer_button">
+                <button class="button_like">
+                  <img class="like_img" src="../assets/icons/thumb_up_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Icon like">
+                  <p class="review_total_likes">6</p>
+                </button>
+                <button class="button_dislike">
+                  <img class="dislike_img" src="../assets/icons/thumb_down_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Icon dislike">
+                  <p class="review_total_dislikes">1</p>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="customer_review_item">
+            <div class="customer_review_customer">
+              <div class="customer_review_profile">
+                <div><img src="../assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Image Customer Profile"></div>
+                <div>
+                  <p>Subrata M. 🇺🇸</p>
+                </div>
+              </div>
+              <div class="customer_review_date">
+                <p>11/17/25</p>
+              </div>
+              <div class="product_rating_starts">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+              </div>
+            </div>
+            <div class="customer_review_content">
+              <header>
+                <h3>Fantastic built and right segmentation</h3>
+              </header>
+              <p>Fantastic built and right segmentation and pockets for a perfect work commute</p>
+            </div>
+            <div class="customer_review_footer">
+              <div class="review_footer_text_container">
+                <p class="review_footer_text">Was this review helpful?</p>
+              </div>
+              <div class="review_footer_button">
+                <button class="button_like">
+                  <img class="like_img" src="../assets/icons/thumb_up_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Icon like">
+                  <p class="review_total_likes">0</p>
+                </button>
+                <button class="button_dislike">
+                  <img class="dislike_img" src="../assets/icons/thumb_down_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Icon dislike">
+                  <p class="review_total_dislikes">0</p>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="customer_review_item">
+            <div class="customer_review_customer">
+              <div class="customer_review_profile">
+                <div><img src="../assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Image Customer Profile"></div>
+                <div>
+                  <p>John P.</p>
+                </div>
+              </div>
+              <div class="customer_review_date">
+                <p>11/19/25</p>
+              </div>
+              <div class="product_rating_starts">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="icon star">
+              </div>
+            </div>
+            <div class="customer_review_content">
+              <header>
+                <h3>This is a well-designed pack.</h3>
+              </header>
+              <p>This is a well-designed pack. The pack is perfect for my needs as a composer and music teacher, being
+                able to carry my laptop, mini-MIDI keyboard, and 11x17 scores. It looks professional, and in spite of
+                its size it looks streamlined. I hope to use this for many years.</p>
+            </div>
+            <div class="customer_review_footer">
+              <div class="review_footer_text_container">
+                <p class="review_footer_text">Was this review helpful?</p>
+              </div>
+              <div class="review_footer_button">
+                <button class="button_like">
+                  <img class="like_img" src="../assets/icons/thumb_up_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Icon like">
+                  <p class="review_total_likes">7</p>
+                </button>
+                <button class="button_dislike">
+                  <img class="dislike_img" src="../assets/icons/thumb_down_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Icon dislike">
+                  <p class="review_total_dislikes">3</p>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="customer_review_item">
+            <div class="customer_review_customer">
+              <div class="customer_review_profile">
+                <div><img src="../assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Image Customer Profile"></div>
+                <div>
+                  <p>Thomas A.</p>
+                </div>
+              </div>
+              <div class="customer_review_date">
+                <p>11/11/25</p>
+              </div>
+              <div class="product_rating_starts">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+              </div>
+            </div>
+            <div class="customer_review_content">
+              <header>
+                <h3>This is a replacement for</h3>
+              </header>
+              <p>This is a replacement for one that served me faithfully for 10 years across 3 continents</p>
+            </div>
+            <div class="customer_review_footer">
+              <div class="review_footer_text_container">
+                <p class="review_footer_text">Was this review helpful?</p>
+              </div>
+              <div class="review_footer_button">
+                <button class="button_like">
+                  <img class="like_img" src="../assets/icons/thumb_up_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Icon like">
+                  <p class="review_total_likes">6</p>
+                </button>
+                <button class="button_dislike">
+                  <img class="dislike_img" src="../assets/icons/thumb_down_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Icon dislike">
+                  <p class="review_total_dislikes">0</p>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="customer_review_item">
+            <div class="customer_review_customer">
+              <div class="customer_review_profile">
+                <div><img src="../assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Image Customer Profile"></div>
+                <div>
+                  <p>Amrutha K. 🇺🇸</p>
+                </div>
+              </div>
+              <div class="customer_review_date">
+                <p>11/07/25</p>
+              </div>
+              <div class="product_rating_starts">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+              </div>
+            </div>
+            <div class="customer_review_content">
+              <header>
+                <h3>I bought this bag for</h3>
+              </header>
+              <p>I bought this bag for office and weekend travels. The laptop compartment saved me so much time during
+                security check-ins. The quality of the bag is also very good. And It’s pretty sleek . . overall I highly
+                recommend this bag. .</p>
+            </div>
+            <div class="customer_review_footer">
+              <div class="review_footer_text_container">
+                <p class="review_footer_text">Was this review helpful?</p>
+              </div>
+              <div class="review_footer_button">
+                <button class="button_like">
+                  <img class="like_img" src="../assets/icons/thumb_up_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Icon like">
+                  <p class="review_total_likes">8</p>
+                </button>
+                <button class="button_dislike">
+                  <img class="dislike_img" src="../assets/icons/thumb_down_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+                    alt="Icon dislike">
+                  <p class="review_total_dislikes">1</p>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- End review wrapper -->
+        </div>
+      </div>
+      <div class="customer_reviews_footer">
+        <div class="review_footer_backwards">
+          <button>
+            <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Previus Review Icon">
+          </button>
+        </div>
+        <div class="reviews_footer_scroll">
+          <button>
+            1
+          </button>
+          <button>
+            2
+          </button>
+          <button>
+            3
+          </button>
+          <button>
+            4
+          </button>
+          <button>
+            5
+          </button>
+        </div>
+        <div class="review_footer_forwards">
+          <button>
+            <img src="../assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Next Review Icon">
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="main_footer">
+    <div class="footer_top">
+      <div class="footer_newsletter">
+        <h2 class="footer_logo">BRAND2</h2>
+        <h3>GET 10% OFF</h3>
+        <p>Subscribe to our newsletter and get 10% off your first order.</p>
+        <form class="newsletter_form">
+          <input type="email" placeholder="Email" aria-label="Enter your email" />
+          <button type="submit">Submit <span class="arrow_icon">›</span></button>
+        </form>
+      </div>
+
+      <div class="footer_social">
+        <ul>
+          <li><a href="#" aria-label="Instagram"><img src="../assets/icons/social/icons8-instagram-144.png"
+                alt="Instagram"></a></li>
+          <li><a href="#" aria-label="Twitter"><img src="../assets/icons/social/icons8-twitter-144.png" alt="Twitter"></a>
+          </li>
+          <li><a href="#" aria-label="Facebook"><img src="../assets/icons/social/icons8-facebook-144.png"
+                alt="Facebook"></a></li>
+          <li><a href="#" aria-label="YouTube"><img src="../assets/icons/social/icons8-youtube-144.png" alt="YouTube"></a>
+          </li>
+        </ul>
+      </div>
+
+      <nav class="footer_nav">
+        <div class="footer_nav_section">
+          <h4>SHOP</h4>
+          <button class="toggle_button"><span class="plus_icon">+</span></button>
+          <ul id="shop_links" class="footer_links">
+            <li><a href="#">Backpacks</a></li>
+            <li><a href="#">Messenger Bags</a></li>
+            <li><a href="#">Duffel Bags</a></li>
+            <li><a href="#">Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer_nav_section">
+          <h4>SUPPORT</h4>
+          <button class="toggle_button"><span class="plus_icon">+</span></button>
+          <ul id="support_links" class="footer_links">
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+          </ul>
+        </div>
+        <div class="footer_nav_section">
+          <h4>COMPANY</h4>
+          <button class="toggle_button"><span class="plus_icon">+</span></button>
+          <ul id="company_links" class="footer_links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Our Story</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer_bottom">
+      <p class="copyright">&copy; 2025 Brand2. All Rights Reserved.</p>
+      <div class="footer_legal_links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+  <!-- Overlay movile dropdown menu -->
+  <script src="../assets/scripts/main.js"></script>
+</body>
+
+</html>

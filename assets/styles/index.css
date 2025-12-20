@@ -411,6 +411,7 @@ button:focus-visible{
 }
 .hot_seller_content h3{
     color: var(--bgc-white);
+    text-align: center;
 }
 
 .hot_seller_content .card_content_buttons a{

@@ -243,5 +243,5 @@ button_dislike.forEach((e)=>{
 Array.from(fav_button).forEach(button => {
     button.addEventListener('click', detectFavoriteClick);
 });
-btn_shopping_cart.addEventListener('click',()=>window.location = '/student022/shop/diw_ud3_act1_nikolay_simeonova/views/shoppingCart.html');
+btn_shopping_cart.addEventListener('click',()=>window.location = '/student022/views/shoppingCart.html');
 });

@@ -94,8 +94,9 @@ if (isset($_SESSION['username'])) {
     <link rel="icon" href="/student022/shop/backend/assets/icons/faviconBlack.png" type="image/png">
 </head>
 
-<body class="flex flex-row min-h-screen w-full p-10 justify-center items-center
+<body class="flex relative flex-row min-h-screen w-full p-10 justify-center items-center
 bg-[#FEFFFE] text-[#0A090C] antialiased">
+<a class="absolute shadow rounded-xl left-0 top-0 m-5 w-20" href="../../index.html"><img src="../../assets/icons/brand/brand2BlackWhiteMark.png" alt="Home Icon"></a>
 
     <main class="flex flex-col w-full max-w-xl h-fit p-8 items-center gap-5
     bg-white shadow-xl rounded-lg border border-gray-200">
@@ -134,7 +135,7 @@ bg-[#FEFFFE] text-[#0A090C] antialiased">
 
             <div class="flex gap-2 w-full justify-center mt-3">
                 <p class="w-fit">Already have an account?</p>
-                <a class="w-fit font-bold" href="/student022/shop/backend/autentification/login.php">Sign In</a>
+                <a class="w-fit font-bold" href="./login.php">Sign In</a>
             </div>
 
         </form>
