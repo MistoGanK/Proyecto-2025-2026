@@ -4,7 +4,7 @@
 // MySQLie(Procedural) or PDO(Object Oriented)
 // Server_domain, User, Password
 
-
+/*
 
 $server_name = 'localhost';
 $user_name = 'root';
@@ -25,10 +25,9 @@ mysqli_set_charset($conn, "utf8");
 // Modyfied charset
 mysqli_character_set_name($conn);
 
+*/
 
 
-
-/*
 // Enrique SERVER 
 // Connection with the server 
 // MySQLie(Procedural) or PDO(Object Oriented)
@@ -54,7 +53,6 @@ mysqli_set_charset($conn,"utf8");
 // Modyfied charset
 mysqli_character_set_name($conn);
 
-*/
 
 /*
 

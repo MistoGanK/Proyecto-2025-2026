@@ -8,7 +8,7 @@ $sql = "SELECT *
         WHERE id_customer = '$id_customer';";
 // Execute the query
 // Open connection
-include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 $query_result = mysqli_query($conn, $sql);
 // Check if the query exists and if there was rows affected
 if (!$query_result) {

@@ -1,8 +1,10 @@
 <?php
 // We get the $query_result
 $subtotal = 0;
-// --- DATA RETRIEVAL INCLUDE (DO NOT TOUCH) ---
-include_once($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/functions/carts/selectCustomerCart.php');
+// --- DATA RETRIEVAL INCLUDE ---
+// RUTA CORREGIDA: Eliminado /shop/
+include_once($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/functions/carts/selectCustomerCart.php');
+
 while ($row = mysqli_fetch_assoc($query_result)) {
     $subtotal += $row['price'] * $row['qty'];
 };
@@ -28,7 +30,8 @@ $has_items = mysqli_num_rows($query_result) > 0;
 
             <div class="lg:col-span-2 flex flex-col gap-5">
                 <?php
-                include_once($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/functions/carts/showCustomerCart.php');
+                // RUTA CORREGIDA: Eliminado /shop/
+                include_once($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/functions/carts/showCustomerCart.php');
                 showCustomerCart($query_result);
                 ?>
             </div>
@@ -59,14 +62,18 @@ $has_items = mysqli_num_rows($query_result) > 0;
                             bg-black text-white font-semibold rounded-lg 
                             hover:cursor-pointer hover:bg-gray-800 transition-colors duration-200">
                     <?php
-                    // The Checkout form (form_insert_products_call.php)
-                    include_once($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/shopping_cart/form_insert_products_call.php');
+                    // RUTA CORREGIDA: Eliminado /shop/
+                    include_once($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/shopping_cart/form_insert_products_call.php');
                     ?>
                 </div>
             </div>
-            </div>
+        </div>
     <?php endif; ?>
 </section>
 
-<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
-<script src="/student022/shop/backend/scripts/shopping_cart/add_sub_qty.js"></script>
+<?php 
+// RUTA CORREGIDA: Eliminado /shop/
+include_once($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); 
+?>
+
+<script src="/student022/backend/scripts/shopping_cart/add_sub_qty.js"></script>

@@ -55,8 +55,8 @@ function showCustomerCart($queryResult) {
             // 6. DELETE BUTTON
             echo "<div class='flex-shrink-0 h-10 bg-black rounded text-white h-4 ml-4 p-2 transition-colors duration-200 
                               text-gray-500 hover:bg-red-600'>";
-                // Include the delete form (e.g., a trash icon button)
-                include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/forms/shopping_cart/form_delete_product_cart.php');
+                // RUTA CORREGIDA: Eliminado /shop/
+                include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/shopping_cart/form_delete_product_cart.php');
             echo "</div>";
 
         echo "</div>"; // Closes Main Item Container

@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const subtotalDisplay = document.querySelector(".cart_footer_info p");
     const checkoutBtn = document.querySelector(".cart_footer_button");
     const btn_continue_shopping = document.querySelector("#btn_continue_shopping");
+    const progress_message = document.querySelector('.progress_message');
+
+
+    // Free shipping treshold global variable
+    const needFreeShipping = 60;
 
     /**
      * Loads cart data from the server (getCartDetails.php)
@@ -30,13 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
             renderEmptyCart();
         }
     }
-
+    function qualifyFreeShipping(subtotal){
+        return qualifyes = subtotal >= needFreeShipping ? "Your cart qualifies for free shipping" : `You are ${needFreeShipping - subtotal}€ away from free shipping`;
+    }
     /**
      * Renders products dynamically into the HTML
      */
     function renderCart(items, total) {
         if (!cartForm) return;
-
         cartForm.innerHTML = items.map(item => `
             <article class="cart_item" data-id="${item.id_product}">
               <div class="item_main">
@@ -65,18 +71,19 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
 
         updateUI(items.length, total);
-        setupEventListeners();
+        setupEventListeners();    
     }
-
     /**
      * Updates prices and item counters in the UI
      */
     function updateUI(count, total) {
         const formattedTotal = parseFloat(total).toFixed(2);
+        console.log(typeof(parseInt(formattedTotal)));
         if (totalDisplay) totalDisplay.textContent = `Cart Total ${formattedTotal}€`;
         if (subtotalDisplay) subtotalDisplay.textContent = `${formattedTotal}€`;
         if (checkoutBtn) checkoutBtn.textContent = `Checkout (${count})`;
-    }
+        progress_message.innerHTML = `${qualifyFreeShipping(parseInt(formattedTotal))}`;
+    };
 
     /**
      * Visual state when the cart has no items
@@ -92,17 +99,17 @@ document.addEventListener('DOMContentLoaded', () => {
      * Assigns event listeners to dynamic buttons
      */
     function setupEventListeners() {
-        // 1. Delete Button - Only way to remove items
+        // Delete Button - Only way to remove items
         document.querySelectorAll('.btn_delete').forEach(btn => {
             btn.onclick = () => removeFromCart(btn.dataset.id);
         });
 
-        // 2. Add Button (+)
+        // Add Button (+)
         document.querySelectorAll('.item_agregation').forEach(btn => {
             btn.onclick = () => updateQuantity(btn.dataset.id, 1);
         });
 
-        // 3. Subtract Button (-) - Stops at 1, no deletion allowed here
+        // Subtract Button (-) - Stops at 1, no deletion allowed here
         document.querySelectorAll('.btn_substract').forEach(btn => {
             btn.onclick = () => {
                 const currentQtyElement = btn.parentElement.querySelector('.item_qty');
