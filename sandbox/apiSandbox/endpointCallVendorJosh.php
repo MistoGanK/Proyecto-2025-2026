@@ -2,7 +2,7 @@
 echo '--- Sanbox Joshn Call ---';
 // Variables
   // Replace for Johns API key && uCurl
-$apiKey = '10203040F';
+// $apiKey = '10203040F';
 $uCurlUrl = "https://remotehost.es/student022/sandbox/apiSandbox/endpointSendVendorJosh.php";
 // $uCurlUrl = "https://remotehost.es/student014/shop/backend/endpoints/product_seller.php";
 

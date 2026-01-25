@@ -2,7 +2,7 @@
 echo '--- Sanbox Joshn Call ---';
 // Variables
   // Replace for Johns API key && uCurl
-$apiKey = '10203040F';
+// $apiKey = '10203040F';
 $data = json_encode([
   "apiKey"=>$apiKey
 ]);
