@@ -26,7 +26,7 @@ $root = $_SERVER['DOCUMENT_ROOT'];
         <nav class="flex flex-col w-full h-full text-[#FEFFFE]">
             <div class="flex flex-row w-full h-20 border-b border-gray-600/50">
                 <div class="flex w-30 h-full">
-                    <a class="flex justify-center items-center p-2 cursor-pointer" href="/student022/backend/index.php">
+                    <a class="flex justify-center items-center p-2 cursor-pointer" href="/student022/backend/admin_panel.php">
                         <img class="h-15" src="/student022/backend/assets/icons/brand2BlackWhite.png">
                     </a>
                 </div>

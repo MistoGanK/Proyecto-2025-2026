@@ -1,23 +1,13 @@
 <?php
-// 
-header("Content-Type: application/json");
 // Yo recibo la solucitud + apiKey
 // apiKeySend
-// Try to read from header POST
-print_r($_POST);   
-$key = $_POST['apiKey'];
-// $apiKey = '10203040F';
+$apiKey = '10203040F';
 
 // Query ApiKey (Test)
-
-// $sqlApi =
-// "SELECT api_key 
-// FROM `022_vendors_api_keys`
-// WHERE api_key = '$key';";
-
-$sqlApi = "SELECT api_key FROM `022_vendors_api_keys` WHERE 1 = 1;";
-
-// WHERE api_key = '$apiKey';";
+$sqlApi =
+"SELECT api_key 
+FROM `022_vendors_api_keys`
+WHERE api_key = '$apiKey';";
 
 // Query Products (TEST)
 $sql = 'SELECT * FROM `022_products` LIMIT 5;';
@@ -33,8 +23,8 @@ if (mysqli_num_rows($resultApiCheck) > 0) {
   $assocProducts = mysqli_fetch_all($products, MYSQLI_ASSOC);
   $jsonProducts = json_encode($assocProducts);
 
-  echo $jsonProducts;
 }else{
-  // echo 'Wrong apikey';
+  echo 'Wrong apikey';
 }
+
 ?>

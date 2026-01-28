@@ -59,7 +59,8 @@
                 $safe_unit_price = mysqli_escape_string($conn, $order_unit_price);
                 $safe_total = mysqli_escape_string($conn, $order_total);
                 $safe_discount_rate = mysqli_escape_string($conn, $order_discount_rate);
-
+                
+                // CHECK FIRTS  
                 $sql = "
                 INSERT INTO `022_orders` (id_order, id_customer, id_product, id_payment_method, qty, unit_price, total, discount)
                 VALUES (
