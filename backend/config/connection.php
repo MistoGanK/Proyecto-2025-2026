@@ -27,7 +27,6 @@ mysqli_character_set_name($conn);
 
 */
 
-
 // Enrique SERVER 
 // Connection with the server 
 // MySQLie(Procedural) or PDO(Object Oriented)
