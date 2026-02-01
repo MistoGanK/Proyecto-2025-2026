@@ -1,0 +1,14 @@
+
+div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+#myChart{
+  width: 500px;
+  max-width: 500px;
+}
+body{
+}

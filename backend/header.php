@@ -18,6 +18,8 @@ $root = $_SERVER['DOCUMENT_ROOT'];
 <head>
     <title>Admin Panel</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="charts.css">
     <link rel="icon" href="/student022/backend/assets/icons/faviconBlack.png" type="image/png">
 </head>
 
@@ -35,6 +37,11 @@ $root = $_SERVER['DOCUMENT_ROOT'];
                 </div>
             </div>
             
+            <div class="flex flex-col w-full h-full p-3 pt-10">
+                <div class="flex justify-start items-center w-full h-10 mb-3 hover:text-white hover:rounded-md hover:bg-gray-800/40 cursor-pointer">
+                    <a href="/student022/backend/stadistics/stadistic.php" class="flex justify-start items-center w-full h-full p-3 font-sans font-semibold">Charts</a>
+                </div>
+
             <div class="flex flex-col w-full h-full p-3 pt-10">
                 <div class="flex justify-start items-center w-full h-10 mb-3 hover:text-white hover:rounded-md hover:bg-gray-800/40 cursor-pointer">
                     <a href="/student022/backend/products/products.php" class="flex justify-start items-center w-full h-full p-3 font-sans font-semibold">Products</a>

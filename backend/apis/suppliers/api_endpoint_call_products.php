@@ -6,7 +6,7 @@ $data = json_encode([
   "apiKey" => $apiKey
 ]);
 
-$uCurlUrl = "https://remotehost.es/student022/backend/apis/sellers/api_endpoint_send_products.php";
+$uCurlUrl = "https://remotehost.es/student022/backend/apis/sellers/ ";
 
 $ch = curl_init();
 
@@ -45,6 +45,13 @@ if (curl_errno($ch)) {
   echo gettype($data);
   // Loop the vields
   foreach($data as $product){
+    // Insert into the table 
+    $id_product = $product['id_product'];
+    $id_product = $product['id_product'];
+    $id_product = $product['id_product'];
+    $id_product = $product['id_product'];
+    $id_product = $product['id_product'];
+
     print_r($product['id_product']);
   }
   // echo $result;
