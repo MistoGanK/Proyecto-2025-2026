@@ -28,9 +28,6 @@ async function fetchData(endpointURL) {
 async function getChartData(endpointURL) {
   const responseData = await fetchData(endpointURL);
   if (responseData) {
-    console.log("--- Response Output ---");
-    console.log(responseData);
-
     let xValues = [
       "January",
       "February",
@@ -45,25 +42,38 @@ async function getChartData(endpointURL) {
       "November",
       "December",
     ]; // Fill per default  Month name
+    
     let yValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     let fieldsColors = [];
-
+    let currentValue = 0;
+    
     for (const [key, value] of Object.entries(responseData)) {
-      console.log(key);
-      console.log(value);
-      for (let i = 0; i < xValues.length; i++ ){
-        // If month match
-        if(key == xValues[i]){
-          yValues[i] == value;
-        } 
-      } 
+      xValues.forEach((month, index) => {
+        if (month === key) {
+          // Value for the month
+          yValues[index] = value;
+          // Check if value is higher than the last
+          switch (currentValue) {
+            case currentValue < value: {
+              // Profit
+              fieldsColors[index] = colorPalette.green;
+              break;
+            }
+            case currentValue === value: {
+              fieldsColors[index] = colorPalette.blue;
+              // Equal
+              break;
+            }
+            case currentValue > value: {
+              // Loss
+              fieldsColors[index] = colorPalette.red;
+              break;
+            }
+          }
+          console.log(fieldsColors);
+        }
+      });
     }
-
-    // Add colors from palette
-    for (const [key, value] of Object.entries(colorPalette)) {
-      fieldsColors.push(value);
-    }
-
     // Render the chart
     renderChart(xValues, yValues, fieldsColors);
   } else {
