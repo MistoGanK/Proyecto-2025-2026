@@ -1,5 +1,6 @@
 const dataUrlEndpoint =
   "/student022/backend/endpoints/charts/chartOrderMonthIncome.php";
+
 const colorPalette = {
   blue: "rgba(54, 162, 235, 0.8)",
   red: "rgba(255, 99, 132, 0.8)",
@@ -7,6 +8,7 @@ const colorPalette = {
   green: "rgba(75, 192, 192, 0.8)",
   purple: "rgba(153, 102, 255, 0.8)",
 };
+
 let titleChart = "Income Orders 2025";
 // Later on the endpointURL will be a option of a select
 async function fetchData(endpointURL) {
@@ -42,35 +44,33 @@ async function getChartData(endpointURL) {
       "November",
       "December",
     ]; // Fill per default  Month name
-    
+
     let yValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     let fieldsColors = [];
     let currentValue = 0;
-    
+
     for (const [key, value] of Object.entries(responseData)) {
       xValues.forEach((month, index) => {
         if (month === key) {
           // Value for the month
-          yValues[index] = value;
+          yValues[index] = parseInt(value);
+          console.log("Before Current Value:", currentValue);
           // Check if value is higher than the last
-          switch (currentValue) {
-            case currentValue < value: {
-              // Profit
-              fieldsColors[index] = colorPalette.green;
-              break;
-            }
-            case currentValue === value: {
-              fieldsColors[index] = colorPalette.blue;
-              // Equal
-              break;
-            }
-            case currentValue > value: {
-              // Loss
-              fieldsColors[index] = colorPalette.red;
-              break;
-            }
+          const numericValue = parseInt(value);
+          if (currentValue < numericValue) {
+            // Profit
+            fieldsColors[index] = colorPalette.green;
+          } else if (currentValue > numericValue) {
+            // Loss
+            fieldsColors[index] = colorPalette.red;
+          } else {
+            // Even
+            fieldsColors[index] = colorPalette.blue;
           }
           console.log(fieldsColors);
+          // Update currentValue
+          currentValue = parseInt(value);
+          console.log("Afther Current Value:", currentValue);
         }
       });
     }
