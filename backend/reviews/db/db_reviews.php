@@ -7,7 +7,7 @@
   </div>
   <?php
   // Open connection
-  include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+  include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
   // Before starting the query, check If the variable was sended and that the variabel is not empty
 
@@ -33,7 +33,7 @@
   $result = mysqli_query($conn, $sqlQuery);
 
   // Get function showProducts()
-  include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/functions/reviews/showReviews.php');
+  include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/functions/reviews/showReviews.php');
   showReviews($result);
 
   // Cleaning the result 
@@ -42,5 +42,5 @@
 
 </section>
 <!-- Footer -->
-<script src="/student022/shop/backend/functions/products/searchForProduct.js"></script>
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<script src="/student022/backend/functions/products/searchForProduct.js"></script>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

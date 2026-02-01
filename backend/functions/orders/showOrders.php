@@ -44,7 +44,6 @@ function showOrders($query_result, $conn)
                     $currendIdProduct = $currentOrder['id_product'];
                     $currendProductName = $currentOrder['product_name'];
                     
-                    // RUTA CORREGIDA: Eliminado /shop/ de la imagen por defecto
                     $product_img_src = $currentOrder['img_src'] ?? '/student022/backend/assets/images/placeholder.png'; 
 
                     if ($currentOrder['canceled'] == 1) {
@@ -89,7 +88,6 @@ function showOrders($query_result, $conn)
                                 
                                 echo "<div class='$review_button_base $button_style'>";
                                 
-                                // RUTAS CORREGIDAS: Eliminado /shop/ en formularios de reseñas
                                 if ($currentOrder['is_reviewd'] == 0){
                                     include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/forms/products/form_product_review_call.php');
                                 } else {
@@ -117,7 +115,6 @@ function showOrders($query_result, $conn)
                 
                 echo ("<div class='flex w-full space-x-3 items-stretch mt-4 pt-3 border-t border-gray-100'>");
                 
-                // RUTAS CORREGIDAS: Eliminado /shop/ en botones de Admin
                 if (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin') {
                     echo "<div class='$delete_button_classes'>";
                         include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/orders/form_order_delete_call.php');

@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/header.php'); ?>
 
 <section class="flex flex-row flex-wrap h-full p-5 gap-5 items-center justify-center">
 
@@ -12,7 +12,7 @@ $customer_output = "No Customer selected or found";
 $id_customer = null;
 
 // Open connection
-include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/config/connection.php');
+include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/config/connection.php');
 
 // Before starting the query, check If the variable was sended and that the variabel is not empty
 if (isset($_POST['id_customer']) && !empty($_POST['id_customer'])){
@@ -89,7 +89,7 @@ if ($query_result){
                             hover:bg-red-600
                             hover:rounded-md
                             '>";
-                            include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/customers/form_customer_delete_call.php');
+                            include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/forms/customers/form_customer_delete_call.php');
                         echo "</div>";
                          
                         // Update Button Container
@@ -99,7 +99,7 @@ if ($query_result){
                             hover:bg-[#0A090C]
                             cursor-pointer
                             '>";
-                            include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/customers/form_customer_update_call.php');
+                            include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/forms/customers/form_customer_update_call.php');
                         echo "</div>";
                     echo "</div>";
                 echo "</div>";
@@ -123,4 +123,4 @@ mysqli_close($conn);
 </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/footer.php'); ?>

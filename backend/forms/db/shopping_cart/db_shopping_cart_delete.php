@@ -1,5 +1,5 @@
 <?php 
-include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); 
+include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); 
 ?>
 <?php
     // 1. Inicialización de variables de estado con valores de ERROR por defecto
@@ -11,7 +11,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php');
     if (isset($_POST['id_product']) && !empty($_POST['id_product'])) {
 
         // Open connection
-        include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+        include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
         // Save the variable and escape input
         $id_product = mysqli_escape_string($conn, $_POST['id_product']);
@@ -52,12 +52,12 @@ include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php');
 
     ?>
 <?php 
-include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/footer.php'); 
+include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/footer.php'); 
 ?>
 
 <script>
     // Redirect to shopping cart
     setTimeout(() =>{
-        window.location ="/student022/shop/backend/shopping_cart/shopping_cart.php";
+        window.location ="/student022/backend/shopping_cart/shopping_cart.php";
     },3000);
 </script>

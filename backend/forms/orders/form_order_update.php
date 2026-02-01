@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); ?>
 
 <section class="flex justify-center p-8  min-h-screen">
     
@@ -24,7 +24,7 @@
            $update_output = "ERROR: id_order is missing";
         } else {
            // Open connectoin
-           include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+           include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
            
            // Escape input to avoid SQL injection
            $id_order = mysqli_escape_string($conn,$_POST['id_order']);
@@ -68,7 +68,7 @@
         }
         ?>
 
-        <form class="flex flex-col gap-4" action="/student022/shop/backend/forms/db/order/db_order_update.php" method="post">
+        <form class="flex flex-col gap-4" action="/student022/backend/forms/db/order/db_order_update.php" method="post">
             
             <input type="hidden" name="id_order" value="<?php echo $id_order ?>">
             
@@ -165,4 +165,4 @@
     </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

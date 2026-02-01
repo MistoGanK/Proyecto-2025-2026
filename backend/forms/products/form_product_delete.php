@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); ?>
 
 <section class="flex justify-center p-8  min-h-screen">
     
@@ -17,7 +17,7 @@
         </p>
 
         <form class="flex flex-col gap-4" 
-              action="/student022/shop/backend/forms/db/product/db_product_delete.php" 
+              action="/student022/backend/forms/db/product/db_product_delete.php" 
               method="post">
             
             <label class="flex flex-col text-sm font-medium text-gray-700 text-left" for="id_product">
@@ -36,7 +36,7 @@
                        name="send"
                        value="Confirm DELETE">
 
-            <a href="/student022/shop/backend/products/products.php" 
+            <a href="/student022/backend/products/products.php" 
                class="p-3
                         text-white  
                         font-semibold
@@ -52,4 +52,4 @@
     </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

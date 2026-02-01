@@ -36,44 +36,46 @@ $root = $_SERVER['DOCUMENT_ROOT'];
                     <h1 class="font-sans font-bold text-xl antialiased">Admin Panel</h1>
                 </div>
             </div>
-            
-            <div class="flex flex-col w-full h-full p-3 pt-10">
+
+            <div class="flex fle-col p-3 pt-10">
                 <div class="flex justify-start items-center w-full h-10 mb-3 hover:text-white hover:rounded-md hover:bg-gray-800/40 cursor-pointer">
                     <a href="/student022/backend/stadistics/stadistic.php" class="flex justify-start items-center w-full h-full p-3 font-sans font-semibold">Charts</a>
                 </div>
+            </div>
 
-            <div class="flex flex-col w-full h-full p-3 pt-10">
+            <div class="flex fle-col p-3 pt-10">
                 <div class="flex justify-start items-center w-full h-10 mb-3 hover:text-white hover:rounded-md hover:bg-gray-800/40 cursor-pointer">
                     <a href="/student022/backend/products/products.php" class="flex justify-start items-center w-full h-full p-3 font-sans font-semibold">Products</a>
                 </div>
+            </div>
 
-                <?php
-                // Customer Sidebar
-                if ($role == 'Admin') {
-                    echo '
+            <?php
+            // Customer Sidebar
+            if ($role == 'Admin') {
+                echo '
                     <div class="flex justify-start items-center w-full h-10 mb-3 hover:text-white hover:rounded-md hover:bg-gray-800/40 cursor-pointer">
                         <a href="/student022/backend/customers/customers.php" class="flex justify-start items-center w-full h-full p-3 font-sans font-semibold">Customers</a>
                     </div>';
-                }
+            }
 
-                // Orders Sidebar
-                if ($role !== 'Guest') {
-                    echo '
+            // Orders Sidebar
+            if ($role !== 'Guest') {
+                echo '
                     <div class="flex justify-start items-center w-full h-10 mb-3 hover:text-white hover:rounded-md hover:bg-gray-800/40 cursor-pointer">
                         <a href="/student022/backend/orders/orders.php" class="flex justify-start items-center w-full h-full p-3 font-sans font-semibold">Orders</a>
                     </div>';
-                }
-                ?>
+            }
+            ?>
             </div>
 
-            <form action="/student022/backend/language/set_language.php" method="POST" class="p-3">
+            <form  action="/student022/backend/language/set_language.php" method="POST" class="p-3">
                 <div class="flex w-full justify-center items-center">
                     <?php
-                        $languages = ['es' => 'Español', 'en' => 'English', 'fr' => 'Français', 'zh' => '中国'];
-                        $current_lang = $_COOKIE['user_lang'] ?? 'en'; 
+                    $languages = ['es' => 'Español', 'en' => 'English', 'fr' => 'Français', 'zh' => '中国'];
+                    $current_lang = $_COOKIE['user_lang'] ?? 'en';
                     ?>
                     <select name="language" onchange="this.form.submit()" class="w-full h-10 p-2 rounded bg-white text-gray-800 text-sm font-medium hover:cursor-pointer">
-                        <?php 
+                        <?php
                         foreach ($languages as $code => $name) {
                             $selected = ($code === $current_lang) ? 'selected' : '';
                             echo "<option value=\"{$code}\" {$selected}>{$name}</option>";
@@ -93,7 +95,7 @@ $root = $_SERVER['DOCUMENT_ROOT'];
 
             <div class="flex flex-row w-full items-center justify-end gap-4">
                 <p class="font-semibold">Welcome: <?php echo $username; ?> | Role: <?php echo $role; ?></p>
-                
+
                 <?php
                 // Iconos Login/Logout con rutas corregidas
                 if (isset($_SESSION['username'])) {
@@ -106,8 +108,8 @@ $root = $_SERVER['DOCUMENT_ROOT'];
                 ?>
 
                 <a href="/student022/backend/shopping_cart/shopping_cart.php">
-                    <img src="/student022/backend/assets/icons/shopping_cart_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.png" 
-                         class="h-10 p-2 shadow-sm rounded-full hover:bg-gray-100 cursor-pointer" title="Cart">
+                    <img src="/student022/backend/assets/icons/shopping_cart_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.png"
+                        class="h-10 p-2 shadow-sm rounded-full hover:bg-gray-100 cursor-pointer" title="Cart">
                 </a>
             </div>
         </nav>

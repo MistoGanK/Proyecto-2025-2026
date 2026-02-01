@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); ?>
 
 <section class="flex justify-center p-8 min-h-screen">
 
@@ -13,7 +13,7 @@
     $message_class = "bg-red-100 border-red-500 text-red-700";
 
     // Open connection
-    include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+    include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
     // Save the variables and escape input
     $id_order = isset($_POST['id_order']) ? htmlspecialchars($_POST['id_order']) : 'N/A';
@@ -61,4 +61,4 @@
   </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

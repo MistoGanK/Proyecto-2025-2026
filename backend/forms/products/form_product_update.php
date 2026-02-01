@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/header.php'); ?>
 
 <section class="flex justify-center p-8  min-h-screen">
     
@@ -29,7 +29,7 @@
            $update_output = "ERROR: id_product is missing";
         } else {
            // Open connectoin
-           include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+           include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
            // Escpa input to avoid SQL injection
            $id_product = mysqli_escape_string($conn,$_POST['id_product']);
            // Query 
@@ -75,7 +75,7 @@
         }
         ?>
 
-        <form class="flex flex-col gap-4" action="/student022/shop/backend/forms/db/product/db_product_update.php" method="post">
+        <form class="flex flex-col gap-4" action="/student022/backend/forms/db/product/db_product_update.php" method="post">
             
             <input type="hidden" name="id_product" value="<?php echo $id_product ?>">
             
@@ -155,4 +155,4 @@
     </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/footer.php'); ?>

@@ -8,7 +8,6 @@
         // Insert product button only admin
         if (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin') {
             echo "<div class='flex w-fit justify-center items-center p-3 bg-[#0A090C] text-[#FEFFFE] font-semibold rounded-md hover:cursor-pointer hover:bg-[#2c2732]'>";
-            // RUTA CORREGIDA: Eliminado /shop/
             include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/products/form_product_insert_call.php');
             echo "</div>";
         }
@@ -20,7 +19,6 @@
     <?php
     $product_output = "No product selected or found";
 
-    // RUTA CORREGIDA: Eliminado /shop/
     include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
     if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
@@ -50,7 +48,6 @@
 
     $result = mysqli_query($conn, $sqlQuery);
 
-    // RUTA CORREGIDA: Eliminado /shop/
     include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/functions/products/showProducts.php');
     showProducts($result);
 
@@ -62,6 +59,5 @@
 <script src="/student022/backend/functions/products/searchForProduct.js"></script>
 
 <?php 
-// RUTA CORREGIDA: Eliminado /shop/
 include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); 
 ?>

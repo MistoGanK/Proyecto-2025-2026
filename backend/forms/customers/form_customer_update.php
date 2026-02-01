@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); ?>
 
 <section class="flex justify-center p-8  min-h-screen">
     
@@ -24,7 +24,7 @@
             $update_output = "ERROR: id_customer is missing";
         } else {
             // Open connection
-            include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
             // Escape input to avoid SQL injection
             $id_customer = mysqli_real_escape_string($conn, $_POST['id_customer']);
@@ -66,7 +66,7 @@
         }
         ?>
 
-        <form class="flex flex-col gap-4" action="/student022/shop/backend/forms/db/customer/db_customer_update.php" method="post">
+        <form class="flex flex-col gap-4" action="/student022/backend/forms/db/customer/db_customer_update.php" method="post">
             
             <input type="hidden" id="id_customer" name="id_customer" value="<?php echo $id_customer ?>">
             
@@ -164,4 +164,4 @@
     </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

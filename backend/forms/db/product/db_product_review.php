@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); ?>
 
 <section class="flex justify-center p-8 min-h-screen bg-gray-50">
 
@@ -27,7 +27,7 @@
         if (isset($_POST['send'])) {
 
             // Connection 
-            include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
             // Escape input
             $safeScore = mysqli_escape_string($conn, $score);
@@ -68,7 +68,7 @@
         ?>
 
         <div class="mt-8">
-            <a href="/student022/shop/backend/products/products.php"
+            <a href="/student022/backend/products/products.php"
                 class="p-3 inline-block bg-[#0A090C] text-[#FEFFFE] rounded-md hover:cursor-pointer hover:bg-[#2c2732] font-semibold transition duration-150">
                 View Reviews
             </a>
@@ -77,4 +77,4 @@
     </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

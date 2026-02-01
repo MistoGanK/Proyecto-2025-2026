@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // NOTE: stock_field is not defined here, it might cause an error, best to remove it or define it.
   // console.log(stock_field); 
 
-  const endPointModifyQty = "/student022/shop/backend/endpoints/carts/cartsUpdateQty.php";
+  const endPointModifyQty = "/student022/backend/endpoints/carts/cartsUpdateQty.php";
 
   let id_product;
 

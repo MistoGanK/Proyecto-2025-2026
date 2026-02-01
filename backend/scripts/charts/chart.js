@@ -7,6 +7,7 @@ const colorPalette = {
   orange: "rgba(255, 159, 64, 0.8)",
   green: "rgba(75, 192, 192, 0.8)",
   purple: "rgba(153, 102, 255, 0.8)",
+  grey: "rgba(128, 128, 128, 0.8)"
 };
 
 let titleChart = "Income Orders 2025";
@@ -65,7 +66,7 @@ async function getChartData(endpointURL) {
             fieldsColors[index] = colorPalette.red;
           } else {
             // Even
-            fieldsColors[index] = colorPalette.blue;
+            fieldsColors[index] = colorPalette.grey;
           }
           console.log(fieldsColors);
           // Update currentValue
@@ -94,6 +95,8 @@ function renderChart(xValues, yValues, colorPalette) {
       ],
     },
     options: {
+      responsive:true,
+      maintainAspectRatio: false,
       legend: { display: false },
       title: {
         display: true,

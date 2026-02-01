@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); ?>
 
 <section class="flex justify-center p-8 h-fit">
     
@@ -6,7 +6,7 @@
         
         <h1 class="text-3xl font-bold text-[#0A090C] mb-6 border-b border-gray-200 pb-2">Insert New Customer</h1>
         
-        <form class="flex flex-col gap-4" action="/student022/shop/backend/forms/db/customer/db_customer_insert.php" method="post">
+        <form class="flex flex-col gap-4" action="/student022/backend/forms/db/customer/db_customer_insert.php" method="post">
 
             <label class="flex flex-col text-sm font-medium text-gray-700" for="customer_username">
                 Customer username: 
@@ -99,4 +99,4 @@
     </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

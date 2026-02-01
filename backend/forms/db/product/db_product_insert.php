@@ -1,8 +1,8 @@
 <?php 
-include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); 
+include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); 
 
 // La carpeta de destino donde se guardarán las imágenes.
-$target_dir = $_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/assets/images/';
+$target_dir = $_SERVER['DOCUMENT_ROOT'] . '/student022/backend/assets/images/';
 $target_dir = str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $target_dir);
 $img_src = '';
 $upload_success = true;
@@ -34,7 +34,7 @@ if (isset($_FILES['product_img']) && $_FILES['product_img']['error'] == UPLOAD_E
         // MOVER EL ARCHIVO PERMANENTEMENTE
         if (move_uploaded_file($file_tmp_name, $target_file)) {
             // Definimos la ruta relativa (URL) para la base de datos
-            $img_src = '/student022/shop/backend/assets/images/' . $new_file_name; 
+            $img_src = '/student022/backend/assets/images/' . $new_file_name; 
         } else {
             // Mostrar la ruta de destino para confirmar que existe en el servidor.
             $upload_message = "Error al mover el archivo. Posibles causas: 
@@ -58,7 +58,7 @@ if (isset($_FILES['product_img']) && $_FILES['product_img']['error'] == UPLOAD_E
     $upload_success = false;
 } else {
     // No se subió ningún archivo, asignar imagen por defecto
-    $img_src = '/student022/shop/backend/assets/images/default.png'; 
+    $img_src = '/student022/backend/assets/images/default.png'; 
 }
 ?>
 
@@ -78,7 +78,7 @@ if (isset($_FILES['product_img']) && $_FILES['product_img']['error'] == UPLOAD_E
         if (isset($_POST['send']) && $upload_success) {
             
             // Connection 
-            include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
             // Captura y Saneamiento de variables
             $product_name = $_POST['product_name'] ?? '';
@@ -157,7 +157,7 @@ if (isset($_FILES['product_img']) && $_FILES['product_img']['error'] == UPLOAD_E
         ?>
 
         <div class="mt-8">
-            <a href="/student022/shop/backend/products/products.php" 
+            <a href="/student022/backend/products/products.php" 
                 class="p-3 inline-block bg-[#0A090C] text-[#FEFFFE] rounded-md hover:cursor-pointer hover:bg-[#2c2732] font-semibold transition duration-150">
                 View Products
             </a>
@@ -166,4 +166,4 @@ if (isset($_FILES['product_img']) && $_FILES['product_img']['error'] == UPLOAD_E
     </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

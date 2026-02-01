@@ -2,7 +2,6 @@
 // We get the $query_result
 $subtotal = 0;
 // --- DATA RETRIEVAL INCLUDE ---
-// RUTA CORREGIDA: Eliminado /shop/
 include_once($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/functions/carts/selectCustomerCart.php');
 
 while ($row = mysqli_fetch_assoc($query_result)) {
@@ -30,7 +29,6 @@ $has_items = mysqli_num_rows($query_result) > 0;
 
             <div class="lg:col-span-2 flex flex-col gap-5">
                 <?php
-                // RUTA CORREGIDA: Eliminado /shop/
                 include_once($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/functions/carts/showCustomerCart.php');
                 showCustomerCart($query_result);
                 ?>
@@ -62,7 +60,6 @@ $has_items = mysqli_num_rows($query_result) > 0;
                             bg-black text-white font-semibold rounded-lg 
                             hover:cursor-pointer hover:bg-gray-800 transition-colors duration-200">
                     <?php
-                    // RUTA CORREGIDA: Eliminado /shop/
                     include_once($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/shopping_cart/form_insert_products_call.php');
                     ?>
                 </div>
@@ -72,7 +69,6 @@ $has_items = mysqli_num_rows($query_result) > 0;
 </section>
 
 <?php 
-// RUTA CORREGIDA: Eliminado /shop/
 include_once($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); 
 ?>
 

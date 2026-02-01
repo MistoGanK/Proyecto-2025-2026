@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); ?>
 
 <?php
 // POST && SESSION VARIABLES
@@ -10,7 +10,7 @@ $id_customer = $_SESSION['id_customer'];
 ?>
 <script>
   function redirectOrder() {
-    window.location = '/student022/shop/backend/orders/orders.php';
+    window.location = '/student022/backend/orders/orders.php';
   };
 </script>
 <?php
@@ -22,7 +22,7 @@ $negativeFeatures;
 // Obtenemos primero la información de la review
 $queryReviews  = "SELECT * FROM `022_view_product_reviews` WHERE id_customer = $id_customer AND id_product = $id_product;";
 // Open conn
-include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 if ($queryReviewsResult = mysqli_query($conn, $queryReviews)) {
   // Fetch the result 
   $reviewsData = mysqli_fetch_assoc($queryReviewsResult);
@@ -41,7 +41,7 @@ if ($queryReviewsResult = mysqli_query($conn, $queryReviews)) {
     <h1 class="text-3xl font-bold text-[#0A090C] mb-6 border-b border-gray-200 pb-2">Review</h1>
     <h2 class="text-2xl font-bold text-[#0A090C] mb-6 "><?php echo $productName; ?></h2>
 
-    <form class="flex flex-col gap-4" action="/student022/shop/backend/forms/db/product/db_product_edit_review.php" method="post">
+    <form class="flex flex-col gap-4" action="/student022/backend/forms/db/product/db_product_edit_review.php" method="post">
       <input id='id_product' name='id_product' type='number' value="<?php echo $id_product; ?>" hidden>
       <input id='id_order' name='id_order' type='number' value="<?php echo $id_order; ?>" hidden>
       <label class="flex flex-col text-sm font-medium text-gray-700">
@@ -104,4 +104,4 @@ if ($queryReviewsResult = mysqli_query($conn, $queryReviews)) {
   </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

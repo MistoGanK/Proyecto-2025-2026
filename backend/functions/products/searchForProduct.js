@@ -1,5 +1,5 @@
 // console.log(input_search);
-const endPointProductSelect = "/student022/shop/backend/endpoints/products/productSearch.php/";
+const endPointProductSelect = "/student022/backend/endpoints/products/productSearch.php/";
 function searchProduct(inputSearchValue){
   // Empty search bar
     // Retrieve all products

@@ -7,7 +7,7 @@ session_start();
       FROM `022_products`
       WHERE id_product = 1";
     // Open connection
-    include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php'); 
+    include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php'); 
     // Query the result
     $result = mysqli_query($conn,$query);
     // Fetch the result

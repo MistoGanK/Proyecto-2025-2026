@@ -1,12 +1,20 @@
 <?php 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); 
 ?>
-link
-<div>
-  <canvas  id="myChart">
-    
-  </canvas>  
-  <script src="sandbox.js"></script>
+
+<div class="grid grid-cols-2 grid-rows-2 gap-4 w-full h-[800px] p-5">
+  <div class="relative w-full h-full">
+    <canvas id="myChart"></canvas>
+  </div>
+  <div class="relative w-full h-full">
+    <canvas id="chart2"></canvas>
+  </div>
+  <div class="relative w-full h-full">
+    <canvas id="chart3"></canvas>
+  </div>
+  <div class="relative w-full h-full">
+    <canvas id="chart4"></canvas>
+  </div>
 </div>
 
 <?php 

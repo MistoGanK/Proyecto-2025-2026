@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); ?>
 
 <section class="flex justify-center p-8 h-fit"> 
     
@@ -8,7 +8,7 @@
             Insert New Product
         </h1>
         
-        <form class="flex flex-col gap-6" action="/student022/shop/backend/forms/db/product/db_product_insert.php" method="post" enctype="multipart/form-data">
+        <form class="flex flex-col gap-6" action="/student022/backend/forms/db/product/db_product_insert.php" method="post" enctype="multipart/form-data">
             
             <fieldset class="pt-4">
                 <legend class="text-xl font-semibold text-gray-800 mb-4">
@@ -109,4 +109,4 @@
     </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

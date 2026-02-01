@@ -9,7 +9,7 @@ $message_class = "bg-red-100 border-red-500 text-red-700";
 if (isset($_POST['id_product']) && !empty($_POST['id_product'])) {
 
     // Open connection
-    include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+    include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
     // Save the variable and escape input
     $id_product = mysqli_escape_string($conn, $_POST['id_product']);
@@ -45,7 +45,7 @@ if (isset($_POST['id_product']) && !empty($_POST['id_product'])) {
 
         // --- ON PROCESS --- 
         // When added ton the cart redirect ton cart so Enrique sees the product added
-        header('Location: /student022/shop/backend/shopping_cart/shopping_cart.php');
+        header('Location: /student022/backend/shopping_cart/shopping_cart.php');
     } else {
 
         // Mensaje de error de Base de Datos

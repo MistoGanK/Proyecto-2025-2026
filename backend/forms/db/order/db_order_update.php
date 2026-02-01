@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); ?>
 
 <section class="flex justify-center p-8 bg-gray-50 min-h-screen">
     
@@ -20,7 +20,7 @@
             // El error inicial ya está seteado, no se hace nada más en este bloque
         } else {
             // Open connection
-            include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
             
             // Save the variables y escape input
             $id_order = mysqli_escape_string($conn, $_POST['id_order']);
@@ -74,7 +74,7 @@
         ?>
 
         <div class="mt-8">
-             <a href="/student022/shop/backend/orders/orders.php" 
+             <a href="/student022/backend/orders/orders.php" 
                 class="p-3 inline-block bg-[#0A090C] text-[#FEFFFE] rounded-md hover:cursor-pointer hover:bg-[#2c2732] font-semibold transition duration-150">
                  View Orders
              </a>
@@ -83,4 +83,4 @@
     </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>
