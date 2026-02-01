@@ -5,7 +5,7 @@
         </h1>
         <div class="p-3 bg-black text-white font-semibold rounded-lg 
                     hover:cursor-pointer hover:bg-gray-800 transition-colors">
-            <?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/customers/form_customer_insert_call.php'); ?> 
+            <?php include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/forms/customers/form_customer_insert_call.php'); ?> 
         </div> 
     </div>
 
@@ -15,7 +15,7 @@ $customer_output = "No Customer selected or found";
 $id_customer = null;
 
 // Open connection
-include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/config/connection.php');
+include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/config/connection.php');
 
 // ... (Lógica de obtención de $id_customer) ...
 if (isset($_POST['id_customer']) && !empty($_POST['id_customer'])){
@@ -100,21 +100,21 @@ if ($query_result){
                     echo "<div class='flex-1 p-2 transition-colors duration-200 rounded-md text-center
                                     hover:bg-red-600 hover:text-white cursor-pointer'
                                     title='Delete Customer'>";
-                        include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/customers/form_customer_delete_call.php');
+                        include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/forms/customers/form_customer_delete_call.php');
                     echo "</div>";
                     
                     // Select Button - Añadimos flex-1 y text-center, ajustamos padding
                     echo "<div class='flex-1 p-2 transition-colors duration-200 rounded-md text-center
                                     hover:bg-black hover:text-white cursor-pointer'
                                     title='Select Customer'>";
-                        include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/customers/form_customer_select.php');
+                        include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/forms/customers/form_customer_select.php');
                     echo "</div>";
                     
                     // Update Button - Añadimos flex-1 y text-center, ajustamos padding
                     echo "<div class='flex-1 p-2 transition-colors duration-200 rounded-md text-center
                                     hover:bg-black hover:text-white cursor-pointer'
                                     title='Update Customer'>";
-                        include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/customers/form_customer_update_call.php');
+                        include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/forms/customers/form_customer_update_call.php');
                     echo "</div>";
                 echo "</div>";
                 

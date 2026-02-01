@@ -16,7 +16,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] == 'Guest') {
             <?php  
             if(isset($_SESSION['role']) && $_SESSION['role'] == 'Admin'){
                 echo '<div class="flex w-fit justify-center items-center p-3 bg-[#0A090C] text-white cursor-pointer font-semibold rounded-md hover:bg-[#2c2732]">';
-                // RUTA CORREGIDA: Eliminado /shop/
                 include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/orders/form_order_insert_call.php');
                 echo '</div>';
             }
@@ -29,7 +28,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] == 'Guest') {
     $order_output = "No order selected or found";
     $id_customer = $_SESSION['id_customer'] ?? null;
 
-    // RUTA CORREGIDA: Eliminado /shop/
     include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
     // Inicializar variable de consulta
@@ -47,7 +45,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] == 'Guest') {
     // Execute the query
     $query_result = mysqli_query($conn, $sql);
 
-    // RUTA CORREGIDA: Eliminado /shop/
     include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/functions/orders/showOrders.php');
     
     // Ejecutamos la función para mostrar pedidos

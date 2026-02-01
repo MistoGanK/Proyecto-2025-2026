@@ -4,7 +4,7 @@ session_start();
 // Primero comprovamos si ya esta logeado el usuario
 if (isset($_SESSION['username'])) {
     // Si es TRUE redirigimos a admin_panel
-    header('Location: /student022/shop/backend/admin_panel');
+    header('Location: /student022/backend/admin_panel');
     exit();
 } else {
     // Si es FALSE procedemos al resto del codigo PHP
@@ -31,7 +31,7 @@ if (isset($_SESSION['username'])) {
         ;";
 
         // Abrimos la conexión
-        include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+        include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
         // Ejecutamos la query
 
@@ -77,7 +77,7 @@ if (isset($_SESSION['username'])) {
                 // print_r($_SESSION);
 
                 // Redirect to admin panel afther registered 
-                header('Location: /student022/shop/backend/admin_panel.php');
+                header('Location: /student022/backend/admin_panel.php');
                 exit();
             }
         }
@@ -91,7 +91,7 @@ if (isset($_SESSION['username'])) {
 <head>
     <title>Admin Panel</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="icon" href="/student022/shop/backend/assets/icons/faviconBlack.png" type="image/png">
+    <link rel="icon" href="/student022/backend/assets/icons/faviconBlack.png" type="image/png">
 </head>
 
 <body class="flex relative flex-row min-h-screen w-full p-10 justify-center items-center
@@ -101,7 +101,7 @@ bg-[#FEFFFE] text-[#0A090C] antialiased">
     <main class="flex flex-col w-full max-w-xl h-fit p-8 items-center gap-5
     bg-white shadow-xl rounded-lg border border-gray-200">
         <h1 class="w-fit text-3xl font-extrabold mb-5">Register</h1>
-        <form class="flex flex-col w-full h-fit gap-2 p-2" method="POST" action="/student022/shop/backend/autentification/register.php">
+        <form class="flex flex-col w-full h-fit gap-2 p-2" method="POST" action="/student022/backend/autentification/register.php">
 
             <label for="customer_email" class="w-fit text-xl font-bold">Email</label>
             <input id="customer_email" type="email" name="customer_email" placeholder="Type your email"
