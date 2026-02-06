@@ -1,3 +1,4 @@
+// Future modifications to be made, for day, week, year or year range adaptation
 const dataUrlEndpoint =
   "/student022/backend/endpoints/charts/chartOrderMonthIncome.php";
 
@@ -55,7 +56,6 @@ async function getChartData(endpointURL) {
         if (month === key) {
           // Value for the month
           yValues[index] = parseInt(value);
-          console.log("Before Current Value:", currentValue);
           // Check if value is higher than the last
           const numericValue = parseInt(value);
           if (currentValue < numericValue) {
@@ -68,10 +68,8 @@ async function getChartData(endpointURL) {
             // Even
             fieldsColors[index] = colorPalette.grey;
           }
-          console.log(fieldsColors);
           // Update currentValue
           currentValue = parseInt(value);
-          console.log("Afther Current Value:", currentValue);
         }
       });
     }

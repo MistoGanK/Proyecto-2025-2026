@@ -12,10 +12,10 @@ $key = $_POST['apiKey'];
 
 // $sqlApi =
 // "SELECT api_key 
-// FROM `022_vendors_api_keys`
+// FROM `022_suppliers_api_keys`
 // WHERE api_key = '$key';";
 
-$sqlApi = "SELECT api_key FROM `022_vendors_api_keys` WHERE 1 = 1;";
+$sqlApi = "SELECT api_key FROM `022_suppliers_api_keys` WHERE 1 = 1;";
 
 // WHERE api_key = '$apiKey';";
 

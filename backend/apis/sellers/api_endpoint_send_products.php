@@ -1,33 +1,37 @@
 <?php
+// Sending my products to the sellers
 header("Content-Type: application/json");
 
 $raw = file_get_contents("php://input");
-$data = json_decode($raw, true);
 
-// DEBUG: log en lugar de echo
-error_log("RAW POST: $raw");
-error_log("Decoded: " . print_r($data, true));
+$key = $_GET['apikey'] ?? null;
 
-$key = $data['apiKey'] ?? null;
-
-// Query ApiKey (Test)
+// Check API key
 $sqlApi = "
 SELECT api_key 
-FROM `022_vendors_api_keys`
+FROM `022_sellers_api_keys`
 WHERE api_key = '$key';
 ";
 
-$sql = 'SELECT * FROM `022_products` LIMIT 5;';
+$sql = 'SELECT
+    id_product AS "product_id",
+    product_name AS "product_name",
+    img_src AS "product_image",
+    price AS "product_price",
+    stock AS "product_stock"
+    FROM `022_products` LIMIT 5;';
 
-include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
+include(__DIR__ . '/../../config/connection.php');
 
 $resultApiCheck = mysqli_query($conn, $sqlApi);
 
 if ($key && mysqli_num_rows($resultApiCheck) > 0) {
+    
     $products = mysqli_query($conn, $sql);
     $assocProducts = mysqli_fetch_all($products, MYSQLI_ASSOC);
-    $jsonProducts = json_encode($assocProducts);
-    echo json_encode($jsonProducts);
+    $response = json_encode($assocProducts);
+
+    echo $response;
 } else {
     echo json_encode(["error" => "Wrong apikey"]);
 }

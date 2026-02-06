@@ -7,7 +7,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php');
     <canvas id="myChart"></canvas>
   </div>
   <div class="relative w-full h-full">
-    <canvas id="chart2"></canvas>
+    <canvas id="pieGlobalShareChart"></canvas>
   </div>
   <div class="relative w-full h-full">
     <canvas id="chart3"></canvas>
@@ -20,4 +20,5 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php');
 <?php 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); 
 ?>
-<script src="../scripts/charts/chart.js"></script>
+<script src="../scripts/charts/barChart.js"></script>
+<script src="../scripts/charts/pieChart.js"></script>
