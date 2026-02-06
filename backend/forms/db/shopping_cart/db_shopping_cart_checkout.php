@@ -46,16 +46,31 @@
 
                     // Check if was suppliers product
                     $sqlCheckSupplierProduct =
-                    "SELECT * FROM `022_orders`
-                    WHERE id_order = 355 AND id_supplier IS NOT NULL;";
+                    "SELECT 
+                    id_order AS order_number,
+                    supplier_product_code AS product_id,
+                    qty AS product_quantity,
+                    order_date AS order_placed_on,
+                    forename AS customer_forename,
+                    surname AS customer_surname,
+                    dni AS customer_nif,
+                    email AS customer_email,
+                    phone_number AS customer_phone,
+                    'location' AS customer_location,
+                    country AS customer_country,
+                    zip_code AS customer_zip
+
+                    FROM `022_view_orders`
+                    WHERE id_order = $newIdOrder AND id_supplier IS NOT NULL;";
                     
                     $resultCheckSupllierProduct = mysqli_query($conn,$sqlCheckSupplierProduct);
 
                     if (mysqli_num_rows($resultCheckSupllierProduct) >= 1){
-                    // Call endpoint from supplier order
-                    
+                        $order = mysqli_fetch_all($resultCheckSupllierProduct, MYSQLI_ASSOC);
+                        $result = json_encode($resultCheckSupllierProduct);
+
+                        // Que pasa si hay un order con ambos suppliers? Separar la consulta en arrays de cada supplier?
                     }   
-                    
                 } else {
                     echo "Error on saving the order: ", mysqli_error($conn);
                 }
@@ -106,7 +121,7 @@
                 altBody > indentificar
                 */
             $body = "
-                <h1>Ticket del Orden: $id_order</h1>
+                <h1>Ticket del Orden: $newIdOrder</h1>
                 <p></p>
                 ";
         }
