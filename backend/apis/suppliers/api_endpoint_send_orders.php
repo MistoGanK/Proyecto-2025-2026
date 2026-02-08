@@ -1,0 +1,1 @@
+<!-- Aqui podria ir el endpoint de db_shopping_cart_checkout.php -->

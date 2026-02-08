@@ -1,6 +1,6 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); ?>
 
-<section class="flex justify-center p-8 min-h-screen bg-gray-50">
+<section class="flex justify-center p-8 min-h-screen">
 
     <div class="w-full max-w-xl h-fit p-8 bg-white shadow-xl rounded-lg border border-gray-200 text-center">
 
@@ -45,32 +45,104 @@
                     $sqlCleanCartResutl = mysqli_query($conn, $sqlCleanCart);
 
                     // Check if was suppliers product
-                    $sqlCheckSupplierProduct =
+                    $sqlCheckSupplierProduct = 
                     "SELECT 
-                    id_order AS order_number,
-                    supplier_product_code AS product_id,
-                    qty AS product_quantity,
-                    order_date AS order_placed_on,
-                    forename AS customer_forename,
-                    surname AS customer_surname,
-                    dni AS customer_nif,
-                    email AS customer_email,
-                    phone_number AS customer_phone,
-                    'location' AS customer_location,
-                    country AS customer_country,
-                    zip_code AS customer_zip
+                        id_supplier AS id_supplier,
+                        id_order AS order_number,
+                        supplier_product_code AS product_code,
+                        qty AS product_quantity,
+                        order_date AS order_placed_on,
+                        IFNULL(forename, 'noForename') AS customer_forename,
+                        IFNULL(surname, 'noSurname') AS customer_surname,
+                        IFNULL(dni, 'noNif') AS customer_nif,
+                        IFNULL(email, 'noEmail') AS customer_email,
+                        IFNULL(phone_number, 'noPhoneNumber') AS customer_phone,
+                        'noAddress' AS customer_address,
+                        IFNULL(location, 'noLocation') AS customer_location,
+                        IFNULL(country, 'noCountry') AS customer_country,
+                        IFNULL(zip_code, 'noZipCode') AS customer_zip
 
                     FROM `022_view_orders`
                     WHERE id_order = $newIdOrder AND id_supplier IS NOT NULL;";
-                    
-                    $resultCheckSupllierProduct = mysqli_query($conn,$sqlCheckSupplierProduct);
 
-                    if (mysqli_num_rows($resultCheckSupllierProduct) >= 1){
-                        $order = mysqli_fetch_all($resultCheckSupllierProduct, MYSQLI_ASSOC);
-                        $result = json_encode($resultCheckSupllierProduct);
+                    $resultCheckSupllierProduct = mysqli_query($conn, $sqlCheckSupplierProduct);
 
-                        // Que pasa si hay un order con ambos suppliers? Separar la consulta en arrays de cada supplier?
-                    }   
+                    if (mysqli_num_rows($resultCheckSupllierProduct) >= 1) {
+                        $orderItems = mysqli_fetch_all($resultCheckSupllierProduct, MYSQLI_ASSOC);
+
+                        $orderApi = [];
+                        foreach ($orderItems as $orderItem) {
+                            $orderApi[$orderItem['id_supplier']][] = $orderItem;
+                        }
+
+                        $id_suppliers = array_keys($orderApi);
+                        print_r($orderApi);
+
+                        echo "<hr>";
+                        print_r($id_suppliers);
+
+                        // Getting API + ORDER ENDPOINT
+                        $sqlSuppliers = "SELECT * FROM `022_view_suppliers_endpoints`";
+                        $suppliersResult = mysqli_query($conn, $sqlSuppliers);
+                        $suppliersInfo = mysqli_fetch_all($suppliersResult, MYSQLI_ASSOC);
+
+                        // The complete JSON order
+                        echo "-------------- FOREACH ------------------";
+                        foreach ($id_suppliers as $id_supplier) {
+
+                            $supplie_order = ($orderApi[$id_supplier]);
+                        }
+                        // ! NOT SECURE, SHOULDNT BE DEPENDABLE TO ID_SUPPLIER
+                        foreach ($suppliersInfo as $supplierInfo) {
+                            // Suppliers Endpoints Credentials
+                            $supplierApyKey = $supplierInfo['api_key'];
+                            $supplierEndpoint = $supplierInfo['api_endpoint_orders'];
+
+                            // JSON supplier order
+                            // $supplierOrder = json_encode($orderApi[$supplierInfo['id_supplier']]);
+                            $supplierOrder = json_encode($orderApi[$supplierInfo['id_supplier']], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+                            // Call endpoint
+                            $supplierUrl = $supplierEndpoint . $supplierApyKey . "&orders_json=" . urlencode($supplierOrder);
+
+                            $ch = curl_init();
+
+                            $headers = array(
+                                "Content-Type: application/json"
+                            );
+
+                            // URL configuration
+                            curl_setopt($ch, CURLOPT_URL, trim($supplierUrl));
+                            // Pass headers
+                            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                            // Response as a string
+                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                            // SSL bypass
+                            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                            // Host name bypass
+                            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+                            // Sending protocol explicit
+                            curl_setopt($ch, CURLOPT_HTTPGET, true);
+
+                            $response = curl_exec($ch);
+                            // Debugging
+                            echo "<br>";
+                            print_r($supplierUrl);
+                            echo "<br>";
+                            print_r($supplierOrder);
+                            echo "<br>";
+
+                            if (curl_errno($ch)) {
+                                echo 'Error de cURL ' . curl_error($ch);
+                            } else {
+                                echo 'Response arrived ' . $response;
+                            }
+                            curl_close($ch);
+                        }
+
+                        // $result = json_encode($resultCheckSupllierProduct);
+
+                    }
                 } else {
                     echo "Error on saving the order: ", mysqli_error($conn);
                 }
