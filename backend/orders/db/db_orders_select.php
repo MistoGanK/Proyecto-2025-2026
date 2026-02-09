@@ -1,56 +1,61 @@
 <?php
-// --- CORRECCIÓN DE SEGURIDAD ---
-// Tenías !isset($_session['role']) en minúscula, PHP es case-sensitive para superglobales.
-// Además, si no está seteado el rol, por defecto debería ir al login.
+// --- CONTROL DE ACCESO ---
 if (!isset($_SESSION['role']) || $_SESSION['role'] == 'Guest') {
     echo '<script>window.location.href = "/student022/backend/autentification/login.php"</script>';
     die();
 }
 ?>
-<section class="flex flex-row flex-wrap h-fit p-5 gap-5 items-center justify-center">
-    <div class="w-full mb-6 border-b border-gray-200 pb-2">
-        <div class="w-full flex items-center justify-between mb-6">
-            <h1 class="text-3xl font-extrabold tracking-tight uppercase text-gray-900 pb-3 inline-block">
-            My Orders
+
+<section class="max-w-7xl mx-auto p-6 min-h-screen bg-white">
+    <div class="w-full mb-10 border-b-2 border-black pb-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>
+            <h1 class="text-5xl font-black tracking-tighter uppercase italic text-gray-900">
+                My <span class="text-gray-400 not-italic font-light">Orders</span>
             </h1>
-            <?php  
-            if(isset($_SESSION['role']) && $_SESSION['role'] == 'Admin'){
-                echo '<div class="flex w-fit justify-center items-center p-3 bg-[#0A090C] text-white cursor-pointer font-semibold rounded-md hover:bg-[#2c2732]">';
-                include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/orders/form_order_insert_call.php');
-                echo '</div>';
-            }
-            ?>
+            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mt-2">
+                Displaying the latest activity from the fulfillment logs
+            </p>
         </div>
+
+        <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'Admin'): ?>
+            <div class="flex items-center p-4 bg-black text-white cursor-pointer font-black text-[10px] uppercase tracking-widest rounded-xl hover:bg-gray-800 transition-all shadow-lg active:scale-95">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4" />
+                </svg>
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/orders/form_order_insert_call.php'); ?>
+            </div>
+        <?php endif; ?>
     </div>
 
-    <?php
-    // Variables
-    $order_output = "No order selected or found";
-    $id_customer = $_SESSION['id_customer'] ?? null;
+    <div class="grid grid-cols-1 gap-8">
+        <?php
+        $id_customer = $_SESSION['id_customer'] ?? null;
+        include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
-    include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
+        // LÓGICA DE OPTIMIZACIÓN: Limitamos a 50 y ordenamos por ID descendente
+        if ($_SESSION['role'] == 'Admin') {
+            $sql = "SELECT DISTINCT id_order FROM `022_orders` ORDER BY id_order DESC LIMIT 50;";
+        } else {
+            // Importante: Si no hay id_customer (raro si está logueado), evitamos que la query falle
+            $id_customer_clean = mysqli_real_escape_string($conn, $id_customer);
+            $sql = "SELECT DISTINCT id_order FROM `022_orders` WHERE id_customer = '$id_customer_clean' ORDER BY id_order DESC LIMIT 50;";
+        }
 
-    // Inicializar variable de consulta
-    $sql = "";
+        $query_result = mysqli_query($conn, $sql);
 
-    if ($_SESSION['role'] == 'Admin') {
-        // Mostrar todos los orders al admin
-        $sql = "SELECT DISTINCT (`022_orders`.`id_order`) FROM `022_orders`;";
-    } else {
-        // Mostrar SOLO los pedidos del usuario
-        // APRENDIZAJE: Siempre asegúrate de que $id_customer existe antes de la query
-        $sql = "SELECT DISTINCT (`022_orders`.`id_order`) FROM `022_orders` WHERE id_customer = $id_customer;";
-    };
+        // Importamos la función de visualización
+        include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/functions/orders/showOrders.php');
+        
+        // Renderizamos
+        showOrders($query_result, $conn);
+        
+        mysqli_close($conn);
+        ?>
+    </div>
 
-    // Execute the query
-    $query_result = mysqli_query($conn, $sql);
-
-    include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/functions/orders/showOrders.php');
-    
-    // Ejecutamos la función para mostrar pedidos
-    showOrders($query_result, $conn);
-    
-    // Close connection
-    mysqli_close($conn);
-    ?>
+    <div class="mt-12 text-center border-t border-gray-100 pt-6">
+        <p class="text-[9px] font-black text-gray-300 uppercase tracking-widest">
+            End of visible records. Database contains +10,000 entries. On working progress.
+        </p>
+    </div>
 </section>
