@@ -91,6 +91,7 @@ function renderPieChart(labels, marketShare, incomes) {
     },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       plugins: {
         legend: { position: "top" },
         title: {

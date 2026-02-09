@@ -1,137 +1,129 @@
-<section class="p-8 w-full mx-auto">
-    <div class="w-full mb-8 pb-4 border-b-2 border-gray-200 flex justify-between items-center">
-        <h1 class="text-3xl font-extrabold tracking-tight uppercase text-gray-900">
-            Customers Management
-        </h1>
-        <div class="p-3 bg-black text-white font-semibold rounded-lg 
-                    hover:cursor-pointer hover:bg-gray-800 transition-colors">
-            <?php include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/forms/customers/form_customer_insert_call.php'); ?> 
-        </div> 
+<section class="p-8 w-full max-w-7xl mx-auto bg-gray-50/30 min-h-screen">
+    <div class="w-full mb-10 pb-6 border-b border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>
+            <h1 class="text-4xl font-black tracking-tight text-gray-900 italic uppercase">
+                Customers <span class="text-gray-400 font-light">Management</span>
+            </h1>
+            <p class="text-sm text-gray-500 font-medium mt-1">Manage the user database and its privileges.</p>
+        </div>
+
+        <div class="group relative">
+            <div class="absolute -inset-0.5 bg-gradient-to-r from-gray-600 to-black rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+            <div class="relative px-6 py-3 bg-black text-white text-sm font-bold rounded-lg hover:bg-gray-900 transition-all flex items-center shadow-xl cursor-pointer">
+                <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/customers/form_customer_insert_call.php'); ?>
+            </div>
+        </div>
     </div>
 
-<?php 
-// Variables
-$customer_output = "No Customer selected or found";
-$id_customer = null;
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
-// Open connection
-include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/config/connection.php');
-
-// ... (Lógica de obtención de $id_customer) ...
-if (isset($_POST['id_customer']) && !empty($_POST['id_customer'])){
-    $id_customer = mysqli_real_escape_string($conn, $_POST['id_customer']);
-}
-
-// Initialize variable that will save the designed query
-$sql = "SELECT * FROM `022_customers`;"; 
-
-if ($id_customer != null){
-    // Query para un solo cliente
-    $sql = "SELECT * FROM `022_customers` WHERE id_customer = '$id_customer'";
-    
-    // CLAVE: Si se busca un cliente específico, usamos una sola columna ancha
-    $grid_class = "grid-cols-1";
-    $card_width_class = "w-full"; // Asegura que la tarjeta use todo el ancho de la columna 
-} else {
-    // CLAVE: Si se muestran todos, usamos el grid responsivo
-    $grid_class = "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4";
-    $card_width_class = ""; // No se necesita ancho fijo en grid, ya se adapta
-}
-
-?>
-    <div class="grid <?php echo $grid_class; ?> gap-6">
-
-<?php 
-// Execute the query
-$query_result = mysqli_query($conn, $sql);
-
-// Check if the query exists and if there was rows affected
-if ($query_result){
-    if (mysqli_num_rows($query_result)>0){
-        // Loop and return formatted result
-        while ($row = mysqli_fetch_assoc($query_result)){
-            $id_customer = $row['id_customer'];
-            $active_style = ($row['active'] == 1) 
-                        ? 'text-green-600 font-bold' 
-                        : 'text-red-600 font-bold';
-            
-            // --- Customer Card Start ---
-            echo"<div class='flex flex-col h-full $card_width_class
-                        shadow-lg p-5 rounded-xl bg-white 
-                        border border-gray-200 hover:shadow-xl transition-shadow duration-300
-                        '>"; 
-                // --- TOP SECTION: AVATAR, NAME & STATUS ---
-                echo "<div class='flex flex-col items-center text-center w-full mb-4 pb-4 border-b border-gray-200'>";
-                    // 1. AVATAR CONTAINER (Photo de Perfil)
-                    $avatar_src = isset($row['avatar_src']) && !empty($row['avatar_src']) 
-                                ? $row['avatar_src'] 
-                                : 'https://via.placeholder.com/80?text=👤';
-                    
-                    echo "<div class='w-20 h-20 rounded-full overflow-hidden mb-3 bg-gray-100 border-2 border-gray-300'>";
-                        echo "<img class='w-full h-full object-cover' src='" . $avatar_src . "' alt='Customer Avatar'>";
-                    echo "</div>";
-
-                    // 2. Título principal (Nombre + Apellido)
-                    echo "<h2 class='text-2xl font-extrabold text-gray-900'>".$row['forename'] . " " . $row['surname'] . "</h2>";
-                    
-                    // 3. Status Activo
-                    echo "<p class='text-sm mt-1'>" . "Status: " . "<span class='$active_style'>Active: " . $row['active'] . "</span></p>";
-                echo "</div>"; // Cierre TOP SECTION
-
-                // --- MIDDLE SECTION: Key Info (Username/Email) ---
-                echo "<div class='flex flex-col w-full mb-4 gap-1 text-sm text-gray-700'>";
-                    echo "<p class='font-semibold'>Username: <span class='font-normal text-gray-600'>" . $row['username'] . "</span></p>";
-                    echo "<p class='font-semibold'>Email: <span class='font-normal text-gray-600'>" . $row['email'] . "</span></p>";
-                echo "</div>";
-                
-                // --- BOTTOM SECTION: All Details (Smaller text) ---
-                echo "<div class='flex flex-col gap-1 text-xs text-gray-500 border-t pt-3'>";
-                    echo "<p><span class='font-medium'>ID:</span> " . $row['id_customer'] . "</p>";
-                    echo "<p><span class='font-medium'>DNI:</span> " . $row['dni'] . "</p>";
-                    echo "<p><span class='font-medium'>Birth:</span> " . $row['birth_date'] . "</p>";
-                    echo "<p><span class='font-medium'>Registered:</span> " . $row['creation_date'] . "</p>";
-                echo "</div>";
-                
-                // --- ACTION BUTTONS CONTAINER (MODIFICADO) ---
-                // Usamos 'flex w-full space-x-2' para distribución y 'flex-grow' en los hijos
-                echo("<div class='flex w-full space-x-2 items-end mt-4 pt-3 border-t border-gray-100'>");
-                    
-                    // Delete Button - Añadimos flex-1 y text-center, ajustamos padding
-                    echo "<div class='flex-1 p-2 transition-colors duration-200 rounded-md text-center
-                                    hover:bg-red-600 hover:text-white cursor-pointer'
-                                    title='Delete Customer'>";
-                        include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/forms/customers/form_customer_delete_call.php');
-                    echo "</div>";
-                    
-                    // Select Button - Añadimos flex-1 y text-center, ajustamos padding
-                    echo "<div class='flex-1 p-2 transition-colors duration-200 rounded-md text-center
-                                    hover:bg-black hover:text-white cursor-pointer'
-                                    title='Select Customer'>";
-                        include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/forms/customers/form_customer_select.php');
-                    echo "</div>";
-                    
-                    // Update Button - Añadimos flex-1 y text-center, ajustamos padding
-                    echo "<div class='flex-1 p-2 transition-colors duration-200 rounded-md text-center
-                                    hover:bg-black hover:text-white cursor-pointer'
-                                    title='Update Customer'>";
-                        include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/forms/customers/form_customer_update_call.php');
-                    echo "</div>";
-                echo "</div>";
-                
-            echo "</div>"; // Cierre Tarjeta Cliente
-        }
-    } else {
-        echo "<p class='text-lg text-gray-500 col-span-full'>Customer with ID $id_customer not found.</p>";
+    $id_customer = null;
+    if (isset($_POST['id_customer']) && !empty($_POST['id_customer'])) {
+        $id_customer = mysqli_real_escape_string($conn, $_POST['id_customer']);
     }
-} else {
-    echo "<p class='text-lg text-red-500 col-span-full'>Database Error: " . mysqli_error($conn) . "</p>";
-}
 
-// Clean up
-if ($query_result) {
-    mysqli_free_result($query_result);
-}
-mysqli_close($conn);
-?>
+    $sql = "SELECT * FROM `022_customers` WHERE id_customer NOT IN (151,152) ORDER BY creation_date DESC;";
+    if ($id_customer != null) {
+        $sql = "SELECT * FROM `022_customers` WHERE id_customer = '$id_customer'";
+        $grid_class = "grid-cols-1";
+    } else {
+        $grid_class = "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4";
+    }
+    ?>
+
+    <div class="grid <?php echo $grid_class; ?> gap-8">
+
+        <?php
+        $query_result = mysqli_query($conn, $sql);
+
+        if ($query_result && mysqli_num_rows($query_result) > 0) {
+            while ($row = mysqli_fetch_assoc($query_result)) {
+                $id_customer = $row['id_customer'];
+
+                // Estilo de Badge para el Status
+                $status_badge = ($row['active'] == 1)
+                    ? '<span class="bg-green-100 text-green-700 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase border border-green-200">Active</span>'
+                    : '<span class="bg-red-100 text-red-700 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase border border-red-200">Inactive</span>';
+
+                echo "<div class='group flex flex-col h-[480px] w-full bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden'>";
+
+                // --- TOP SECTION (Visual) ---
+                echo "<div class='relative flex flex-col items-center p-6 bg-gradient-to-b from-gray-50 to-white border-b border-gray-100'>";
+
+                // ID Badge flotante
+                echo "<span class='absolute top-4 right-4 text-[10px] font-mono text-gray-400 bg-white px-2 py-1 rounded border border-gray-100'>#{$id_customer}</span>";
+
+                $avatar_src = !empty($row['avatar_src']) ? $row['avatar_src'] : 'https://ui-avatars.com/api/?name=' . urlencode($row['forename']) . '&background=random';
+
+                echo "<div class='relative group-hover:scale-110 transition-transform duration-500'>";
+                echo "<div class='absolute inset-0 bg-black rounded-full blur-md opacity-0 group-hover:opacity-10 transition-opacity'></div>";
+                echo "<img class='w-24 h-24 rounded-full object-cover border-4 border-white shadow-md' src='$avatar_src' alt='Avatar'>";
+                echo "</div>";
+
+                echo "<h2 class='mt-4 text-xl font-bold text-gray-900 truncate w-full text-center'>" . $row['forename'] . " " . $row['surname'] . "</h2>";
+                echo "<div class='mt-2'>$status_badge</div>";
+                echo "</div>";
+
+                // --- INFO SECTION (Contenido fijo) ---
+                echo "<div class='flex-grow p-6 space-y-4 overflow-hidden'>";
+
+                // Bloque de Contacto
+                echo "<div class='space-y-2'>";
+                echo "<div class='flex items-center text-gray-600 group/item cursor-default'>";
+                echo "<span class='text-[11px] font-bold text-gray-400 uppercase w-20'>Username</span>";
+                echo "<span class='text-sm font-semibold text-gray-700 truncate'>" . $row['username'] . "</span>";
+                echo "</div>";
+                echo "<div class='flex items-center text-gray-600 group/item cursor-default'>";
+                echo "<span class='text-[11px] font-bold text-gray-400 uppercase w-20'>Email</span>";
+                echo "<span class='text-sm font-medium text-blue-600 truncate underline decoration-blue-200'>" . $row['email'] . "</span>";
+                echo "</div>";
+                echo "</div>";
+
+                // Bloque de Detalles (DNI / Fecha)
+                echo "<div class='pt-4 border-t border-dashed border-gray-200 grid grid-cols-2 gap-4'>";
+                echo "<div>";
+                echo "<p class='text-[10px] font-bold text-gray-400 uppercase tracking-tighter'>Document ID</p>";
+                echo "<p class='text-xs font-mono text-gray-700'>" . $row['dni'] . "</p>";
+                echo "</div>";
+                echo "<div>";
+                echo "<p class='text-[10px] font-bold text-gray-400 uppercase tracking-tighter'>Member Since</p>";
+                echo "<p class='text-xs font-medium text-gray-700'>" . date('M Y', strtotime($row['creation_date'])) . "</p>";
+                echo "</div>";
+                echo "</div>";
+                echo "</div>";
+
+                // --- ACTION BUTTONS (Footer) ---
+                echo "<div class='p-4 bg-gray-50 flex items-center justify-between gap-2 border-t border-gray-100'>";
+
+                // Delete (Rojo)
+                echo "<div class='flex-1 h-10 flex items-center justify-center rounded-lg hover:bg-red-50 hover:text-red-600 transition-colors group/del' title='Eliminar'>";
+                echo "<div class='scale-90 group-hover/del:scale-100 transition-transform'>";
+                include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/customers/form_customer_delete_call.php');
+                echo "</div>";
+                echo "</div>";
+
+                // Separador
+                echo "<div class='w-px h-6 bg-gray-200'></div>";
+
+                // Select & Update (Negro)
+                echo "<div class='flex-1 h-10 flex items-center justify-center rounded-lg hover:bg-gray-200 transition-colors' title='Ver Detalles'>";
+                include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/customers/form_customer_select.php');
+                echo "</div>";
+
+                echo "<div class='flex-1 h-10 flex items-center justify-center rounded-lg hover:bg-gray-200 transition-colors' title='Editar'>";
+                include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/customers/form_customer_update_call.php');
+                echo "</div>";
+                echo "</div>";
+
+                echo "</div>";
+            }
+        } else {
+            echo "<div class='col-span-full py-20 text-center bg-white rounded-2xl border-2 border-dashed border-gray-200'>";
+            echo "<p class='text-gray-400 font-medium text-lg'>No se encontraron clientes que coincidan.</p>";
+            echo "</div>";
+        }
+        mysqli_close($conn);
+        ?>
     </div>
 </section>
