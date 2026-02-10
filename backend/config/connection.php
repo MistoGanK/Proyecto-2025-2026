@@ -29,6 +29,8 @@ mysqli_character_set_name($conn);
 // Connection with the server 
 // MySQLie(Procedural) or PDO(Object Oriented)
 
+
+/* 
 $server_name = 'remotehost.es';
 $user_name = 'dwess1234';
 $password = 'Usertest1234.';
@@ -50,6 +52,7 @@ mysqli_set_charset($conn,"utf8");
 // Modyfied charset
 mysqli_character_set_name($conn);
 
+*/
 
 /*
 
