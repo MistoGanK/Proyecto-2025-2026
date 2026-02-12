@@ -7,10 +7,17 @@ function searchProduct(inputSearchValue){
     http.onreadystatechange = function(){
       if (this.readyState == 4 && this.status == 200){
         $jsonEndpoint = this.response;
+        document.getElementById("products_container").innerHTML = $jsonEndpoint;
+        console.log("hola");
       };
     };
     
   http.open("GET", endPointProductSelect + "?productName=" + inputSearchValue, true);
   http.send();
 };
-
+let targetDiv = document.getElementById("searchEndPointResult")
+// Event listener
+let searchInput = document.querySelector('input[type="search"]');
+searchInput.addEventListener("input", (e)=>{
+  searchProduct(searchInput.value)
+})

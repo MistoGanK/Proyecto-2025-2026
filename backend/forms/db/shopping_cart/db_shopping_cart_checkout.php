@@ -88,8 +88,8 @@
                                     $supplierOrder = json_encode($orderApi[$sid], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
                                     
                                     $supplierUrl = $supplierEndpoint . $supplierApyKey . "&orders_json=" . urlencode($supplierOrder);
-                                    // print_r($supplierUrl);
-                                    // print_r(" ----------------------- ");
+                                    print_r($supplierUrl);
+                                    print_r(" ----------------------- ");
 
                                     
                                     $ch = curl_init();

@@ -14,7 +14,15 @@
         ?>
         </div>
     </div>
-    <div id="searchEndPointResult"></div>
+    <div id="products_container"
+    class="
+    w-full 
+    h-full mb-2 
+    flex-wrap 
+    flex
+    gap-5
+    justify-center
+    ">
 
     <?php
     $product_output = "No product selected or found";
@@ -53,8 +61,8 @@
 
     mysqli_free_result($result);
     ?>
-
 </section>
+</div>
 
 <script src="/student022/backend/functions/products/searchForProduct.js"></script>
 

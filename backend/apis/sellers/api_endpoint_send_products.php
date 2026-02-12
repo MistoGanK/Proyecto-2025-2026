@@ -16,9 +16,10 @@ WHERE api_key = '$key';
 $sql = 'SELECT
     id_product AS "product_id",
     product_name AS "product_name",
-    img_src AS "product_image",
+    AS "product_image",
     price AS "product_price",
-    stock AS "product_stock"
+    stock AS "product_stock",
+    description AS product_desc
     FROM `022_products` LIMIT 5;';
 
 include(__DIR__ . '/../../config/connection.php');
