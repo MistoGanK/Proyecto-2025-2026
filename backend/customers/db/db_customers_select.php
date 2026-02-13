@@ -4,7 +4,10 @@
             <h1 class="text-4xl font-black tracking-tight text-gray-900 italic uppercase">
                 Customers <span class="text-gray-400 font-light">Management</span>
             </h1>
-            <p class="text-sm text-gray-500 font-medium mt-1">Manage the user database and its privileges.</p>
+            <p class="flex items-center gap-2 text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mt-3">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    Live Customer Management
+                </p>
         </div>
 
         <div class="group relative">

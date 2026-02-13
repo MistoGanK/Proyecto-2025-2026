@@ -17,7 +17,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] == 'Guest') {
             </p>
         </div>
 
-        <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'Admin'): ?>
+        <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin'): ?>
             <div class="flex items-center p-4 bg-black text-white cursor-pointer font-black text-[10px] uppercase tracking-widest rounded-xl hover:bg-gray-800 transition-all shadow-lg active:scale-95">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4" />
@@ -27,28 +27,28 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] == 'Guest') {
         <?php endif; ?>
     </div>
 
-    <div class="grid grid-cols-1 gap-8">
+    <div id="orders_container" class="grid grid-cols-1 gap-8">
         <?php
         $id_customer = $_SESSION['id_customer'] ?? null;
         include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
-        // LÓGICA DE OPTIMIZACIÓN: Limitamos a 50 y ordenamos por ID descendente
+        // Base logic
         if ($_SESSION['role'] == 'Admin') {
             $sql = "SELECT DISTINCT id_order FROM `022_orders` ORDER BY id_order DESC LIMIT 50;";
         } else {
-            // Importante: Si no hay id_customer (raro si está logueado), evitamos que la query falle
+            // Control if not id_customer provide
             $id_customer_clean = mysqli_real_escape_string($conn, $id_customer);
             $sql = "SELECT DISTINCT id_order FROM `022_orders` WHERE id_customer = '$id_customer_clean' ORDER BY id_order DESC LIMIT 50;";
         }
 
         $query_result = mysqli_query($conn, $sql);
 
-        // Importamos la función de visualización
+        // Import orders render
         include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/functions/orders/showOrders.php');
-        
+
         // Renderizamos
         showOrders($query_result, $conn);
-        
+
         mysqli_close($conn);
         ?>
     </div>
@@ -58,4 +58,5 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] == 'Guest') {
             End of visible records. Database contains +10,000 entries. On working progress.
         </p>
     </div>
+    <script src="/student022/backend/functions/orders/searchOrders.js"></script>
 </section>

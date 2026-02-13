@@ -1,130 +1,115 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); ?>
 
-<section class="flex justify-center p-8 min-h-screen bg-gray-50">
+<section class="flex flex-col items-center justify-center p-12 min-h-screen bg-[#F8F9FA]">
 
-    <div class="w-full max-w-xl h-fit p-8 bg-white shadow-xl rounded-lg border border-gray-200 text-center">
+    <div class="w-full max-w-2xl bg-white shadow-2xl rounded-[2.5rem] overflow-hidden border border-gray-100">
 
-        <h1 class="text-3xl font-bold text-[#0A090C] mb-6 border-b border-gray-200 pb-2">Customer Insertion Result</h1>
-
-        <p class="text-lg font-semibold text-gray-700 mb-4">Operation Status:</p>
-
-        <?php
-
-        // 1. Inicialización de variables para el resultado
-        $insert_output = "ERROR: Customer data is missing or incomplete (Form not submitted).";
-        $message_class = "bg-red-100 border-red-500 text-red-700";
-        $success = false;
-        $customer_id_inserted = null;
-
-        // Variables (capturadas de POST)
-        $customer_username = $_POST['customer_username'] ?? 'N/A';
-        $customer_user_password = $_POST['customer_user_password'] ?? null;
-        $customer_dni = $_POST['customer_dni'] ?? 'N/A';
-        $customer_email = $_POST['customer_email'] ?? 'N/A';
-        $customer_forename = $_POST['customer_forename'] ?? 'N/A';
-        $customer_surname = $_POST['customer_surname'] ?? 'N/A';
-        $customer_birth_date = $_POST['customer_birth_date'] ?? 'N/A';
-        $customer_registered = $_POST['customer_registered'] ?? '0';
-        $customer_active = $_POST['customer_active'] ?? '0';
-
-        // Lógica de Inserción (solo si se recibe el campo de envío y la contraseña no es nula)
-        if (isset($_POST['send']) && $customer_user_password !== null) {
-
-            // Connection 
-            include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
-
-            $safe_customer_email = mysqli_real_escape_string($conn, $customer_email);
-            $safe_customer_username = mysqli_real_escape_string($conn, $customer_username);
-
-            $safe_hashed_password = mysqli_real_escape_string($conn, $customer_user_password); 
-
-            // --- Verificar duplicados (Email O Username) ---
-            $sqlRegisterCheck = "
-                SELECT 
-                    id_customer
-                FROM 
-                    022_customers
-                WHERE 
-                    email = '$safe_customer_email' OR username = '$safe_customer_username'
-            ";
-
-            $sqlRegisterCheckResult = mysqli_query($conn, $sqlRegisterCheck);
-            
-            if (mysqli_num_rows($sqlRegisterCheckResult) > 0) {
-                // Duplicado encontrado
-                $insert_output = "ERROR: The Email or Username provided already exists in the database.";
-                mysqli_free_result($sqlRegisterCheckResult);
-                
-            } else {
-
-                // No hay duplicados. Continuar con la inserción.
-                // Escapar el resto de los campos
-                $safe_customer_dni = mysqli_real_escape_string($conn, $customer_dni);
-                $safe_customer_forename = mysqli_real_escape_string($conn, $customer_forename);
-                $safe_customer_surname = mysqli_real_escape_string($conn, $customer_surname);
-                $safe_customer_birth_date = mysqli_real_escape_string($conn, $customer_birth_date);
-                $safe_customer_registered = mysqli_real_escape_string($conn, $customer_registered);
-                $safe_customer_active = mysqli_real_escape_string($conn, $customer_active);
-
-                // --- SQL INSERT ---
-                $sql = "
-                    INSERT INTO `022_customers` (username, user_password, dni, email, forename, surname, birth_date, registered, active)
-                    VALUES (
-                        '$safe_customer_username',
-                        '$safe_hashed_password', 
-                        '$safe_customer_dni',
-                        '$safe_customer_email',
-                        '$safe_customer_forename',
-                        '$safe_customer_surname',
-                        '$safe_customer_birth_date',
-                        '$safe_customer_registered',
-                        '$safe_customer_active'
-                    );";
-
-                // mysqli_query
-                if (mysqli_query($conn, $sql)) {
-                    $customer_id_inserted = mysqli_insert_id($conn);
-                    $insert_output = "Customer **'$customer_forename $customer_surname'** successfully inserted with ID: **$customer_id_inserted**.";
-                    $message_class = "bg-green-100 border-green-500 text-green-700";
-                    $success = true;
-                } else {
-                    $insert_output = "Database Error: " . mysqli_error($conn);
-                    $message_class = "bg-red-100 border-red-500 text-red-700";
-                }
-            }
-            
-            // Close the connection
-            mysqli_close($conn);
-        }
-
-        // Mostrar el resultado (Caja de estado)
-        printf("<div class='p-4 border-l-4 %s rounded-md mt-4 text-left'>" .
-            "<p class='font-bold'>%s</p>" .
-            "</div>", $message_class, $insert_output);
-
-        // Mostrar detalles del cliente si la inserción fue exitosa
-        if ($success) {
-            echo "<p class='text-lg font-semibold text-gray-700 mt-6 mb-2'>Inserted Data Summary:</p>";
-            echo "<ul class='text-sm text-gray-600 space-y-1 text-left mx-auto max-w-sm'>";
-            echo "<li class='flex justify-between border-b border-gray-100 py-1'><span>ID:</span> <span class='font-medium text-[#0A090C]'>$customer_id_inserted</span></li>";
-            echo "<li class='flex justify-between border-b border-gray-100 py-1'><span>Username:</span> <span class='font-medium text-[#0A090C]'>$customer_username</span></li>";
-            echo "<li class='flex justify-between border-b border-gray-100 py-1'><span>Name:</span> <span class='font-medium text-[#0A090C]'>$customer_forename $customer_surname</span></li>";
-            echo "<li class='flex justify-between border-b border-gray-100 py-1'><span>Email:</span> <span class='font-medium text-[#0A090C]'>$customer_email</span></li>";
-            echo "<li class='flex justify-between border-b border-gray-100 py-1'><span>DNI:</span> <span class='font-medium text-[#0A090C]'>$customer_dni</span></li>";
-            echo "<li class='flex justify-between border-b border-gray-100 py-1'><span>Birth Date:</span> <span class='font-medium text-[#0A090C]'>$customer_birth_date</span></li>";
-            echo "<li class='flex justify-between border-b border-gray-100 py-1'><span>Active:</span> <span class='font-medium text-[#0A090C]'>" . ($customer_active ? 'Yes' : 'No') . "</span></li>";
-            echo "</ul>";
-        }
-
-        ?>
-
-        <div class="mt-8">
-            <a href="/student022/backend/customers/customers.php"
-                class="p-3 inline-block bg-[#0A090C] text-[#FEFFFE] rounded-md hover:cursor-pointer hover:bg-[#2c2732] font-semibold transition duration-150">
-                View Customers
-            </a>
+        <div class="bg-[#0A090C] p-10 flex flex-col items-center justify-center relative">
+            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center border border-white/20 mb-4 backdrop-blur-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <h1 class="text-2xl font-black tracking-tighter text-white italic uppercase">
+                Insertion <span class="text-gray-400 not-italic font-light">Protocol Result</span>
+            </h1>
         </div>
 
+        <div class="p-10 text-center">
+            <p class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 mb-4">System Status Report</p>
+
+            <?php
+            $insert_output = "ERROR: Customer data is missing or incomplete (Form not submitted).";
+            $message_class = "bg-red-50 border-red-500 text-red-700";
+            $success = false;
+            $customer_id_inserted = null;
+
+            // Post variables
+            $customer_username = $_POST['customer_username'] ?? 'N/A';
+            $customer_user_password = $_POST['customer_user_password'] ?? null;
+            $customer_dni = $_POST['customer_dni'] ?? 'N/A';
+            $customer_email = $_POST['customer_email'] ?? 'N/A';
+            $customer_forename = $_POST['customer_forename'] ?? 'N/A';
+            $customer_surname = $_POST['customer_surname'] ?? 'N/A';
+            $customer_birth_date = $_POST['customer_birth_date'] ?? 'N/A';
+            $customer_registered = $_POST['customer_registered'] ?? '0';
+            $customer_active = $_POST['customer_active'] ?? '0';
+
+            if (isset($_POST['send']) && $customer_user_password !== null) {
+                include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
+
+                $safe_customer_email = mysqli_real_escape_string($conn, $customer_email);
+                $safe_customer_username = mysqli_real_escape_string($conn, $customer_username);
+                $safe_hashed_password = mysqli_real_escape_string($conn, $customer_user_password); 
+
+                $sqlRegisterCheck = "SELECT id_customer FROM 022_customers WHERE email = '$safe_customer_email' OR username = '$safe_customer_username'";
+                $sqlRegisterCheckResult = mysqli_query($conn, $sqlRegisterCheck);
+                
+                if (mysqli_num_rows($sqlRegisterCheckResult) > 0) {
+                    $insert_output = "CRITICAL ERROR: Duplicate entry detected. The Email or Username already exists.";
+                    mysqli_free_result($sqlRegisterCheckResult);
+                } else {
+                    $safe_customer_dni = mysqli_real_escape_string($conn, $customer_dni);
+                    $safe_customer_forename = mysqli_real_escape_string($conn, $customer_forename);
+                    $safe_customer_surname = mysqli_real_escape_string($conn, $customer_surname);
+                    $safe_customer_birth_date = mysqli_real_escape_string($conn, $customer_birth_date);
+                    $safe_customer_registered = mysqli_real_escape_string($conn, $customer_registered);
+                    $safe_customer_active = mysqli_real_escape_string($conn, $customer_active);
+
+                    $sql = "INSERT INTO `022_customers` (username, user_password, dni, email, forename, surname, birth_date, registered, active)
+                            VALUES ('$safe_customer_username', '$safe_hashed_password', '$safe_customer_dni', '$safe_customer_email', '$safe_customer_forename', '$safe_customer_surname', '$safe_customer_birth_date', '$safe_customer_registered', '$safe_customer_active');";
+
+                    if (mysqli_query($conn, $sql)) {
+                        $customer_id_inserted = mysqli_insert_id($conn);
+                        $insert_output = "SUCCESS: Customer record for '$customer_forename $customer_surname' has been committed to the database.";
+                        $message_class = "bg-green-50 border-green-500 text-green-700";
+                        $success = true;
+                    } else {
+                        $insert_output = "Database Error: " . mysqli_error($conn);
+                        $message_class = "bg-red-50 border-red-500 text-red-700";
+                    }
+                }
+                mysqli_close($conn);
+            }
+
+            // Status box
+            printf("<div class='p-6 border-l-4 %s rounded-2xl mt-4 text-left shadow-sm'>" .
+                "<p class='font-black uppercase text-[11px] tracking-widest mb-1'>Log Message</p>" .
+                "<p class='text-sm font-bold'>%s</p>" .
+                "</div>", $message_class, $insert_output);
+
+            // Result
+            if ($success) {
+                echo "<div class='mt-10 bg-gray-50 p-8 rounded-[2rem] border border-gray-100'>";
+                echo "<p class='text-[10px] font-black text-gray-400 uppercase tracking-widest mb-6 text-center'>Inserted Data Summary</p>";
+                echo "<div class='grid grid-cols-1 gap-3'>";
+                
+                $data_fields = [
+                    'Reference ID' => $customer_id_inserted,
+                    'Username' => $customer_username,
+                    'Full Name' => "$customer_forename $customer_surname",
+                    'Email' => $customer_email,
+                    'Identity DNI' => $customer_dni,
+                    'Active Status' => ($customer_active ? 'ENABLED' : 'DISABLED')
+                ];
+
+                foreach ($data_fields as $label => $value) {
+                    echo "<div class='flex justify-between items-center py-2 border-b border-gray-200/50'>";
+                    echo "<span class='text-[10px] font-black uppercase text-gray-400 tracking-tighter'>$label</span>";
+                    echo "<span class='text-sm font-bold text-gray-900'>$value</span>";
+                    echo "</div>";
+                }
+                echo "</div></div>";
+            }
+            ?>
+
+            <div class="mt-10 flex flex-col gap-4">
+                <a href="/student022/backend/customers/customers.php"
+                    class="w-full p-5 bg-[#0A090C] text-[#FEFFFE] rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] shadow-xl hover:bg-gray-800 transition-all active:scale-[0.98]">
+                    Return to Directory
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 

@@ -28,7 +28,7 @@
             if (isset($_POST['send'])) {
                 include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
-                // Obtener nuevo ID
+                // Obtain new id
                 $sqlGetNewIdOrder = "SELECT COALESCE((SELECT id_order FROM `022_orders` ORDER BY id_order DESC LIMIT 1)+1,0) AS new_id_order;";
                 $sqlGetNewIdOrderResult = mysqli_query($conn, $sqlGetNewIdOrder);
                 $fetchNewIdOrder = mysqli_fetch_all($sqlGetNewIdOrderResult, MYSQLI_ASSOC);
@@ -82,16 +82,15 @@
                             foreach ($suppliersInfo as $supplierInfo) {
                                 $sid = $supplierInfo['id_supplier'];
                                 // Only iterate id_suppliers that exist on the customer shopping cart
-                                if ($orderApi[$sid]) {
+                                if (isset($orderApi[$sid])) {
                                     $supplierApyKey = $supplierInfo['api_key'];
                                     $supplierEndpoint = $supplierInfo['api_endpoint_orders'];
                                     $supplierOrder = json_encode($orderApi[$sid], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
                                     
                                     $supplierUrl = $supplierEndpoint . $supplierApyKey . "&orders_json=" . urlencode($supplierOrder);
-                                    print_r($supplierUrl);
-                                    print_r(" ----------------------- ");
-
-                                    
+                                    // print_r($supplierUrl);
+                                    // print_r(" ----------------------- ");
+       
                                     $ch = curl_init();
                                     curl_setopt($ch, CURLOPT_URL, trim($supplierUrl));
                                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

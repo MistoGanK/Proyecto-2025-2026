@@ -5,6 +5,6 @@
         class="w-full h-full cursor-pointer"
         id="send_insert" 
         name="send_insert" 
-        value="+ Insert Order" 
+        value="Insert Order" 
         >
 </form>

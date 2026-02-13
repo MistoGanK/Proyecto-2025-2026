@@ -84,6 +84,10 @@ function showProducts($products)
                     include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/products/form_product_select.php');
                 echo "</div>";
 
+                 echo "<div class='flex-1 min-w-[70px] h-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-500 hover:bg-gray-100 transition-all font-black text-[10px] uppercase tracking-tighter cursor-pointer'>";
+                    include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/products/form_product_select_reviews_call.php');
+                echo "</div>";
+
             echo "</div>";
         echo "</div>";
     }
