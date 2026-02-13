@@ -20,7 +20,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php');
         $charts = [
             ['id' => 'myChart', 'title' => 'Monthly Income', 'badge' => 'Live Update'],
             ['id' => 'pieGlobalShareChart', 'title' => 'Market Share', 'badge' => 'By Region'],
-            ['id' => 'chart3', 'title' => 'Customer Retention', 'badge' => 'Analysis'],
+            ['id' => 'chartCountryIncome', 'title' => 'Country Income', 'badge' => 'Analysis'],
             ['id' => 'chart4', 'title' => 'Product Performance', 'badge' => 'Sales']
         ];
 
@@ -52,6 +52,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php');
 
 <script src="../scripts/charts/barChart.js"></script>
 <script src="../scripts/charts/pieChart.js"></script>
+<script src="../scripts/charts/barCountryIncomeChart.js"></script>
 
 <script>
     Chart.defaults.global.defaultFontFamily = "'Plus Jakarta Sans', 'Inter', sans-serif";
