@@ -1,30 +1,33 @@
 $(document).ready(function () {
   // --- Global reuse DOM components ---
-  console.log("hoilaaa")
-    // Widget Container
-  let widget = $("#accessibility-widget");
-    // Accesible Button
-  let accButton = $("#btn_accesibility");
+
+  // Widget Container
+  const widget = $("#accessibility-widget");
+
+  // Accesible Button
+  const accButton = $("#btn_accesibility");
+
+  // Body
+  const $body = $("body");
 
   // Pre load accesible settings
-
-  const savedSettings = JSON.parse(localStorage.getItem("acc_settings")) || {};
+  let savedSettings = JSON.parse(localStorage.getItem("acc_settings")) || {};
 
   // Function preload settings on localstorage
-  function applySettings (accSettings){
-    // Iterate key (type) value (isActive)
-    $.each(accSettings, function(type,isActive){
+  function applySettings(accSettings) {
+    // Iterate key (type) value (isActive) of the Object accSettings
+    $.each(accSettings, function (type, isActive) {
       // If we have presets from previus session
-      if(isActive){
+      if (isActive) {
         // Aply Style to the body
-        $("body").addClass("acc-"+type);
-        // Get all components acc-option with the matching type and add th3e active class
-        $(`acc-option[data-type="${type}"]`).addClass("is-active")
+        $body.addClass("acc-" + type);
+        // Get all components acc-option (buttons) with the matching type and add the active class
+        $(`acc-option[data-type="${type}"]`).addClass("is-active");
       }
     });
-  };
+  }
 
-  // Call savedSettings
+  // Call savedSettings to preload the previus user Accesibility Settings
   applySettings(savedSettings);
 
   // --- Buttons events handlers ---
@@ -61,30 +64,55 @@ $(document).ready(function () {
     accButton.focus();
   });
 
-  // -- Button Accion Option 
+  // -- Button Accion Option
+  // Global acc listener, add the data-type as a class to the body
   $(".acc-option").on("click", function () {
+    // Font-Size...Line-height...Contrast...
     const type = $(this).data("type");
+    // Increa or Decrease
+    const action = $(this).data("action");
 
-    // Alternar clase en el body
-    $("body").toggleClass("acc-" + type);
+    // Actual level
+    let oldLevel = savedSettings[type] || 0;
+    console.log(oldLevel)
 
-    // Guardar estado
-    savedSettings[type] = $("body").hasClass("acc-" + type);
+    let currentLevel = oldLevel;
+    // Calculate new level between -3 and +3
+    if (action === "increase") {
+      // Limits to 3
+      currentLevel = Math.min(3, currentLevel + 1);
+    } else if (action === "decrease") {
+      // Limits to -3
+      currentLevel = Math.max(-3, currentLevel - 1);
+    }
+
+    // Clean the previus level of the type clicked
+    $body.removeClass(`acc-${type}-${oldLevel}`);
+
+    // Update the current level
+    if (currentLevel !== 0) {
+        $body.addClass(`acc-${type}-${currentLevel}`);
+    }
+
+    // Fedback
+    $(this).addClass("is-active");
+
+    // Save State to the Local Storage
+    savedSettings[type] = currentLevel;
     localStorage.setItem("acc_settings", JSON.stringify(savedSettings));
-
-    // Feedback visual en el botón (punto de calidad técnica)
-    $(this).toggleClass("is-active");
-
-    console.log("Activado");
   });
 
-  // 3. Botón Reset (Restauració completa)
+  // -- Button Reset Accesibility
   $("#btn-reset-all").on("click", function () {
-    $("body").removeClass(function (index, className) {
-      return (className.match(/(^|\s)acc-\S+/g) || []).join(" ");
-    });
+    // Reset all appended classes
+    $body.attr("class", "");
+
+    // Cleans Accesibility Settings
     localStorage.removeItem("acc_settings");
     $(".acc-option").removeClass("is-active");
+    
+    // Restart vatiabel savedSettings or its going to save the previus level types
+    savedSettings = {};
+
   });
-  console.log("Reseteado");
 });

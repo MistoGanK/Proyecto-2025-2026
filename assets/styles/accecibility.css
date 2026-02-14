@@ -5,6 +5,7 @@
   --white: #ffffff;
   --white-transparent: #e3e3e3b7;
   --white-grayscale: rgba(249, 250, 251, 1);
+  --main-font-size: 1rem;
 }
 * {
   box-sizing: border-box;
@@ -16,6 +17,10 @@
 }
 html {
   font-size: 100%;
+}
+body{
+  /* Standar Font Size */
+  font-size: var(--main-font-size);
 }
 p {
   font-size: 1rem;
@@ -143,11 +148,11 @@ p {
   transition: all 0.2s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   /* Standar Hover && Focus for interactive elements */
-  &:hover{
+  &:hover {
     scale: 1.03;
   }
   &:active {
-   scale: 1.0 ;
+    scale: 1;
   }
   i {
     font-size: 1.5rem;
@@ -175,13 +180,38 @@ p {
   }
 }
 
-/* JQ class when a option is activated */
+/* JQ class when a option is activated
+For now resolved with the next standarized behaviour, can be used later */
 .acc-option.is-active {
 }
 
 .acc-option.is-active i,
 .acc-option.is-active span {
 }
+
+/* JQ acc-options active style */
+
+/* -- Font size modyfiers -- */
+body.acc-font-size-1 :not(accessibility-widget *){
+  font-size: 1.1rem;
+}
+body.acc-font-size-2 *{
+  font-size: 1.2rem;
+}
+body.acc-font-size-3 *{
+  font-size: 1.3rem;
+}
+body.acc-font-size--1 *{
+  font-size: 0.9rem;
+}
+body.acc-font-size--2 *{
+  font-size: 0.8rem;
+}
+body.acc-font-size--3 *{
+  font-size: 0.7rem;
+}
+
+/*  */
 
 button:focus,
 a:focus,
