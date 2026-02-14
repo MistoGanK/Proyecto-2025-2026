@@ -1,127 +1,124 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); ?>
 
-<section class="flex justify-center p-8 min-h-screen bg-gray-50">
-    
-    <div class="w-full max-w-xl h-fit p-8 bg-white shadow-xl rounded-lg border border-gray-200 text-center">
-        
-        <h1 class="text-3xl font-bold text-[#0A090C] mb-6 border-b border-gray-200 pb-2">Order Insertion Result</h1>
-        
-        <p class="text-lg font-semibold text-gray-700 mb-4">Operation Status:</p>
+<section class="flex flex-col items-center justify-center p-12 min-h-screen bg-[#F8F9FA]">
 
-        <?php
-        
-        // Inicialización de variables de estado
-        $insert_output = "ERROR: Order data is missing or incomplete."; 
-        $message_class = "bg-red-100 border-red-500 text-red-700";
-        $success = false;
-        
-        // Variables (capturadas de POST y con valores por defecto para visualización en caso de error)
-        $id_order = isset($_POST['id_order']) ? $_POST['id_order'] : 'N/A';
-        $order_id_customer = isset($_POST['order_id_customer']) ? $_POST['order_id_customer'] : 'N/A';
-        $order_id_product = isset($_POST['order_id_product']) ? $_POST['order_id_product'] : 'N/A';
-        $order_id_payment_method = isset($_POST['order_id_payment_method']) ? $_POST['order_id_payment_method'] : 'N/A';
-        $order_qty = isset($_POST['order_qty']) ? $_POST['order_qty'] : 0;
-        $order_discount_rate_raw = isset($_POST['order_discount_rate']) ? $_POST['order_discount_rate'] : 0; // Tasa sin convertir
-        $order_discount_rate = $order_discount_rate_raw / 100; // Tasa convertida
-        
-        $order_unit_price = 0;
-        $order_total = 0;
-        
-        // Conexión y Lógica
-        if ($id_order != 'N/A' && $order_id_product != 'N/A') {
+    <div class="w-full max-w-2xl h-fit bg-white shadow-2xl rounded-[2.5rem] border border-gray-100">
 
-            // Connection 
-            include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+        <div class="bg-[#0A090C] p-10 flex flex-col items-center justify-center relative">
+            <div class="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center border border-blue-500/20 mb-4 backdrop-blur-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+            </div>
+            <h1 class="text-2xl font-black tracking-tighter text-white italic uppercase text-center">
+                Order <span class="text-gray-400 not-italic font-light">Transaction Report</span>
+            </h1>
+        </div>
 
-            // Esto asegura que estén definidas para la consulta INSERT, incluso si la búsqueda de precio falla.
-            $safe_id_order = mysqli_escape_string($conn, $id_order);
-            $safe_id_customer = mysqli_escape_string($conn, $order_id_customer);
-            // ESTA ES LA CLAVE: $safe_order_id_product debe estar definida aquí
-            $safe_order_id_product = mysqli_escape_string($conn, $order_id_product); 
-            $safe_id_payment_method = mysqli_escape_string($conn, $order_id_payment_method);
-            $safe_qty = mysqli_escape_string($conn, $order_qty);
-            // $safe_unit_price, $safe_total, y $safe_discount_rate se definirán más abajo.
-            
-            // --- A. Query the unit price (usando la versión saneada del ID) ---
-            $order_unit_price_query = "SELECT price FROM `022_products` WHERE id_product = '$safe_order_id_product';";
-            $order_unit_price_query_result = mysqli_query($conn, $order_unit_price_query);
+        <div class="p-10 text-center">
+            <p class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 mb-4">System Transaction Log</p>
 
-            if($order_unit_price_query_result && mysqli_num_rows($order_unit_price_query_result) > 0){
-                
-                $row = mysqli_fetch_assoc($order_unit_price_query_result);
-                $order_unit_price = $row['price'];
+            <?php
+            $insert_output = "ERROR: Order data is missing or incomplete.";
+            $message_class = "bg-red-50 border-red-500 text-red-700";
+            $success = false;
 
-                // Calculate total
-                $order_total = ($order_qty * $order_unit_price) * (1 - $order_discount_rate);
-                
-                // SQL INSERT INTO order
-                // Sanitize las variables calculadas AHORA que ya tenemos sus valores
-                $safe_unit_price = mysqli_escape_string($conn, $order_unit_price);
-                $safe_total = mysqli_escape_string($conn, $order_total);
-                $safe_discount_rate = mysqli_escape_string($conn, $order_discount_rate);
+            $id_order = isset($_POST['id_order']) ? $_POST['id_order'] : 'N/A';
+            $order_id_customer = isset($_POST['order_id_customer']) ? $_POST['order_id_customer'] : 'N/A';
+            $order_id_product = isset($_POST['order_id_product']) ? $_POST['order_id_product'] : 'N/A';
+            $order_id_payment_method = isset($_POST['order_id_payment_method']) ? $_POST['order_id_payment_method'] : 'N/A';
+            $order_qty = isset($_POST['order_qty']) ? $_POST['order_qty'] : 0;
+            $order_discount_rate_raw = isset($_POST['order_discount_rate']) ? $_POST['order_discount_rate'] : 0;
+            $order_discount_rate = $order_discount_rate_raw / 100;
 
-                $sql = "
-                INSERT INTO `022_orders` (id_order, id_customer, id_product, id_payment_method, qty, unit_price, total, discount)
-                VALUES (
-                    '$safe_id_order',
-                    '$safe_id_customer',
-                    '$safe_order_id_product',
-                    '$safe_id_payment_method',
-                    '$safe_qty',
-                    '$safe_unit_price',
-                    '$safe_total',
-                    '$safe_discount_rate'
-                );";
+            $order_unit_price = 0;
+            $order_total = 0;
 
-                // Execute INSERT query
-                if (mysqli_query($conn, $sql)) {
-                    $insert_output = "Order **#$id_order** inserted successfully.";
-                    $message_class = "bg-green-100 border-green-500 text-green-700";
-                    $success = true;
+            if ($id_order != 'N/A' && $order_id_product != 'N/A') {
+                include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
+
+                $safe_id_order = mysqli_escape_string($conn, $id_order);
+                $safe_id_customer = mysqli_escape_string($conn, $order_id_customer);
+                $safe_order_id_product = mysqli_escape_string($conn, $order_id_product);
+                $safe_id_payment_method = mysqli_escape_string($conn, $order_id_payment_method);
+                $safe_qty = mysqli_escape_string($conn, $order_qty);
+
+                $order_unit_price_query = "SELECT price FROM `022_products` WHERE id_product = '$safe_order_id_product';";
+                $order_unit_price_query_result = mysqli_query($conn, $order_unit_price_query);
+
+                if ($order_unit_price_query_result && mysqli_num_rows($order_unit_price_query_result) > 0) {
+                    $row = mysqli_fetch_assoc($order_unit_price_query_result);
+                    $order_unit_price = $row['price'];
+                    $order_total = ($order_qty * $order_unit_price) * (1 - $order_discount_rate);
+
+                    $safe_unit_price = mysqli_escape_string($conn, $order_unit_price);
+                    $safe_total = mysqli_escape_string($conn, $order_total);
+                    $safe_discount_rate = mysqli_escape_string($conn, $order_discount_rate);
+
+                    $sql = "INSERT INTO `022_orders` (id_order, id_customer, id_product, id_payment_method, qty, unit_price, total, discount)
+                            VALUES ('$safe_id_order', '$safe_id_customer', '$safe_order_id_product', '$safe_id_payment_method', '$safe_qty', '$safe_unit_price', '$safe_total', '$safe_discount_rate');";
+
+                    if (mysqli_query($conn, $sql)) {
+                        $insert_output = "SUCCESS: Order #$id_order has been successfully processed and committed.";
+                        $message_class = "bg-green-50 border-green-500 text-green-700";
+                        $success = true;
+                    } else {
+                        $insert_output = "Database Error: " . mysqli_error($conn);
+                        $message_class = "bg-red-50 border-red-500 text-red-700";
+                    }
                 } else {
-                    $insert_output = "Database Error on INSERT: " . mysqli_error($conn);
-                    $message_class = "bg-red-100 border-red-500 text-red-700";
+                    $insert_output = "Critical Error: Product ID $order_id_product not found.";
+                    $message_class = "bg-red-50 border-red-500 text-red-700";
                 }
-
-            } else {
-                // Error: Product not found or price query failed
-                $insert_output = "Error: Product with ID **$order_id_product** not found or price query failed: " . mysqli_error($conn);
-                $message_class = "bg-red-100 border-red-500 text-red-700";
+                mysqli_close($conn);
             }
 
-            // Close connection
-            mysqli_close($conn);
-        }
-        
-        // 3. Mostrar el resultado (Caja de estado)
-        printf("<div class='p-4 border-l-4 %s rounded-md mt-4 text-left'>" . 
-            "<p class='font-bold'>%s</p>" . 
-            "</div>", $message_class, $insert_output);
-        
-        // 4. Mostrar detalles del pedido si la inserción fue exitosa
-        if ($success) {
-            echo "<p class='text-lg font-semibold text-gray-700 mt-6 mb-2'>Order Summary:</p>";
-            echo "<ul class='text-sm text-gray-600 space-y-1 text-left mx-auto max-w-sm'>";
-            echo "<li class='flex justify-between border-b border-gray-100 py-1'><span>Order ID:</span> <span class='font-medium text-[#0A090C]'>$id_order</span></li>";
-            echo "<li class='flex justify-between border-b border-gray-100 py-1'><span>Customer ID:</span> <span class='font-medium text-[#0A090C]'>$order_id_customer</span></li>";
-            echo "<li class='flex justify-between border-b border-gray-100 py-1'><span>Product ID:</span> <span class='font-medium text-[#0A090C]'>$order_id_product</span></li>";
-            echo "<li class='flex justify-between border-b border-gray-100 py-1'><span>Quantity:</span> <span class='font-medium text-[#0A090C]'>$order_qty</span></li>";
-            echo "<li class='flex justify-between border-b border-gray-100 py-1'><span>Unit Price:</span> <span class='font-medium text-[#0A090C]'>$$order_unit_price</span></li>";
-            echo "<li class='flex justify-between border-b border-gray-100 py-1'><span>Discount Rate:</span> <span class='font-medium text-[#0A090C]'>$order_discount_rate_raw%</span></li>";
-            echo "<li class='flex justify-between border-b border-gray-100 py-1 font-bold'><span>Total:</span> <span class='text-xl text-green-600'>$$order_total</span></li>";
-            echo "</ul>";
-        }
-        
-        ?>
+            // Status Box Style 
+            printf("<div class='p-6 border-l-4 %s rounded-2xl mt-4 text-left shadow-sm transition-all'>" .
+                "<p class='font-black uppercase text-[10px] tracking-widest mb-1 opacity-70'>Transaction Status</p>" .
+                "<p class='text-sm font-bold'>%s</p>" .
+                "</div>", $message_class, $insert_output);
 
-        <div class="mt-8">
-            <a href="/student022/shop/backend/orders/orders.php" 
-                class="p-3 inline-block bg-[#0A090C] text-[#FEFFFE] rounded-md hover:cursor-pointer hover:bg-[#2c2732] font-semibold transition duration-150">
-                View Orders
-            </a>
+            // Result if success
+            if ($success) {
+                echo "<div class='mt-10 bg-gray-50 p-8 rounded-[2rem] border border-gray-100'>";
+                echo "<p class='text-[10px] font-black text-gray-400 uppercase tracking-widest mb-6'>Order Details Summary</p>";
+                echo "<div class='grid grid-cols-1 gap-3'>";
+                
+                $order_data = [
+                    'Order Identifier' => "#".$id_order,
+                    'Customer Ref' => $order_id_customer,
+                    'Product Ref' => $order_id_product,
+                    'Quantity' => $order_qty . " Units",
+                    'Unit Price' => "€" . number_format($order_unit_price, 2),
+                    'Discount Applied' => $order_discount_rate_raw . "%"
+                ];
+
+                foreach ($order_data as $label => $value) {
+                    echo "<div class='flex justify-between items-center py-2 border-b border-gray-200/50'>";
+                    echo "<span class='text-[10px] font-black uppercase text-gray-400 tracking-tighter'>$label</span>";
+                    echo "<span class='text-sm font-bold text-gray-900'>$value</span>";
+                    echo "</div>";
+                }
+
+                echo "<div class='flex justify-between items-center pt-6 mt-2'>";
+                echo "<span class='text-xs font-black uppercase text-gray-900'>Total Amount</span>";
+                echo "<span class='text-2xl font-black text-blue-600 tracking-tighter'>€" . number_format($order_total, 2) . "</span>";
+                echo "</div>";
+                
+                echo "</div></div>";
+            }
+            ?>
+
+            <div class="mt-10">
+                <a href="/student022/backend/orders/orders.php"
+                    class="w-full p-5 bg-[#0A090C] text-white rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] shadow-xl hover:bg-gray-800 transition-all block">
+                    Return to Order Management
+                </a>
+            </div>
+
         </div>
-        
     </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

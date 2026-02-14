@@ -1,15 +1,20 @@
-<!-- Header -->
-<section id="productSection" class="flex flex-row flex-wrap h-fit p-5 gap-5 items-center justify-center">
-  <div class="w-full mb-6 border-b border-gray-200 pb-2">
-    <h1 class="text-3xl font-extrabold tracking-tight uppercase text-gray-900 pb-3 mb-8 inline-block">
-      OPINIONS AND RATINGS
-    </h1>
+<section id="productSection" class="max-w-7xl mx-auto p-8 min-h-screen bg-white">
+  <div class="w-full mb-12 border-b-4 border-black pb-6 flex flex-col md:flex-row justify-between items-end gap-4">
+    <div>
+      <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em] mb-2">Public Ledger</p>
+      <h1 class="text-5xl font-black tracking-tighter uppercase italic text-gray-900">
+        Opinions <span class="text-gray-300 not-italic font-light">& Ratings</span>
+      </h1>
+    </div>
+    <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest border-l-2 border-gray-100 pl-4">
+      Verified Customer <br> Feedback System
+    </div>
   </div>
+
+  <div class="flex flex-row flex-wrap justify-center gap-8">
   <?php
   // Open connection
-  include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
-
-  // Before starting the query, check If the variable was sended and that the variabel is not empty
+  include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
   if (!isset($_POST['id_product']) || empty($_POST['id_product'])) {
     $id_product = null;
@@ -17,30 +22,22 @@
     $id_product = mysqli_real_escape_string($conn, $_POST['id_product']);
   }
 
-  $sqlQuery;
-
   if ($id_product != null) {
-    // Query
-    $sqlQuery =
-      "SELECT * FROM `022_view_product_reviews` WHERE id_product = $id_product;";
+    $sqlQuery = "SELECT * FROM `022_view_product_reviews` WHERE id_product = $id_product ORDER BY review_date DESC;";
   } else {
-    // Query
-    $sqlQuery = "SELECT * FROM `022_view_product_reviews`;";
+    $sqlQuery = "SELECT * FROM `022_view_product_reviews` ORDER BY review_date DESC;";
   };
-
-  // Execute the query
 
   $result = mysqli_query($conn, $sqlQuery);
 
-  // Get function showProducts()
-  include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/functions/reviews/showReviews.php');
+  // Get function showReviews()
+  include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/functions/reviews/showReviews.php');
+  
   showReviews($result);
 
-  // Cleaning the result 
   mysqli_free_result($result);
   ?>
-
+  </div>
 </section>
-<!-- Footer -->
-<script src="/student022/shop/backend/functions/products/searchForProduct.js"></script>
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<script src="/student022/backend/functions/products/searchForProduct.js"></script>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

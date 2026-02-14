@@ -1,5 +1,5 @@
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); ?>
 <section class="flex flex-row flex-wrap h-fit p-5 gap-5 items-center justify-center">
         
 <?php 
@@ -13,7 +13,7 @@ if (isset($_POST['id_order']) && !empty($_POST['id_order'])){
 }
 
 // Open connection
-include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/config/connection.php');
+include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/config/connection.php');
 
 // Inicializar variable de consulta y escapar si es necesario
 $sql;
@@ -91,7 +91,7 @@ if ($query_result){
                                     hover:bg-red-600
                                     hover:rounded-md
                                     '>";
-                                    include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/orders/form_order_delete_call.php');
+                                    include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/forms/orders/form_order_delete_call.php');
                                 echo"</div>";
                                 
                                 // Update Button Container
@@ -101,7 +101,7 @@ if ($query_result){
                                     hover:bg-[#000001]
                                     cursor-pointer
                                     '>";
-                                    include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/orders/form_order_update_call.php');
+                                    include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/forms/orders/form_order_update_call.php');
                                 echo"</div>";
                             echo("</div>");
                         echo("</div>");
@@ -127,4 +127,4 @@ mysqli_close($conn);
 ?>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

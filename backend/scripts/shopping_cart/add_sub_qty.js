@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const p_subtotal = document.getElementById('p_subtotal');
   const pre_p_subtotal = document.getElementById('pre_p_subtotal');
   
-  const endPointModifyQty = "/student022/shop/backend/endpoints/carts/cartsUpdateQty.php";
+  const endPointModifyQty = "/student022/backend/endpoints/carts/cartsUpdateQty.php";
 
   // Function to safely retrieve the quantity element
   function getQtyElement(productId) {

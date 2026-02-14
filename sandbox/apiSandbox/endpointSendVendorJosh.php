@@ -4,7 +4,6 @@ header("Content-Type: application/json");
 // Yo recibo la solucitud + apiKey
 // apiKeySend
 // Try to read from header POST
-echo '--- Holaa Johny ---';
 print_r($_POST);   
 $key = $_POST['apiKey'];
 // $apiKey = '10203040F';
@@ -13,10 +12,10 @@ $key = $_POST['apiKey'];
 
 // $sqlApi =
 // "SELECT api_key 
-// FROM `022_vendors_api_keys`
+// FROM `022_suppliers_api_keys`
 // WHERE api_key = '$key';";
 
-$sqlApi = "SELECT api_key FROM `022_vendors_api_keys` WHERE 1 = 1;";
+$sqlApi = "SELECT api_key FROM `022_suppliers_api_keys` WHERE 1 = 1;";
 
 // WHERE api_key = '$apiKey';";
 

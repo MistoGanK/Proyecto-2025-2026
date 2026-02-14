@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); ?>
 <?php 
     $id_order = $_POST['id_order'];
 ?>
@@ -8,7 +8,7 @@
         
         <h1 class="text-3xl font-bold text-[#0A090C] mb-6 border-b border-gray-200 pb-2">Review Product</h1>
         
-        <form class="flex flex-col gap-4" action="/student022/shop/backend/forms/db/product/db_product_review.php" method="post">
+        <form class="flex flex-col gap-4" action="/student022/backend/forms/db/product/db_product_review.php" method="post">
             <!-- ID Order  -->
         <input type="number" id="id_order" name="id_order" value="<?php echo $id_order ?>" hidden="true">
     
@@ -52,4 +52,4 @@
     </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

@@ -36,7 +36,7 @@ $queryNewItemSubtotal = "
 ";
 
 // Open connection
-include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
 
 $resultUpdateQty = mysqli_query($conn, $queryUpdateQty);
 

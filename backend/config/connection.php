@@ -4,7 +4,6 @@
 // MySQLie(Procedural) or PDO(Object Oriented)
 // Server_domain, User, Password
 
-/*
 
 $server_name = 'localhost';
 $user_name = 'root';
@@ -25,12 +24,17 @@ mysqli_set_charset($conn, "utf8");
 // Modyfied charset
 mysqli_character_set_name($conn);
 
+<<<<<<< HEAD
 */
+=======
+>>>>>>> a14dd0e4f5e1f5d6fb545925a0648fc8e211543a
 
 // Enrique SERVER 
 // Connection with the server 
 // MySQLie(Procedural) or PDO(Object Oriented)
 
+
+/* 
 $server_name = 'remotehost.es';
 $user_name = 'dwess1234';
 $password = 'Usertest1234.';
@@ -52,6 +56,7 @@ mysqli_set_charset($conn,"utf8");
 // Modyfied charset
 mysqli_character_set_name($conn);
 
+*/
 
 /*
 

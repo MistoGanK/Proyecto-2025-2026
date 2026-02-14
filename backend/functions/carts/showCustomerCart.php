@@ -9,54 +9,54 @@ function showCustomerCart($queryResult) {
         // Calculation of the subtotal per item
         $item_subtotal = $row['price'] * $row['qty']; 
 
-        // Base class: Horizontal row that separates each section
-        $cart_item_classes = "flex flex-wrap items-center p-4 shadow-lg rounded-xl bg-white 
-                            border border-gray-200 hover:shadow-xl transition-shadow duration-300";
+        // Clase base: Fila horizontal con bordes muy redondeados y sombra suave
+        $cart_item_classes = "flex flex-wrap items-center p-6 bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 mb-4";
         
         // --- Main Item Container---
         echo "<div class='$cart_item_classes'>";
             
-            // 1. IMAGE CONTAINER (Fixed, small square on the left)
-            echo "<div class='flex-shrink-0 w-20 h-20 overflow-hidden rounded-md mr-4 bg-gray-100'>";
-                echo "<img class='w-full h-full object-cover' src='" . $row['img_src'] . "' alt='Product Image'>";
+            // 1. IMAGE CONTAINER (Fondo gris suave y redondeado)
+            echo "<div class='flex-shrink-0 w-24 h-24 overflow-hidden rounded-2xl mr-6 bg-gray-50 p-2 flex items-center justify-center border border-gray-50'>";
+                echo "<img class='max-w-full max-h-full object-contain' src='" . $row['img_src'] . "' alt='Product Image'>";
             echo "</div>";
 
-            // 2. PRODUCT DETAILS (Grows to occupy the central space)
-            echo "<div class='flex flex-col flex-grow min-w-0 mr-4'>";
-                echo "<h2 class='text-lg font-bold truncate text-gray-900'>" . $row['product_name'] . "</h2>";
+            // 2. PRODUCT DETAILS (Ocupa el espacio central)
+            echo "<div class='flex flex-col flex-grow min-w-[150px] mr-4'>";
+                echo "<h2 class='text-xl font-black tracking-tighter text-gray-900 uppercase italic truncate'>" . $row['product_name'] . "</h2>";
+                echo "<p class='text-[10px] font-black text-gray-400 uppercase tracking-widest mt-1'>ID: #PROD-" . $id_product . "</p>";
             echo "</div>";
             
-            // 3. UNIT PRICE (Aligned)
-            echo "<div class='flex-shrink-0 w-20 text-right mr-4 hidden sm:block'>";
-                echo "<p class='text-sm text-gray-500'>Price</p>";
-                echo "<p class='font-semibold text-lg'>" . $row['price'] . "€" . "</p>";
+            // 3. UNIT PRICE
+            echo "<div class='flex-shrink-0 w-24 text-right mr-8 hidden md:block'>";
+                echo "<p class='text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1'>Price</p>";
+                echo "<p class='font-bold text-lg text-gray-900'>" . number_format($row['price'], 2) . "€" . "</p>";
             echo "</div>";
 
-            // 4. QUANTITY CONTROL (+/-)
-            echo "<div class='flex items-center justify-evenly flex-shrink-0 w-28 border border-gray-300 rounded-lg h-9 mr-4'>";
+            // 4. QUANTITY CONTROL (Botones rellenos y estructura de píldora)
+            echo "<div class='flex items-center bg-gray-100 rounded-xl h-10 px-1 border border-transparent mr-8'>";
                 
-                // Subtract Button
-                echo "<button class='btn_sub_qty hover:scale-130 cursor-pointer px-2 text-xl text-gray-600 hover:text-black transition-colors' id='" . $id_product . "'>-</button>";
+                // Subtract Button: Relleno blanco, se vuelve negro al hover
+                echo "<button class='btn_sub_qty w-8 h-8 flex items-center justify-center rounded-lg bg-white shadow-sm hover:bg-black hover:text-white cursor-pointer text-gray-900 transition-all font-black' id='" . $id_product . "'>-</button>";
                 
                 // Current Quantity 
-                echo "<p id='qty_" . $id_product . "' class='font-medium text-lg w-8 text-center border-l border-r border-gray-300'>" . $row['qty'] . "</p>";
+                echo "<p id='qty_" . $id_product . "' class='font-black text-sm w-10 text-center text-gray-900'>" . $row['qty'] . "</p>";
                 
-                // Add Button
-                echo "<button class='btn_add_qty hover:scale-130 cursor-pointer px-2 text-xl text-gray-600 hover:text-black transition-colors' id='" . $id_product . "'>+</button>";
+                // Add Button: Relleno blanco, se vuelve negro al hover
+                echo "<button class='btn_add_qty w-8 h-8 flex items-center justify-center rounded-lg bg-white shadow-sm hover:bg-black hover:text-white cursor-pointer text-gray-900 transition-all font-black' id='" . $id_product . "'>+</button>";
             
             echo "</div>";
             
             // 5. SUBTOTAL PER ITEM
-            echo "<div class='flex-shrink-0 w-24 text-right ml-4'>";
-              echo "<p class='text-sm text-gray-500'>Subtotal</p>";
-              echo "<p id='subtotal_item_" . $id_product . "' class='font-extrabold text-xl text-black'>" . number_format($item_subtotal, 2) . "€" . "</p>";
+            echo "<div class='flex-shrink-0 w-28 text-right'>";
+              echo "<p class='text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1'>Subtotal</p>";
+              echo "<p id='subtotal_item_" . $id_product . "' class='font-black text-2xl text-black tracking-tighter'>" . number_format($item_subtotal, 2) . "€" . "</p>";
             echo "</div>";
 
-            // 6. DELETE BUTTON
-            echo "<div class='flex-shrink-0 h-10 bg-black rounded text-white h-4 ml-4 p-2 transition-colors duration-200 
-                              text-gray-500 hover:bg-red-600'>";
-                // RUTA CORREGIDA: Eliminado /shop/
-                include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/shopping_cart/form_delete_product_cart.php');
+            // 6. DELETE BUTTON (Botón relleno rojo sólido)
+            echo "<div class='flex-shrink-0 ml-6'>";
+                echo "<div class='w-14 h-10 flex items-center justify-center rounded-xl bg-red-500 text-white hover:bg-red-700 transition-all duration-300 shadow-md cursor-pointer'>";
+                    include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/shopping_cart/form_delete_product_cart.php');
+                echo "</div>";
             echo "</div>";
 
         echo "</div>"; // Closes Main Item Container

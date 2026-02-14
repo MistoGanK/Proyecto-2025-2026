@@ -1,74 +1,73 @@
 <?php
 /**
- * Displays a list of product reviews with a spacious, minimalist design (Black and White).
- * @param mysqli_result $reviewResult The result of the SQL query for the reviews.
+ * Renderiza las reseñas con el estilo visual de las Product Cards.
+ * @param mysqli_result $reviewResult Resultado de la consulta SQL.
  */
 function showReviews($reviewResult)
 {
+  if (!$reviewResult || mysqli_num_rows($reviewResult) === 0) {
+    echo "
+    <div class='w-full max-w-4xl mx-auto py-20 text-center border border-gray-100 rounded-[2rem] shadow-sm'>
+        <p class='text-gray-400 uppercase tracking-widest text-xs font-bold'>No reviews yet</p>
+    </div>";
+    return;
+  }
+
   $reviewsFetch = mysqli_fetch_all($reviewResult, MYSQLI_ASSOC);
   
-  // Base class for the spacious review card.
-  $review_card_classes = "flex flex-col p-8 shadow-xl rounded-xl bg-white border border-gray-900/10";
-
-  // Class for the features container (Pros and Cons)
-  $features_container_classes = "flex flex-col gap-4 mt-6 pt-6 border-t border-gray-300 text-gray-700";
-
   foreach ($reviewsFetch as $review) {
-    $id_product = $review['id_product']; 
+    // Main container
+    echo "<article class='w-full max-w-4xl mx-auto mb-12 bg-white rounded-[3rem] shadow-lg border border-gray-50 overflow-hidden flex flex-col p-10'>"; 
 
-    // --- Main Review Container (Spacious and centered) ---
-    echo "<div class='$review_card_classes w-full max-w-6xl mx-auto mb-8'>"; 
-
-      // 1. Review Header (Product Name and Score)
-      echo "<div class='grid grid-cols-3 gap-8 pb-4 border-b border-gray-300 items-start'>";
-        
-        // Column 1: Product Name
-        echo "<h2 class='text-2xl font-bold text-gray-900'>" . $review['product_name'] . "</h2>";
-        
-        // Column 2: Score
-        echo "<p class='text-5xl font-extrabold text-black text-center'>";
-          echo $review['points'] . "<span class='text-2xl font-semibold text-gray-600'>/5</span>"; 
-        echo "</p>";
-        
-        // Column 3: User details
-        echo "<div class='text-right text-base'>";
-          echo "<p class='font-bold text-gray-900'>" . $review['username'] . "</p>";
-          echo "<p class='text-gray-600'>" . "Fecha: " . $review['review_date'] . "</p>";
+      // Header
+      echo "<div class='flex justify-between items-start mb-8'>";
+        echo "<div>";
+          // ID
+          echo "<span class='bg-gray-100 text-gray-500 text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block'>Review Log</span>";
+          echo "<h2 class='text-3xl font-black text-[#0A090C] tracking-tight'>" . $review['product_name'] . "</h2>";
+          echo "<p class='text-sm font-medium text-gray-400 mt-1'>" . $review['username'] . " • " . $review['review_date'] . "</p>";
         echo "</div>";
-
+        
+        // Score
+        echo "<div class='text-right'>";
+          echo "<span class='text-4xl font-black text-[#0A090C]'>" . $review['points'] . "</span>";
+          echo "<span class='text-gray-300 text-xl font-bold'>/5</span>";
+        echo "</div>";
       echo "</div>";
 
-      // 2. Review Body (Main Text)
-      echo "<div class='mt-6'>";
-        echo "<p class='font-bold text-xl mb-3 text-gray-900'>Review:</p>";
-        echo "<p class='text-lg text-gray-700'>" . $review['body_review'] . "</p>";
+      // Body review
+      echo "<div class='mb-10'>";
+        echo "<p class='text-lg text-gray-500 italic leading-relaxed'>" . $review['body_review'] . "</p>";
       echo "</div>";
       
-      // 3. Positive and Negative Features (Pros and Cons)
-      echo "<div class='$features_container_classes'>";
+      // Advantages && Disadvantages
+      echo "<div class='flex flex-row flex-wrap justify-center gap-6'>";
 
-        // Positive Features (Using bold text and titles)
-        echo "<div>";
-          echo "<p class='font-extrabold text-lg text-gray-900 mb-1'>Advantages:</p>";
-          echo "<p class='text-base text-gray-600'>" . $review['positive_features'] . "</p>";
+        // Advantages
+        echo "<div class='p-6 rounded-[2rem] border border-gray-100 bg-gray-50/30'>";
+          echo "<h4 class='text-[11px] font-black uppercase tracking-[0.2em] text-[#0A090C] mb-3'>Advantages</h4>";
+          echo "<p class='text-sm text-gray-600 font-medium'>" . $review['positive_features'] . "</p>";
         echo "</div>";
 
-        // Negative Features (Using bold text and titles)
+        // Disadvantages
         if (!empty($review['negattive_features'])) {
-          echo "<div>";
-            echo "<p class='font-extrabold text-lg text-gray-900 mb-1'>Disadvantages:</p>";
-            echo "<p class='text-base text-gray-600'>" . $review['negattive_features'] . "</p>";
+          echo "<div class='p-6 rounded-[2rem] border border-gray-100 bg-gray-50/10'>";
+            echo "<h4 class='text-[11px] font-black uppercase tracking-[0.2em] text-gray-400 mb-3'>Disadvantages</h4>";
+            echo "<p class='text-sm text-gray-400 font-medium'>" . $review['negattive_features'] . "</p>";
           echo "</div>";
         }
         
-      echo "</div>"; // Closes Features container
-        
-      // 4. Administration Block (if needed)
+      echo "</div>";
+
+      // Review Footer
       if (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin') {
-        // Administration buttons (e.g., edit/delete review) would go here.
+          echo "<div class='mt-10 pt-8 border-t border-gray-50 flex justify-end gap-3'>";
+            echo "<button class='px-6 py-2 bg-black text-white text-[10px] font-bold uppercase rounded-xl hover:bg-gray-800 transition-all'>Moderate</button>";
+            echo "<button class='px-6 py-2 border border-gray-200 text-gray-400 text-[10px] font-bold uppercase rounded-xl hover:bg-gray-50 transition-all'>Hide</button>";
+          echo "</div>";
       }
 
-    echo "</div>"; // Closes Main Container
+    echo "</article>"; 
   }
 }
 ?>

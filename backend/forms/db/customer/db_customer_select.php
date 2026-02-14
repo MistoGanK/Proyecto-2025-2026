@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/header.php'); ?>
 
 <section class="flex flex-row flex-wrap h-full p-5 gap-5 items-center justify-center">
 
@@ -12,7 +12,7 @@ $customer_output = "No Customer selected or found";
 $id_customer = null;
 
 // Open connection
-include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/config/connection.php');
+include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/config/connection.php');
 
 // Before starting the query, check If the variable was sended and that the variabel is not empty
 if (isset($_POST['id_customer']) && !empty($_POST['id_customer'])){
@@ -39,7 +39,7 @@ if ($query_result){
         while ($row = mysqli_fetch_assoc($query_result)){
             $id_customer = $row['id_customer'];
             
-            // Aplicar estilado de active ~
+            // Active Style
             $active_style;
             if ($row['active'] == 1){
                 $active_style = 'text-green-600 font-regular';
@@ -58,16 +58,16 @@ if ($query_result){
                 // Customer Container
                 echo "<div class='flex flex-col w-full h-full font-sans'>";
                     
-                    // Título principal (Nombre + Apellido)
+                    // Title (Forename + Surname)
                     echo "<h2 class='flex justify-start items-center mb-2 text-xl font-semibold'>".$row['forename'] . " " . $row['surname'] . "</h2>";
                     
-                    // Información destacada: Username y Email
+                    // User & Email
                     echo "<div class='flex justify-between w-full mb-5 pb-3 border-b border-gray-600/50'>";
                         echo "<p class='font-extrabold text-lg'>" . $row['username'] . "</p>";
                         echo "<p class='font-normal text-sm'>" . $row['email'] . "</p>";
                     echo "</div>";
                     
-                    // Customer Info container (Todos los detalles)
+                    // Customer Info container
                     echo "<div class=' flex flex-col gap-2 text-sm text-gray-600'>";
                         echo "<p>" . "ID: " . $row['id_customer'] . "</p>";
                         echo "<p>" . "DNI: " . $row['dni'] . "</p>";
@@ -89,7 +89,7 @@ if ($query_result){
                             hover:bg-red-600
                             hover:rounded-md
                             '>";
-                            include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/customers/form_customer_delete_call.php');
+                            include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/forms/customers/form_customer_delete_call.php');
                         echo "</div>";
                          
                         // Update Button Container
@@ -99,7 +99,7 @@ if ($query_result){
                             hover:bg-[#0A090C]
                             cursor-pointer
                             '>";
-                            include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/forms/customers/form_customer_update_call.php');
+                            include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/forms/customers/form_customer_update_call.php');
                         echo "</div>";
                     echo "</div>";
                 echo "</div>";
@@ -123,4 +123,4 @@ mysqli_close($conn);
 </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/student022/backend/footer.php'); ?>

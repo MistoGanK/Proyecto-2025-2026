@@ -1,98 +1,95 @@
 <?php
 /**
- * Displays a list of products in a card format using Tailwind CSS styles.
- * @param mysqli_result $products The result of the SQL query for the products.
+ * Displays a list of products in a card format matching Customer Management style.
  */
 function showProducts($products)
 {
-  $productsFetch = mysqli_fetch_all($products, MYSQLI_ASSOC); 
-  
-  $dynamic_button_base = "p-2 rounded-md transition-colors duration-200 cursor-pointer flex-1 text-center text-xs font-semibold uppercase tracking-wider flex-shrink-0";
-  $normal_button_classes = $dynamic_button_base . " text-gray-700 hover:text-white hover:bg-black/80"; 
-  $base_container_classes = "flex flex-col h-full shadow-xl rounded-lg bg-white border border-gray-700/20 transition-all duration-300 hover:shadow-2xl overflow-hidden";
-  
-  foreach ($productsFetch as $product) {
-    $id_product = $product['id_product'];
-    $availability_style = "";
+    $productsFetch = mysqli_fetch_all($products, MYSQLI_ASSOC);
 
-    if (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin') {
-      $availability_style = ($product['availability'] == 'on_stock') 
-                          ? 'text-green-600 font-medium' 
-                          : 'text-red-600 font-medium';
-    }
+    foreach ($productsFetch as $product) {
+        $id_product = $product['id_product'];
 
-    $product_container_classes = $base_container_classes;
-    $img_container_size_classes = "w-full";
+        // Control de fechas y error strtotime
+        $display_updated = !empty($product['updated_date']) ? date('d/m/y', strtotime($product['updated_date'])) : 'Never';
 
-    if (count($productsFetch) == 1) {
-      $size_classes = 'w-full';
-      $product_container_classes .= ' max-h-[55rem]';
-      $img_container_size_classes = "w-full max-w-3xl mx-auto";
-    } else {
-      $size_classes = 'flex-shrink-0 w-[30rem]'; 
-      $product_container_classes .= ' max-h-[40rem]';
-    }
-    
-    echo "<div class='$product_container_classes $size_classes'>";
-      echo "<div class='flex flex-col w-full h-full font-sans gap-4 p-4'>"; 
-        
-        echo "<h2 class='text-xl font-semibold'>" . $product['product_name'] . "</h2>";
-        
-        echo "<div class='flex justify-between w-full'>";
-          echo "<p class='font-extrabold text-2xl text-gray-800'>" . $product['price'] . "€" . "</p>";
-          echo "<p class='font-normal text-sm text-gray-600'>" . "stock: " . $product['stock'] . "</p>";
-        echo "</div>";
-        
-        echo "<p class='font-normal text-sm pb-3 border-b border-gray-600/50 min-h-16'>" . $product['description'] . "</p>";
+        // Imagen por defecto
+        $img_src = !empty($product['img_src']) ? $product['img_src'] : '/student022/assets/icons/placeholder_product.png';
 
-        echo "<div class='flex flex-col gap-2 text-xs text-gray-600'>";
-          if (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin') {
-            echo "<p>" . "ID: " . $product['id_product'] . "</p>";
-            echo "<p>" . "Inserted_date: " . $product['inserted_date'] . "</p>";
-            echo "<p>" . "Updated date: " . $product['updated_date'] . "</p>";
-            echo "<p>" . "Availability: " . "<span class='$availability_style'>" . $product['availability'] . "</span></p>";
-            echo "<p>" . "Active: " . $product['active'] . "</p>";
-          }
-          echo "<p>" . "Launch date: " . $product['launch_date'] . "</p>";
-        echo "</div>"; 
-
-        echo "<div class='flex $img_container_size_classes mt-4 flex-grow overflow-hidden rounded-lg bg-gray-100 min-h-0'>";
-          echo "<img class='w-full h-full object-scale-down' src='" . $product['img_src'] . "' alt='Product img'>";
-        echo "</div>";
-        
-        echo "<div class='flex w-full gap-4 justify-evenly items-center mt-auto pt-4 border-t border-gray-200'>"; 
-
-        // --- CORRECCIÓN DE RUTAS EN LOS INCLUDES ---
-
+        // Estilo de Status Badge
+        $status_badge = "";
         if (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin') {
-          $delete_button_classes = $dynamic_button_base . " text-gray-700 hover:text-white hover:bg-red-600";
-          echo "<div class='$delete_button_classes'>";
-            include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/products/form_product_delete_call.php');
-          echo "</div>";
-
-          echo "<div class='$normal_button_classes'>";
-            include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/products/form_product_update_call.php');
-          echo "</div>";
-        }
-        
-        if ($product['stock'] > 0){
-          $cart_button_classes = $dynamic_button_base . " bg-black text-white hover:bg-gray-800";
-          echo "<div class='$cart_button_classes'>"; 
-            include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/shopping_cart/form_add_product_cart.php');
-          echo "</div>";
+            $status_badge = ($product['availability'] == 'on_stock')
+                ? '<span class="bg-green-100 text-green-700 text-[10px] font-black px-3 py-1 rounded-lg uppercase border border-green-200 tracking-tighter">On Stock</span>'
+                : '<span class="bg-red-100 text-red-700 text-[10px] font-black px-3 py-1 rounded-lg uppercase border border-red-200 tracking-tighter">Out of Stock</span>';
         }
 
-        echo "<div class='$normal_button_classes'>";
-          include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/products/form_product_select.php');
-        echo "</div>";
+        $card_height = "h-[650px]";
+        $size_classes = (count($productsFetch) == 1) ? 'w-full max-w-4xl' : 'w-[24rem] flex-shrink-0';
 
-        echo "<div class='$normal_button_classes'>";
-          include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/products/form_product_select_reviews_call.php');
+        echo "<div class='group flex flex-col $card_height $size_classes bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden mb-4'>";
+
+            // --- TOP: IMAGEN (Con el degradado de tu diseño) ---
+            echo "<div class='relative h-64 w-full bg-gradient-to-b from-gray-50 to-white p-8 overflow-hidden'>";
+                echo "<span class='absolute top-6 left-6 text-[10px] font-black text-gray-400 bg-white/80 backdrop-blur-sm px-2 py-1 rounded-lg border border-gray-100 z-10 uppercase tracking-widest'>#ID-{$id_product}</span>";
+                
+                echo "<div class='w-full h-full flex justify-center items-center group-hover:scale-110 transition-transform duration-700 ease-out'>";
+                    echo "<img class='max-w-full max-h-full object-contain drop-shadow-2xl' src='$img_src' alt='Product img'>";
+                echo "</div>";
+            echo "</div>";
+
+            // --- MID: INFO ---
+            echo "<div class='flex flex-col flex-grow p-8'>";
+                
+                echo "<div class='flex justify-between items-start mb-4 gap-4'>";
+                    echo "<h2 class='text-2xl font-black text-gray-900 tracking-tighter leading-tight truncate flex-1' title='" . $product['product_name'] . "'>" . $product['product_name'] . "</h2>";
+                    echo "<div>" . $status_badge . "</div>";
+                echo "</div>";
+
+                echo "<div class='flex items-center gap-3 mb-4'>";
+                    echo "<p class='font-black text-3xl text-gray-900 tracking-tighter'>" . $product['price'] . "€</p>";
+                    echo "<span class='h-4 w-px bg-gray-200'></span>";
+                    echo "<p class='text-[11px] font-bold text-gray-400 uppercase tracking-widest'>Stock: " . $product['stock'] . "</p>";
+                echo "</div>";
+
+                echo "<p class='text-sm text-gray-500 line-clamp-3 h-12 leading-relaxed mb-6 font-medium italic'>" . $product['description'] . "</p>";
+
+                if (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin') {
+                    echo "<div class='grid grid-cols-2 gap-4 text-[10px] text-gray-400 uppercase font-black border-t border-dashed border-gray-100 pt-6'>";
+                        echo "<div class='flex flex-col'><span>Updated</span><span class='text-gray-900 font-bold'>".$display_updated."</span></div>";
+                        echo "<div class='flex flex-col text-right'><span>Active</span><span class='text-gray-900 font-bold'>".$product['active']."</span></div>";
+                    echo "</div>";
+                }
+            echo "</div>";
+
+            // --- BOTTOM: BOTONES (Sólidos y rellenos como pediste) ---
+            echo "<div class='p-6 bg-gray-50/50 flex flex-wrap items-center justify-center gap-3 border-t border-gray-100'>";
+
+                if (isset($_SESSION['role']) && $_SESSION['role'] == 'Admin') {
+                    echo "<div class='flex-1 min-w-[70px] h-10 flex items-center justify-center rounded-xl bg-red-50 text-red-600 hover:bg-red-600 hover:text-white transition-all shadow-sm font-black text-[10px] uppercase tracking-tighter cursor-pointer group/btn'>";
+                        include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/products/form_product_delete_call.php');
+                    echo "</div>";
+
+                    echo "<div class='flex-1 min-w-[70px] h-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-700 hover:bg-black hover:text-white transition-all shadow-sm font-black text-[10px] uppercase tracking-tighter cursor-pointer'>";
+                        include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/products/form_product_update_call.php');
+                    echo "</div>";
+                }
+
+                if ($product['stock'] > 0) {
+                    echo "<div class='flex-[1.5] min-w-[110px] h-10 flex items-center justify-center rounded-xl bg-black text-white hover:bg-gray-800 transition-all shadow-xl transform hover:scale-105 cursor-pointer font-black text-[10px] uppercase tracking-widest'>";
+                        include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/shopping_cart/form_add_product_cart.php');
+                    echo "</div>";
+                }
+
+                echo "<div class='flex-1 min-w-[70px] h-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-500 hover:bg-gray-100 transition-all font-black text-[10px] uppercase tracking-tighter cursor-pointer'>";
+                    include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/products/form_product_select.php');
+                echo "</div>";
+
+                 echo "<div class='flex-1 min-w-[70px] h-10 flex items-center justify-center rounded-xl bg-white border border-gray-200 text-gray-500 hover:bg-gray-100 transition-all font-black text-[10px] uppercase tracking-tighter cursor-pointer'>";
+                    include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/forms/products/form_product_select_reviews_call.php');
+                echo "</div>";
+
+            echo "</div>";
         echo "</div>";
-        
-        echo "</div>"; 
-      echo "</div>"; 
-    echo "</div>"; 
-  }
+    }
 }
 ?>

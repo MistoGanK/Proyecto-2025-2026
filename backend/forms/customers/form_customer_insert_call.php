@@ -1,5 +1,5 @@
-<link rel="icon" href="/student022/shop/backend/assets/icons/faviconBlack.png" type="image/png">
-<form action="/student022/shop/backend/forms/customers/form_customer_insert.php" method="post">
+<link rel="icon" href="/student022/backend/assets/icons/faviconBlack.png" type="image/png">
+<form action="/student022/backend/forms/customers/form_customer_insert.php" method="post">
     <input
         class="w-full h-full cursor-pointer"
         type="submit"

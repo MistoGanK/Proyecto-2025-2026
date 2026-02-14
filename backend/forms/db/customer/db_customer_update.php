@@ -1,4 +1,4 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/header.php'); ?>
 
 <section class="flex justify-center p-8 min-h-screen">
     
@@ -10,7 +10,7 @@
 
         <?php
         
-        // 1. Inicialización de variables de estado con valores de ERROR por defecto
+        // Variables
         $id_customer = null;
         $update_output = "ERROR: id_customer is missing or data not submitted correctly."; 
         $message_class = "bg-red-100 border-red-500 text-red-700"; 
@@ -19,7 +19,7 @@
         if (isset($_POST['id_customer']) && !empty($_POST['id_customer'])) {
             
             // Open connection
-            include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/config/connection.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php');
             
             // Save the variables and escape input
             $id_customer = mysqli_escape_string($conn, $_POST['id_customer']);
@@ -55,11 +55,11 @@
             $query_result = mysqli_query($conn, $sql);
             
             if ($query_result) {
-                // Mensaje de éxito
+                // Success message
                 $update_output = "Records Successfully updated for Customer ID: " . $id_customer;
                 $message_class = "bg-green-100 border-green-500 text-green-700";
             } else {
-                // Mensaje de error de Base de Datos
+                // Error message
                 $update_output = "Database Error: " . mysqli_error($conn);
                 $message_class = "bg-red-100 border-red-500 text-red-700";
             }
@@ -68,12 +68,12 @@
             mysqli_close($conn);
         }
 
-        // 2. Mostrar el resultado con el estilo correspondiente (éxito o error)
+        // Show result
         printf("<div class='p-4 border-l-4 %s rounded-md mt-4'>" . 
                "<p class='font-bold'>%s</p>" . 
                "</div>", $message_class, $update_output);
         
-        // 3. Mensaje final con el ID, solo si se procesó un ID
+        // Final message
         if ($id_customer) {
             echo "<p class='mt-6 text-sm text-gray-500'>Attempted to process customer with ID: <span class='font-bold text-[#0A090C]'>" . $id_customer . "</span></p>";
         }
@@ -81,7 +81,7 @@
         ?>
 
         <div class="mt-8">
-             <a href="/student022/shop/backend/customers/customers.php" 
+             <a href="/student022/backend/customers/customers.php" 
                 class="p-3 inline-block bg-[#0A090C] text-[#FEFFFE] rounded-md hover:cursor-pointer hover:bg-[#2c2732] font-semibold transition duration-150">
                  View Customers
              </a>
@@ -90,4 +90,4 @@
     </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/shop/backend/footer.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

@@ -6,7 +6,7 @@
     $timeLogout = date("c",time());
     $routeFile = $_SERVER['DOCUMENT_ROOT'].'/student022/backend/logs/userLogs.txt';
     $file = fopen($routeFile,"a+");
-    $txt = $username . ',' . $_SESSION['id_customer'] . ',' . $_SESSION['role'] . ',' . $timeLogout.','."Logout".',';
+    $txt = $username . ',' . $_SESSION['id_customer'] . ',' . $_SESSION['role'] . ',' . $timeLogout.','."Logout";
     fwrite($file,$txt);
     fclose($file);
 
