@@ -1,3 +1,6 @@
+body{
+    position: relative;
+}
 /* General styling */
 h2{
     font-size: 1.3rem;
@@ -238,7 +241,7 @@ button:focus-visible{
     gap: 16px; 
     border: 1px solid var(--bgc-product-tranps-behind);
     border-radius: 10px;
-    box-shadow: var(--box-shadow-product)
+    box-shadow: var(--box-shadow-product);
 }
 .explore_section_article_img {
     flex-shrink: 0; 
@@ -677,11 +680,9 @@ button:focus-visible{
 
 /* JS classes */
 .show{
-    display: flex;
+    display: flex !important;
 }
-.selected_color{
 
-}
 /* Media query */
 
 /*<-- Tablet ---> */
