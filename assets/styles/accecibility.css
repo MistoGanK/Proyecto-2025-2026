@@ -18,7 +18,7 @@
 html {
   font-size: 100%;
 }
-body{
+body {
   /* Standar Font Size */
   font-size: var(--main-font-size);
 }
@@ -58,9 +58,9 @@ p {
   width: 450px;
   height: 100vh;
   right: 0;
-  background-color: var(--white-grayscale);
-  border: 2px solid var(--black-gradient);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background-color: var(--white-grayscale) !important;
+  border: 2px solid var(--black-gradient) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
   z-index: 10000;
   flex-direction: column;
   flex-wrap: wrap;
@@ -70,7 +70,7 @@ p {
 
 /* Accecibility Header */
 .widget-header {
-  background-color: var(--black-gradient);
+  background-color: var(--black-gradient) !important;
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
@@ -79,9 +79,9 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--black);
-    font-size: 1.5rem;
-    background-color: var(--white);
+    color: var(--black) !important;
+    font-size: 1.5rem !important;
+    background-color: var(--white) !important;
     width: 40px;
     height: 40px;
     border-radius: 999px;
@@ -93,9 +93,11 @@ p {
     }
   }
   h2 {
-    font-size: 1.3rem;
+    font-size: 1.3rem !important;
     font-weight: 600;
-    color: var(--white);
+    color: var(--white) !important;
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
   }
 }
 
@@ -111,8 +113,8 @@ p {
 
 .widget-footer {
   padding: 20px;
-  background-color: var(--white-grayscale);
-  border-top: 1px solid #eee;
+  background-color: var(--white-grayscale) !important;
+  border-top: 1px solid #eee !important;
 }
 
 .acc-group {
@@ -130,14 +132,14 @@ p {
     display: flex;
     font-family: "Inter-Medium", sans-serif;
     font-weight: bold;
-    font-size: 1.1rem;
-    text-decoration: underline 1.5px var(--black);
+    font-size: 1.1rem !important;
+    text-decoration: underline 1.5px var(--black) !important;
   }
 }
 .acc-option {
-  background: var(--white);
-  border: 2px solid transparent;
-  border-radius: var(--border-radius);
+  background: var(--white) !important;
+  border: 2px solid transparent !important;
+  border-radius: var(--border-radius) !important;
   width: 100%;
   padding: 20px 10px;
   display: flex;
@@ -146,7 +148,7 @@ p {
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
   /* Standar Hover && Focus for interactive elements */
   &:hover {
     scale: 1.03;
@@ -155,23 +157,23 @@ p {
     scale: 1;
   }
   i {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
     margin-bottom: 10px;
-    color: var(--text-main);
+    color: var(--text-main) !important;
   }
   span {
-    font-size: 0.85rem;
+    font-size: 0.85rem !important;
     font-weight: 600;
     text-align: center;
-    color: var(--black);
+    color: var(--black) !important;
   }
 }
 #btn-reset-all {
   width: 100%;
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--black) !important;
+  color: var(--white) !important;
   padding: 15px;
-  border: none;
+  border: none !important;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
@@ -192,26 +194,268 @@ For now resolved with the next standarized behaviour, can be used later */
 /* JQ acc-options active style */
 
 /* -- Font size modyfiers -- */
-body.acc-font-size-1 :not(accessibility-widget *){
+
+/* - Font size increase -*/
+body.acc-font-size-1 p,
+body.acc-font-size-1 h1,
+body.acc-font-size-1 h2,
+body.acc-font-size-1 a {
   font-size: 1.1rem;
 }
-body.acc-font-size-2 *{
+body.acc-font-size-2 p,
+body.acc-font-size-2 h1,
+body.acc-font-size-2 h2,
+body.acc-font-size-2 a {
   font-size: 1.2rem;
 }
-body.acc-font-size-3 *{
+body.acc-font-size-3 p,
+body.acc-font-size-3 h1,
+body.acc-font-size-3 h2,
+body.acc-font-size-3 a {
   font-size: 1.3rem;
 }
-body.acc-font-size--1 *{
+
+/* - Font Size Decrease - */
+body.acc-font-size--1 p,
+body.acc-font-size--1 h1,
+body.acc-font-size--1 h2,
+body.acc-font-size--1 a {
   font-size: 0.9rem;
 }
-body.acc-font-size--2 *{
+body.acc-font-size--2 p,
+body.acc-font-size--2 h1,
+body.acc-font-size--2 h2,
+body.acc-font-size--2 a {
   font-size: 0.8rem;
 }
-body.acc-font-size--3 *{
+body.acc-font-size--3 p,
+body.acc-font-size--3 h1,
+body.acc-font-size--3 h2,
+body.acc-font-size--3 a {
   font-size: 0.7rem;
 }
 
-/*  */
+/* -- Contrast modyfiers -- */
+
+/* - Contrast increase -*/
+
+/* Light contrast */
+body.acc-contrast-1 p,
+body.acc-contrast-1 h1,
+body.acc-contrast-1 h2,
+body.acc-contrast-1 h3,
+body.acc-contrast-1 h4,
+body.acc-contrast-1 h5,
+body.acc-contrast-1 a {
+  color: var(--white);
+  filter: contrast(110%);
+}
+
+/* Medium Contrast */
+body.acc-contrast-2 {
+  background-color: #e5e5e5;
+}
+body.acc-contrast-2 p,
+body.acc-contrast-2 h1,
+body.acc-contrast-2 h2,
+body.acc-contrast-2 h3,
+body.acc-contrast-2 h4,
+body.acc-contrast-2 h5,
+body.acc-contrast-2 a {
+  color: #000000;
+  font-weight: bold;
+}
+
+/* High Contrast*/
+body.acc-contrast-3 {
+  background-color: #000000;
+}
+body.acc-contrast-3 p,
+body.acc-contrast-3 h1,
+body.acc-contrast-3 h2,
+body.acc-contrast-3 h3,
+body.acc-contrast-3 h4,
+body.acc-contrast-3 h5,
+body.acc-contrast-3 a {
+  color: #ffffff;
+}
+
+/* - Contrast Decrease - */
+
+/* Sepia Contrast */
+body.acc-contrast--1 {
+  background-color: #f4ecd8;
+}
+body.acc-contrast--1 p,
+body.acc-contrast--1 h1,
+body.acc-contrast--1 h2,
+body.acc-contrast--1 h3,
+body.acc-contrast--1 h4,
+body.acc-contrast--1 h5,
+body.acc-contrast--1 a {
+  color: #5b4636;
+}
+
+/* Grey Contrast */
+body.acc-contrast--2 {
+  filter: grayscale(100%);
+}
+
+/* Black yellow contrast */
+body.acc-contrast--3 {
+  background-color: #000000;
+}
+
+body.acc-contrast--3 p,
+body.acc-contrast--3 h1,
+body.acc-contrast--3 h2,
+body.acc-contrast--3 h3,
+body.acc-contrast--3 h4,
+body.acc-contrast--3 h5,
+body.acc-contrast--3 a {
+  color: #ffff00;
+}
+
+/* -- Saturation modyfiers -- */
+
+/* - Saturation Increase- */
+body.acc-saturation-1 {
+  filter: saturate(150%);
+}
+body.acc-saturation-2 {
+  filter: saturate(200%);
+}
+body.acc-saturation-3 {
+  filter: saturate(300%);
+}
+
+/* - Saturation Decrease - */
+
+body.acc-saturation--1 {
+  filter: saturate(50%);
+}
+body.acc-saturation--2 {
+  filter: saturate(20%);
+}
+body.acc-saturation--3 {
+  filter: grayscale(100%);
+}
+
+/* -- Line-height Modifiers -- */
+
+/* - Increase Line-height - */
+body.acc-line-height-1 p,
+body.acc-line-height-1 a,
+body.acc-line-height-1 li {
+  line-height: 1.6;
+}
+body.acc-line-height-2 p,
+body.acc-line-height-2 a,
+body.acc-line-height-2 li {
+  line-height: 1.8;
+}
+body.acc-line-height-3 p,
+body.acc-line-height-3 a,
+body.acc-line-height-3 li {
+  line-height: 2.1;
+}
+
+/* - Decrease Line-height- */
+
+body.acc-line-height--1 p,
+body.acc-line-height--1 a,
+body.acc-line-height--1 li {
+  line-height: 1.3;
+}
+body.acc-line-height--2 p,
+body.acc-line-height--2 a,
+body.acc-line-height--2 li {
+  line-height: 1.1;
+}
+body.acc-line-height--3 p,
+body.acc-line-height--3 a,
+body.acc-line-height--3 li {
+  line-height: 0.9;
+}
+
+/* -- Word-spacing Modifiers -- */
+
+/* - Increase Word-spacing - */
+body.acc-word-spacing-1 p,
+body.acc-word-spacing-1 a,
+body.acc-word-spacing-1 li,
+body.acc-word-spacing-1 h1,
+body.acc-word-spacing-1 h2 {
+  word-spacing: 0.2rem;
+}
+body.acc-word-spacing-2 p,
+body.acc-word-spacing-2 a,
+body.acc-word-spacing-2 li,
+body.acc-word-spacing-2 h1,
+body.acc-word-spacing-2 h2 {
+  word-spacing: 0.4rem;
+}
+body.acc-word-spacing-3 p,
+body.acc-word-spacing-3 a,
+body.acc-word-spacing-3 li,
+body.acc-word-spacing-3 h1,
+body.acc-word-spacing-3 h2 {
+  word-spacing: 0.6rem;
+}
+
+/* - Decrease Word-spacing - */
+body.acc-word-spacing--1 p,
+body.acc-word-spacing--1 a,
+body.acc-word-spacing--1 li {
+  word-spacing: -0.05rem;
+}
+body.acc-word-spacing--2 p,
+body.acc-word-spacing--2 a,
+body.acc-word-spacing--2 li {
+  word-spacing: -0.1rem;
+}
+body.acc-word-spacing--3 p,
+body.acc-word-spacing--3 a,
+body.acc-word-spacing--3 li {
+  word-spacing: -0.15rem;
+}
+
+/* -- Letter-spacing Modifiers -- */
+
+/* - Increase Letter-spacing - */
+body.acc-letter-spacing-1 p,
+body.acc-letter-spacing-1 a,
+body.acc-letter-spacing-1 h1,
+body.acc-letter-spacing-1 h2 {
+  letter-spacing: 0.05rem;
+}
+body.acc-letter-spacing-2 p,
+body.acc-letter-spacing-2 a,
+body.acc-letter-spacing-2 h1,
+body.acc-letter-spacing-2 h2 {
+  letter-spacing: 0.1rem;
+}
+body.acc-letter-spacing-3 p,
+body.acc-letter-spacing-3 a,
+body.acc-letter-spacing-3 h1,
+body.acc-letter-spacing-3 h2 {
+  letter-spacing: 0.15rem;
+}
+
+/* - Decrease Letter-spacing - */
+
+body.acc-letter-spacing--1 p,
+body.acc-letter-spacing--1 a {
+  letter-spacing: -0.02rem;
+}
+body.acc-letter-spacing--2 p,
+body.acc-letter-spacing--2 a {
+  letter-spacing: -0.04rem;
+}
+body.acc-letter-spacing--3 p,
+body.acc-letter-spacing--3 a {
+  letter-spacing: -0.06rem;
+}
 
 button:focus,
 a:focus,

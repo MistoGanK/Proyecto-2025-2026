@@ -222,10 +222,7 @@ button:focus-visible{
     height: 160px;
     border:none;
 }
-.explore_section header:nth-child(1) h2{
-        color: var(--bgc-black);
 
-}
 .explore_section_content {
     padding: 8px;
     display: flex;

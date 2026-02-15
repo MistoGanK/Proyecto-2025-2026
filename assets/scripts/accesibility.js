@@ -15,14 +15,11 @@ $(document).ready(function () {
 
   // Function preload settings on localstorage
   function applySettings(accSettings) {
-    // Iterate key (type) value (isActive) of the Object accSettings
-    $.each(accSettings, function (type, isActive) {
+    // Iterate key (type) value (level) of the Object accSettings
+    $.each(accSettings, function (type, level) {
       // If we have presets from previus session
-      if (isActive) {
-        // Aply Style to the body
-        $body.addClass("acc-" + type);
-        // Get all components acc-option (buttons) with the matching type and add the active class
-        $(`acc-option[data-type="${type}"]`).addClass("is-active");
+      if (level !== 0 && level !== undefined) {
+          $body.addClass(`acc-${type}-${level}`);
       }
     });
   }
@@ -74,7 +71,7 @@ $(document).ready(function () {
 
     // Actual level
     let oldLevel = savedSettings[type] || 0;
-    console.log(oldLevel)
+    console.log(oldLevel);
 
     let currentLevel = oldLevel;
     // Calculate new level between -3 and +3
@@ -91,7 +88,7 @@ $(document).ready(function () {
 
     // Update the current level
     if (currentLevel !== 0) {
-        $body.addClass(`acc-${type}-${currentLevel}`);
+      $body.addClass(`acc-${type}-${currentLevel}`);
     }
 
     // Fedback
@@ -110,9 +107,8 @@ $(document).ready(function () {
     // Cleans Accesibility Settings
     localStorage.removeItem("acc_settings");
     $(".acc-option").removeClass("is-active");
-    
+
     // Restart vatiabel savedSettings or its going to save the previus level types
     savedSettings = {};
-
   });
 });
