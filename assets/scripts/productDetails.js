@@ -18,12 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const needFreeShipping = 60; // Umbral para envío gratis
 
   // --- Validaciones Iniciales ---
-  /*
   if (!productId || isNaN(productId)) {
     window.location.href = "../index.html";
     return;
   }
-*/
+
   // --- Funciones Fetch ---
 
   // Obtener detalles del producto principal
