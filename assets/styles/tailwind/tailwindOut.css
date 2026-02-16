@@ -4856,6 +4856,7 @@
   }
   .customer_reviews {
     margin-top: calc(var(--spacing) * 8);
+    flex-direction: column;
   }
   .customer_review_item {
     width: 100%;

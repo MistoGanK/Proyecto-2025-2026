@@ -2,7 +2,7 @@
  * productDetails.js - Gestión de producto y Mini-Cart (Dropdown)
  */
 document.addEventListener("DOMContentLoaded", () => {
-  // --- 1. Elementos del DOM ---
+  // --- Elementos del DOM ---
   const section_product = document.querySelector(".section_product");
   const cartForm = document.querySelector(".cart_form"); // Contenedor de productos en el dropdown
   const progress_message = document.querySelector(".progress_message");
@@ -10,18 +10,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const checkoutBtn = document.querySelector(".cart_footer_button");
   const cartDropDown = document.querySelector(".cart_drop_down");
   const closeCartBtn = document.getElementById("cart_dropdown_button_close");
+  const product_form = document.querySelector(".product_form");
+  const button_add_to_fav = document.querySelector(".button_add_to_fav"); // Product Details
 
   const params = new URLSearchParams(window.location.search);
   const productId = params.get("id");
   const needFreeShipping = 60; // Umbral para envío gratis
 
-  // --- 2. Validaciones Iniciales ---
+  // --- Validaciones Iniciales ---
   if (!productId || isNaN(productId)) {
     window.location.href = "../index.html";
     return;
   }
 
-  // --- 3. Funciones de Carga (Fetch) ---
+  // --- Funciones Fetch ---
 
   // Obtener detalles del producto principal
   async function getProductData() {
@@ -57,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // --- 4. Funciones de Renderizado ---
+  // --- Funciones de Renderizado ---
 
   function renderProductDetails(item) {
     const imagesHTML = item.all_images
@@ -78,8 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="product_tag">Style #022-P-${item.id_product}</p>
           <div class="product_rating">
             <div class="product_rating_starts">
-              ${'<img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp">'.repeat(4)}
-              <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp">
+              ${'<img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="">'.repeat(4)}
+              <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="">
             </div>
             <div class="product_number_reviews"><a href="#">864</a></div>
           </div>
@@ -111,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="product_color">
             <p class="product_label">Color: <span class="product_label_span">Eco Black Deluxe</span></p>
             <ul class="product_color_list">
-               <li class="product_color_item"><button type="button" class="buttom_color_item"><img src="../assets/img/products/colors/eco_black_deluxe.webp"></button></li>
+               <li class="product_color_item"><button aria-label="Change Color Black" type="button" class="buttom_color_item"><img src="../assets/img/products/colors/eco_black_deluxe.webp" alt=""></button></li>
             </ul>
           </div>
           <div class="product_options">
@@ -146,14 +148,22 @@ document.addEventListener("DOMContentLoaded", () => {
         if (result.success) {
           await loadCart(); // Recargar el mini-cart
           cartDropDown.classList.remove("hidden"); // Abrirlo automáticamente para feedback visual
-          cartDropDown.style.display = "flex"; // Asegurar visibilidad si usas display en lugar de hidden
+          cartDropDown.style.display = "flex"; // Mostrar
         }
       });
     }
 
     setupToggles();
   }
-
+  function toggleFavorite() {
+    // Detect if filled
+    if (imgFav.src.includes("FILL0")) {
+      imgFav.src = iconFavFill;
+    } else {
+      imgFav.src = iconFavEmpty;
+    }
+  }
+  
   function renderCart(items, total) {
     if (!cartForm) return;
     cartForm.innerHTML = items
@@ -170,11 +180,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
             <div class="item_footer">
-                <button type="button" class="btn_delete underline text-xs font-bold" data-id="${item.id_product}">Delete</button>
+                <button type="button" class="btn_delete underline text-xs font-bold" data-id="${item.id_product} aria-label="Delete Product"">Delete</button>
                 <div class="item_action_buttons flex w-fit border border-solid border-[rgba(10,9,12,0.345)] rounded-[5px] items-center">
-                    <button type="button" class="btn_substract px-2" data-id="${item.id_product}">-</button>
+                    <button type="button" class="btn_substract px-2" data-id="${item.id_product}" aria-label="Decrease quantity">-</button>
                     <p class="item_qty px-3 text-sm">${item.qty}</p>
-                    <button type="button" class="item_agregation px-2" data-id="${item.id_product}">+</button>
+                    <button type="button" class="item_agregation px-2" data-id="${item.id_product} aria-lable="Increase quantity"">+</button>
                 </div>
             </div>
         </article>
@@ -192,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateUI(0, 0);
   }
 
-  // --- 5. Lógica de UI y Acciones del Carrito ---
+  // --- Lógica de UI y Acciones del Carrito ---
 
   function updateUI(count, total) {
     const totalNum = parseFloat(total);
@@ -251,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // --- 6. Toggles y Eventos de Cierre ---
+  // --- Toggles y Eventos de Cierre ---
   function setupToggles() {
     document.querySelectorAll(".product_toggle_button").forEach((btn) => {
       btn.onclick = () => {

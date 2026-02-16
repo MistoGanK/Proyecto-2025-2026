@@ -17,8 +17,6 @@ const dropdown_menu_container = document.querySelector('.dropdown_menu_container
 const dropdown_menu_container_backpacks = document.querySelector('.dropdown_menu_container_backpacks');
 const dropdown_menu_container_bags = document.querySelector('.dropdown_menu_container_bags');
 const dropdown_menu_container_about = document.querySelector('.dropdown_menu_container_about');
-const product_form = document.querySelector('.product_form');
-
 
 // HTML buttons
 
@@ -42,7 +40,6 @@ const dropdown_about_button_close = document.getElementById('dropdown_about_butt
 // Favorite button
 const fav_button = document.getElementsByClassName('fav_button'); // Home
 
-const button_add_to_fav = document.querySelector('.button_add_to_fav'); // Product Details
 const imgFav = document.getElementById('imgFav');
 // Buy & Cart
 const button_product_buy = document.getElementById('button_product_buy');
@@ -97,14 +94,6 @@ function togleSelectedColor(event){
         event.currentTarget.parentNode.classList.toggle('selected_color');
     }
 }
-function toggleFavorite (){
-        // Detect if filled 
-        if (imgFav.src.includes('FILL0')){
-            imgFav.src = iconFavFill;
-        }else{
-            imgFav.src = iconFavEmpty;
-        }
-};
 function togleProductInfo(event){
     const targetButton = event.currentTarget;
     targetButton.nextElementSibling.classList.toggle('show');

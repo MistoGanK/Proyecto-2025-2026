@@ -857,7 +857,7 @@
     @apply flex-col
   }
   .customer_reviews{
-    @apply mt-8
+    @apply mt-8 flex-col
   }
   .customer_review_item{
     @apply flex-col w-full gap-2 pt-8 pb-8 border-t border-solid border-(--gray-light-x1);

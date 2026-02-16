@@ -95,27 +95,27 @@ window.addEventListener("DOMContentLoaded", (e) => {
       article_hot_seller.classList.add("hot_seller");
       article_hot_seller.innerHTML = `
         <div class="hot_seller_content">
-          <a href="views/productDetails.html?id=${item.id_product}">
+          <a href="views/productDetails.html?id=${item.id_product}" aria-label='Go to Product Details' ">
             <img src="${item.img_src}" alt="${item.product_name}" class="card_background_img" />
           </a>
           
-          <a href="productDetails.html?id=${item.id_product}" class="product_link_title">
+          <a href="productDetails.html?id=${item.id_product}" class="product_link_title" aria-label='Go to Product Details' >
             <h3>${item.product_name}</h3>
           </a>
 
           <div class="card_content_buttons">
-            <button>
+            <button aria-label="Buy Product">
               <a>Buy ${item.price}€</a>
-              <img src="assets/icons/attach_money_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp" alt="Buy Product" />
+              <img src="assets/icons/attach_money_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp" alt=""/>
             </button>
-            <button>
+            <button aria-label="Add Product To Cart">
               <a>Add to Cart</a>
-              <img src="assets/icons/add_shopping_cart_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp" alt="Add to Cart" />
+              <img src="assets/icons/add_shopping_cart_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp" alt=""/>
             </button>
-            <button class="fav_button">
+            <button class="fav_button" aria-label="Add Product To Favorites">
               <a>Add to Favorite</a>
-              <img class="fav_empty" id="icon_favorite"
-                src="assets/icons/favorite_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp" alt="Add to favorite" />
+              <img class="fav_empty" id="icon_favorite" alt=""
+                src="assets/icons/favorite_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp"/>
             </button>
           </div>
         </div>
@@ -138,7 +138,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
     </header>
     <div class="new_product_content">
       <div class="new_button_container">
-        <button class="new_button" onclick="window.location.href='views/productDetails.html?id=${item.id_product}'">
+        <button class="new_button" onclick="window.location.href='views/productDetails.html?id=${item.id_product}" aria-label='View Product Details' ">
           <p>See Detaills</p>
         </button>
         </div>
@@ -158,11 +158,11 @@ window.addEventListener("DOMContentLoaded", (e) => {
       div_card_container.innerHTML = `
         <img src="${item.img_src}" alt="Imagen de fondo del artículo"
           class="card_background_img" />
-        <a href="views/productDetails.html?id=${item.id_product}">
+        <a href="views/productDetails.html?id=${item.id_product}" aria-label="View Product Details">
         <div class="card_content">
           <h3>${item.product_name}</h3>
           <div class="card_content_buttons">
-            <button>
+            <button">
               <a>Buy ${item.price}€</a>
               <img src="assets/icons/attach_money_500dp_FEFFFE_FILL0_wght400_GRAD0_opsz48.webp" alt="Buy Product" />
             </button>
@@ -196,7 +196,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
       hero_section_content.classList.add("hero_section_content");
       hero_section_content.innerHTML = ` 
         <a href="views/productDetails.html?id=${item.id_product}">
-          <button>Shop</button>
+          <button aria-label="Shop Product">Shop</button>
         </a>
     `;
       hero_section.appendChild(hero_section_content);
