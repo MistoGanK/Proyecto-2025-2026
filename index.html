@@ -17,7 +17,7 @@
 
   <body>
     <!-- Accecibility Button && Container-->
-    <button id="btn_accesibility">
+    <button id="btn_accesibility" aria-label="Accessibility options">
       <img
         src="assets/icons/accecibility/accessibility_300dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.svg"
       />
@@ -174,7 +174,7 @@
     <header class="header_start">
       <nav>
         <div class="header_nav_dropdown">
-          <button id="dropdown_button_show">
+          <button id="dropdown_button_show" aria-label="Menu">
             <img
               src="assets/icons/menu_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
               alt=""
@@ -197,7 +197,7 @@
         </div>
         <div class="header_nav_user_tools">
           <div class="div_user_tool">
-            <button>
+            <button aria-label="Search">
               <img
                 src="assets/icons/search_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
                 alt="Search icon"
@@ -220,6 +220,7 @@
             <button
               id="btn_shopping_cart"
               onclick="window.location = './views/shoppingCart.html'"
+              aria-label="Shopping cart"
             >
               <img
                 src="assets/icons/local_mall_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp"
@@ -238,7 +239,7 @@
       <nav class="dropdown_menu">
         <header>
           <h2>Menu</h2>
-          <button id="dropdown_button_close">
+          <button id="dropdown_button_close" aria-label="Close menu">
             <img
               src="assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
               alt="Close dropdown menu"
@@ -250,7 +251,7 @@
             <li><a href="#" title="Go to custom">Custom</a></li>
             <li>
               <a href="#" title="Go to backpacks">Backpacks</a>
-              <button id="button_forward_backpacks">
+              <button id="button_forward_backpacks" aria-label="Backpacks submenu">
                 <img
                   src="assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
                   alt="See all backpacks"
@@ -259,7 +260,7 @@
             </li>
             <li>
               <a href="#" title="Go to bags">Bags</a>
-              <button id="button_forward_bags">
+              <button id="button_forward_bags" aria-label="Bags submenu">
                 <img
                   src="assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
                   alt="See all backpacks"
@@ -277,7 +278,7 @@
             </li>
             <li>
               <a href="#" title="Go to about brand2">About Brand2</a>
-              <button id="button_forward_about">
+              <button id="button_forward_about" aria-label="About submenu">
                 <img
                   src="assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
                   alt="See all backpacks"
@@ -325,7 +326,7 @@
       <nav class="dropdown_menu">
         <header>
           <div class="dropdown_menu_header_content">
-            <button id="button_backwards_backpacks">
+            <button id="button_backwards_backpacks" aria-label="Back to main menu">
               <img
                 src="assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
                 alt="Close dropdown menu"
@@ -333,7 +334,7 @@
             </button>
             <h2>Backpacks</h2>
           </div>
-          <button id="dropdown_backpacks_button_close">
+          <button id="dropdown_backpacks_button_close" aria-label="Close menu">
             <img
               src="assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
               alt="Close dropdown menu"
@@ -372,7 +373,7 @@
       <nav class="dropdown_menu">
         <header>
           <div class="dropdown_menu_header_content">
-            <button id="button_backwards_bags">
+            <button id="button_backwards_bags" aria-label="Back to main menu">
               <img
                 src="assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
                 alt="Close dropdown menu"
@@ -380,7 +381,7 @@
             </button>
             <h2>Bags</h2>
           </div>
-          <button id="dropdown_bags_button_close">
+          <button id="dropdown_bags_button_close" aria-label="Close menu">
             <img
               src="assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
               alt="Close dropdown menu"
@@ -421,7 +422,7 @@
       <nav class="dropdown_menu">
         <header>
           <div class="dropdown_menu_header_content">
-            <button id="button_backwards_about">
+            <button id="button_backwards_about" aria-label="Back to main menu">
               <img
                 src="assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
                 alt="Close dropdown menu"
@@ -429,7 +430,7 @@
             </button>
             <h2>About Brand2</h2>
           </div>
-          <button id="dropdown_about_button_close">
+          <button id="dropdown_about_button_close" aria-label="Close menu">
             <img
               src="assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
               alt="Close dropdown menu"
@@ -624,7 +625,7 @@
         <nav class="footer_nav">
           <div class="footer_nav_section">
             <h4>SHOP</h4>
-            <button class="toggle_button">
+            <button class="toggle_button" aria-label="Toggle SHOP section">
               <span class="plus_icon">+</span>
             </button>
             <ul id="shop_links" class="footer_links">
@@ -636,7 +637,7 @@
           </div>
           <div class="footer_nav_section">
             <h4>SUPPORT</h4>
-            <button class="toggle_button">
+            <button class="toggle_button" aria-label="Toggle SUPPORT section">
               <span class="plus_icon">+</span>
             </button>
             <ul id="support_links" class="footer_links">
@@ -648,7 +649,7 @@
           </div>
           <div class="footer_nav_section">
             <h4>COMPANY</h4>
-            <button class="toggle_button">
+            <button class="toggle_button" aria-label="Toggle COMPANY section">
               <span class="plus_icon">+</span>
             </button>
             <ul id="company_links" class="footer_links">

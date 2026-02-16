@@ -71,7 +71,6 @@ $(document).ready(function () {
 
     // Actual level
     let oldLevel = savedSettings[type] || 0;
-    console.log(oldLevel);
 
     let currentLevel = oldLevel;
     // Calculate new level between -3 and +3

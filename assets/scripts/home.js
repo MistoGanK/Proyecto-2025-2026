@@ -192,7 +192,6 @@ window.addEventListener("DOMContentLoaded", (e) => {
   function renderHeroSection(heroItem) {
     // Div card_container
     heroItem.forEach((item) => {
-      console.log(item);
       let hero_section_content = document.createElement("article");
       hero_section_content.classList.add("hero_section_content");
       hero_section_content.innerHTML = ` 

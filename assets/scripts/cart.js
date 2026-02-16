@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="delete_container">
                   <button type="button" class="btn_delete" data-id="${item.id_product}">Delete</button>
                 </div>
-                <div class="item_action_buttons">
+                <div class="product_action_buttons">
                   <button type="button" class="btn_substract" data-id="${item.id_product}">-</button>
                   <p class="item_qty">${item.qty}</p>
                   <button type="button" class="item_agregation" data-id="${item.id_product}">+</button>
@@ -78,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function updateUI(count, total) {
         const formattedTotal = parseFloat(total).toFixed(2);
-        console.log(typeof(parseInt(formattedTotal)));
         if (totalDisplay) totalDisplay.textContent = `Cart Total ${formattedTotal}€`;
         if (subtotalDisplay) subtotalDisplay.textContent = `${formattedTotal}€`;
         if (checkoutBtn) checkoutBtn.textContent = `Checkout (${count})`;
