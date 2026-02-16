@@ -91,27 +91,60 @@ $root = $_SERVER['DOCUMENT_ROOT'];
     </header>
 
     <main class="flex flex-col flex-grow overflow-y-auto">
-        <nav class="sticky top-0 z-10 bg-[#FEFFFE] flex w-full h-20 shadow-md items-center px-6 shrink-0">
-            <form action="#" method="GET" class="flex items-center w-110">
-                <input type="search" placeholder="Search..." class="w-full h-10 p-3 text-gray-500 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/20">
-            </form>
+        <nav class="sticky top-0 z-10 bg-[#FEFFFE] flex w-full h-24 shadow-md items-center px-6 shrink-0 gap-8">
+    <form id="formFilter" action="#" method="GET" class="flex items-center w-3/4 gap-4">
+        
+        <div class="relative flex-1">
+            <input type="search" placeholder="Search products..." 
+                class="w-full h-10 pl-4 pr-3 text-sm text-gray-500 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-black/10 transition-all">
+        </div>
 
-            <div class="flex flex-row w-full items-center justify-end gap-4">
-                <p class="font-semibold">Welcome: <?php echo $username; ?> | Role: <?php echo $role; ?></p>
+        <div class="flex items-center gap-3">
+            <label for="filterDateIn" class="text-[11px] uppercase tracking-tighter text-gray-400 font-bold flex flex-col">
+                Date In
+                <input id="filterDateIn" type="date" class="border border-gray-200 rounded-lg p-1 text-xs font-normal text-gray-600 focus:ring-1 focus:ring-black">
+            </label>
 
-                <?php
-                if (isset($_SESSION['username'])) {
-                    echo '<img src="/student022/assets/icons/door_open_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.png" 
-                      onclick="closeAndRedirectLogin()" class="h-10 p-2 shadow-sm rounded-full hover:bg-gray-100 cursor-pointer" title="Logout">';
-                } else {
-                    echo '<img src="/student022/assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.png" 
-                      onclick="redirectLogin()" class="h-10 p-2 shadow-sm rounded-full hover:bg-gray-100 cursor-pointer" title="Login">';
-                }
-                ?>
+            <label for="filterDateOut" class="text-[11px] uppercase tracking-tighter text-gray-400 font-bold flex flex-col">
+                Date Out
+                <input id="filterDateOut" type="date" class="border border-gray-200 rounded-lg p-1 text-xs font-normal text-gray-600 focus:ring-1 focus:ring-black">
+            </label>
+        </div>
 
-                <a href="/student022/backend/shopping_cart/shopping_cart.php">
-                    <img src="/student022/assets/icons/shopping_cart_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.png"
-                        class="h-10 p-2 shadow-sm rounded-full hover:bg-gray-100 cursor-pointer" title="Cart">
-                </a>
-            </div>
-        </nav>
+        <label for="filterOrder" class="text-[11px] uppercase tracking-tighter text-gray-400 font-bold flex flex-col">
+            Order By
+            <select id="filterOrder" name="orderBy" class="bg-transparent border-none text-xs font-bold text-gray-800 cursor-pointer focus:ring-0">
+                <option selected value="ASC">Newer</option>
+                <option value="DESC">Older</option>
+            </select>
+        </label>
+
+        <input type="submit" value="Filter"
+            class="h-10 px-6 font-bold text-xs uppercase tracking-widest text-white bg-black rounded-full cursor-pointer hover:bg-gray-800 transition-colors shadow-lg shadow-black/10">
+    </form>
+
+    <div class="flex flex-row w-1/4 items-center justify-end gap-4 border-l border-gray-100 pl-4">
+        <div class="text-right hidden lg:block">
+            <p class="text-[10px] text-gray-400 uppercase font-bold leading-none">Logged in as</p>
+            <p class="text-sm font-semibold text-gray-800"><?php echo $username; ?></p>
+        </div>
+
+        <div class="flex gap-2">
+            <?php
+            if (isset($_SESSION['username'])) {
+                echo '<img src="/student022/assets/icons/door_open_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.png" 
+                  onclick="closeAndRedirectLogin()" class="h-9 w-9 p-2 border border-gray-100 rounded-full hover:bg-red-50 hover:border-red-100 transition-all cursor-pointer" title="Logout">';
+            } else {
+                echo '<img src="/student022/assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.png" 
+                  onclick="redirectLogin()" class="h-9 w-9 p-2 border border-gray-100 rounded-full hover:bg-gray-100 cursor-pointer" title="Login">';
+            }
+            ?>
+
+            <a href="/student022/backend/shopping_cart/shopping_cart.php" class="relative">
+                <img src="/student022/assets/icons/shopping_cart_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.png"
+                    class="h-9 w-9 p-2 border border-gray-100 rounded-full hover:bg-gray-100 transition-all cursor-pointer" title="Cart">
+                <span class="absolute -top-1 -right-1 bg-black text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full">0</span>
+            </a>
+        </div>
+    </div>
+</nav>

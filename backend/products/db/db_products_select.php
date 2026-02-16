@@ -66,5 +66,6 @@
 
 <script src="/student022/backend/functions/products/searchForProduct.js"></script>
 <script src="/student022/backend/functions/products/insertToShoppingCarth.js"></script>
+<script src="/student022/backend/functions/products/filterProducts.js"></script>
 
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

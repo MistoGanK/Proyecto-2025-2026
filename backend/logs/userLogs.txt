@@ -4,3 +4,6 @@ pangolino,56,Customer,2026-02-13T16:19:11+00:00,Loggin
 pangolino,56,Customer,2026-02-13T16:19:14+00:00,Logout
 admin,57,Admin,2026-02-13T16:21:22+00:00,Loggin
 pangolino,56,Customer,2026-02-16T10:32:51+00:00,Loggin
+admin,57,Admin,2026-02-16T11:43:01+00:00,Loggin
+admin,57,Admin,2026-02-16T12:39:41+00:00,Logout
+pangolino,56,Customer,2026-02-16T12:39:47+00:00,Loggin

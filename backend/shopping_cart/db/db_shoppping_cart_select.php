@@ -28,7 +28,7 @@ $has_items = mysqli_num_rows($query_result) > 0;
         <div class="text-center py-32 bg-white rounded-[2rem] border-2 border-dashed border-gray-100 shadow-sm">
             <p class="text-3xl font-black text-gray-900 tracking-tighter uppercase italic">Your cart is empty.</p>
             <p class="text-gray-400 font-medium mt-2 mb-8">Check out our products and find your next favorite item!</p>
-            <a href="/student022/backend/views/products_view.php" class="bg-black text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-gray-800 transition-all shadow-xl">
+            <a href="/student022/backend/products/products.php" class="bg-black text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-gray-800 transition-all shadow-xl">
                 Start Shopping
             </a>
         </div>

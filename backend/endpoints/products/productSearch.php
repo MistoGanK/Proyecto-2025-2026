@@ -6,7 +6,8 @@ session_start();
       SELECT * 
       FROM `022_products`
       WHERE 
-        product_name LIKE '%$productName%';
+        product_name LIKE '%$productName%'
+      LIMIT 10;
     ";
     include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/config/connection.php'); 
     $result = mysqli_query($conn,$query);
