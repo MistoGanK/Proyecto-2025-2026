@@ -114,7 +114,7 @@ main {
       display: flex;
       text-decoration: underline;
     }
-    .item_action_buttons{
+    .product_action_buttons{
       display: flex;
       width: 70px;
       padding: 8px;
@@ -132,7 +132,7 @@ main {
       }
     }
   }
-  .cart_footer{
+  #cart_footer{
     display: flex;
     flex-direction: column;
     gap: 16px;

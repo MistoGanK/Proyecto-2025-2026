@@ -1,6 +1,15 @@
 <?php
+<<<<<<< HEAD
+// Variables
+// Replace for Johns API key && uCurl
+$apiKey = '10203040F';
+$data = json_encode([
+  "apiKey" => $apiKey
+]);
+=======
 // Connection
 include(__DIR__ . '/../../config/connection.php');
+>>>>>>> a14dd0e4f5e1f5d6fb545925a0648fc8e211543a
 
 // Get all suppliers
 $sqlSuppliers = "SELECT * FROM `022_view_suppliers_endpoints`";
@@ -12,6 +21,13 @@ foreach ($suppliers as $supplier) {
   $apiKey = $supplier['api_key'];
   $idSupplier = $supplier['id_supplier'];
 
+<<<<<<< HEAD
+//  --- Problems ---
+$headers = array(
+  "Content-Type: application/json",
+  "Content-Length: " . strlen($data)
+);
+=======
   // Debug
   print_r("\n" . $supplier['api_endpoint_products']);
   print_r("\n" . $supplier['api_key']);
@@ -26,10 +42,22 @@ foreach ($suppliers as $supplier) {
   $headers = array(
     "Content-Type: application/json"
   );
+>>>>>>> a14dd0e4f5e1f5d6fb545925a0648fc8e211543a
 
   // Configuración de cURL
   curl_setopt($ch, CURLOPT_URL, $uCurlUrl);
 
+<<<<<<< HEAD
+// Pasamos los headers correctamente 
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true); // False for localhost True for remotehost
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+curl_setopt($ch, CURLOPT_VERBOSE, true);
+=======
   // Pasamos los headers correctamente 
   curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
@@ -41,10 +69,22 @@ foreach ($suppliers as $supplier) {
   curl_setopt($ch, CURLOPT_VERBOSE, true);
 
   // curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+>>>>>>> a14dd0e4f5e1f5d6fb545925a0648fc8e211543a
 
   // Ejecución
   $result = curl_exec($ch);
 
+<<<<<<< HEAD
+// Ejecución
+$result = curl_exec($ch);
+
+if (curl_errno($ch)) {
+  echo 'Error en cURL: ' . curl_error($ch);
+} else {
+  echo "John view";
+  echo $result;
+}
+=======
   if (curl_errno($ch)) {
     echo 'Error en cURL: ' . curl_error($ch);
   } else {
@@ -58,6 +98,7 @@ foreach ($suppliers as $supplier) {
       var_dump($result);
       echo "</pre>";
     }
+>>>>>>> a14dd0e4f5e1f5d6fb545925a0648fc8e211543a
 
     // Clean firts all the products from the supplier
     $sqlClean = "DELETE FROM `022_products` WHERE id_supplier = $idSupplier";

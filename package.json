@@ -1,10 +1,12 @@
 {
+  
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.17",
-    "tailwindcss": "^4.1.17"
+    "@tailwindcss/cli": "^4.1.18",
+    "@tailwindcss/postcss": "^4.1.18",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
   },
   "scripts": {
-      "watch": "npx @tailwindcss/cli -i assets/styles/tailwind/tailwind.css -o assets/styles/tailwind/tailwindOut.css --watch"
+    "watch": "npx @tailwindcss/cli -i assets/styles/tailwind/tailwind.css -o assets/styles/tailwind/tailwindOut.css --watch"
   }
-  
 }

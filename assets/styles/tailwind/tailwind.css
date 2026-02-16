@@ -279,7 +279,7 @@
   }
   html,
   body {
-    @apply w-full h-full bg-(--white) flex flex-col relative;
+    @apply w-full h-fit bg-(--white) flex flex-col relative;
   }
   /* Header section */
   .header_start {
@@ -726,22 +726,23 @@
     @apply w-full items-center justify-center;
   }
   .product_story_double_wrap{
-    @apply p-4 gap-2 xl:max-w-4/5 lg:gap-5;
+    @apply p-4 gap-4 xl:max-w-4/5 lg:gap-5;
   }
   .product_story_double_item{
-    @apply  lg:flex-row;
+    @apply flex flex-col lg:flex-row w-full;
   }
   .product_story_double_item:nth-child(2){
     @apply lg:flex-row-reverse;
   }
   .product_story_double_video {
-    @apply h-full w-full
+    @apply w-full lg:w-1/2 flex;
   }
-  .product_story_double_video{
-    @apply lg:w-1/2;
+  .product_story_double_video video, 
+  .product_story_double_video img {
+    @apply w-full h-full object-cover;
   }
   .product_story_double_info{
-    @apply bg-gray-200 justify-center items-center text-center h-full lg:w-1/2 p-10 gap-2
+    @apply flex flex-col bg-gray-200 justify-center items-center text-center p-10 gap-2 w-full lg:w-1/2 flex-1;
   }
   /* Section Dimensions */
   .product_dimensions,
@@ -835,6 +836,9 @@
   .search_button img{
     @apply h-2
   }
+  #btn_accesibility{
+    @apply h-10
+  }
   .ratings_select img{
     @apply h-5
   }
@@ -853,7 +857,7 @@
     @apply flex-col
   }
   .customer_reviews{
-    @apply mt-8
+    @apply mt-8 flex-col
   }
   .customer_review_item{
     @apply flex-col w-full gap-2 pt-8 pb-8 border-t border-solid border-(--gray-light-x1);
@@ -910,7 +914,7 @@
     @apply h-8;
   }
   .reviews_footer_scroll button{
-    @apply pr-3 pl-3 pt-1 pb-1  border-2 border-solid border-(--black);
+    @apply pr-3 pl-3 pt-1 pb-1  p-5 border-2 border-solid border-(--black);
   }
   /* Footer */
 .main_footer {
@@ -920,7 +924,7 @@
     @apply grid grid-cols-5 gap-8
 }
 .footer_top {
-    @apply border-b border-(--white) pb-5 mb-5 flex flex-col gap-8;
+    @apply border-b border-(--white) pb-5 p-5 mb-5 flex flex-col gap-8;
 }
 .footer_logo {
     @apply text-3xl text-(--white) font-bold mb-5;

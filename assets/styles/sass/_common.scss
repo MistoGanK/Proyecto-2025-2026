@@ -1,5 +1,5 @@
-@use 'variables' as *;
-@use 'mixins' as *;
+@use "variables" as *;
+@use "mixins" as *;
 // Headers
 * {
   padding: 0;
@@ -7,23 +7,24 @@
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
-  // Default button Behaviour 
-  button {
-    background-color: none;
-    appearance: none;
-    -webkit-appearance: none;
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font-family:$NotoSansBold;
-    cursor: pointer;
-    &:hover,
-    &:active,
-    &:focus{
-      // Preset
-      @include buttons();
-    }
+}
+
+// Default button Behaviour
+button:not([id="btn_accesibility"]):not([id="accessibility-widget"] *) {
+  background-color: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: $NotoSansBold;
+  cursor: pointer;
+  &:hover,
+  &:active,
+  &:focus {
+    // Preset
+    @include buttons();
   }
 }
 
@@ -39,12 +40,12 @@ h2 a {
 
 h3,
 h3 a {
-  @include headers($RobotoMonoBold,$black,1.125rem);
+  @include headers($RobotoMonoBold, $black, 1.125rem);
 }
 
 h4,
 h4 a {
-  @include headers($RobotoMonoMedium,$black,1rem);
+  @include headers($RobotoMonoMedium, $black, 1rem);
 }
 
 // Text
@@ -82,8 +83,8 @@ body {
   padding: 0.5rem;
   border-bottom: 1px solid $black-tranps-x1;
 
-  h1{
-    @include headers(); 
+  h1 {
+    @include headers();
   }
 }
 
@@ -122,8 +123,8 @@ header img {
   align-items: center;
   height: 100%;
   gap: 1rem;
-  li{
-    @include textHover(1,1.05);
+  li {
+    @include textHover(1, 1.05);
   }
 }
 
@@ -158,7 +159,6 @@ header img {
 .header_nav_user_tools {
   display: flex;
   gap: 0.5rem;
-
 }
 
 .header_nav_ul ul {
@@ -238,7 +238,7 @@ header img {
   padding: 0.5rem;
   font-size: 0.875rem;
   &:hover,
-  &:focus{
+  &:focus {
     @include textHover();
   }
 }
@@ -267,8 +267,8 @@ header img {
   align-items: center;
 }
 
-// JS general Style 
+// JS general Style
 
-.show{
+.show {
   display: flex;
 }

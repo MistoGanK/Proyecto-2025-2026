@@ -6,14 +6,170 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="../assets/favicon/brand2WhiteBlack.png" type="image/x-icon" />
   <link rel="stylesheet" href="../assets/styles/tailwind/tailwindOut.css" />
+  <link rel="stylesheet" href="../assets/styles/accecibility.css" />
+  <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
   <title>Product Detail</title>
 </head>
+
+<!-- Accecibility Button && Container-->
+    <button id="btn_accesibility" aria-label="Accessibility options">
+      <img
+        src="../assets/icons/accecibility/accessibility_300dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.svg" alt="Accecibility Icon"
+      />
+    </button>
+
+    <div id="accessibility-widget">
+      <div class="widget-header">
+        <h2>Accessibility Menu</h2>
+        <button id="close-widget" aria-label="Cerrar menú">&times;</button>
+      </div>
+
+      <div class="widget-grid">
+        <div class="acc-group">
+          <span class="group-title">Font Size</span>
+          <div class="button-row">
+            <button
+              class="acc-option"
+              data-type="font-size"
+              data-action="decrease"
+              aria-label="Decrease font size"
+            >
+              <i class="icon-minus"></i>
+              <span>A -</span>
+            </button>
+            <button
+              class="acc-option"
+              data-type="font-size"
+              data-action="increase"
+              aria-label="Increase font size"
+            >
+              <i class="icon-plus"></i>
+              <span>A +</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="acc-group">
+          <span class="group-title">Colour and Contrast</span>
+          <div class="button-row">
+            <button
+              class="acc-option"
+              data-type="contrast"
+              data-action="decrease"
+              aria-label="Lower contrast"
+            >
+              <i class="icon-contrast-low"></i>
+              <span>Contrast -</span>
+            </button>
+            <button
+              class="acc-option"
+              data-type="contrast"
+              data-action="increase"
+              aria-label="Increase contrast"
+            >
+              <i class="icon-contrast-high"></i>
+              <span>Contrast +</span>
+            </button>
+          </div>
+          <div class="button-row">
+            <button
+              class="acc-option"
+              data-type="saturation"
+              data-action="decrease"
+              aria-label="Lower saturation"
+            >
+              <i class="icon-sat-low"></i>
+              <span>Saturation -</span>
+            </button>
+            <button
+              class="acc-option"
+              data-type="saturation"
+              data-action="increase"
+              aria-label="Increase saturation"
+            >
+              <i class="icon-sat-high"></i>
+              <span>Saturation +</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="acc-group">
+          <span class="group-title">Text Spacing</span>
+          <div class="button-row">
+            <button
+              class="acc-option"
+              data-type="line-height"
+              data-action="increase"
+              aria-label="Increase line spacing"
+            >
+              <i class="icon-line-height"></i>
+              <span>Line spacing +</span>
+            </button>
+            <button
+              class="acc-option"
+              data-type="line-height"
+              data-action="decrease"
+              aria-label="Decrease line spacing"
+            >
+              <i class="icon-line-height"></i>
+              <span>Line spacing -</span>
+            </button>
+            <button
+              class="acc-option"
+              data-type="word-spacing"
+              data-action="increase"
+              aria-label="Increase space between words"
+            >
+              <i class="icon-word-spacing"></i>
+              <span>Words +</span>
+            </button>
+
+            <button
+              class="acc-option"
+              data-type="word-spacing"
+              data-action="decrease"
+              aria-label="Decrease space between words"
+            >
+              <i class="icon-word-spacing"></i>
+              <span>Words -</span>
+            </button>
+
+          </div>
+          <div class="button-row">
+            <button
+              class="acc-option"
+              data-type="letter-spacing"
+              data-action="increase"
+              aria-label="Increase space between letters"
+            >
+              <i class="icon-letter-spacing"></i>
+              <span>Letters +</span>
+            </button>
+            <button
+              class="acc-option"
+              data-type="letter-spacing"
+              data-action="decrease"
+              aria-label="Decrease space between letters"
+            >
+              <i class="icon-letter-spacing"></i>
+              <span>Letters -</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="widget-footer">
+        <button id="btn-reset-all" aria-label="Restablecer todos los ajustes">
+          <i class="icon-reset"></i>
+          <span>Reset All Settings</span>
+        </button>
+      </div>
+    </div>
 
 <body>
   <header class="header_start">
     <nav>
       <div class="header_nav_dropdown">
-        <button id="dropdown_button_show">
+        <button id="dropdown_button_show" aria-label="Menu">
           <img src="../assets/icons/menu_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Icon Dropdown" />
         </button>
       </div>
@@ -33,7 +189,7 @@
       </div>
       <div class="header_nav_user_tools">
         <div class="div_user_tool">
-          <button>
+          <button aria-label="Search">
             <img src="../assets/icons/search_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Search icon"
               title="Search" />
           </button>
@@ -44,7 +200,7 @@
           </a>
         </div>
         <div class="div_user_tool">
-          <button id="btn_shopping_cart">
+          <button id="btn_shopping_cart" aria-label="Shopping cart">
             <img src="../assets/icons/local_mall_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Shopping Bag icon"
               title="My shopping bag" />
           </button>
@@ -52,11 +208,12 @@
       </div>
     </nav>
   </header>
+
   <!-- Cart dropdown -->
   <div class="cart_drop_down hidden"> <nav class="cart_drop_down_menu">
     <header>
       <h2>Your Cart</h2>
-      <button id="cart_dropdown_button_close">
+      <button id="cart_dropdown_button_close" aria-label="Close cart">
         <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
       </button>
     </header>
@@ -161,7 +318,7 @@
     <nav class="dropdown_menu">
       <header>
         <div class="dropdown_menu_header_content">
-          <button id="button_backwards_backpacks">
+          <button id="button_backwards_backpacks" aria-label="Back to main menu">
             <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
               alt="Close dropdown menu" />
           </button>
@@ -200,7 +357,7 @@
     <nav class="dropdown_menu">
       <header>
         <div class="dropdown_menu_header_content">
-          <button id="button_backwards_bags">
+          <button id="button_backwards_bags" aria-label="Back to main menu">
             <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
               alt="Close dropdown menu" />
           </button>
@@ -243,7 +400,7 @@
     <nav class="dropdown_menu">
       <header>
         <div class="dropdown_menu_header_content">
-          <button id="button_backwards_about">
+          <button id="button_backwards_about" aria-label="Back to main menu">
             <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
               alt="Close dropdown menu" />
           </button>
@@ -271,18 +428,18 @@
   </div>
 
   <!-- Section Product detailss -->
-  <section class="section_product">
+  <section class="section_product" role="main" aria-label="Product Specifications">
     <div class="product_wrap">
       <header class="product_header_movile">
         <div class="product_header_top">
           <p class="product_tag">Style #1825-3-11-20</p>
           <div class="product_rating">
             <div class="product_rating_starts">
-              <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-              <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-              <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-              <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-              <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="icon star">
+              <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="One Star">
+              <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Two Star">  
+              <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Three Star">
+              <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Four Star">
+              <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Five Star">
             </div>
             <div class="product_number_reviews">
               <a href="#">864</a>
@@ -380,11 +537,11 @@
             <p class="product_tag">Style #1825-3-11-20</p>
             <div class="product_rating">
               <div class="product_rating_starts">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="One star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Two star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Three star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Four star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Five star">
               </div>
               <div class="product_number_reviews">
                 <a href="#">864</a>
@@ -409,22 +566,22 @@
             </div>
             <ul class="product_color_list">
               <li class="product_color_item">
-                <button class="buttom_color_item">
+                <button class="buttom_color_item" aria-label="Select Eco Black Deluxe color">
                   <img src="../assets/img/products/colors/eco_black_deluxe.webp" alt="color black deluxe">
                 </button>
               </li>
               <li class="product_color_item">
-                <button class="buttom_color_item">
+                <button class="buttom_color_item" aria-label="Select Eco Night Fall color">
                   <img src="../assets/img/products/colors/eco_night_fall.webp" alt="color night fall">
                 </button>
               </li>
               <li class="product_color_item">
-                <button class="buttom_color_item">
+                <button class="buttom_color_item" aria-label="Select Eco Static color">
                   <img src="../assets/img/products/colors/eco_static.webp" alt="color static">
                 </button>
               </li>
               <li class="product_color_item">
-                <button class="buttom_color_item">
+                <button class="buttom_color_item" aria-label="Select Eco Titanium Deluxe color">
                   <img src="../assets/img/products/colors/eco_titanium.webp" alt="color titanium deluxe">
                 </button>
               </li>
@@ -579,11 +736,11 @@
             <p>4.8</p>
           </div>
           <div class="product_rating_starts">
-            <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-            <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-            <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-            <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-            <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="icon star">
+            <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="One star">
+            <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Two star">
+            <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Three star">
+            <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Four star">
+            <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Five star">
           </div>
         </div>
         <div class="product_write_review">
@@ -595,12 +752,12 @@
       <fomr class="reviews_filters">
         <div class="review_filters_buttons">
           <div class="review_searchbar">
-            <input type="search">
-            <button id="search_button"><img src="../assets/icons/search_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
+            <input type="search" aria-label="Searh Reviews">
+            <button id="search_button" aria-label="Search reviews"><img src="../assets/icons/search_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
                 alt="Search Icon Button"></button>
           </div>
           <div class="review_filter_button">
-            <select name="ratings_select" id="ratings_select">
+            <select name="ratings_select" id="ratings_select" aria-label="Filter by rating">
               <option value="" selected disabled></option>
               <option value="one_star">&#9733;</option>
               <option value="one_star">&#9733;&#9733;</option>
@@ -638,12 +795,11 @@
                 <p>10/02/2025</p>
               </div>
               <div class="product_rating_starts">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="icon star">
-              </div>
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="One star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Two star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Three star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Four star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Five star">
             </div>
             <div class="customer_review_content">
               <header>
@@ -684,11 +840,11 @@
                 <p>11/21/25</p>
               </div>
               <div class="product_rating_starts">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="One star">
+            <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Two star">
+            <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Three star">
+            <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Four star">
+            <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Five star">
               </div>
             </div>
             <div class="customer_review_content">
@@ -729,11 +885,11 @@
                 <p>11/17/25</p>
               </div>
               <div class="product_rating_starts">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="One star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Two star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Three star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Four star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Five star">
               </div>
             </div>
             <div class="customer_review_content">
@@ -772,12 +928,12 @@
               <div class="customer_review_date">
                 <p>11/19/25</p>
               </div>
-              <div class="product_rating_starts">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="icon star">
+              <div class="product_rating_starts">     
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="One star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Two star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Three star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Four star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Five star">
               </div>
             </div>
             <div class="customer_review_content">
@@ -819,11 +975,11 @@
                 <p>11/11/25</p>
               </div>
               <div class="product_rating_starts">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="One star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Two star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Three star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Four star">
+                <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Five star">
               </div>
             </div>
             <div class="customer_review_content">
@@ -863,11 +1019,11 @@
                 <p>11/07/25</p>
               </div>
               <div class="product_rating_starts">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
-                <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="icon star">
+                  <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="One star">
+                  <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Two star">
+                  <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Three star">
+                  <img src="../assets/icons/star_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Four star">
+                  <img src="../assets/icons/star_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Five star">
               </div>
             </div>
             <div class="customer_review_content">
@@ -901,29 +1057,19 @@
       </div>
       <div class="customer_reviews_footer">
         <div class="review_footer_backwards">
-          <button>
+          <button aria-label="Previous page">
             <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Previus Review Icon">
           </button>
         </div>
-        <div class="reviews_footer_scroll">
-          <button>
-            1
-          </button>
-          <button>
-            2
-          </button>
-          <button>
-            3
-          </button>
-          <button>
-            4
-          </button>
-          <button>
-            5
-          </button>
+        <div class="reviews_footer_scroll" role="navigation" aria-label="Products pagination">
+          <button aria-label="Go to product page 1" aria-current="page">1</button>
+            <button aria-label="Go to product page 2">2</button>
+            <button aria-label="Go to product page 3">3</button>
+            <button aria-label="Go to product page 4">4</button>
+            <button aria-label="Go to product page 5">5</button>
         </div>
         <div class="review_footer_forwards">
-          <button>
+          <button aria-label="Next page">
             <img src="../assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Next Review Icon">
           </button>
         </div>
@@ -960,7 +1106,7 @@
       <nav class="footer_nav">
         <div class="footer_nav_section">
           <h4>SHOP</h4>
-          <button class="toggle_button"><span class="plus_icon">+</span></button>
+          <button class="toggle_button" aria-label="Toggle shop section"><span class="plus_icon">+</span></button>
           <ul id="shop_links" class="footer_links">
             <li><a href="#">Backpacks</a></li>
             <li><a href="#">Messenger Bags</a></li>
@@ -970,7 +1116,7 @@
         </div>
         <div class="footer_nav_section">
           <h4>SUPPORT</h4>
-          <button class="toggle_button"><span class="plus_icon">+</span></button>
+          <button class="toggle_button" aria-label="Toggle support section"><span class="plus_icon">+</span></button>
           <ul id="support_links" class="footer_links">
             <li><a href="#">FAQs</a></li>
             <li><a href="#">Contact Us</a></li>
@@ -980,7 +1126,7 @@
         </div>
         <div class="footer_nav_section">
           <h4>COMPANY</h4>
-          <button class="toggle_button"><span class="plus_icon">+</span></button>
+          <button class="toggle_button" aria-label="Toggle company section"><span class="plus_icon">+</span></button>
           <ul id="company_links" class="footer_links">
             <li><a href="#">About Us</a></li>
             <li><a href="#">Careers</a></li>
@@ -1003,6 +1149,7 @@
   <!-- Overlay movile dropdown menu -->
   <script src="../assets/scripts/main.js"></script>
   <script src="../assets/scripts/productDetails.js"></script>
+  <script src="../assets/scripts/accesibility.js"></script>
 </body>
 
 </html>

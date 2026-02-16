@@ -6,13 +6,171 @@
   <title>Shopping Cart</title>
   <link rel="icon" href="../assets/favicon/brand2WhiteBlack.png" type="image/x-icon" />
   <link rel="stylesheet" href="../assets/styles/sass/cart.css">
+  <link rel="stylesheet" href="../assets/styles/accecibility.css" />
+  <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+
   <link>
 </head>
+
+<!-- Accecibility Button && Container-->
+    <button id="btn_accesibility" aria-label="Accessibility options">
+      <img
+        src="../assets/icons/accecibility/accessibility_300dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.svg" alt=""
+      />
+    </button>
+
+    <div id="accessibility-widget">
+      <div class="widget-header">
+        <h2>Accessibility Menu</h2>
+        <button id="close-widget" aria-label="Cerrar menú">&times;</button>
+      </div>
+
+      <div class="widget-grid">
+        <div class="acc-group">
+          <span class="group-title">Font Size</span>
+          <div class="button-row">
+            <button
+              class="acc-option"
+              data-type="font-size"
+              data-action="decrease"
+              aria-label="Decrease font size"
+            >
+              <i class="icon-minus"></i>
+              <span>A -</span>
+            </button>
+            <button
+              class="acc-option"
+              data-type="font-size"
+              data-action="increase"
+              aria-label="Increase font size"
+            >
+              <i class="icon-plus"></i>
+              <span>A +</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="acc-group">
+          <span class="group-title">Colour and Contrast</span>
+          <div class="button-row">
+            <button
+              class="acc-option"
+              data-type="contrast"
+              data-action="decrease"
+              aria-label="Lower contrast"
+            >
+              <i class="icon-contrast-low"></i>
+              <span>Contrast -</span>
+            </button>
+            <button
+              class="acc-option"
+              data-type="contrast"
+              data-action="increase"
+              aria-label="Increase contrast"
+            >
+              <i class="icon-contrast-high"></i>
+              <span>Contrast +</span>
+            </button>
+          </div>
+          <div class="button-row">
+            <button
+              class="acc-option"
+              data-type="saturation"
+              data-action="decrease"
+              aria-label="Lower saturation"
+            >
+              <i class="icon-sat-low"></i>
+              <span>Saturation -</span>
+            </button>
+            <button
+              class="acc-option"
+              data-type="saturation"
+              data-action="increase"
+              aria-label="Increase saturation"
+            >
+              <i class="icon-sat-high"></i>
+              <span>Saturation +</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="acc-group">
+          <span class="group-title">Text Spacing</span>
+          <div class="button-row">
+            <button
+              class="acc-option"
+              data-type="line-height"
+              data-action="increase"
+              aria-label="Increase line spacing"
+            >
+              <i class="icon-line-height"></i>
+              <span>Line spacing +</span>
+            </button>
+            <button
+              class="acc-option"
+              data-type="line-height"
+              data-action="decrease"
+              aria-label="Decrease line spacing"
+            >
+              <i class="icon-line-height"></i>
+              <span>Line spacing -</span>
+            </button>
+            <button
+              class="acc-option"
+              data-type="word-spacing"
+              data-action="increase"
+              aria-label="Increase space between words"
+            >
+              <i class="icon-word-spacing"></i>
+              <span>Words +</span>
+            </button>
+
+            <button
+              class="acc-option"
+              data-type="word-spacing"
+              data-action="decrease"
+              aria-label="Decrease space between words"
+            >
+              <i class="icon-word-spacing"></i>
+              <span>Words -</span>
+            </button>
+
+          </div>
+          <div class="button-row">
+            <button
+              class="acc-option"
+              data-type="letter-spacing"
+              data-action="increase"
+              aria-label="Increase space between letters"
+            >
+              <i class="icon-letter-spacing"></i>
+              <span>Letters +</span>
+            </button>
+            <button
+              class="acc-option"
+              data-type="letter-spacing"
+              data-action="decrease"
+              aria-label="Decrease space between letters"
+            >
+              <i class="icon-letter-spacing"></i>
+              <span>Letters -</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="widget-footer">
+        <button id="btn-reset-all" aria-label="Restablecer todos los ajustes">
+          <i class="icon-reset"></i>
+          <span>Reset All Settings</span>
+        </button>
+      </div>
+    </div>
+
 <body>
   <header class="header_start">
     <nav>
       <div class="header_nav_dropdown">
-        <button id="dropdown_button_show">
+        <button id="dropdown_button_show" aria-label="Menu">
           <img src="../assets/icons/menu_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Icon Dropdown" />
         </button>
       </div>
@@ -32,18 +190,18 @@
       </div>
       <div class="header_nav_user_tools">
         <div class="div_user_tool">
-          <button>
+          <button aria-label="Search">
             <img src="../assets/icons/search_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Search icon"
               title="Search" />
           </button>
         </div>
         <div class="div_user_tool">
-          <button>
+          <button aria-label="My account">
             <img title="Go to My Account" src="../assets/icons/account_circle_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="User icon" />
           </button>
         </div>
         <div class="div_user_tool">
-          <button>
+          <button aria-label="Shopping bag">
             <img src="../assets/icons/local_mall_500dp_0A090C_FILL1_wght400_GRAD0_opsz48.webp" alt="Shopping Bag icon"
               title="My shopping bag" />
           </button>
@@ -56,7 +214,7 @@
     <nav class="dropdown_menu">
       <header>
         <h2>Menu</h2>
-        <button id="dropdown_button_close">
+        <button id="dropdown_button_close" aria-label="Close menu">
           <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
         </button>
       </header>
@@ -65,14 +223,14 @@
           <li><a href="#" title="Go to custom">Custom</a></li>
           <li>
             <a href="#" title="Go to backpacks">Backpacks</a>
-            <button id="button_forward_backpacks">
+            <button id="button_forward_backpacks" aria-label="Backpacks submenu">
               <img src="../assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
                 alt="See all backpacks" />
             </button>
           </li>
           <li>
             <a href="#" title="Go to bags">Bags</a>
-            <button id="button_forward_bags">
+            <button id="button_forward_bags" aria-label="Bags submenu">
               <img src="../assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
                 alt="See all backpacks" />
             </button>
@@ -88,7 +246,7 @@
           </li>
           <li>
             <a href="#" title="Go to about brand2">About Brand2</a>
-            <button id="button_forward_about">
+            <button id="button_forward_about" aria-label="About submenu">
               <img src="../assets/icons/arrow_forward_ios_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
                 alt="See all backpacks" />
             </button>
@@ -124,13 +282,13 @@
     <nav class="dropdown_menu">
       <header>
         <div class="dropdown_menu_header_content">
-          <button id="button_backwards_backpacks">
+          <button id="button_backwards_backpacks" aria-label="Back to main menu">
             <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
               alt="Close dropdown menu" />
           </button>
           <h2>Backpacks</h2>
         </div>
-        <button id="dropdown_backpacks_button_close">
+        <button id="dropdown_backpacks_button_close" aria-label="Close menu">
           <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
         </button>
       </header>
@@ -163,13 +321,13 @@
     <nav class="dropdown_menu">
       <header>
         <div class="dropdown_menu_header_content">
-          <button id="button_backwards_bags">
+          <button id="button_backwards_bags" aria-label="Back to main menu">
             <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
               alt="Close dropdown menu" />
           </button>
           <h2>Bags</h2>
         </div>
-        <button id="dropdown_bags_button_close">
+        <button id="dropdown_bags_button_close" aria-label="Close menu">
           <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
         </button>
       </header>
@@ -206,13 +364,13 @@
     <nav class="dropdown_menu">
       <header>
         <div class="dropdown_menu_header_content">
-          <button id="button_backwards_about">
+          <button id="button_backwards_about" aria-label="Back to main menu">
             <img src="../assets/icons/arrow_back_ios_new_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp"
               alt="Close dropdown menu" />
           </button>
           <h2>About Brand2</h2>
         </div>
-        <button id="dropdown_about_button_close">
+        <button id="dropdown_about_button_close" aria-label="Close menu">
           <img src="../assets/icons/close_500dp_0A090C_FILL0_wght400_GRAD0_opsz48.webp" alt="Close dropdown menu" />
         </button>
       </header>
@@ -253,7 +411,7 @@
     <section class="cart_body">
       <form class="cart_form">
       </form>
-      <footer class="cart_footer">
+      <footer id="cart_footer">
         <div class="cart_footer_info">
           <h2>Subtotal:</h2>
           <p></p>
@@ -266,5 +424,6 @@
   </div>
   <script src="../assets/scripts/dropDownMenu.js"></script>
   <script src="../assets/scripts/cart.js"></script>
+  <script src="../assets/scripts/accesibility.js"></script>
 </body>
 </html>
