@@ -100,12 +100,10 @@ function renderPieChart(labels, marketShare, incomes) {
         },
         tooltip: {
           callbacks: {
-            // Esta es la parte que "dibuja" el contenido del cuadro negro
             label: function (context) {
               const label = context.label || "";
               const value = context.raw || 0; // Porcentaje (12.99)
 
-              // Recuperamos el ingreso usando el índice de la porción actual
               const incomeIndex = context.dataIndex;
               const incomeValue = context.dataset.customIncome[incomeIndex];
 

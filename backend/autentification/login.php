@@ -35,7 +35,7 @@ if (isset($_SESSION['username'])) {
                 // If exists add last line, else it create the new file 
 
                 $file = fopen($routeFile, "a+");
-                $txt = $username . ',' . $assocResult['id_customer'] . ',' . $assocResult['role'] . ',' . $timeLogged.','."Loggin".',';
+                $txt = $username . ',' . $assocResult['id_customer'] . ',' . $assocResult['role'] . ',' . $timeLogged.','."Loggin".PHP_EOL;
 
                 fwrite($file, $txt);
 

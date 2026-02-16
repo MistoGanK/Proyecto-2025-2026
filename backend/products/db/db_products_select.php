@@ -33,7 +33,7 @@
             $id_product = mysqli_real_escape_string($conn, $_POST['id_product']);
         }
 
-        // Query Logci
+        // Query Logic
         if ($id_product != null) {
             if ($_SESSION['role'] == 'Admin') {
                 $sqlQuery = "SELECT * FROM `022_products` WHERE id_product = '$id_product'";
@@ -65,4 +65,6 @@
 </section>
 
 <script src="/student022/backend/functions/products/searchForProduct.js"></script>
+<script src="/student022/backend/functions/products/insertToShoppingCarth.js"></script>
+
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/student022/backend/footer.php'); ?>

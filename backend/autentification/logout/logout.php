@@ -2,11 +2,12 @@
    // Abrimos la sesión 
     session_start();
 
+    $username = $_SESSION['username'];
     // Guardamo credenciales antes de logout
     $timeLogout = date("c",time());
     $routeFile = $_SERVER['DOCUMENT_ROOT'].'/student022/backend/logs/userLogs.txt';
     $file = fopen($routeFile,"a+");
-    $txt = $username . ',' . $_SESSION['id_customer'] . ',' . $_SESSION['role'] . ',' . $timeLogout.','."Logout";
+    $txt = $username . ',' . $_SESSION['id_customer'] . ',' . $_SESSION['role'] . ',' . $timeLogout.','."Logout".PHP_EOL;
     fwrite($file,$txt);
     fclose($file);
 

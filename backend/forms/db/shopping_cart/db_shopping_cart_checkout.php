@@ -47,24 +47,24 @@
                         mysqli_query($conn, $sqlCleanCart);
                         // Query logic
                         $sqlCheckSupplierProduct = 
-                        "SELECT 
-                            id_supplier,
-                            id_order,
-                            supplier_product_code as product_code,
-                            qty as product_quantity,
-                            order_date,
-                            IFNULL(forename, 'noForename') as customer_forename,
-                            IFNULL(surname, 'noSurname') as customer_surname,
-                            IFNULL(dni, 'noNif') as customer_nif,
-                            IFNULL(email, 'noEmail') as customer_email,
-                            IFNULL(phone_number, 'noPhoneNumber') as customer_phone,
-                            'noAddress' as customer_address,
-                            IFNULL(location, 'noLocation') as customer_location,
-                            IFNULL(country, 'noCountry') as customer_country,
-                            IFNULL(zip_code, 'noZipCode') as customer_zip
-                        FROM `022_view_orders`
-                        WHERE id_order = $newIdOrder 
-                        AND id_supplier IS NOT NULL;";
+                            "SELECT 
+                                id_supplier,
+                                id_order,
+                                supplier_product_code as product_code,
+                                qty as product_quantity,
+                                order_date,
+                                IFNULL(forename, 'noForename') as customer_forename,
+                                IFNULL(surname, 'noSurname') as customer_surname,
+                                IFNULL(dni, 'noNif') as customer_nif,
+                                IFNULL(email, 'noEmail') as customer_email,
+                                IFNULL(phone_number, 'noPhoneNumber') as customer_phone,
+                                'noAddress' as customer_address,
+                                IFNULL(location, 'noLocation') as customer_location,
+                                IFNULL(country, 'noCountry') as customer_country,
+                                IFNULL(zip_code, 'noZipCode') as customer_zip
+                            FROM `022_view_orders`
+                            WHERE id_order = $newIdOrder 
+                            AND id_supplier IS NOT NULL;";
                         
                         $resultCheckSupllierProduct = mysqli_query($conn, $sqlCheckSupplierProduct);
 
@@ -88,7 +88,7 @@
                                     $supplierOrder = json_encode($orderApi[$sid], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
                                     
                                     $supplierUrl = $supplierEndpoint . $supplierApyKey . "&orders_json=" . urlencode($supplierOrder);
-                                    // print_r($supplierUrl);
+                                    // printr_($supplierUrl);
                                     // print_r(" ----------------------- ");
        
                                     $ch = curl_init();
@@ -98,6 +98,8 @@
                                     curl_setopt($ch, CURLOPT_HTTPGET, true);
                                     $response = curl_exec($ch);
                                     curl_close($ch);
+
+                                    print_r($supplierUrl);
                                 }
                             }
                         }

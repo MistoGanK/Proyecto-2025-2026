@@ -5,6 +5,7 @@
 // Server_domain, User, Password
 
 
+
 $server_name = 'localhost';
 $user_name = 'root';
 $password = '';
@@ -29,8 +30,8 @@ mysqli_character_set_name($conn);
 // Connection with the server 
 // MySQLie(Procedural) or PDO(Object Oriented)
 
+/*
 
-/* 
 $server_name = 'remotehost.es';
 $user_name = 'dwess1234';
 $password = 'Usertest1234.';
